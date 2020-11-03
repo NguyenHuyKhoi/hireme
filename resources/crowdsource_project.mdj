@@ -55,9 +55,9 @@
 										"$ref": "AAAAAAF1Y4EWc3VcNTI="
 									},
 									"font": "Arial;15;1",
-									"left": 24,
-									"top": 389,
-									"width": 166.70654296875,
+									"left": 40,
+									"top": 405,
+									"width": 173.38623046875,
 									"height": 15,
 									"text": "User"
 								},
@@ -81,9 +81,9 @@
 												"$ref": "AAAAAAF1Y4F3HXVoBKg="
 											},
 											"font": "Arial;15;0",
-											"left": 29,
-											"top": 414,
-											"width": 156.70654296875,
+											"left": 45,
+											"top": 430,
+											"width": 163.38623046875,
 											"height": 15
 										},
 										{
@@ -96,9 +96,9 @@
 												"$ref": "AAAAAAF1Y4LEO3V1tJc="
 											},
 											"font": "Arial;15;0",
-											"left": 29,
-											"top": 431,
-											"width": 156.70654296875,
+											"left": 45,
+											"top": 447,
+											"width": 163.38623046875,
 											"height": 15
 										},
 										{
@@ -112,9 +112,9 @@
 											},
 											"visible": false,
 											"font": "Arial;15;0",
-											"left": 29,
-											"top": 442,
-											"width": 156.70654296875,
+											"left": 61,
+											"top": 474,
+											"width": 163.38623046875,
 											"height": 15
 										},
 										{
@@ -127,9 +127,9 @@
 												"$ref": "AAAAAAF1Y4Mm53WDJEo="
 											},
 											"font": "Arial;15;0",
-											"left": 29,
-											"top": 448,
-											"width": 156.70654296875,
+											"left": 45,
+											"top": 464,
+											"width": 163.38623046875,
 											"height": 15
 										},
 										{
@@ -142,23 +142,23 @@
 												"$ref": "AAAAAAF1Y5OcaXZXulQ="
 											},
 											"font": "Arial;15;0",
-											"left": 29,
-											"top": 465,
-											"width": 156.70654296875,
+											"left": 45,
+											"top": 481,
+											"width": 163.38623046875,
 											"height": 15
 										}
 									],
 									"font": "Arial;15;0",
-									"left": 24,
-									"top": 409,
-									"width": 166.70654296875,
+									"left": 40,
+									"top": 425,
+									"width": 173.38623046875,
 									"height": 76
 								}
 							],
 							"font": "Arial;15;0",
-							"left": 24,
-							"top": 384,
-							"width": 166.70654296875,
+							"left": 40,
+							"top": 400,
+							"width": 173.38623046875,
 							"height": 161,
 							"nameLabel": {
 								"$ref": "AAAAAAF1Y4EWc3VdIZw="
@@ -328,7 +328,7 @@
 									},
 									"visible": false,
 									"font": "Arial;13;0",
-									"left": 195,
+									"left": 206,
 									"top": 443,
 									"width": 168.42236328125,
 									"height": 13,
@@ -346,7 +346,7 @@
 										"$ref": "AAAAAAF1Y4llrHXVd6k="
 									},
 									"font": "Arial;15;0",
-									"left": 215,
+									"left": 237,
 									"top": 442,
 									"height": 15,
 									"alpha": 0.5235987755982988,
@@ -381,7 +381,7 @@
 								"$ref": "AAAAAAF1Y4EWc3VcNTI="
 							},
 							"lineStyle": 2,
-							"points": "190:464;368:464",
+							"points": "212:464;368:464",
 							"nameLabel": {
 								"$ref": "AAAAAAF1Y4llrHXWcJY="
 							},
@@ -400,8 +400,8 @@
 							},
 							"fillColor": "#ffff91",
 							"font": "Arial;15;0",
-							"left": 208,
-							"top": 392,
+							"left": 216,
+							"top": 376,
 							"width": 129,
 							"height": 57,
 							"text": "user thực hiện thuê hoặc làm thuê"
@@ -425,9 +425,9 @@
 									"font": "Arial;15;1",
 									"left": 432,
 									"top": 669,
-									"width": 226.73583984375,
+									"width": 264.7998046875,
 									"height": 15,
-									"text": "payment_history"
+									"text": "PaymentHistory"
 								},
 								{
 									"_type": "ERDColumnCompartmentView",
@@ -451,7 +451,7 @@
 											"font": "Arial;15;0",
 											"left": 437,
 											"top": 694,
-											"width": 216.73583984375,
+											"width": 254.7998046875,
 											"height": 15
 										},
 										{
@@ -466,7 +466,7 @@
 											"font": "Arial;15;0",
 											"left": 437,
 											"top": 711,
-											"width": 216.73583984375,
+											"width": 254.7998046875,
 											"height": 15
 										},
 										{
@@ -481,7 +481,7 @@
 											"font": "Arial;15;0",
 											"left": 437,
 											"top": 728,
-											"width": 216.73583984375,
+											"width": 254.7998046875,
 											"height": 15
 										},
 										{
@@ -496,7 +496,7 @@
 											"font": "Arial;15;0",
 											"left": 437,
 											"top": 745,
-											"width": 216.73583984375,
+											"width": 254.7998046875,
 											"height": 15
 										},
 										{
@@ -511,7 +511,7 @@
 											"font": "Arial;15;0",
 											"left": 437,
 											"top": 762,
-											"width": 216.73583984375,
+											"width": 254.7998046875,
 											"height": 15
 										},
 										{
@@ -523,10 +523,11 @@
 											"model": {
 												"$ref": "AAAAAAF1Y42lyXYlFFA="
 											},
+											"visible": false,
 											"font": "Arial;15;0",
 											"left": 437,
 											"top": 779,
-											"width": 216.73583984375,
+											"width": 254.7998046875,
 											"height": 15
 										},
 										{
@@ -540,22 +541,22 @@
 											},
 											"font": "Arial;15;0",
 											"left": 437,
-											"top": 796,
-											"width": 216.73583984375,
+											"top": 779,
+											"width": 254.7998046875,
 											"height": 15
 										}
 									],
 									"font": "Arial;15;0",
 									"left": 432,
 									"top": 689,
-									"width": 226.73583984375,
-									"height": 127
+									"width": 264.7998046875,
+									"height": 110
 								}
 							],
 							"font": "Arial;15;0",
 							"left": 432,
 							"top": 664,
-							"width": 226.73583984375,
+							"width": 264.7998046875,
 							"height": 176,
 							"nameLabel": {
 								"$ref": "AAAAAAF1Y4pYuHX2kfc="
@@ -578,7 +579,7 @@
 								"$ref": "AAAAAAF1Y4n9A3XrHho="
 							},
 							"lineStyle": 1,
-							"points": "277:449;279:464"
+							"points": "285:433;290:464"
 						},
 						{
 							"_type": "ERDEntityView",
@@ -732,20 +733,35 @@
 											"top": 485,
 											"width": 231.1572265625,
 											"height": 15
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAF1iWmj9SC1Uyw=",
+											"_parent": {
+												"$ref": "AAAAAAF1Y5WSX3Zj29g="
+											},
+											"model": {
+												"$ref": "AAAAAAF1iWmjsiCyNOE="
+											},
+											"font": "Arial;15;0",
+											"left": 693,
+											"top": 502,
+											"width": 231.1572265625,
+											"height": 15
 										}
 									],
 									"font": "Arial;15;0",
 									"left": 688,
 									"top": 361,
 									"width": 241.1572265625,
-									"height": 144
+									"height": 161
 								}
 							],
 							"font": "Arial;15;0",
 							"left": 688,
 							"top": 336,
 							"width": 241.1572265625,
-							"height": 169,
+							"height": 186,
 							"nameLabel": {
 								"$ref": "AAAAAAF1Y5WSX3ZiuEY="
 							},
@@ -875,8 +891,8 @@
 							"left": 712,
 							"top": 720,
 							"width": 136,
-							"height": 57,
-							"text": "Lưu trữ thông tin giao dịch, thanh toán tiền"
+							"height": 117,
+							"text": "Lưu trữ thông tin giao dịch, thanh toán tiền, lưu trữ lịch sử thông qua userid của 2 người đã đăng ký"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -892,7 +908,7 @@
 								"$ref": "AAAAAAF1Y5n/+HbHrcw="
 							},
 							"lineStyle": 1,
-							"points": "711:749;659:750"
+							"points": "711:770;697:768"
 						},
 						{
 							"_type": "UMLNoteView",
@@ -935,7 +951,7 @@
 							"left": 432,
 							"width": 753.90869140625,
 							"height": 231,
-							"text": "+ id: Mã đầu việc\n\n+ tendauviec: Tên đầu việc\n\n+ mo_ta: Mô tả chi tiết công việc con phải làm trong đầu việc, yêu cầu đặt ra, các mốc kết quả đạt được\n\n+ thoiluongthuchien: Thời gian, thông thường tính bằng số giờ cần thiết\n\n+ thoigianbatdau: Thời gian bắt đầu công việc\n\n+ thoigianketthuc: Thời gian hoàn thành đầu việc\n\n+ jobType: Loại công việc: công việc bán  thời gian, công việc toàn thời gian, công việc theo dự án, cuộc thi, ...",
+							"text": "+ id: Mã đầu việc\n\n+ tendauviec: Tên đầu việc\n\n+ mo_ta: Mô tả chi tiết công việc con phải làm trong đầu việc, yêu cầu đặt ra, các mốc kết quả đạt được\n\n+ jobWorkTime: Thời gian, thông thường tính bằng số giờ cần thiết\n\n+ jobStartWorkTime: Thời gian bắt đầu công việc\n\n+ jobEndWorkTime: Thời gian hoàn thành đầu việc\n\n+ jobType: Loại công việc: công việc bán  thời gian, công việc toàn thời gian, công việc theo dự án, cuộc thi, ...",
 							"wordWrap": false
 						},
 						{
@@ -1146,7 +1162,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 159,
-									"top": 565,
+									"top": 573,
 									"height": 13,
 									"alpha": 1.5707963267948966,
 									"distance": 15,
@@ -1163,7 +1179,7 @@
 									},
 									"font": "Arial;15;0",
 									"left": 160,
-									"top": 562,
+									"top": 578,
 									"height": 15,
 									"alpha": 0.5235987755982988,
 									"distance": 30,
@@ -1197,7 +1213,7 @@
 								"$ref": "AAAAAAF1Y4EWc3VcNTI="
 							},
 							"lineStyle": 2,
-							"points": "145:544;145:600",
+							"points": "145:560;145:600",
 							"nameLabel": {
 								"$ref": "AAAAAAF1ZTi4VnhvLNs="
 							},
@@ -1216,8 +1232,8 @@
 							},
 							"fillColor": "#ffff91",
 							"font": "Arial;15;0",
-							"left": 16,
-							"top": 656,
+							"left": 232,
+							"top": 816,
 							"width": 88,
 							"height": 104,
 							"text": "Thông tin chi tiết người thuê"
@@ -1236,7 +1252,7 @@
 								"$ref": "AAAAAAF1ZTqNDXh+hPE="
 							},
 							"lineStyle": 1,
-							"points": "104:706;143:705"
+							"points": "272:815;272:808"
 						},
 						{
 							"_type": "ERDRelationshipView",
@@ -1254,17 +1270,18 @@
 									"_parent": {
 										"$ref": "AAAAAAF1ZTzLVHiLIro="
 									},
-									"visible": false,
 									"font": "Arial;13;0",
-									"left": 527,
-									"top": 565,
+									"left": 391,
+									"top": 632,
+									"width": 523.18017578125,
 									"height": 13,
-									"alpha": 1.5707963267948966,
-									"distance": 15,
+									"alpha": 1.130265905033239,
+									"distance": 154.77725931156684,
 									"hostEdge": {
 										"$ref": "AAAAAAF1ZTzLVHiLIro="
 									},
-									"edgePosition": 1
+									"edgePosition": 1,
+									"text": "Mỗi một dự án sẽ lưu lịch sử giao dịch, bao gồm người tham gia dự án, giá trị các đầu việc"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -1349,11 +1366,11 @@
 									"_parent": {
 										"$ref": "AAAAAAF1adldpxXcVNU="
 									},
-									"font": "Arial;13;1",
-									"left": 992,
-									"top": 365,
+									"font": "Arial;15;1",
+									"left": 936,
+									"top": 533,
 									"width": 264,
-									"height": 13,
+									"height": 15,
 									"text": "Message(Chatting)"
 								},
 								{
@@ -1375,40 +1392,55 @@
 											"model": {
 												"$ref": "AAAAAAF1adnLWxXps24="
 											},
-											"font": "Arial;13;0",
-											"left": 997,
-											"top": 388,
+											"font": "Arial;15;0",
+											"left": 941,
+											"top": 558,
 											"width": 254,
-											"height": 13
+											"height": 15
 										},
 										{
 											"_type": "ERDColumnView",
-											"_id": "AAAAAAF1ahXLMjD1B6U=",
+											"_id": "AAAAAAF1gzn5kIyqOUo=",
 											"_parent": {
 												"$ref": "AAAAAAF1adldpxXezYI="
 											},
 											"model": {
-												"$ref": "AAAAAAF1ahXK8zDyv/o="
+												"$ref": "AAAAAAF1gzn5U4ynZHk="
 											},
-											"font": "Arial;13;0",
-											"left": 997,
-											"top": 403,
+											"font": "Arial;15;0",
+											"left": 941,
+											"top": 575,
 											"width": 254,
-											"height": 13
+											"height": 15
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAF1gz6dFo0C6D8=",
+											"_parent": {
+												"$ref": "AAAAAAF1adldpxXezYI="
+											},
+											"model": {
+												"$ref": "AAAAAAF1gz6c1Yz/m4o="
+											},
+											"font": "Arial;15;0",
+											"left": 941,
+											"top": 592,
+											"width": 254,
+											"height": 15
 										}
 									],
-									"font": "Arial;13;0",
-									"left": 992,
-									"top": 383,
+									"font": "Arial;15;0",
+									"left": 936,
+									"top": 553,
 									"width": 264,
-									"height": 38
+									"height": 59
 								}
 							],
-							"font": "Arial;13;0",
-							"left": 992,
-							"top": 360,
+							"font": "Arial;15;0",
+							"left": 936,
+							"top": 528,
 							"width": 264,
-							"height": 424,
+							"height": 97,
 							"nameLabel": {
 								"$ref": "AAAAAAF1adldpxXdWWQ="
 							},
@@ -1424,11 +1456,11 @@
 							},
 							"fillColor": "#ffff91",
 							"font": "Arial;13;0",
-							"left": 1280,
-							"top": 480,
+							"left": 936,
+							"top": 368,
 							"width": 592.86962890625,
 							"height": 129,
-							"text": "Lưu thông tin cuộc hội thoại, bao gồm:\n- Id: key để phân biệt các cuộc hội thoại\n- createdTime: Ngày tạo cuộc hội thoại\n- participants: Người tham gia\n- Tình huống đặt ra có nhiều người tham gia hoặc chỉ có 2 người tham gia thì phải quản lý thế nào?",
+							"text": "Lưu thông tin cuộc hội thoại, bao gồm:\n- Id: key để phân biệt các cuộc hội thoại\n- createdTime: Ngày tạo cuộc hội thoại\n- Tình huống đặt ra có nhiều người tham gia hoặc chỉ có 2 người tham gia thì phải quản lý thế nào?",
 							"wordWrap": false
 						},
 						{
@@ -1445,7 +1477,7 @@
 								"$ref": "AAAAAAF1adldpxXcVNU="
 							},
 							"lineStyle": 1,
-							"points": "1256:563;1279:562"
+							"points": "1123:527;1157:497"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -1462,6 +1494,216 @@
 							},
 							"lineStyle": 1,
 							"points": "540:481;557:511"
+						},
+						{
+							"_type": "ERDEntityView",
+							"_id": "AAAAAAF1gzpPU4yyY8U=",
+							"_parent": {
+								"$ref": "AAAAAAF1Y4EEvXVWQk0="
+							},
+							"model": {
+								"$ref": "AAAAAAF1gzpPU4ywzkE="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAF1gzpPU4yzFqs=",
+									"_parent": {
+										"$ref": "AAAAAAF1gzpPU4yyY8U="
+									},
+									"font": "Arial;15;1",
+									"left": 928,
+									"top": 693,
+									"width": 288,
+									"height": 15,
+									"text": "ChattingParticipant"
+								},
+								{
+									"_type": "ERDColumnCompartmentView",
+									"_id": "AAAAAAF1gzpPVIy024I=",
+									"_parent": {
+										"$ref": "AAAAAAF1gzpPU4yyY8U="
+									},
+									"model": {
+										"$ref": "AAAAAAF1gzpPU4ywzkE="
+									},
+									"subViews": [
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAF1gzqgCozA69U=",
+											"_parent": {
+												"$ref": "AAAAAAF1gzpPVIy024I="
+											},
+											"model": {
+												"$ref": "AAAAAAF1gzqfz4y9nzE="
+											},
+											"font": "Arial;15;0",
+											"left": 933,
+											"top": 718,
+											"width": 278,
+											"height": 15
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAF1gzsAP4zIqtU=",
+											"_parent": {
+												"$ref": "AAAAAAF1gzpPVIy024I="
+											},
+											"model": {
+												"$ref": "AAAAAAF1gzsADIzF2Mc="
+											},
+											"font": "Arial;15;0",
+											"left": 933,
+											"top": 735,
+											"width": 278,
+											"height": 15
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAF1gzuqEYzTam4=",
+											"_parent": {
+												"$ref": "AAAAAAF1gzpPVIy024I="
+											},
+											"model": {
+												"$ref": "AAAAAAF1gzup04zQdOQ="
+											},
+											"font": "Arial;15;0",
+											"left": 933,
+											"top": 752,
+											"width": 278,
+											"height": 15
+										}
+									],
+									"font": "Arial;15;0",
+									"left": 928,
+									"top": 713,
+									"width": 288,
+									"height": 59
+								}
+							],
+							"font": "Arial;15;0",
+							"left": 928,
+							"top": 688,
+							"width": 288,
+							"height": 97,
+							"nameLabel": {
+								"$ref": "AAAAAAF1gzpPU4yzFqs="
+							},
+							"columnCompartment": {
+								"$ref": "AAAAAAF1gzpPVIy024I="
+							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAF1gztuyozMUgY=",
+							"_parent": {
+								"$ref": "AAAAAAF1Y4EEvXVWQk0="
+							},
+							"fillColor": "#ffff91",
+							"font": "Arial;13;0",
+							"left": 1232,
+							"top": 696,
+							"width": 177,
+							"height": 128,
+							"text": "Lưu thông tin người tham gia cuộc hội thoại\n- userId: Liên kết đến thông tin userId của  người dùng"
+						},
+						{
+							"_type": "UMLNoteLinkView",
+							"_id": "AAAAAAF1gzwWmYzYN+I=",
+							"_parent": {
+								"$ref": "AAAAAAF1Y4EEvXVWQk0="
+							},
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAF1gztuyozMUgY="
+							},
+							"tail": {
+								"$ref": "AAAAAAF1gzpPU4yyY8U="
+							},
+							"lineStyle": 1,
+							"points": "1216:749;1231:751"
+						},
+						{
+							"_type": "ERDRelationshipView",
+							"_id": "AAAAAAF1gzzYh4zle0E=",
+							"_parent": {
+								"$ref": "AAAAAAF1Y4EEvXVWQk0="
+							},
+							"model": {
+								"$ref": "AAAAAAF1gzzYhozhB3o="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAF1gzzYh4zmCu0=",
+									"_parent": {
+										"$ref": "AAAAAAF1gzzYh4zle0E="
+									},
+									"font": "Arial;13;0",
+									"left": 960,
+									"top": 649,
+									"width": 249.92626953125,
+									"height": 13,
+									"alpha": 2.0344416858037024,
+									"distance": 2.23606797749979,
+									"hostEdge": {
+										"$ref": "AAAAAAF1gzzYh4zle0E="
+									},
+									"edgePosition": 1,
+									"text": "Một cuộc hội thoại có nhiều người tham gia"
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAF1gzzYh4znRMM=",
+									"_parent": {
+										"$ref": "AAAAAAF1gzzYh4zle0E="
+									},
+									"font": "Arial;13;0",
+									"left": 1097,
+									"top": 643,
+									"height": 13,
+									"alpha": 0.5235987755982988,
+									"distance": 30,
+									"hostEdge": {
+										"$ref": "AAAAAAF1gzzYh4zle0E="
+									},
+									"edgePosition": 2
+								},
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAF1gzzYh4zoMVw=",
+									"_parent": {
+										"$ref": "AAAAAAF1gzzYh4zle0E="
+									},
+									"font": "Arial;13;0",
+									"left": 1097,
+									"top": 656,
+									"height": 13,
+									"alpha": -0.5235987755982988,
+									"distance": 30,
+									"hostEdge": {
+										"$ref": "AAAAAAF1gzzYh4zle0E="
+									}
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAF1gzpPU4yyY8U="
+							},
+							"tail": {
+								"$ref": "AAAAAAF1adldpxXcVNU="
+							},
+							"lineStyle": 2,
+							"points": "1082:624;1082:688",
+							"nameLabel": {
+								"$ref": "AAAAAAF1gzzYh4zmCu0="
+							},
+							"tailNameLabel": {
+								"$ref": "AAAAAAF1gzzYh4znRMM="
+							},
+							"headNameLabel": {
+								"$ref": "AAAAAAF1gzzYh4zoMVw="
+							}
 						}
 					]
 				},
@@ -1566,7 +1808,7 @@
 								"$ref": "AAAAAAF1Y4EWcnVaUk4="
 							},
 							"name": "userId",
-							"type": "String",
+							"type": "Integer",
 							"length": 0,
 							"primaryKey": true
 						},
@@ -1606,7 +1848,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF1Y4EWcnVaUk4="
 							},
-							"name": "type",
+							"name": "userEmail",
 							"type": "string",
 							"length": 0
 						}
@@ -1654,6 +1896,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF1Y4PHNHWKIDY="
 							},
+							"name": "Mỗi một dự án sẽ lưu lịch sử giao dịch, bao gồm người tham gia dự án, giá trị các đầu việc",
 							"end1": {
 								"_type": "ERDRelationshipEnd",
 								"_id": "AAAAAAF1ZTzLVHiIZtA=",
@@ -1684,7 +1927,7 @@
 								"$ref": "AAAAAAF1Y4PHNHWKIDY="
 							},
 							"name": "projectId",
-							"type": "String",
+							"type": "Integer",
 							"length": 0,
 							"primaryKey": true
 						},
@@ -1746,7 +1989,7 @@
 					"_parent": {
 						"$ref": "AAAAAAF1Y4EEvHVVyM8="
 					},
-					"name": "payment_history",
+					"name": "PaymentHistory",
 					"columns": [
 						{
 							"_type": "ERDColumn",
@@ -1754,8 +1997,8 @@
 							"_parent": {
 								"$ref": "AAAAAAF1Y4pYt3Xzwhw="
 							},
-							"name": "id",
-							"type": "String",
+							"name": "paymentId",
+							"type": "Integer",
 							"length": 0,
 							"primaryKey": true
 						},
@@ -1765,7 +2008,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF1Y4pYt3Xzwhw="
 							},
-							"name": "mota",
+							"name": "paymentDescription",
 							"type": "String",
 							"length": 0
 						},
@@ -1775,7 +2018,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF1Y4pYt3Xzwhw="
 							},
-							"name": "user_first_id",
+							"name": "userId1",
 							"type": "String",
 							"length": 0
 						},
@@ -1785,7 +2028,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF1Y4pYt3Xzwhw="
 							},
-							"name": "user_second_id",
+							"name": "userId2",
 							"type": "String",
 							"length": 0
 						},
@@ -1795,7 +2038,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF1Y4pYt3Xzwhw="
 							},
-							"name": "created_time",
+							"name": "paymentCreatedTime",
 							"type": "datetime",
 							"length": 0
 						},
@@ -1815,7 +2058,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF1Y4pYt3Xzwhw="
 							},
-							"name": "sotien",
+							"name": "paymentValue",
 							"type": "longint",
 							"length": 0
 						}
@@ -1908,6 +2151,16 @@
 							},
 							"name": "jobType",
 							"type": "String",
+							"length": 0
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAF1iWmjsiCyNOE=",
+							"_parent": {
+								"$ref": "AAAAAAF1Y5WSX3Zfcyg="
+							},
+							"name": "jobBudget",
+							"type": "Integer",
 							"length": 0
 						}
 					]
@@ -2010,6 +2263,37 @@
 						"$ref": "AAAAAAF1Y4EEvHVVyM8="
 					},
 					"name": "Message(Chatting)",
+					"ownedElements": [
+						{
+							"_type": "ERDRelationship",
+							"_id": "AAAAAAF1gzzYhozhB3o=",
+							"_parent": {
+								"$ref": "AAAAAAF1adldphXaZks="
+							},
+							"name": "Một cuộc hội thoại có nhiều người tham gia",
+							"end1": {
+								"_type": "ERDRelationshipEnd",
+								"_id": "AAAAAAF1gzzYhozi8Z4=",
+								"_parent": {
+									"$ref": "AAAAAAF1gzzYhozhB3o="
+								},
+								"reference": {
+									"$ref": "AAAAAAF1adldphXaZks="
+								}
+							},
+							"end2": {
+								"_type": "ERDRelationshipEnd",
+								"_id": "AAAAAAF1gzzYhozjE0I=",
+								"_parent": {
+									"$ref": "AAAAAAF1gzzYhozhB3o="
+								},
+								"reference": {
+									"$ref": "AAAAAAF1gzpPU4ywzkE="
+								},
+								"cardinality": "0..*"
+							}
+						}
+					],
 					"columns": [
 						{
 							"_type": "ERDColumn",
@@ -2024,12 +2308,64 @@
 						},
 						{
 							"_type": "ERDColumn",
-							"_id": "AAAAAAF1ahXK8zDyv/o=",
+							"_id": "AAAAAAF1gzn5U4ynZHk=",
 							"_parent": {
 								"$ref": "AAAAAAF1adldphXaZks="
 							},
-							"name": "participants",
+							"name": "createdTime",
+							"type": "datetime",
+							"length": 0
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAF1gz6c1Yz/m4o=",
+							"_parent": {
+								"$ref": "AAAAAAF1adldphXaZks="
+							},
+							"name": "historyChatting",
 							"type": "String",
+							"length": 0
+						}
+					]
+				},
+				{
+					"_type": "ERDEntity",
+					"_id": "AAAAAAF1gzpPU4ywzkE=",
+					"_parent": {
+						"$ref": "AAAAAAF1Y4EEvHVVyM8="
+					},
+					"name": "ChattingParticipant",
+					"columns": [
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAF1gzqfz4y9nzE=",
+							"_parent": {
+								"$ref": "AAAAAAF1gzpPU4ywzkE="
+							},
+							"name": "userId",
+							"type": "String",
+							"length": 0,
+							"primaryKey": true
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAF1gzsADIzF2Mc=",
+							"_parent": {
+								"$ref": "AAAAAAF1gzpPU4ywzkE="
+							},
+							"name": "conversationId",
+							"type": "String",
+							"length": 0,
+							"primaryKey": true
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAF1gzup04zQdOQ=",
+							"_parent": {
+								"$ref": "AAAAAAF1gzpPU4ywzkE="
+							},
+							"name": "participateTime",
+							"type": "datetime",
 							"length": 0
 						}
 					]
@@ -2093,7 +2429,7 @@
 											"font": "Arial;20;1",
 											"left": 861,
 											"top": 479,
-											"width": 167.294921875,
+											"width": 191.796875,
 											"height": 20,
 											"text": "User"
 										},
@@ -2128,7 +2464,7 @@
 									"font": "Arial;20;0",
 									"left": 856,
 									"top": 472,
-									"width": 177.294921875,
+									"width": 201.796875,
 									"height": 32,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF1ZPDXTnc34U8="
@@ -2165,7 +2501,7 @@
 											"font": "Arial;20;0",
 											"left": 861,
 											"top": 509,
-											"width": 167.294921875,
+											"width": 191.796875,
 											"height": 20,
 											"text": "+userId: String",
 											"horizontalAlignment": 0
@@ -2182,7 +2518,7 @@
 											"font": "Arial;20;0",
 											"left": 861,
 											"top": 531,
-											"width": 167.294921875,
+											"width": 191.796875,
 											"height": 20,
 											"text": "+userName: String",
 											"horizontalAlignment": 0
@@ -2199,7 +2535,7 @@
 											"font": "Arial;20;0",
 											"left": 861,
 											"top": 553,
-											"width": 167.294921875,
+											"width": 191.796875,
 											"height": 20,
 											"text": "+userPwd: String",
 											"horizontalAlignment": 0
@@ -2208,7 +2544,7 @@
 									"font": "Arial;20;0",
 									"left": 856,
 									"top": 504,
-									"width": 177.294921875,
+									"width": 201.796875,
 									"height": 74
 								},
 								{
@@ -2233,16 +2569,16 @@
 											"font": "Arial;20;0",
 											"left": 861,
 											"top": 583,
-											"width": 167.294921875,
+											"width": 191.796875,
 											"height": 20,
-											"text": "+checkPwd(): bool",
+											"text": "+validateLogin(): bool",
 											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;20;0",
 									"left": 856,
 									"top": 578,
-									"width": 177.294921875,
+									"width": 201.796875,
 									"height": 30
 								},
 								{
@@ -2282,7 +2618,7 @@
 							"containerChangeable": true,
 							"left": 856,
 							"top": 472,
-							"width": 177.294921875,
+							"width": 201.796875,
 							"height": 136,
 							"nameCompartment": {
 								"$ref": "AAAAAAF1ZPDXTXc2Wgs="
@@ -4859,7 +5195,7 @@
 							"_parent": {
 								"$ref": "AAAAAAF1ZPDXTHczpG4="
 							},
-							"name": "checkPwd",
+							"name": "validateLogin",
 							"parameters": [
 								{
 									"_type": "UMLParameter",
@@ -11259,7 +11595,7 @@
 									"font": "Arial;13;0",
 									"left": 701,
 									"top": 935,
-									"width": 177.60986328125,
+									"width": 177,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF1aNegC9j3p9s="
@@ -13723,7 +14059,7 @@
 									"font": "Arial;13;0",
 									"left": 1683.5,
 									"top": 135,
-									"width": 131.39892578125,
+									"width": 130,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAF1aOzOP80G1MY="
