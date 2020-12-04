@@ -1,12 +1,12 @@
 //import from library 
 import React, {Component} from 'react'
 
-export default class FreelancerComponent extends Component {
+export default class FreelancerItemComponent extends Component {
     render(){
         return (
             
             <div style={{width:'25vw',height:500,backgroundColor: '#093853',
-                                   
+                marginTop:40,                   
                 display:'flex',flexDirection: 'column',justifyContent: 'center',alignItems: 'center'}}>
             
                 <img src='https://randomuser.me/api/portraits/men/17.jpg' 

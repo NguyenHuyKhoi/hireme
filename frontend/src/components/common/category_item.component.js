@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 
-export default class CategoryComponent extends Component {
+export default class CategoryItemComponent extends Component {
     render(){
         return (
             
