@@ -3,6 +3,7 @@ import './App.css';
 import HomeScreen from './screens/home.screen';
 import FreelancerSearchScreen from './screens/freelancer_search.screen';
 import TaskSearchScreen from './screens/task_search.screen';
+import TaskDetailScreen from './screens/task_detail.screen';
 
 
 
@@ -10,7 +11,7 @@ export default class  App extends Component {
 	render (){
 		return (
 			<div style={styles.container}>
-				<TaskSearchScreen/>
+				<TaskDetailScreen/>
 			</div>
 			
 		);

@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
-import ButtonComponent from './button.component'
-import RateScoreComponent from './rate_score.component'
+import ButtonComponent from '../common/button.component'
+import RateScoreComponent from '../common/rate_score.component'
 // * bidding [
 //     {
 //       * id
@@ -15,7 +15,7 @@ export default class BiddingItemComponent extends Component {
         const bidding = this.props.bidding
         const freelancer= bidding.freelancer
         return (
-            <div  style={{...styles.container,
+            <div  style={{marginTop:20,width:'95%', padding:20,flexDirection:'row', display:'flex',
                 backgroundColor:this.props.index%2==0?'#ffffff':'#F0F0F0'}}>    
 
                     <img 
@@ -55,13 +55,6 @@ export default class BiddingItemComponent extends Component {
 }
 
 const styles={
-    container :{
-        width:'45%', 
-        padding:20,
-        flexDirection:'row',
-        display:'flex',
-
-    },
     
     company_actions:{
         width:'100%',
