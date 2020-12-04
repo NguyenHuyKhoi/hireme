@@ -3,8 +3,8 @@ import React, {Component} from 'react'
 import FooterBarComponent from '../components/common/footer_bar.component';
 import HeaderBarComponent from '../components/common/header_bar.component';
 import HomeBannerComponent from '../components/common/home_banner.component';
-import TopCategoriesComponent from '../components/common/category_top_list.component';
-import TopFreelancersComponent from '../components/common/freelancer_top_list';
+import TopCategoriesComponent from '../components/category/category_top_list.component';
+import TopFreelancersComponent from '../components/freelancer/freelancer_top_list';
 export default class HomeScreen extends Component {
     render(){
         return (

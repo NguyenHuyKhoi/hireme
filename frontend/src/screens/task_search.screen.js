@@ -3,10 +3,10 @@ import React, {Component} from 'react'
 import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
-import FreelancerFilterComponent from '../components/freelancer/freelancer_filter.component';
-import FreelancerListComponent from '../components/freelancer/freelancer_list.component';
+import TaskFilterComponent from '../components/task/task_filter.component';
+import TaskListComponent from '../components/task/task_list.component';
 
-export default class FreelancerSearchScreen extends Component {
+export default class TaskSearchScreen extends Component {
     render(){
         return (
 
@@ -23,9 +23,9 @@ export default class FreelancerSearchScreen extends Component {
 
                     
                     {/* filters */}
-                    <FreelancerFilterComponent/>
+                    <TaskFilterComponent/>
                     {/* freelancer list  */}
-                    <FreelancerListComponent/>
+                    <TaskListComponent/>
                 </div>
 
 

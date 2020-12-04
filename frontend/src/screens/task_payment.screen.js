@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
-import sample_db from '../../sample_db/sample_db.json'
-import ButtonComponent from '../common/button.component';
+import sample_db from '../sample_db/sample_db.json'
+import ButtonComponent from '../components/common/button.component';
 
 
 const chats=sample_db.chats   ;

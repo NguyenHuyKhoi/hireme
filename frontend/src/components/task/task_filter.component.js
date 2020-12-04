@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 
-export default class FreelancerFilterComponent extends Component {
+export default class TaskFilterComponent extends Component {
     render(){
         return (
             <div style={{width:'20vw',display:'flex',flexDirection: 'column',
