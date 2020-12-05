@@ -7,9 +7,10 @@ import RangeInputComponent from '../../components/common/range_input.component'
 import SidebarComponent from '../../components/common/side_bar.component'
 import SkillsPickerComponent from '../../components/common/skills_picker.component'
 import UploadFilesComponent from '../../components/common/upload_files.component'
-import PostTaskProfileComponent from '../../components/task/post_task_profile.component'
-
-export default class DashBoardPostTaskScreen extends Component {
+import SettingAccountComponent from '../../components/setting/setting_account.component'
+import SettingPasswordComponent from '../../components/setting/setting_password.component'
+import SettingProfileFreelancerComponent from '../../components/setting/setting_profile_freelancer.component'
+export default class DashboardSettingFreelancerScreen extends Component {
     render(){
         return (
 
@@ -32,12 +33,16 @@ export default class DashBoardPostTaskScreen extends Component {
                         <div style={{width:'100%',height:40,backgroundColor: '#935335',
                             display:'flex',flexDirection: 'row',alignItems: 'center'}}>
                             <text style={{fontSize:20,color:'#000000',marginLeft:30}}>
-                                Post a Task
+                                Setting
                             </text>
                         </div>
 
                         {/* form  */}
-                        <PostTaskProfileComponent/>
+                        <SettingAccountComponent/>
+
+                        <SettingProfileFreelancerComponent/>
+                    
+                        <SettingPasswordComponent/>
                         {/* submit button */}
                         <div style={{marginTop:40,width:'20%',height:50,borderRadius:10,
                             backgroundColor: '#028334',

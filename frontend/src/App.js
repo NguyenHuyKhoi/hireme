@@ -11,6 +11,7 @@ import DashBoardChatScreen from './screens/dashboard/dashboard_chat.screen';
 import DashBoardPostTaskScreen from './screens/dashboard/dashboard_post_task.screen';
 import DashBoardTaskListScreen from './screens/dashboard/dashboard_task_list';
 import DashBoardPaymentScreen from './screens/dashboard/dashboard_payment.screen';
+import DashboardSettingFreelancerScreen from './screens/dashboard/dashboard_setting_freelancer.screen';
 
 
 
@@ -18,7 +19,7 @@ export default class  App extends Component {
 	render (){
 		return (
 			<div style={styles.container}>
-				<DashBoardPaymentScreen/>
+				<DashBoardPostTaskScreen/>
 			</div>
 			
 		);
