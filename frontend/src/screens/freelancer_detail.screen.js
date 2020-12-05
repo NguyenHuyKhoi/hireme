@@ -4,17 +4,12 @@ import ButtonComponent from '../components/common/button.component';
 import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
-import SingleFieldComponent from '../components/common/single_field.component';
-import CompanyDetailHeaderComponent from '../components/company/company_detail_header.component';
-import BiddingListComponent from '../components/task/bidding_list.component';
+import InforsBarComponent from '../components/common/infors_bar.component';
+import ExperienceListComponent from '../components/freelancer/experience_list.component';
+import FreelancerDetailHeaderComponent from '../components/freelancer/freelancer_detail_header.component';
 import ReviewListComponent from '../components/task/review_list.component';
-import TaskAttachmentsComponent from '../components/task/task_attachments.component';
-import TaskDetailHeaderComponent from '../components/task/task_detail_header.component';
-import TaskFilterComponent from '../components/task/task_filter.component';
-import TaskListComponent from '../components/task/task_list.component';
-import TaskPlaceBidComponent from '../components/task/task_place_bid.component';
 
-export default class CompanyDetailScreen extends Component {
+export default class FreelancerDetailScreen extends Component {
     render(){
         return (
 
@@ -33,7 +28,7 @@ export default class CompanyDetailScreen extends Component {
                     
                     {/* header task detail */}
                     
-                     <CompanyDetailHeaderComponent/>
+                     <FreelancerDetailHeaderComponent/>
                     {/* body task detail  */}
  
                     <div style={{marginTop: 20,width:'80vw',display:'flex',flexDirection:'row',
@@ -60,8 +55,10 @@ Capitalize on low hanging fruit to identify a ballpark value added activity to b
                                 </text>
                             </div>
 
-                            {/* biddings */}
+                            {/* experience list */}
                             
+                            <ExperienceListComponent/>
+                             {/* reviews list */}
                             <ReviewListComponent/>
                         </div>
 
@@ -71,20 +68,38 @@ Capitalize on low hanging fruit to identify a ballpark value added activity to b
                             marginLeft:50,  alignSelf:'baseline', 
                             backgroundColor: '#591725'}}>
 
-                            {/* Employes Size */}
-                            <SingleFieldComponent/>
+                            {/* skills */}
+                            <div style={{width:'100%',display:'flex',flexDirection: 'column',alignSelf: 'baseline',backgroundColor: '#395933'}}>
 
-                            {/* Business*/}
-                            <SingleFieldComponent/>
-                            
-                           
-                             {/* Location */}
-                             <SingleFieldComponent/>
-                            
-                            
+                                <text style={{fontSize:22,color:'#000000'}}>
+                                        Skills 
+                                </text>
+                                <div style={{marginTop:8,width:'100%',alignSelf: 'baseline',display:'flex',
+                                    flexDirection: 'row',flexWrap:'wrap',
+                                    alignItems: 'flex-start'}}>
+                                    {
+                                        [1,2,3,4].map((item)=>
+                                            <div style={{display:'flex',marginRight:10,marginTop:7,
+                                                justifyContent: 'center',alignItems: 'center',
+                                                borderRadius:5,backgroundColor: '#639343',padding: 7}}>
+                                                <text style={{fontSize:15,color:'#359325'}}>
+                                                    riu3ry23y 
+                                                </text>
+                                            </div>
+                                            )
+                                    }
+                                </div>
+                            </div> 
 
-                            {/* Website*/}
-                            <SingleFieldComponent/>
+
+                            {/* infor bar  */}
+                            <InforsBarComponent/>
+
+                            <div style={{marginTop:20,width:'100%',height:50,borderRadius:10,
+                                    backgroundColor: '#032853',
+                                    display:'flex',justifyContent: 'center',alignItems: 'center'}}>
+                                Make an offer
+                            </div>
 
 
                           
