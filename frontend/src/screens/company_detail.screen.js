@@ -4,8 +4,10 @@ import ButtonComponent from '../components/common/button.component';
 import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
+import SingleFieldComponent from '../components/common/single_field.component';
 import CompanyDetailHeaderComponent from '../components/company/company_detail_header.component';
 import BiddingListComponent from '../components/task/bidding_list.component';
+import ReviewListComponent from '../components/task/review_list.component';
 import TaskAttachmentsComponent from '../components/task/task_attachments.component';
 import TaskDetailHeaderComponent from '../components/task/task_detail_header.component';
 import TaskFilterComponent from '../components/task/task_filter.component';
@@ -38,7 +40,8 @@ export default class CompanyDetailScreen extends Component {
                         justifyContent: 'space-between'}}>
                         
                         {/* column1 */}
-                        <div style={{flex:3,display:'flex',flexDirection: 'column', 
+                        <div style={{flex:3,display:'flex',flexDirection: 'column',
+                            alignSelf:'baseline', 
                             backgroundColor: '#291725'}}>
 
                             {/* description */}
@@ -57,53 +60,33 @@ Capitalize on low hanging fruit to identify a ballpark value added activity to b
                                 </text>
                             </div>
 
-                            {/* attachments */}
-                            <TaskAttachmentsComponent/>
                             {/* biddings */}
                             
-                            <BiddingListComponent/>
+                            <ReviewListComponent/>
                         </div>
 
                         
                         {/* column2 */}
                         <div style={{flex:1,display:'flex',flexDirection: 'column',
-                            marginLeft:50, 
+                            marginLeft:50,  alignSelf:'baseline', 
                             backgroundColor: '#591725'}}>
 
-                            {/* skills */}
-                            <div style={{width:'100%',display:'flex',flexDirection: 'column',alignSelf: 'baseline',backgroundColor: '#395933'}}>
+                            {/* Employes Size */}
+                            <SingleFieldComponent/>
 
-                                <text style={{fontSize:22,color:'#000000'}}>
-                                        Skills 
-                                </text>
-                                <div style={{marginTop:8,width:'100%',alignSelf: 'baseline',display:'flex',
-                                    flexDirection: 'row',flexWrap:'wrap',
-                                    alignItems: 'flex-start'}}>
-                                    {
-                                        [1,2,3,4].map((item)=>
-                                            <div style={{display:'flex',marginRight:10,marginTop:7,
-                                                justifyContent: 'center',alignItems: 'center',
-                                                borderRadius:5,backgroundColor: '#639343',padding: 7}}>
-                                                <text style={{fontSize:15,color:'#359325'}}>
-                                                    riu3ry23y 
-                                                </text>
-                                            </div>
-                                            )
-                                    }
-                                </div>
-                            </div> 
+                            {/* Business*/}
+                            <SingleFieldComponent/>
+                            
+                           
+                             {/* Location */}
+                             <SingleFieldComponent/>
+                            
 
-                            {/* times */}
-                            <div style={{marginTop: 20,width:'100%',height:50,borderRadius:6,
-                                display:'flex',justifyContent: 'center',alignItems: 'center',
-                                backgroundColor: '#203863'}}>
-                                <text style={{fontSize:22,color:'#000000'}}>
-                                        6 days ,23 hours 
-                                </text>
-                            </div>
+                            {/* Website*/}
+                            <SingleFieldComponent/>
 
-                            {/* place bid */}
-                            <TaskPlaceBidComponent/>
+
+                          
                         </div>
                     </div>
                

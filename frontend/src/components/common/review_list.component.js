@@ -1,10 +1,11 @@
 //import from library 
 import React, {Component} from 'react'
-import HeaderListComponent from '../common/header_list.component'
-import PaginationComponent from '../common/pagination.component'
-import TaskItemComponent from './task_item.component'
+import ReviewItemComponent from '../task/review_item.component'
+import HeaderListComponent from './header_list.component'
+import PaginationComponent from './pagination.component'
+import TaskItemComponent from './review_item.component'
 
-export default class TaskListComponent extends Component {
+export default class ReviewListComponent extends Component {
     render(){
         return (
             <div style={{marginLeft:60,width:'55vw',
@@ -16,8 +17,8 @@ export default class TaskListComponent extends Component {
 
                 <div style={{width:'100%',display:'flex',flexDirection: 'row',justifyContent:'space-around',flexWrap: 'wrap',alignItems: 'flex-start'}}>
                 {
-                    [1,2,3,4,5,6].map((item)=>
-                        <TaskItemComponent/>
+                    [1,2,3,4,5,6].map((item,index)=>
+                        <ReviewItemComponent index={index} />
                     )
                 }
                 </div>
