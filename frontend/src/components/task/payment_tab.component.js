@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
-import sample_db from '../sample_db/sample_db.json'
-import ButtonComponent from '../components/common/button.component';
+import sample_db from '../../sample_db/sample_db.json'
+import ButtonComponent from '../common/button.component';
 
 
 const chats=sample_db.chats   ;
@@ -45,7 +45,7 @@ const action_buttons=[
 
 class ActionButtons extends Component{
     render(){
-        const data=this.props.data;
+        const data=this.props.data; 
         return (
             <div 
                 onClick={this.props.onClick}
@@ -63,7 +63,7 @@ class ActionButtons extends Component{
 class ProjectDetail extends Component {
     render(){
         return (
-            <div style={{width:'48%',height: '60%', backgroundColor: '#3F50CD',borderRadius: 10}}>
+            <div style={{flex:1,alignSelf:'center',padding:10, backgroundColor: '#3F50CD',borderRadius: 10}}>
                 <div style={{margin:10,display:'flex',flex:1,flexDirection: 'row',justifyContent: 'space-between',alignItems: 'center'}}>
                     <text style={{fontSize: 30,color:'#ffffff'}}>
                         Project Budget 
@@ -95,7 +95,7 @@ class ProjectDetail extends Component {
         )
     }
 }
-export default class TaskPaymentScreen extends Component {
+export default class PaymentTabComponent extends Component {
 
     onClickBtn=(code)=>{
         alert(code);
@@ -104,14 +104,19 @@ export default class TaskPaymentScreen extends Component {
     render(){
         const user_type='freelancer';
         return (
-            <div  style={styles.container}> 
+            <div  style={{marginTop:30,flex:1,flexDirection:'column',display:'flex'} }> 
                 <div style={{flex:1,width:'100%',display:'flex',flexDirection: 'row',
+                 backgroundColor: '#697574',
                     alignItems: 'center',justifyContent: 'space-between'}}>
                     
                     <ProjectDetail/>
-                    <div style={{width: '48%',height:'100%',display:'flex',flexDirection: 'column',alignItems: 'center',justifyContent: 'space-between'}}>
+                    <div style={{flex:1,marginLeft:20,height:'100%',
+                    
+                            backgroundColor: '#395595',
+                            display:'flex',flexDirection: 'column',
+                            alignItems: 'center',justifyContent: 'space-between'}}>
                         {
-                            action_buttons[user_type==='company'?0:1].map(btn=>
+                            action_buttons[user_type==='company '?0:1].map(btn=>
                                 <ActionButtons data={btn} onClick={()=>this.onClickBtn(btn.code)}/>
                             )
                         }
@@ -133,14 +138,5 @@ export default class TaskPaymentScreen extends Component {
             </div>
         )
     }
-}
-
-const styles={
-    container :{
-        width:'80%',
-        height:'65%',
-        flexDirection:'column',
-        display:'flex'
-    } 
 }
 

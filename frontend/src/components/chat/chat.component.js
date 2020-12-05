@@ -11,7 +11,7 @@ export default class ChatComponent extends Component {
 
     render(){
         return (
-            <div  style={{display:'flex',flex:1, flexDirection:'row'}}>    
+            <div  style={{display:'flex',flex:1,height:'80vh', flexDirection:'row'}}>    
                 <div style={{display:'flex',flex:5 }}>
                     <ChatListComponent/>
                     
