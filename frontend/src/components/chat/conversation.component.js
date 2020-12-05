@@ -86,12 +86,12 @@ export default class ConversationComponent extends Component {
 const styles={
     container :{    
         flexDirection:'column',
-        height:550, 
         display:'flex',
+        flex:1
     },
     header:{
         display: 'flex',
-        width:'100%',
+        flex:1,
         height: 25,
         backgroundColor: '#3F50CD',
         flexDirection: 'row',
@@ -132,15 +132,14 @@ const styles={
         color:'#F0F0F0'
     },
     body:{
-        flex:1,
-        width: '103%',
+        flex:15,
         display: 'flex',
         flexDirection: 'column',
         overflowY: 'scroll'
     },
     footer:{
         display: 'flex',
-        width:'95%',
+        flex:1,
         height: 40,
         backgroundColor: '#F0F0F0',
         flexDirection: 'row',

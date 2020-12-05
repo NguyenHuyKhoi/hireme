@@ -19,14 +19,14 @@ export default class BiddingListComponent extends Component {
     render(){
         const list = biddings.slice(0,4)
         return (
-            <div style={{width:'100%',marginTop: 20,
+            <div style={{flex:1,marginTop: 20,
             display:'flex',flexDirection: 'column',backgroundColor: '#903553'}}>
                 {/* header list */}
                 <HeaderListComponent/>
 
                 {/* body list */}
 
-                <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
+                <div style={{flex:1,display:'flex',flexDirection: 'column'}}>
                 {
                     list.map((item,index)=>
                     <BiddingItemComponent bidding={item} index={index} key ={index}/>

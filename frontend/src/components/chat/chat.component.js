@@ -11,34 +11,16 @@ export default class ChatComponent extends Component {
 
     render(){
         return (
-            <div  style={styles.container}>    
-                <div style={styles.chat_list_container}>
+            <div  style={{display:'flex',flex:1, flexDirection:'row'}}>    
+                <div style={{display:'flex',flex:5 }}>
                     <ChatListComponent/>
                     
                 </div>
-                <div style={styles.conversation_container}>
+                <div style={{display:'flex',flex:9}}>
                     <ConversationComponent/>
                 </div>
             </div>
         )
     }
-}
-
-const styles={
-    container :{
-        width:'70%',
-        height:550,
-        flexDirection:'row',
-        display:'flex',
-    },
-    chat_list_container:{
-        width:'30%',
-        height:550
-    },
-    conversation_container:{
-        width:'70%',
-        height:550
-    }
-    
 }
 

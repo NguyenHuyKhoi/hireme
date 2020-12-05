@@ -15,7 +15,7 @@ export default class BiddingItemComponent extends Component {
         const bidding = this.props.bidding
         const freelancer= bidding.freelancer
         return (
-            <div  style={{marginTop:20,width:'95%', padding:20,flexDirection:'row', display:'flex',
+            <div  style={{marginTop:20,flex:1, padding:20,flexDirection:'row', display:'flex',
                 backgroundColor:this.props.index%2==0?'#ffffff':'#F0F0F0'}}>    
 
                     <img 

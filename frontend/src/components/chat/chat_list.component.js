@@ -15,7 +15,7 @@ class ChatItem extends Component {
         return (
             <div 
                 onClick={this.props.onClick}
-                style={{...styles.item_container,
+                style={{display: 'flex',flexDirection: 'row',flex:1,alignItems: 'center',height:80,
                     backgroundColor:this.props.index%2==0?'#ffffff':'#f0f0f0'}}>
 
                 {
@@ -25,20 +25,25 @@ class ChatItem extends Component {
                     null
                 }
 
-                <img src={chat.partner.avatar} style={styles.avatar}/>
+                <img style={{ height:40, width:40,borderRadius: 20, marginLeft: 15}} 
+                src={'https://randomuser.me/api/portraits/men/22.jpg'}/>
 
-                <div style={styles.item_content_container}>
+                <div style={{
+                    marginTop:20, marginBottom: 20, display: 'flex',flex:1,
+                    flexDirection: 'column', marginLeft: 10
+                }}>
 
-                    <div style={styles.item_row_1}>
-                        <text style={styles.normal_text}>
+                    <div style={{ display: 'flex',flexDirection: 'row',
+                    justifyContent: 'space-between',marginBottom:3}}>
+                        <text style={{   fontSize: 17,color:'#707070'}}>
                             {this.collapseText(chat.partner.name,12)}
                         </text>
-                        <text style={styles.small_text}>
+                        <text style={{ fontSize: 13,color:'#707070'}}>
                             {chat.latest_message.time}
                         </text>
                     </div>
 
-                    <text style={styles.small_text}>
+                    <text style={{ fontSize: 13,color:'#707070'}}>
                         {this.collapseText(chat.latest_message.content,40)}
                     </text>
                 </div>
@@ -57,14 +62,21 @@ export default class ChatListComponent extends Component {
     }
     render(){
         return (
-            <div  style={styles.container} >    
-                <div style={styles.header}>
-                    <text style={styles.header_title}>
+            <div  style={{display:'flex',flex:1, flexDirection:'column'}} >    
+
+                <div style={{ display: 'flex',flex:1,
+                    backgroundColor: '#3F50CD',flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <text style={ {fontSize: 25,color:'#ffffff'}}>
                         Chat list
                     </text>
                     
                 </div>
-                <div style={styles.body}>
+
+                <div style={{  display: 'flex',flex:10,flexDirection: 'column',
+                    overflowY: 'scroll'}}>
                     {
                         chats.map((chat,index)=>(
                             <ChatItem chat={chat} index={index} 
@@ -81,70 +93,4 @@ export default class ChatListComponent extends Component {
     }
 }
 
-const styles={
-    container :{
-        flexDirection:'column',
-        height:550,
-        display:'flex',
-    },
-    item_container:{
-        display: 'flex',
-        flexDirection: 'row',
-        width: '100%',
-        alignItems: 'center',
-        height:80
-    },
-    avatar:{
-        height:40,
-        width:40,
-        borderRadius: 20,
-        marginLeft: 15
-    },
-    item_content_container :{
-        marginTop:20,
-        marginBottom: 20,
-        display: 'flex',
-        flex:1,
-        flexDirection: 'column',
-        marginLeft: 10
-    },
-    item_row_1:{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginBottom:3
-    },
-
-    header:{
-        display: 'flex',
-        width:'100%',
-        height: 25,
-        backgroundColor: '#3F50CD',
-        flexDirection: 'row',
-        padding:10,
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    header_title:{
-        fontSize: 25,
-        color:'#ffffff'
-    },
-    normal_text:{
-        fontSize: 17,
-        color:'#707070'
-    },
-    small_text:{
-        fontSize: 13,
-        color:'#707070'
-    },
-    body:{
-        flex:1,
-        width: '105%',
-        display: 'flex',
-        flexDirection: 'column',
-        overflowY: 'scroll',
-       // overflow: 'hidden'
-    }
-    
-}
 
