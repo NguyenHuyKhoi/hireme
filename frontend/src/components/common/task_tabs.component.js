@@ -14,17 +14,15 @@ class TabBar extends Component{
         )
     }
 }
-export default class TaskTabsBaComponent extends Component {
+export default class TaskTabsBarComponent extends Component {
     render(){
         return (
-            <div style={{width:'100%',height:30,display:'flex',flexDirection: 'row',backgroundColor: '#302585'}}>
+            <div style={{width:'80vw',height:30,display:'flex',flexDirection: 'row',backgroundColor: '#302585'}}>
                 {
                     [1,2,3,4,5].map((item,index)=>
                         <TabBar onClick={()=>this.props.onClickTab(index)}/>
                     )
-                }
-                
-     
+                }       
         </div>
 
         )

@@ -12,7 +12,7 @@ export default class FreelancerTopListComponent extends Component {
                 <div style={{marginTop:20,width:'80vw',display:'flex',backgroundColor: '#932575',
                     flexDirection: 'row',alignItems: 'flex-start',justifyContent: 'space-between'}}>
                     {
-                        [1,2,3].map((item)=>
+                        [1,2,3,4,5,6].map((item)=>
                             <FreelancerItemComponent/>
                         )
                     }
