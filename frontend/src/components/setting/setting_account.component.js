@@ -10,7 +10,7 @@ export default class SettingAccountComponent extends Component {
 
     render(){
         return (
-            <div style={{marginTop:20,width:'100%',height:400,backgroundColor: '#093255' }}>
+            <div style={{marginTop:20,width:'100%',alignSelf:'baseline',backgroundColor: '#093255' }}>
                 <div style={{flex:1,
                     paddingLeft:60,paddingRight:60,paddingTop:20,paddingBottom:20
                     ,backgroundColor: '#937353',
