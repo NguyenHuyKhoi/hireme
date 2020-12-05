@@ -7,7 +7,7 @@ import TaskItemComponent from './task_item.component'
 export default class TaskListComponent extends Component {
     render(){
         return (
-            <div style={{marginLeft:60,
+            <div style={{
                 display:'flex',flex:1,flexDirection: 'column',backgroundColor: '#903553'}}>
                 {/* header list */}
                 <HeaderListComponent/>

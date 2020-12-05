@@ -3,10 +3,10 @@ import React, {Component} from 'react'
 import ButtonComponent from '../common/button.component'
 
 
-import visa_logo from  '../assets/images/visa.PNG'
-import master_card_logo from  '../assets/images/master_card.PNG'
-import american_express_logo from  '../assets/images/american_express.PNG'
-import discover from  '../assets/images/discover.PNG'
+import visa_logo from  '../../assets/images/visa.PNG'
+import master_card_logo from  '../../assets/images/master_card.PNG'
+import american_express_logo from  '../../assets/images/american_express.PNG'
+import discover from '../../assets/images/discover.PNG'
 
 const card_types=[
     {
@@ -54,7 +54,7 @@ class LabeledInput extends Component {
         )
     }
 }
-export default class CreditCardComponent extends Component {
+export default class CreditCardItemComponent extends Component {
     constructor(props){
         super(props)
         this.state={
@@ -87,11 +87,11 @@ export default class CreditCardComponent extends Component {
         const disabled=card.is_new_card!==undefined?false:true
 
         return (
-            <div  style={{...styles.container,
+            <div  style={{  padding:30,display:'flex',flex:1,flexDirection:'column',
                 backgroundColor:index%2==1?'#ffffff':'#f0f0f0'}}>    
 
                     <div style={styles.row}>
-                        <div style={styles.logo_container}>
+                        <div style={{width:'100%',display: 'flex', flexDirection: 'row',justifyContent: 'space-between'}}>
                             {
                             card_types.map(type=>
                                 <img src={type.logo} 
@@ -175,17 +175,10 @@ export default class CreditCardComponent extends Component {
 
 const styles={
     container :{
-        width:600, 
-        padding:10,
-        flexDirection:'column',
-        display:'flex',
+      
 
     },
-    logo_container:{
-        width:'100%',
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between'
+    logo_container:{width:'100%',display: 'flex', flexDirection: 'row',justifyContent: 'space-between'
     },
     logo:{
         width:60    ,

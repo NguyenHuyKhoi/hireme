@@ -6,6 +6,7 @@ import sample_db from '../../sample_db/sample_db.json'
 import HeaderListComponent from '../common/header_list.component'
 import PaginationComponent from '../common/pagination.component'
 import CreditCardItemComponent from './credit_card_item.component'
+import TransactionItemComponent from './transaction_item.component'
 
 let cards=sample_db.credit_cards.slice(0,3)
 let new_card={
@@ -19,7 +20,7 @@ let new_card={
 }
 
 cards=[new_card,...cards];
-export default class CreditCardListComponent extends Component {
+export default class TransactionListComponent extends Component {
     render(){
         const cards2=cards.slice(0,3);
         return (
@@ -34,7 +35,7 @@ export default class CreditCardListComponent extends Component {
                 <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
                     {
                         cards2.map((card,index)=>(
-                            <CreditCardItemComponent card={card} index={index}/>
+                            <TransactionItemComponent card={card} index={index}/>
                         ))
                     }
                 </div>
