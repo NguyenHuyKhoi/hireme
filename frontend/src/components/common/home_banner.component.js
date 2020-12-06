@@ -1,5 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
+import { routePaths } from '../../utils/constants'
 
 export default class HomeBannerComponent extends Component {
     render(){
@@ -27,14 +29,18 @@ export default class HomeBannerComponent extends Component {
                         display:'flex',flexDirection: 'row',alignItems: 'center'}}>
                         <input  placeholder='Enter you keyword' style={{flex:1,height:60,paddingLeft:10}}/>
 
-                        <div style={{width:100,height:60,borderRadius:10,backgroundColor: '#309258',
+                        <Link 
+                            to={routePaths.TASK_SEARCH}
+                            style={{width:100,height:60,borderRadius:10,backgroundColor: '#309258',
+                            textDecoration:'none',
                         marginLeft:20,
                         display: 'flex', justifyContent: 'center', alignItems: 'center',marginTop:10}}>
 
-                        <text style={{fontSize:25,color:'#000000'}}>
+                        <text style={{fontSize:25,color:'#000000'}}
+                           >
                             Search
                         </text>
-                    </div>
+                    </Link>
                     </div>
                 </div>
         

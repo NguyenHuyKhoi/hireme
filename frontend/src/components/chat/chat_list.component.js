@@ -1,6 +1,8 @@
 //import from library 
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom';
 import sample_db from '../../sample_db/sample_db.json'
+import { routePaths } from '../../utils/constants';
 
 
 const chats=sample_db.chats   ;
@@ -25,8 +27,12 @@ class ChatItem extends Component {
                     null
                 }
 
-                <img style={{ height:40, width:40,borderRadius: 20, marginLeft: 15}} 
-                src={'https://randomuser.me/api/portraits/men/22.jpg'}/>
+                <Link to={routePaths.FREELANCER_DETAIL} 
+                    style={{textDecoration:'none'}}>
+                    <img style={{ height:40, width:40,borderRadius: 20, marginLeft: 15}} 
+                        src={'https://randomuser.me/api/portraits/men/22.jpg'}/>
+                </Link>
+                
 
                 <div style={{
                     marginTop:20, marginBottom: 20, display: 'flex',flex:1,

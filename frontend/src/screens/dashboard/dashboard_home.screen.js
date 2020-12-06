@@ -1,6 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import SidebarComponent from '../../components/common/side_bar.component'
+import { SIDEBAR_RATIO } from '../../utils/constants'
 
 export default class DashBoardHomeScreen extends Component {
     render(){
@@ -12,7 +13,7 @@ export default class DashBoardHomeScreen extends Component {
                 {/* sidebar */}
                 <SidebarComponent/>
                 {/* body */}
-                <div style={{display:'flex',flex:4,flexDirection: 'column',
+                <div style={{display:'flex',flex:SIDEBAR_RATIO,flexDirection: 'column',
                     backgroundColor: '#902823',
                     paddingBottom:100}}>
 

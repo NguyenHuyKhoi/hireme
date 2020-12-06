@@ -11,6 +11,7 @@ import SettingAccountComponent from '../../components/setting/setting_account.co
 import SettingPasswordComponent from '../../components/setting/setting_password.component'
 import SettingProfileCompanyComponent from '../../components/setting/setting_profile_company.component'
 import SettingProfileFreelancerComponent from '../../components/setting/setting_profile_freelancer.component'
+import { SIDEBAR_RATIO } from '../../utils/constants'
 export default class DashboardSettingCompanyScreen extends Component {
     render(){
         return (
@@ -21,7 +22,7 @@ export default class DashboardSettingCompanyScreen extends Component {
                 {/* sidebar */}
                 <SidebarComponent/>
                 {/* body */}
-                <div style={{display:'flex',flex:4,
+                <div style={{display:'flex',flex:SIDEBAR_RATIO,
                     paddingLeft:30,paddingRight:30,
                     paddingTop:40,paddingBottom:40,
                     marginBottom:100,

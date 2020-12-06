@@ -1,5 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
+import { routePaths } from '../../utils/constants'
 import ButtonComponent from '../common/button.component'
 import RateScoreComponent from '../common/rate_score.component'
 // * bidding [
@@ -23,9 +25,11 @@ export default class BiddingItemComponent extends Component {
                         
                     <div style={styles.center}>
 
-                        <text style={styles.freelancer_name}>
+                        <Link
+                            to={routePaths.FREELANCER_DETAIL}
+                            style={{ textDecoration:'none',fontSize: 25,  color: '#000000',marginBottom: 5}}>
                             {freelancer.name}
-                        </text>
+                        </Link>
 
                         <RateScoreComponent score={freelancer.rate_score} />
 
@@ -74,11 +78,7 @@ const styles={
         display:'flex',
         flex:1,
     },
-    freelancer_name :{
-        fontSize: 25,
-        color: '#000000',
-        marginBottom: 5
-    },
+    freelancer_name :{ fontSize: 25,  color: '#000000',marginBottom: 5},
     bidder_infor:{
         borderRadius: 5,
         width:100,

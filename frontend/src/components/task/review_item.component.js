@@ -1,5 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom';
+import { routePaths } from '../../utils/constants';
 import ButtonComponent from '../common/button.component'
 import RateScoreComponent from '../common/rate_score.component'
 // + id (integer )
@@ -13,6 +15,7 @@ import RateScoreComponent from '../common/rate_score.component'
 
 export default class ReviewItemComponent extends Component {
     render(){
+        const review=this.props.review;
         return (
             <div  style={{width:'100%', 
                 paddingTop:20,paddingBottom:20,
@@ -27,15 +30,24 @@ export default class ReviewItemComponent extends Component {
                     <div style={{display:'flex',flex:1,marginLeft:20,paddingRight:50,
                         flexDirection: 'column'}}>
 
-                        <text style={{fontSize:25,color:'#000000',fontWeight:'bold'}}>
+                        <Link 
+                            to={routePaths.TASK_DETAIL}
+                            style={{textDecoration:'none',fontSize:25,color:'#000000',fontWeight:'bold'}}>
                             Develope a ecommercer app 
-                        </text>
+                        </Link>
 
                         <div style={{display:'flex',width:'100%',flexDirection: 'row',
                             justifyContent: 'space-between',alignItems: 'center'}}>
-                            <text style={{fontSize:17,color:'#000000'}}>
-                                Freelancer 1
-                            </text>
+                            <Link   
+                                to={review.is_company?routePaths.COMPANY_DETAIL:routePaths.FREELANCER_DETAIL}
+                                style={{fontSize:17,color:'#000000',textDecoration:'none'}}>
+                                {
+                                    review.is_company?
+                                    'Facebook'
+                                    :
+                                    'Freelancer'
+                                }
+                            </Link>
                             <text style={{fontSize:17,color:'#000000'}}>
                                 14/02/2019
                             </text>

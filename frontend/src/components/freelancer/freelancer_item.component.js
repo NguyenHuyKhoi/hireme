@@ -1,5 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
+import { routePaths } from '../../utils/constants'
 
 export default class FreelancerItemComponent extends Component {
     render(){
@@ -42,12 +44,15 @@ export default class FreelancerItemComponent extends Component {
                     
                 </div>
 
-                <div style={{marginTop:20,width:'90%',height:50,backgroundColor: '#358235',
+                <Link
+                    to={routePaths.FREELANCER_DETAIL}
+                style={{marginTop:20,width:'90%',height:50,backgroundColor: '#358235',
+                    textDecoration:'none',
                     display:'flex',justifyContent: 'center',alignItems: 'center'}}>
                         <text style={{fontSize:20,color:'#ffffff'}}>
                         View Profile
                     </text>
-                </div>
+                </Link>
                                                 
 
             </div>

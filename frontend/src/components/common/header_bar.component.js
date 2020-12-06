@@ -1,5 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
+import{Link,NavLink} from 'react-router-dom'
+import {routePaths} from '../../utils/constants'
 
 export default class HeaderBarComponent extends Component {
     render(){
@@ -15,25 +17,34 @@ export default class HeaderBarComponent extends Component {
                 <div style={{flex:6,height:'100%',display:'flex',flexDirection:'row',alignItems: 'center',
                     justifyContent:'space-around',
                     backgroundColor: '#635835'}}>
-                    <text style={{fontSize:20,color:'#000000'}}>
-                        Find freelancer
-                    </text>
+                    <Link to ={routePaths.HOME}
+                        style={{fontSize:20,color:'#000000'}}>
+                            Home
+                    </Link>
+                    <Link to ={routePaths.FREELANCER_SEARCH}
+                        style={{fontSize:20,color:'#000000'}}>
+                            Find Freelancers
+                    </Link>
 
-                    <text style={{fontSize:20,color:'#000000'}}>
-                        Find task
-                    </text>
+                    <Link to ={routePaths.TASK_SEARCH}
+                        style={{fontSize:20,color:'#000000'}}>
+                            Find Tasks
+                    </Link>
 
-                    <text style={{fontSize:20,color:'#000000'}}>
-                        Guide
-                    </text>
+                    {/* <Link to ={routePaths.FREELANCER_SEARCH}
+                        style={{fontSize:20,color:'#000000'}}>
+                            Guide
+                    </Link> */}
                 </div>
 
     
                 <div style={{flex:2,height:'100%',display:'flex',flexDirection:'column',alignItems: 'center',justifyContent: 'center',
                     backgroundColor: '#935765'}}>
-                    <text style={{fontSize:20,color:'#000000'}}>
-                        Login/Register
-                    </text>
+                    <Link to ={routePaths.DASHBOARD_HOME}
+                        style={{fontSize:20,color:'#000000'}}>
+                            Account
+                    </Link>
+
                 </div>
 
             </div>

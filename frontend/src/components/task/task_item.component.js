@@ -1,5 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
+import { routePaths } from '../../utils/constants'
 
 export default class TaskItemComponent extends Component {
     render(){
@@ -52,7 +54,9 @@ export default class TaskItemComponent extends Component {
                     <text style={{fontSize:16,color:'#ffffff'}}>
                         Fixed Price
                     </text>
-                    <div style={{marginTop:15,width:'60%',height:40,display:'flex',
+                    <Link  
+                        to={routePaths.TASK_DETAIL}
+                        style={{marginTop:15,width:'60%',height:40,display:'flex',textDecoration: 'none' ,
                         backgroundColor: '#297235',borderRadius:7,
                         justifyContent: 'center',alignItems: 'center'}}
                         >
@@ -60,7 +64,7 @@ export default class TaskItemComponent extends Component {
                             Bid Now
                         </text>
 
-                    </div>
+                    </Link>
                         
                 </div>
 

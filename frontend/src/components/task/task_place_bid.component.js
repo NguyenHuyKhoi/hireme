@@ -36,7 +36,7 @@ export default class TaskPlaceBidComponent extends Component {
                             display:'flex',justifyContent: 'center',alignItems: 'center',
                             backgroundColor: '#302858'}}>
                             <text style={{fontSize:25,color:'#000000'}}>
-                                $3500 
+                                Place A Bid
                             </text>
                         </div>
                     

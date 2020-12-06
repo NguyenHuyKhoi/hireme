@@ -11,6 +11,7 @@ import TaskDetailTabComponent from '../../components/task/task_detail.component'
 import TaskDetailTab from '../../components/task/task_detail.component';
 import TaskFilterComponent from '../../components/task/task_filter.component';
 import TaskItemBriefComponent from '../../components/task/task_item_brief.component';
+import { SIDEBAR_RATIO } from '../../utils/constants';
 import TaskDetailScreen from '../task_detail.screen';
 import TaskSearchScreen from '../task_search.screen';
 
@@ -45,7 +46,7 @@ export default class DashBoardTaskManagementScreen extends Component {
                 {/* sidebar */}
                 <SidebarComponent/>
                 {/* body */}
-                <div style={{display:'flex',flex:4,flexDirection: 'column',
+                <div style={{display:'flex',flex:SIDEBAR_RATIO,flexDirection: 'column',
                     backgroundColor: '#902823',
                     padding:60}}>
 

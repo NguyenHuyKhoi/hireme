@@ -13,7 +13,7 @@ export default class HomeScreen extends Component {
             <div style={{width:'100vw',height:'100vh',backgroundColor: '#392855',
                 display:'flex',flexDirection: 'column'}}>
 
-                <AuthModal/>
+                {/* <AuthModal/> */}
                 {/* header */}
                 <HeaderBarComponent/>
 

@@ -2,6 +2,7 @@
 import React, {Component} from 'react'
 import SidebarComponent from '../../components/common/side_bar.component'
 import TaskListBriefComponent from '../../components/task/task_list_brief.component'
+import { SIDEBAR_RATIO } from '../../utils/constants'
 
 export default class DashBoardTaskListScreen extends Component {
     render(){
@@ -13,7 +14,7 @@ export default class DashBoardTaskListScreen extends Component {
                 {/* sidebar */}
                 <SidebarComponent/>
                 {/* body */}
-                <div style={{display:'flex',flex:4,flexDirection: 'column',
+                <div style={{display:'flex',flex:SIDEBAR_RATIO,flexDirection: 'column',
                     backgroundColor: '#902823',
                     padding:60}}>
 

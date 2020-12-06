@@ -1,5 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
+import { routePaths } from '../../utils/constants'
 import RateScoreComponent from '../common/rate_score.component'
 
 export default class TaskItemBriefComponent extends Component {
@@ -51,7 +53,10 @@ export default class TaskItemBriefComponent extends Component {
                 <div style={{flex:1,display:'flex',justifyContent: 'center',
                     alignItems: 'center',backgroundColor: '#032585'}}>
                 
-                    <div style={{width:'60%',height:40,display:'flex',
+                    <Link 
+                        to={routePaths.DASHBOARD_TASK_MANAMENT}
+                        style={{textDecoration:'none',
+                            width:'60%',height:40,display:'flex',
                         backgroundColor: '#297235',borderRadius:7,
                         justifyContent: 'center',alignItems: 'center'}}
                         >
@@ -59,7 +64,7 @@ export default class TaskItemBriefComponent extends Component {
                             Detail
                         </text>
 
-                    </div>
+                    </Link>
                         
                 </div>
             </div>

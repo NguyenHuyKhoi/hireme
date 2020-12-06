@@ -10,6 +10,7 @@ import UploadFilesComponent from '../../components/common/upload_files.component
 import SettingAccountComponent from '../../components/setting/setting_account.component'
 import SettingPasswordComponent from '../../components/setting/setting_password.component'
 import SettingProfileFreelancerComponent from '../../components/setting/setting_profile_freelancer.component'
+import { SIDEBAR_RATIO } from '../../utils/constants'
 export default class DashboardSettingFreelancerScreen extends Component {
     render(){
         return (
@@ -20,7 +21,7 @@ export default class DashboardSettingFreelancerScreen extends Component {
                 {/* sidebar */}
                 <SidebarComponent/>
                 {/* body */}
-                <div style={{display:'flex',flex:4,
+                <div style={{display:'flex',flex:SIDEBAR_RATIO,
                     paddingLeft:30,paddingRight:30,
                     paddingTop:40,paddingBottom:40,
                     marginBottom:100,

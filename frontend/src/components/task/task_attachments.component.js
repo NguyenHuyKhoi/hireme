@@ -10,10 +10,10 @@ export default class TaskAttachmentsComponent extends Component {
                     attachments
                 </text>
 
-                <div style={{width:'100%',display:'flex',flexDirection: 'row',flexWrap:'wrap'}}>
+                <div style={{width:'100%',display:'flex',flexDirection: 'row',flexWrap:'wrap',justifyContent:'space-between'}}>
                     {
                         [1,2,3,4,5].map((item)=>
-                            <div style={{marginRight:10,marginTop: 10,width:'10vw',height:80,borderRadius:8,
+                            <div style={{marginRight:10,marginTop: 10,width:'9vw',height:70,borderRadius:8,
                                 backgroundColor: '#397553',
                                 flexDirection: 'column',
                                 display:'flex',justifyContent: 'center',alignItems: 'center'}}>

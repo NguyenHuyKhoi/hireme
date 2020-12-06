@@ -1,5 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
+import { routePaths } from '../../utils/constants'
 
 export default class TaskDetailHeaderComponent extends Component {
     render(){
@@ -10,17 +12,22 @@ export default class TaskDetailHeaderComponent extends Component {
             alignItems: 'center'}}>
 
             <div style={{width:'50%',display:'flex',flexDirection: 'row',marginRight:'15%'}}>
-                <img src='https://randomuser.me/api/portraits/men/17.jpg'
+                <img 
+                    src='https://randomuser.me/api/portraits/men/17.jpg'
                     style={{width:'10%',height:'10%',borderRadius:'5%'}}/>
+            
+               
                 
                 <div style={{marginLeft:20,display:'flex',flex:1,flexDirection: 'column'}}>
                     <text style={{fontSize:30,color:'#000000'}}>
                         Build an e-commercer app
                     </text>
 
-                    <text style={{fontSize:22,color:'#000000'}}>
+                    <Link 
+                        to={routePaths.COMPANY_DETAIL}
+                        style={{fontSize:22,color:'#000000',textDecoration:'none'}}>
                         FaceBook
-                    </text>
+                    </Link>
                 </div>
             </div>
 

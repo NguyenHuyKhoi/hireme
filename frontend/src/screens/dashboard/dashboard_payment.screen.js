@@ -10,6 +10,7 @@ import UploadFilesComponent from '../../components/common/upload_files.component
 import BalanceCardComponent from '../../components/payment/balance_card.component'
 import CreditCardListComponent from '../../components/payment/credit_card_list.component'
 import TransactionListComponent from '../../components/payment/transaction_list.component'
+import { SIDEBAR_RATIO } from '../../utils/constants'
 
 export default class DashBoardPaymentScreen extends Component {
     render(){
@@ -22,7 +23,7 @@ export default class DashBoardPaymentScreen extends Component {
                 <SidebarComponent/>
                 {/* body */}
 
-                <div style={{display:'flex',flex:4,
+                <div style={{display:'flex',flex:SIDEBAR_RATIO,
                     paddingLeft:80,paddingRight:80,
                     paddingTop:60,paddingBottom:40,
                     marginBottom:100,

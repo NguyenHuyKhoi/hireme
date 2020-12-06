@@ -1,6 +1,8 @@
 //import from library 
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom';
 import sample_db from '../../sample_db/sample_db.json'
+import { routePaths } from '../../utils/constants';
 import ButtonComponent from '../common/button.component';
 
 
@@ -33,7 +35,11 @@ class PartnerMessage extends Component {
             <div style={{...styles.message,
                 flexDirection: 'row'}}>
 
-                <img src={sender.avatar} style={styles.avatar}/>
+                <Link to={routePaths.FREELANCER_DETAIL}
+                    style={{textDecoration:'none'}}>
+                    <img src={sender.avatar} style={styles.avatar}/>
+                </Link>
+              
 
                 <div style={{...styles.content_container,
                     backgroundColor: '#F0F0F0',marginLeft:20}}>

@@ -1,5 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
 import ChatComponent from '../../components/chat/chat.component'
 import LabeledInputComponent from '../../components/common/labeled_input.component'
 import LabeledSelectedInputComponent from '../../components/common/labeled_selected_input.component'
@@ -8,6 +9,7 @@ import SidebarComponent from '../../components/common/side_bar.component'
 import SkillsPickerComponent from '../../components/common/skills_picker.component'
 import UploadFilesComponent from '../../components/common/upload_files.component'
 import PostTaskProfileComponent from '../../components/task/post_task_profile.component'
+import { routePaths, SIDEBAR_RATIO } from '../../utils/constants'
 
 export default class DashBoardPostTaskScreen extends Component {
     render(){
@@ -19,7 +21,7 @@ export default class DashBoardPostTaskScreen extends Component {
                 {/* sidebar */}
                 <SidebarComponent/>
                 {/* body */}
-                <div style={{display:'flex',flex:4,
+                <div style={{display:'flex',flex:SIDEBAR_RATIO,
                     paddingLeft:30,paddingRight:30,
                     paddingTop:40,paddingBottom:40,
                     marginBottom:100,
@@ -39,13 +41,16 @@ export default class DashBoardPostTaskScreen extends Component {
                         {/* form  */}
                         <PostTaskProfileComponent/>
                         {/* submit button */}
-                        <div style={{marginTop:40,width:'20%',height:50,borderRadius:10,
+                        <Link
+                            to={routePaths.DASHBOARD_HOME}
+                            style={{marginTop:40,width:'20%',height:50,borderRadius:10,
+                            textDecoration:'none',
                             backgroundColor: '#028334',
                             display:'flex',justifyContent: 'center',alignItems:'center'}}>
                             <text style={{fontSize:18,color:'#032058'}}>
                                 Post Task
                             </text>
-                        </div>
+                        </Link>
                     </div>
                 </div>
 
