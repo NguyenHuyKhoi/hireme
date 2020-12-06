@@ -18,7 +18,7 @@ export default class ReviewListComponent extends Component {
 
                 <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
                 {
-                    [1,2,3,4].map((item,index)=>
+                    [1,2].map((item,index)=>
                         <ReviewItemComponent i/>
                     )
                 }
