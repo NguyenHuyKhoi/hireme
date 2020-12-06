@@ -1,34 +1,62 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import { routePaths } from '../../utils/constants'
+import { bullshitIcons, routePaths, textSizes } from '../../utils/constants'
+import { BLACK, BLUE_0, BLUE_1, GRAY_1, GRAY_2, GRAY_3, WHITE } from '../../utils/palette'
+import {IconContext} from 'react-icons'
+import SmallFieldComponent from '../common/small_field.component'
 
-export default class CategoryItemComponent extends Component {
+class CategoryIcon extends Component{
     render(){
         return (
-            
-            <Link 
-                to={routePaths.TASK_SEARCH}
-                style={{width:'20vw',height:200,backgroundColor: '#093853',
-                textDecoration:'none',
-                display:'flex',flexDirection: 'column',justifyContent: 'center',alignItems: 'center'}}>
-            
-                <img src='https://randomuser.me/api/portraits/men/17.jpg' 
-                    style={{width:50,height:30}}/>
-                <div style={{backgroundColor: '#398569',borderRadius:5,marginTop:10,width:50,height:20,justifyContent: 'center',alignItems: 'center',display:'flex'   }}>
-                    123
+            <IconContext.Provider value={{ color: this.props.color, style:{width: 30,height: 30,borderRadius:2}} }>
+                <div>
+                    {bullshitIcons[this.props.icon]}
                 </div>
-
-                <text style={{marginTop:10,fontSize:20,color:'#ffffff',fontWeight:'bold',marginLeft:20,marginRight:20}}>
-                    Computer Science
-                </text>
-                <text style={{fontSize:14,color:'#ffffff',marginTop:8,textAlign:'center',marginLeft:20,marginRight:20}}>
-                    Software Engineer ,Web development and more interesting jobs....
-                </text>
-            </Link>
-
-
-    
+            </IconContext.Provider>
         )
     }
 }
+export default class CategoryItemComponent extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            hover:false
+        }
+    }
+    render(){
+        const category=this.props.category;
+        return (
+            
+            <Link 
+                onMouseLeave={()=>this.setState({hover:false})}
+                onMouseEnter={()=>this.setState({hover:true})}
+
+                to={routePaths.TASK_SEARCH}
+                style={{width:'20vw',height:200,
+                backgroundColor: this.state.hover?BLUE_1:WHITE,
+                textDecoration:'none',
+                display:'flex',flexDirection: 'column',justifyContent: 'center',alignItems: 'center'}}>
+            
+                <CategoryIcon icon='home' color={ this.state.hover?WHITE:BLUE_1}/>
+                <SmallFieldComponent 
+                    background_color={this.state.hover?BLUE_0:GRAY_3} 
+                    label_color={this.state.hover?WHITE:GRAY_1} 
+                    label={category.tasks}/>
+
+                <text style={{fontSize:textSizes.NORMAL,marginLeft:20,marginRight:20,
+                        color: this.state.hover?WHITE:BLACK}}>
+                    {category.name}
+                </text>
+                <text style={{fontSize:textSizes.SMALL,
+                    color: this.state.hover?GRAY_3:GRAY_1,marginTop:2,
+                    marginLeft:20,marginRight:20,
+                    textAlign:'center'}}>
+                    {category.description}
+                </text>
+            </Link>
+        )
+    }
+}
+
+

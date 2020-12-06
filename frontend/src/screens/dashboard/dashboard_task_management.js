@@ -9,7 +9,6 @@ import StageListComponent from '../../components/task/stage_list.component';
 import TaskAttachmentsComponent from '../../components/task/task_attachments.component';
 import TaskDetailTabComponent from '../../components/task/task_detail.component';
 import TaskDetailTab from '../../components/task/task_detail.component';
-import TaskFilterComponent from '../../components/task/task_filter.component';
 import TaskItemBriefComponent from '../../components/task/task_item_brief.component';
 import { SIDEBAR_RATIO } from '../../utils/constants';
 import TaskDetailScreen from '../task_detail.screen';

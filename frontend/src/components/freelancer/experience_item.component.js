@@ -1,5 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
+import { textSizes } from '../../utils/constants'
+import { BLACK, BLUE_2, GRAY_3, WHITE } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
 import RateScoreComponent from '../common/rate_score.component'
 // + id (integer )
@@ -14,38 +16,43 @@ import RateScoreComponent from '../common/rate_score.component'
 export default class ExperienceItemComponent extends Component {
     render(){
         return (
-            <div  style={{width:'100%', 
-                paddingTop:20,paddingBottom:20,
+            <div  style={{width: '100%',height: 150,
                 flexDirection:'row', display:'flex',
                 alignItems: 'center',
-                backgroundColor:this.props.index%2==0?'#ffffff':'#F0F0F0'}}>    
+                backgroundColor:this.props.index%2==0?WHITE:BLUE_2}}>    
 
-                    <img 
+                    <div style={{flex:1}}/>
+                    <div style={{flex:2}}>
+                        <img 
                         src='https://randomuser.me/api/portraits/men/22.jpg'  
-                        style={{width:70,height:70,borderRadius:35,marginLeft:50}}/>
+                            style={{width: '80%',aspectRatio:1,borderRadius:'50%'}}/>
+                    </div>
+                  
                         
-                    <div style={{display:'flex',flex:1,marginLeft:20,paddingRight:50,
+                    <div style={{display:'flex',flex:8,marginLeft:20,
+                        justifyContent: 'center',
                         flexDirection: 'column'}}>
 
-                        <text style={{fontSize:25,color:'#000000',fontWeight:'bold'}}>
+                        <text style={{fontSize:textSizes.BIG,color:BLACK}}>
                             Team Lead
                         </text>
 
                         <div style={{display:'flex',width:'100%',flexDirection: 'row',
                             justifyContent: 'space-between',alignItems: 'center'}}>
-                            <text style={{fontSize:17,color:'#000000'}}>
+                            <text style={{fontSize:textSizes.SMALL,color:BLACK}}>
                                 on Facebook
                             </text>
-                            <text style={{fontSize:17,color:'#000000'}}>
+                            <text style={{fontSize:textSizes.SMALL,color:BLACK}}>
                                 14/02/2019
                             </text>
                     
                         </div>
 
-                        <text style={{marginTop:10,fontSize:17,color:'#000000'}}>
-                            Great company and especially ideal for the career-minded individual. The company is large enough to offer a variety of jobs in all kinds of interesting locations. Even if you never change roles, your job changes and evolves as the company grows, keeping things fresh.
+                        <text style={{marginTop:5,fontSize:textSizes.SMALL,color:BLACK}}>
+                            Great company and especially ideal for the career-minded individual. The company is large enough to offer a variety of jobs.
                         </text>
                     </div> 
+                    <div style={{flex:1}}/>
 
             
               

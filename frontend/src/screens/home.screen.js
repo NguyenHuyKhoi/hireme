@@ -6,15 +6,26 @@ import HomeBannerComponent from '../components/common/home_banner.component';
 import TopCategoriesComponent from '../components/category/category_top_list.component';
 import TopFreelancersComponent from '../components/freelancer/freelancer_top_list';
 import AuthModal from '../components/common/auth.modal';
+import { SHOW_LAYOUT } from '../utils/constants';
+import { BLACK, BLUE_1, WHITE } from '../utils/palette';
+
+
+import temp_sample_db from '../sample_db/temp_sample_db.json'
+
+const topCategories=temp_sample_db.top_categories;
+
 export default class HomeScreen extends Component {
     render(){
         return (
 
-            <div style={{width:'100vw',height:'100vh',backgroundColor: '#392855',
+            <div style={{width:'100vw',height:'100vh',
+                backgroundColor:WHITE,overflowX:'hidden',
                 display:'flex',flexDirection: 'column'}}>
 
                 {/* <AuthModal/> */}
                 {/* header */}
+                
+              
                 <HeaderBarComponent/>
 
                 {/* body */}
@@ -23,7 +34,7 @@ export default class HomeScreen extends Component {
                     {/* banner */}
                     <HomeBannerComponent/>
                     {/* top categories */}
-                    <TopCategoriesComponent/>
+                    <TopCategoriesComponent categories={topCategories}/>
 
                     {/* top freelancers */}
 

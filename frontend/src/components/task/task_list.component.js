@@ -7,24 +7,20 @@ import TaskItemComponent from './task_item.component'
 export default class TaskListComponent extends Component {
     render(){
         return (
-            <div style={{
-                display:'flex',flex:1,flexDirection: 'column',backgroundColor: '#903553'}}>
+            <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
                 {/* header list */}
-                <HeaderListComponent/>
+                <HeaderListComponent title='Freelancers' is_sort={true}/>
                 
                 {/* body list */}
 
                 <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
                 {
-                    [1,2,3,4,5,6].map((item)=>
+                    [1,2,3,4].map((item)=>
                         <TaskItemComponent/>
                     )
                 }
                 </div>
-                
-                {/* pagination  */}
-                <PaginationComponent/>
-
+          
             </div>
                     
     

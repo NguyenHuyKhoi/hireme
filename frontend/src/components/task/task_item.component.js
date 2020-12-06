@@ -1,69 +1,52 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import { routePaths } from '../../utils/constants'
-
+import { routePaths, textSizes } from '../../utils/constants'
+import { BLACK, GRAY_2, GRAY_5, WHITE } from '../../utils/palette'
+import ButtonComponent from '../common/button.component'
+import SkillsListComponent from '../common/skills_list.component'
 export default class TaskItemComponent extends Component {
     render(){
         return (
             
-            <div style={{width:'55vw',height:200,backgroundColor: '#093853',
-                marginTop:20,            
+            <div style={{width:'55vw',height:220,backgroundColor: WHITE,
+                boxShadow:'3px 3px 3px 3px #707070',
+                marginTop:40,            
                 display:'flex',flexDirection: 'row'}}>
     
-                <div style={{flex:4,display:'flex',flexDirection: 'column',padding: 20,
-                    backgroundColor: '#329573'}}>
+                <div style={{flex:8,display:'flex',flexDirection: 'column',padding: 20}}>
 
-                    <text style={{fontSize:20,color:'#000000',fontWeight:'bold'}}>
+                    <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>
                         Task name1
                     </text>
 
-                    <text style={{fontSize:14,color:'#ffffff'}}>
+                    <text style={{fontSize:textSizes.SMALL,color:GRAY_2}}>
                         5 minute ago
                     </text>
 
-                    <text style={{marginTop:10,fontSize:14,color:'#ffffff'  }}>
-                    Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. 
+                    <text style={{marginTop:10,fontSize:textSizes.SMALL,color:GRAY_2  }}>
+                        Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. 
                     </text>
 
                     
-                    <div style={{marginTop:8,width:'100%',alignSelf: 'baseline',display:'flex',
-                        flexDirection: 'row',flexWrap:'wrap',
-                        alignItems: 'flex-start'}}>
-                        {
-                            [1,2,3,4].map((item)=>
-                                <div style={{display:'flex',marginRight:10,marginTop:7,
-                                    justifyContent: 'center',alignItems: 'center',
-                                    borderRadius:5,backgroundColor: '#639343',padding: 7}}>
-                                    <text style={{fontSize:15,color:'#359325'}}>
-                                        riu3ry23y 
-                                    </text>
-                                </div>
-                                )
-                        }
-                    </div>
+                    <SkillsListComponent hide_title={true}/>
                 </div>
 
-                <div style={{flex:2,display:'flex',justifyContent: 'center',
+                <div style={{flex:4,display:'flex',justifyContent: 'center',
                     flexDirection: 'column',
-                    alignItems: 'center',backgroundColor: '#032585'}}>
-                    <text style={{fontSize:18,color:'#ffffff'}}>
+                    alignItems: 'center',backgroundColor: GRAY_5}}>
+                    <text style={{fontSize:18,color:BLACK}}>
                         $456
                     </text>
 
-                    <text style={{fontSize:16,color:'#ffffff'}}>
+                    <text style={{fontSize:16,color:GRAY_2}}>
                         Fixed Price
                     </text>
+
                     <Link  
                         to={routePaths.TASK_DETAIL}
-                        style={{marginTop:15,width:'60%',height:40,display:'flex',textDecoration: 'none' ,
-                        backgroundColor: '#297235',borderRadius:7,
-                        justifyContent: 'center',alignItems: 'center'}}
-                        >
-                        <text style={{fontSize:16,color:'#ffffff'}}>
-                            Bid Now
-                        </text>
-
+                        style={{marginTop:15,width:'60%',textDecoration:'none'}}>
+                        <ButtonComponent label='Bid Now'/>
                     </Link>
                         
                 </div>

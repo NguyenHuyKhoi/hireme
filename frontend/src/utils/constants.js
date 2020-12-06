@@ -1,3 +1,8 @@
+import {FaHome} from "react-icons/fa"
+export const bullshitIcons={
+    home :<FaHome/>
+}
+
 export const routePaths={
     HOME:'/',
     FREELANCER_SEARCH:'/freelancer/search',
@@ -20,3 +25,11 @@ export const routePaths={
 
 // sidebar : flex=1,  body : flex=3
 export const SIDEBAR_RATIO=4
+
+export const  textSizes={
+    NORMAL : 20,
+    SMALL  :16,
+    BIG    :24,
+    HEADER :28
+}
+export const SHOW_LAYOUT=false

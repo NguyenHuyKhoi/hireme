@@ -1,7 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
 
-import sample_db from '../../sample_db/sample_db.json'
 import HeaderListComponent from '../common/header_list.component';
 import PaginationComponent from '../common/pagination.component';
 import ExperienceItemComponent from './experience_item.component';
@@ -10,10 +9,10 @@ import ReviewItemComponent from './experience_item.component';
 export default class ExperienceListComponent extends Component {
     render(){
         return (
-            <div style={{width:'100%',marginTop: 20,
-            display:'flex',flexDirection: 'column',backgroundColor: '#903553'}}>
+            <div style={{flex:1,marginTop: 20,
+            display:'flex',flexDirection: 'column'}}>
                 {/* header list */}
-                <HeaderListComponent/>
+                <HeaderListComponent title='Experiences' />
 
                 {/* body list */}
 
@@ -26,7 +25,7 @@ export default class ExperienceListComponent extends Component {
                 </div>
 
                 {/* pagination  */}
-                <PaginationComponent/>
+                {/* <PaginationComponent/> */}
 
             </div>
             

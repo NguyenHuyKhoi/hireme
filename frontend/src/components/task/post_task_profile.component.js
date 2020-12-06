@@ -32,7 +32,7 @@ export default class PostTaskProfileComponent extends Component {
                             </div>
 
                             <div style={{width:'80%'}}>
-                                <RangeInputComponent/>
+                                <RangeInputComponent label='Budget'/>
                             </div>
 
                             <SkillsPickerComponent/>

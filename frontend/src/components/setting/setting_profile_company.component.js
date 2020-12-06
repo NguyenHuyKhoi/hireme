@@ -3,10 +3,7 @@ import React, {Component} from 'react'
 
 import LabeledInputComponent from '../common/labeled_input.component'
 import LabeledSelectedInputComponent from '../common/labeled_selected_input.component'
-import RangeInputComponent from '../common/range_input.component'
-import SkillsPickerComponent from '../common/skills_picker.component'
-import UploadFilesComponent from '../common/upload_files.component'
-import ExperienceListComponent from '../freelancer/experience_list.component'
+
 
 export default class SettingProfileCompanyComponent extends Component {
    

@@ -35,7 +35,7 @@ export default class   SettingProfileFreelancerComponent extends Component {
                                 </div>
 
                                 <div style={{width:'80%'}}>
-                                    <RangeInputComponent/>
+                                    <RangeInputComponent label='Hourly Rate'/>
                                 </div>
 
                                 <SkillsPickerComponent/>

@@ -1,36 +1,48 @@
 //import from library 
 import React, {Component} from 'react'
+import banner from '../../assets/images/banner.jpg'
+import { textSizes } from '../../utils/constants'
+import { BLACK, WHITE, YELLOW } from '../../utils/palette'
+import SmallFieldComponent from '../common/small_field.component'
 
 export default class CompanyDetailHeaderComponent extends Component {
     render(){
         return (
             
-            <div style={{width:'100%',height:150,backgroundColor: '#024832',
-            display:'flex',flexDirection: 'row',justifyContent:'center',
-            alignItems: 'center'}}>
+            <div style={{width:'100%',height:150,
+                backgroundImage:`url(${banner})`,
+                backgroundRepeat:  'no-repeat',
+                backgroundSize:'cover',
+                display:'flex',flexDirection: 'row'}}>
 
-            <div style={{width:'50%',display:'flex',flexDirection: 'row',marginRight:'15%'}}>
-                <img src='https://randomuser.me/api/portraits/men/17.jpg'
-                    style={{width:'10%',height:'10%',borderRadius:'5%'}}/>
-                
-                <div style={{marginLeft:20,display:'flex',flex:1,flexDirection: 'column'}}>
-                    <text style={{fontSize:30,color:'#000000'}}>
-                        Facebook
-                    </text>
+                <div style={{flex:1}}/>
+                <div style={{flex:5,display:'flex',flexDirection: 'row',alignItems: 'center'}}>
+                    <img src='https://randomuser.me/api/portraits/men/17.jpg'
+                        style={{height: '60%',aspectRatio:1,borderRadius:'50%'}}/>
+                    
+                    <div style={{marginLeft:15,display:'flex',flex:1,flexDirection: 'column'}}>
+                        <text style={{fontSize:textSizes.BIG,color:BLACK}}>
+                            Facebook
+                        </text>
 
-                    <text style={{fontSize:22,color:'#000000'}}>
-                        A softwar company
-                    </text>
+                        <text style={{fontSize:textSizes.NORMAL,color:BLACK,marginBottom:5}}>
+                            A software company
+                        </text>
+
+                        <SmallFieldComponent 
+                            background_color={YELLOW} 
+                            label_color={WHITE} 
+                            label={'4.2'}/>
+                    </div>
                 </div>
+
+                <div style={{flex:4}}/>
+
+
+
             </div>
 
-            <div style={{width:'15%'}}/>
-
-
-
-        </div>
-
-        
+    
     
         )
     }

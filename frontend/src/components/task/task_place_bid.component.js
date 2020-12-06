@@ -1,49 +1,48 @@
 //import from library 
 import React, {Component} from 'react'
+import { textSizes } from '../../utils/constants'
+import { BLACK, GRAY_1, GRAY_2, GRAY_3, GRAY_4,GRAY_5, WHITE } from '../../utils/palette'
+import ButtonComponent from '../common/button.component'
+import NumberInputComponent from '../common/number_input.component'
 
 export default class TaskPlaceBidComponent extends Component {
     render(){
         return (
             
-            <div style={{marginTop: 20,width:'100%',borderRadius:10,
-            display:'flex',flexDirection: 'column',alignSelf: 'baseline',
-            backgroundColor: '#853583'}}>
-                <div style={{width:'100%',height:50,
-                display:'flex',justifyContent: 'center',alignItems: 'center',backgroundColor: '#203863'}}>
-                    <text style={{fontSize:22,color:'#000000'}}>
+            <div style={{width:'100%',borderRadius:10,height: 400,
+            boxShadow:'5px 5px 5px #707070',
+            display:'flex',flexDirection: 'column',alignSelf: 'baseline'}}>
+
+                <div style={{flex:1,
+                    display:'flex',justifyContent: 'center',alignItems: 'center',backgroundColor:GRAY_4}}>
+                    <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>
                             Bidding on task
                     </text>
                 </div>
-                <div style={{width:'100%',
-                        alignSelf: 'baseline',
+                <div style={{flex:5,
+                        padding:20,
                         display:'flex',flexDirection: 'column',
                         justifyContent: 'center',alignItems: 'center',
-                        backgroundColor: '#487358'}}>
-                        <text style={{fontSize:18,color:'#000000'}}>
-                                Set your price 
-                        </text>
-                        <text style={{fontSize:25,color:'#000000'}}>
-                                $3500 
-                        </text>
-                        <text style={{fontSize:18,color:'#000000'}}>
-                            Set your time
-                        </text>
-                        <text style={{fontSize:25,color:'#000000'}}>
-                                3 days
-                        </text>
+                        backgroundColor: GRAY_5}}>
+                        
+                        <NumberInputComponent/>
 
-                        <div style={{marginTop: 20,marginBottom:20,width:'70%',height:40,borderRadius:6,
-                            display:'flex',justifyContent: 'center',alignItems: 'center',
-                            backgroundColor: '#302858'}}>
-                            <text style={{fontSize:25,color:'#000000'}}>
-                                Place A Bid
-                            </text>
+
+                        <div style={{width: '100%',marginTop:20}}>
+                            <NumberInputComponent/>
+                        </div>
+                      
+
+                        <div style={{marginTop: 40,width: '100%'}}>
+                            <ButtonComponent  label='Place A Bid'/>
                         </div>
                     
                 </div>
-                <div style={{width:'100%',height:50,
-                display:'flex',justifyContent: 'center',alignItems: 'center',backgroundColor: '#583580'}}>
-                    <text style={{fontSize:16,color:'#000000'}}>
+
+                <div style={{flex:1,
+                    display:'flex',justifyContent: 'center',alignItems: 'center',
+                        backgroundColor: GRAY_2}}>
+                    <text style={{fontSize:textSizes.SMALL,color:WHITE}}>
                             Don't have an account ? Sign-up
                     </text>
                 </div>

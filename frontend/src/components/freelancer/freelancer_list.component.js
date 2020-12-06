@@ -7,23 +7,22 @@ import PaginationComponent from '../common/pagination.component'
 export default class FreelancerListComponent extends Component {
     render(){
         return (
-            <div style={{marginLeft:60,width:'55vw',
-                display:'flex',flexDirection: 'column',backgroundColor: '#903553'}}>
+            <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
                 {/* header list */}
-                <HeaderListComponent/>
+                <HeaderListComponent title='Freelancers' is_sort={true}/>
                 
                 {/* body list */}
 
-                <div style={{width:'100%',display:'flex',flexDirection: 'row',justifyContent:'space-around',flexWrap: 'wrap',alignItems: 'flex-start'}}>
+                <div style={{width:'100%',display:'flex',
+                    marginTop:20,
+                    flexDirection: 'row',justifyContent:'space-between',flexWrap: 'wrap',alignItems: 'flex-start'}}>
                 {
                     [1,2,3,4,5,6].map((item)=>
                         <FreelancerItemComponent/>
                     )
                 }
                 </div>
-                
-                {/* pagination  */}
-                <PaginationComponent/>
+
 
             </div>
                     

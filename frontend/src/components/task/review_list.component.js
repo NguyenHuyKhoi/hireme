@@ -9,23 +9,23 @@ import ReviewItemComponent from './review_item.component';
 export default class ReviewListComponent extends Component {
     render(){
         return (
-            <div style={{width:'100%',marginTop: 20,
-            display:'flex',flexDirection: 'column',backgroundColor: '#903553'}}>
+            <div style={{flex:1,marginTop: 20,
+            display:'flex',flexDirection: 'column'}}>
                 {/* header list */}
-                <HeaderListComponent/>
+                <HeaderListComponent title='Reviews'/>
 
                 {/* body list */}
 
                 <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
                 {
                     [1,2,3,4].map((item,index)=>
-                        <ReviewItemComponent review={{is_company:index%2==0}}/>
+                        <ReviewItemComponent review={{is_company:index%2==0}} index={index}/>
                     )
                 }
                 </div>
 
                 {/* pagination  */}
-                <PaginationComponent/>
+           
 
             </div>
             

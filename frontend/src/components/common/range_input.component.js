@@ -1,12 +1,14 @@
 //import from library 
 import React, {Component} from 'react'
+import { textSizes } from '../../utils/constants'
+import { BLACK } from '../../utils/palette'
 
 export default class RangeInputComponent extends Component {
     render(){
         return (
-            <div style={{marginTop:20,display:'flex',flex:1,flexDirection: 'column'}}>
-                <text style={{fontSize:20,color:'#000000'}}>
-                    Estimated buget
+            <div style={{display:'flex',width: '100%',flexDirection: 'column'}}>
+                <text style={{fontSize:textSizes.BIG,color:BLACK}}>
+                    {this.props.label===undefined?'No Label':this.props.label}
                 </text>
                 
                 <div style={{marginTop:15,width:'80%',height:5,backgroundColor: '#392583'}}/>
