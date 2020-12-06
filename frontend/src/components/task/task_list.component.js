@@ -15,7 +15,7 @@ export default class TaskListComponent extends Component {
 
                 <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
                 {
-                    [1,2,3,4].map((item)=>
+                    [1,2,3,4,5].map((item)=>
                         <TaskItemComponent/>
                     )
                 }
