@@ -5,6 +5,7 @@ import HeaderBarComponent from '../components/common/header_bar.component';
 import HomeBannerComponent from '../components/common/home_banner.component';
 import TopCategoriesComponent from '../components/category/category_top_list.component';
 import TopFreelancersComponent from '../components/freelancer/freelancer_top_list';
+import AuthModal from '../components/common/auth.modal';
 export default class HomeScreen extends Component {
     render(){
         return (
@@ -12,6 +13,7 @@ export default class HomeScreen extends Component {
             <div style={{width:'100vw',height:'100vh',backgroundColor: '#392855',
                 display:'flex',flexDirection: 'column'}}>
 
+                <AuthModal/>
                 {/* header */}
                 <HeaderBarComponent/>
 

@@ -26,7 +26,7 @@ export default class StageListComponent extends Component {
                     <div style={{display:'flex',paddingLeft:40,paddingRight:40,width:'15vw',
                         alignSelf:'baseline',flexDirection:'column',alignItems:'center'}}>
                         <div style={{display:'flex',justifyContent:'center',alignItems:'center',
-                            flexDirection:'column',width:'60%',height:40,borderRadius:6,backgroundColor: '#943933'}}>
+                            flexDirection:'column',width:'80%',height:40,borderRadius:6,backgroundColor: '#943933'}}>
                             <text style={{fontSize:16,color:'#000000'}}>
                                 08:00
                             </text>

@@ -21,7 +21,7 @@ export default class  App extends Component {
 	render (){
 		return (
 			<div style={styles.container}>
-				<DashBoardTaskManagementScreen/>
+				<HomeScreen/>
 			</div>
 			
 		);

@@ -8,7 +8,7 @@ import SkillsPickerComponent from '../common/skills_picker.component'
 import UploadFilesComponent from '../common/upload_files.component'
 import ExperienceListComponent from '../freelancer/experience_list.component'
 
-export default class SettingProfileFreelancerComponent extends Component {
+export default class   SettingProfileFreelancerComponent extends Component {
    
 
     render(){
