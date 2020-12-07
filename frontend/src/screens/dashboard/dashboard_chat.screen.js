@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import ChatComponent from '../../components/chat/chat.component'
 import SidebarComponent from '../../components/common/side_bar.component'
-import { SIDEBAR_RATIO } from '../../utils/constants'
+import { PADDING_BODY_DASHBOARD, SIDEBAR_RATIO } from '../../utils/constants'
 import { GRAY_6 } from '../../utils/palette'
 
 export default class DashBoardChatScreen extends Component {
@@ -15,7 +15,7 @@ export default class DashBoardChatScreen extends Component {
                 {/* sidebar */}
                 <SidebarComponent/>
                 {/* body */}
-                <div style={{display:'flex',flex:SIDEBAR_RATIO,padding:60}}>
+                <div style={{display:'flex',flex:SIDEBAR_RATIO,padding:PADDING_BODY_DASHBOARD}}>
 
                     <ChatComponent/>
                 </div>

@@ -25,7 +25,10 @@ export default class FilterComponent extends Component {
                     <RangeInputComponent label='Fixed Price'/>
                 </div>
 
-                <SkillsPickerComponent/>
+                <div style={{marginTop:20}}>
+                    <SkillsPickerComponent/>
+                </div>
+
             </div>
        
     

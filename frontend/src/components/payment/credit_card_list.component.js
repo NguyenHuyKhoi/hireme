@@ -25,7 +25,7 @@ export default class CreditCardListComponent extends Component {
         const cards2=cards.slice(0,3);
         return (
             <div style={{
-                marginTop: 20,backgroundColor:WHITE,
+                backgroundColor:WHITE,
                 boxShadow:'3px 5px 3px 3px #707070',
                 display:'flex',flex:1,flexDirection: 'column'}}>
                 {/* header list */}

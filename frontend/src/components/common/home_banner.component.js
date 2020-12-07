@@ -1,10 +1,11 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import { routePaths, SHOW_LAYOUT, textSizes } from '../../utils/constants'
 import banner from '../../assets//images/banner.jpg'
 import { BLACK, BLUE_1, GRAY_2, WHITE } from '../../utils/palette'
 import ButtonComponent from './button.component'
+import ButtonInputComponent from '../input/button_input.component'
+import { textSizes } from '../../utils/constants'
 export default class HomeBannerComponent extends Component {
     render(){
         return (
@@ -13,7 +14,6 @@ export default class HomeBannerComponent extends Component {
                     backgroundImage:`url(${banner})`,
                     backgroundRepeat:  'no-repeat',
                     backgroundSize:'cover',
-                    backgroundColor: SHOW_LAYOUT?'#093255':'',
                     display:'flex',flexDirection: 'column',justifyContent:'center'}}>
 
                     <div style={{width:'50%',alignSelf:'baseline',display: 'flex',flexDirection: 'column',
@@ -37,22 +37,9 @@ export default class HomeBannerComponent extends Component {
                             </text>
                         </div>
 
-                        <div style={{marginTop:10,width:'80%',height:52,paddingLeft:10,paddingRight:10,
-                            backgroundColor: WHITE,borderWidth:2,borderColor:GRAY_2,
-                            borderRadius:5,
-                            display:'flex',flexDirection: 'row',alignItems: 'center'}}>
 
-                            <input  placeholder='Enter you keyword' 
-                                style={{flex:4,height:'80%',paddingLeft:10,fontSize:textSizes.NORMAL,
-                                    borderWidth:0 ,boxShadow: 'none'}}/>
-
-                            <div style={{flex:1,display: 'flex',justifyContent:'center',alignItems:'center'}}>
-                                <Link to={routePaths.TASK_SEARCH}
-                                    style={{width:'80%', textDecoration:'none'}}>
-                                    <ButtonComponent label='Search'/>
-                                </Link>
-                            </div>
-                            
+                        <div style={{width:'80%',marginTop:20}}>
+                            <ButtonInputComponent btn_label='Search' placeholder='E.g : Task title'/>
                         </div>
                     
                     </div>

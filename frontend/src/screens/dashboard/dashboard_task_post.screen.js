@@ -9,7 +9,7 @@ import SidebarComponent from '../../components/common/side_bar.component'
 import SkillsPickerComponent from '../../components/input/skills_picker.component'
 import UploadFilesComponent from '../../components/common/upload_files.component'
 import PostTaskProfileComponent from '../../components/task/post_task_profile.component'
-import { routePaths, SIDEBAR_RATIO, textSizes } from '../../utils/constants'
+import { routePaths, SIDEBAR_RATIO, textSizes,PADDING_BODY_DASHBOARD } from '../../utils/constants'
 import { BLUE_1, WHITE,GRAY_6 } from '../../utils/palette'
 import ButtonComponent from '../../components/common/button.component'
 import HeaderListComponent from '../../components/common/header_list.component'
@@ -25,8 +25,7 @@ export default class DashBoardTaskPostScreen extends Component {
                 <SidebarComponent/>
                 {/* body */}
                 <div style={{display:'flex',flex:SIDEBAR_RATIO,
-                    paddingLeft:60,paddingRight:60,
-                    paddingTop:110,paddingBottom:100}}>
+                    padding:PADDING_BODY_DASHBOARD}}>
 
                     <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
 

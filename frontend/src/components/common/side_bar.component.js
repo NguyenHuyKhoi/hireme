@@ -25,7 +25,7 @@ const sidebarItems=[
     },
     {
         label:'Settinggg',
-        screen:routePaths.DASHBOARD_SETTING_COMPANY
+        screen:routePaths.DASHBOARD_SETTING_FREELANCER
     },
     {
         label:'Logout',
@@ -66,24 +66,19 @@ export default class SidebarComponent extends Component {
     render(){
         return (
             <div style={{flex:1,height:'100vh',display:'flex',flexDirection: 'column',backgroundColor: WHITE,
-                boxShadow:'5px 0px 3px 3px #707070'
+                boxShadow:'3px 0px 10px 3px #707070'
             }}>
             
-                <Link 
-                     to={routePaths.HOME}
-                    style={{flex:1,display:'flex',justifyContent:'center',alignItems:'center',
-                        textDecoration:'none'}}>
-                    <img src={logo} style={{width:'60%',height:'80%'}}/>
-                </Link>
-                <div style={{flex:2,display:'flex',justifyContent:'center',alignItems:'center'}}>
-                    <Link 
-                        to={routePaths.DASHBOARD_TASK_POST}
-                        style={{width:'60%',textDecoration:'none'}}>
-                        <ButtonComponent label='Post A Task'/>
+                <div 
+                    style={{flex:3,display:'flex',justifyContent:'center',alignItems:'center'}}>
+
+                    <Link to={routePaths.HOME}
+                        style={{textDecoration:'none',display:'flex',justifyContent:'center',alignItems:'center'}}>
+                        <img src={logo} style={{width: '60%',aspectRatio:1.5}}/>
                     </Link>
                 </div>
 
-                <div style={{flex:4,display:'flex',flexDirection:'row'}}>
+                <div style={{flex:5,display:'flex',flexDirection:'row'}}>
                         <div style={{flex:1}}/>
                         <div style={{flex:3,display:'flex',flexDirection:'column',
                         justifyContent:'space-between'}}>
@@ -99,7 +94,14 @@ export default class SidebarComponent extends Component {
             
                 
                 </div>
-                <div style={{flex:3}}/>     
+                <div style={{flex:3,display:'flex',justifyContent:'center',alignItems:'center'}}>
+                    <Link 
+                        to={routePaths.DASHBOARD_TASK_POST}
+                        style={{width:'60%',textDecoration:'none'}}>
+                        <ButtonComponent label='Post A Task'/>
+                    </Link>
+                </div>
+
         </div>
 
         )

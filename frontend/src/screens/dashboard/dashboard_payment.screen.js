@@ -10,7 +10,7 @@ import UploadFilesComponent from '../../components/common/upload_files.component
 import BalanceCardComponent from '../../components/payment/balance_card.component'
 import CreditCardListComponent from '../../components/payment/credit_card_list.component'
 import TransactionListComponent from '../../components/payment/transaction_list.component'
-import { SIDEBAR_RATIO } from '../../utils/constants'
+import { PADDING_BODY_DASHBOARD, SIDEBAR_RATIO } from '../../utils/constants'
 import { GRAY_6 } from '../../utils/palette'
 import HeaderListComponent from '../../components/common/header_list.component'
 
@@ -26,15 +26,14 @@ export default class DashBoardPaymentScreen extends Component {
                 {/* body */}
 
                 <div style={{display:'flex',flex:SIDEBAR_RATIO,
-                    paddingLeft:60,paddingRight:60,
-                    paddingTop:110,paddingBottom:100}}>
+                    padding:PADDING_BODY_DASHBOARD}}>
 
                     <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
 
                     {/* header */}
                         <HeaderListComponent title='Payment'/>
 
-                        <div style={{marginTop:15}}>
+                        <div style={{marginTop:30}}>
                             <CreditCardListComponent/>
                         </div>
                       

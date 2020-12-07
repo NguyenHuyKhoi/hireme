@@ -48,12 +48,12 @@ export default class AttachmentsComponent extends Component {
         return (
             <div style={{width:'100%',alignSelf: 'baseline',
                 display:'flex',flexDirection: 'column'}}>
-                <text style={{fontSize:textSizes.BIG,color:BLACK}}>
+                <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>
                     Attachments
                 </text>
 
                 <div style={{width:'100%',display:'flex',flexDirection: 'row',alignSelf: 'baseline',
-                    flexWrap:'wrap',alignItems: 'flex-start'}}>
+                    flexWrap:'wrap',alignItems: 'flex-start',justifyContent:'space-between'}}>
                     {
                         can_upload!==undefined?
                         <NewFile/>

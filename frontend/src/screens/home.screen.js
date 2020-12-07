@@ -6,7 +6,6 @@ import HomeBannerComponent from '../components/common/home_banner.component';
 import TopCategoriesComponent from '../components/category/category_top_list.component';
 import TopFreelancersComponent from '../components/freelancer/freelancer_top_list';
 import AuthModal from '../components/common/auth.modal';
-import { SHOW_LAYOUT } from '../utils/constants';
 import { BLACK, BLUE_1, WHITE } from '../utils/palette';
 
 

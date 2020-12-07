@@ -6,6 +6,7 @@ import { routePaths, textSizes } from '../../utils/constants';
 import { BLUE_1, GRAY_2, GRAY_3, GRAY_4, WHITE } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
 import HeaderListComponent from '../common/header_list.component';
+import ButtonInputComponent from '../input/button_input.component';
 
 
 const conversation=sample_db.conversation   ;
@@ -74,21 +75,7 @@ export default class ConversationComponent extends Component {
                     }
                 </div>
 
-                <div style={{width:'100%',height:60,display:'flex',flexDirection:'row',
-                    backgroundColor:GRAY_4,
-                    justifyContent:'space-around',alignItems:'center'}}>
-
-                    <input style={{ width:'60%', height:40,backgroundColor: WHITE,
-                        paddingLeft:10,fontSize: textSizes.NORMAL,
-                        borderColor:GRAY_3,borderWidth: 1}} 
-                        placeholder='Your message...' />
-
-                    <div style={{width: '20%'}}>
-                        <ButtonComponent label='Send' />
-                    </div>
-                  
-
-                </div>
+               <ButtonInputComponent  btn_label='Send' placeholder='Type your message ...'/>
             </div>
         )
     }

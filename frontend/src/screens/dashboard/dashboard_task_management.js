@@ -9,7 +9,7 @@ import StageListComponent from '../../components/task/stage_list.component';
 import TaskDetailTabComponent from '../../components/task/task_detail.component';
 import TaskDetailTab from '../../components/task/task_detail.component';
 import TaskItemBriefComponent from '../../components/task/task_item_brief.component';
-import { SIDEBAR_RATIO } from '../../utils/constants';
+import { SIDEBAR_RATIO,PADDING_BODY_DASHBOARD } from '../../utils/constants';
 import { GRAY_6 } from '../../utils/palette';
 import TaskDetailScreen from '../task_detail.screen';
 import TaskSearchScreen from '../task_search.screen';
@@ -19,24 +19,28 @@ export default class DashBoardTaskManagementScreen extends Component {
     constructor(props){
         super(props);
         this.state={
-            focus_tab_index:0
+            focus_tab_index:3
         }
     }
     renderBody=()=>{
         switch (this.state.focus_tab_index){
             case 0:
-                return <TaskDetailTabComponent/>
+                return  <TaskDetailTabComponent/>
             case 1:
-                return <BiddingListComponent/>
+                return  <BiddingListComponent/>
             case 2:
                 return  <div style={{display:'flex',width:'100%',height:'80vh'}}>
                             <ChatComponent/>
                         </div>
              
             case 3:
-                return <StageListComponent/>
+                return  <div style={{display:'flex',width:'100%',height:'80vh'}}>
+                            <StageListComponent/>
+                        </div>
             case 4:
-                return <PaymentTabComponent/>
+                return  <div style={{display:'flex',width:'100%',height:'80vh'}}>
+                            <PaymentTabComponent/>
+                        </div>
         }
     }
     render(){
@@ -48,8 +52,7 @@ export default class DashBoardTaskManagementScreen extends Component {
                 {/* sidebar */}
                 <SidebarComponent/>
                 {/* body */}
-                <div style={{display:'flex',flex:SIDEBAR_RATIO,flexDirection: 'column',padding:60}}>
-
+                <div style={{display:'flex',flex:SIDEBAR_RATIO,flexDirection: 'column',padding:PADDING_BODY_DASHBOARD}}>
                     <TaskTabsBaComponent 
                         focus_tab_index={this.state.focus_tab_index}
                         onClickTab={(index)=>

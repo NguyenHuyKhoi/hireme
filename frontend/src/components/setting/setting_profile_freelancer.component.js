@@ -52,16 +52,19 @@ export default class   SettingProfileFreelancerComponent extends Component {
 
                                 <div style={{width:'70%'}}>
                                     <LabeledSelectedInputComponent label='Category'/>
-                                </div>
+                                </div>    
 
                                 <div style={{width:'70%',marginTop:30}}>
                                     <AttachmentsComponent can_upload={true}/>
-                                </div>
+                                </div>                          
                             </div>
+
+
 
 
                         </div>
 
+                      
                             
                         <div style={{width:'100%',marginTop:40}}>
                             <ExperienceListComponent header_height={40} can_edit={true}/>

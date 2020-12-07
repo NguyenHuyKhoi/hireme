@@ -10,7 +10,7 @@ import UploadFilesComponent from '../../components/common/upload_files.component
 import SettingAccountComponent from '../../components/setting/setting_account.component'
 import SettingPasswordComponent from '../../components/setting/setting_password.component'
 import SettingProfileFreelancerComponent from '../../components/setting/setting_profile_freelancer.component'
-import { routePaths, SIDEBAR_RATIO } from '../../utils/constants'
+import { routePaths, SIDEBAR_RATIO ,PADDING_BODY_DASHBOARD} from '../../utils/constants'
 import { GRAY_6 } from '../../utils/palette'
 import HeaderListComponent from '../../components/common/header_list.component'
 import ButtonComponent from '../../components/common/button.component'
@@ -27,8 +27,7 @@ export default class DashboardSettingFreelancerScreen extends Component {
                 <SidebarComponent />
                 {/* body */}
                 <div style={{display:'flex',flex:SIDEBAR_RATIO,
-                    paddingLeft:60,paddingRight:60,
-                    paddingTop:110,paddingBottom:100}}>
+                    padding:PADDING_BODY_DASHBOARD}}>
 
                     <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
 
@@ -37,7 +36,7 @@ export default class DashboardSettingFreelancerScreen extends Component {
 
                         {/* form  */}
 
-                        <div style={{marginTop:15}}>
+                        <div style={{marginTop:30}}>
                             <SettingAccountComponent/>
                         </div>
                       

@@ -26,6 +26,8 @@ export const routePaths={
 // sidebar : flex=1,  body : flex=3
 export const SIDEBAR_RATIO=4
 
+export const PADDING_BODY_DASHBOARD=50;
+
 export const  textSizes={
     NORMAL : 20,
     SMALL  :16,
