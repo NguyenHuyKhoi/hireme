@@ -59,23 +59,15 @@ export default class TaskItemBriefComponent extends Component {
                 </div>
 
                 <div style={{flex:1,display:'flex',justifyContent: 'center',alignItems: 'center'}}>
-                    <div style={{width:'80%'}}>
-                        <ButtonComponent label='Detail'/>
-                    </div>
-                    {/* <Link 
+                    <Link 
                         to={routePaths.DASHBOARD_TASK_MANAMENT}
-                        style={{textDecoration:'none',
-                            width:'60%',height:40,display:'flex',
-                        backgroundColor: '#297235',borderRadius:7,
-                        justifyContent: 'center',alignItems: 'center'}}
-                        >
-                        <text style={{fontSize:16,color:'#ffffff'}}>
-                            Detail
-                        </text>
-
-                    </Link> */}
-                        
+                        style={{textDecoration:'none',width:'80%'}}>
+                        <ButtonComponent label='Detail'/>
+                    </Link>
                 </div>
+                
+                        
+        
                 <div style={{flex:0.5}}/>
             </div>
 

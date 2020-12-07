@@ -10,6 +10,7 @@ import TaskDetailTabComponent from '../../components/task/task_detail.component'
 import TaskDetailTab from '../../components/task/task_detail.component';
 import TaskItemBriefComponent from '../../components/task/task_item_brief.component';
 import { SIDEBAR_RATIO } from '../../utils/constants';
+import { GRAY_6 } from '../../utils/palette';
 import TaskDetailScreen from '../task_detail.screen';
 import TaskSearchScreen from '../task_search.screen';
 
@@ -18,17 +19,20 @@ export default class DashBoardTaskManagementScreen extends Component {
     constructor(props){
         super(props);
         this.state={
-            tab_index:0
+            focus_tab_index:0
         }
     }
     renderBody=()=>{
-        switch (this.state.tab_index){
+        switch (this.state.focus_tab_index){
             case 0:
                 return <TaskDetailTabComponent/>
             case 1:
                 return <BiddingListComponent/>
             case 2:
-                return <ChatComponent/>
+                return  <div style={{display:'flex',width:'100%',height:'80vh'}}>
+                            <ChatComponent/>
+                        </div>
+             
             case 3:
                 return <StageListComponent/>
             case 4:
@@ -38,24 +42,28 @@ export default class DashBoardTaskManagementScreen extends Component {
     render(){
         return (
 
-            <div style={{width:'100vw',height:'100vh',backgroundColor: '#392855',
+            <div style={{width:'100vw',backgroundColor: GRAY_6,
                 display:'flex',flexDirection: 'row'}}>
 
                 {/* sidebar */}
                 <SidebarComponent/>
                 {/* body */}
-                <div style={{display:'flex',flex:SIDEBAR_RATIO,flexDirection: 'column',
-                    backgroundColor: '#902823',
-                    padding:60}}>
+                <div style={{display:'flex',flex:SIDEBAR_RATIO,flexDirection: 'column',padding:60}}>
 
-                    <TaskTabsBaComponent onClickTab={(index)=>
-                        this.setState({
-                            tab_index:index
-                        })
-                    }/>
-                    {
-                        this.renderBody()
-                    }
+                    <TaskTabsBaComponent 
+                        focus_tab_index={this.state.focus_tab_index}
+                        onClickTab={(index)=>
+                            this.setState({
+                                focus_tab_index:index
+                            })}/>
+
+                    <div style={{marginTop:20}}>
+                        {
+                            this.renderBody()
+                        }
+                    </div>
+                    
+        
                 </div>
 
             </div>

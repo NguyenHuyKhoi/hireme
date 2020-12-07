@@ -6,8 +6,7 @@ import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
 import SingleFieldComponent from '../components/common/single_field.component';
-import CompanyDetailHeaderComponent from '../components/company/company_detail_header.component';
-import BiddingListComponent from '../components/task/bidding_list.component';
+import CompanyDetailHeaderComponent from '../components/company/company_detail_header.component';;
 import ReviewListComponent from '../components/task/review_list.component';
 import { WHITE } from '../utils/palette';
 

@@ -18,7 +18,8 @@ import SmallFieldComponent from '../common/small_field.component'
 class BiddingBudget extends Component {
     render(){
         return (
-            <div style={{width: '85%',height:'65%',borderRadius:6,
+            <div style={{width: '100%',height:80,borderRadius:6,
+            
                 backgroundColor:BLUE_1,display: 'flex',justifyContent: 'center',
                 flexDirection:'column',
                 alignItems: 'center'}}>
@@ -39,72 +40,86 @@ export default class BiddingItemComponent extends Component {
     render(){
         const bidding = this.props.bidding
         const freelancer= bidding.freelancer
-        const company_view=false;
+        const company_view=true;
         return (
-            <div  style={{width:'100%',height:160,flexDirection:'row', display:'flex',
-                alignItems: 'center',
-                backgroundColor:this.props.index%2==0?WHITE:BLUE_2}}>   
+            <div style={{width:'100%',display:'flex',flexDirection:'column',
+                backgroundColor:this.props.index%2==0?WHITE:BLUE_2}}>
+                <div  style={{width:'100%',height:160,flexDirection:'row', display:'flex',
+                    alignItems: 'center',
+                    backgroundColor:this.props.index%2==0?WHITE:BLUE_2}}>   
 
-                    <div style={{flex:0.5}}/>
-                   
-                    <div style={{flex:2}}>
-                        <img 
-                        src='https://randomuser.me/api/portraits/men/22.jpg'  
-                            style={{width: '80%',aspectRatio:1,borderRadius:'50%'}}/>
-                    </div>
-                        
-                    <div style={{display:'flex',flex:7,marginLeft:5,
-                            justifyContent: 'center',
-                            flexDirection: 'column'}}>
-
-                        <Link
-                            to={routePaths.FREELANCER_DETAIL}
-                            style={{ textDecoration:'none',fontSize: textSizes.BIG,  
-                            color: BLACK,marginBottom: 5}}>
-                            {freelancer.name}
-                        </Link>
-
-                        <SmallFieldComponent 
-                            background_color={YELLOW} 
-                            label_color={WHITE} 
-                            label={'4.2'}/>
-
-                        {
-                            company_view ?
-                            <div style={{width:'100%', marginTop:20,display: 'flex',
-                                justifyContent:'space-between',alignItems: 'center',
-                            }}>
-                                <div style={{flex:1,marginRight:20}}>
-                                    <ButtonComponent color={BLUE_1} label='Accept'/>
-                                </div>
-                                <div style={{flex:1,marginRight:20}}>
-                                    <ButtonComponent color={YELLOW} label='Chat'/>
-                                </div>
-                              
-                                <div style={{flex:1}}>
-                                    <ButtonComponent color={GRAY_3} label='Remove'/>
-                                </div>
-                            </div>
+                        <div style={{flex:1}}/>
                     
-                            :
-                            null
-                        }
+                        <div style={{flex:1.5,height:'100%',
+                            display:'flex',justifyContent:'center',alignItems:'center'}}>
+                            <img 
+                                src='https://randomuser.me/api/portraits/men/22.jpg'  
+                                style={{height: '50%',aspectRatio:1,borderRadius:'50%'}}/>
+                        </div>
+                            
+                        <div style={{display:'flex',flex:7,marginLeft:15,
+                                justifyContent: 'center',
+                                flexDirection: 'column'}}>
+
+                            <Link
+                                to={routePaths.FREELANCER_DETAIL}
+                                style={{ textDecoration:'none',fontSize: textSizes.BIG,  
+                                color: BLACK,marginBottom: 5}}>
+                                {freelancer.name}
+                            </Link>
+
+                            <div style={{marginTop:3}}>
+                                <SmallFieldComponent 
+                                    background_color={YELLOW} 
+                                    label_color={WHITE} 
+                                    label={'4.2'}/>
+                            </div>
                         
-                    </div> 
 
-                    <div style={{flex:2,display: 'flex',justifyContent: 'center',alignItems: 'center'}}>
-                        <BiddingBudget/>
 
+                            
+                        </div> 
+
+                        <div style={{flex:1.5,height:'100%',display: 'flex',justifyContent: 'center',alignItems: 'center',}}>
+                            <BiddingBudget/>
+
+                        </div>
+                
+                        <div style={{flex:1}}/>
+
+                
+                
+                </div>
+
+                {
+                company_view ?
+                <div style={{width:'100%',alignSelf:'baseline', paddingBottom:30,display: 'flex',
+                    justifyContent:'space-between',alignItems: 'center',
+                }}> 
+                    <div style={{flex:1.5}}/>
+                    <div style={{flex:1,marginRight:20}}>
+                        <ButtonComponent color={BLUE_1} label='Accept'/>
                     </div>
-            
-                    <div style={{flex:0.5}}/>
+                    <div style={{flex:0.3}}/>
+                    <div style={{flex:1,marginRight:20}}>
+                        <ButtonComponent color={YELLOW} label='Chat'/>
+                    </div>
+                    <div style={{flex:0.3}}/>
+                    <div style={{flex:1}}>
+                        <ButtonComponent color={GRAY_3} label='Remove'/>
+                    </div>
+                    <div style={{flex:1.5}}/>
+                </div>
 
-            
-              
+                :
+                null
+                }
             </div>
+                        
         )
     }
 }
+
 
 const styles={
     

@@ -69,9 +69,12 @@ export default class SidebarComponent extends Component {
                 boxShadow:'5px 0px 3px 3px #707070'
             }}>
             
-                <div style={{flex:1,display:'flex',justifyContent:'center',alignItems:'center'}}>
+                <Link 
+                     to={routePaths.HOME}
+                    style={{flex:1,display:'flex',justifyContent:'center',alignItems:'center',
+                        textDecoration:'none'}}>
                     <img src={logo} style={{width:'60%',height:'80%'}}/>
-                </div>
+                </Link>
                 <div style={{flex:2,display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <Link 
                         to={routePaths.DASHBOARD_TASK_POST}
