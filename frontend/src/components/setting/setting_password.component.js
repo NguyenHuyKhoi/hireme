@@ -1,8 +1,10 @@
 //import from library 
 import React, {Component} from 'react'
+import { WHITE } from '../../utils/palette'
+import HeaderListComponent from '../common/header_list.component'
 
-import LabeledInputComponent from '../common/labeled_input.component'
-import LabeledSelectedInputComponent from '../common/labeled_selected_input.component'
+import LabeledInputComponent from '../input/labeled_input.component'
+import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
 
 
 export default class SettingPasswordComponent extends Component {
@@ -10,27 +12,36 @@ export default class SettingPasswordComponent extends Component {
 
     render(){
         return (
-            <div style={{marginTop:20,width:'100%',alignSelf:'baseline',backgroundColor: '#093255' }}>
-                <div style={{flex:1,
-                    paddingLeft:60,paddingRight:60,paddingTop:20,paddingBottom:20
-                    ,backgroundColor: '#937353',
-                    display:'flex',justifyContent:'center',flexDirection:'column'}}>
-                    <text style={{fontSize:25,color:'#000000'}}>
-                        Password 
-                    </text>
-                    <div style={{flex:1,display:'flex',flexDirection:'row' }}>
-                        <LabeledInputComponent/>
-                        <div style={{width:80}}/>
-                        <LabeledInputComponent/>
-                        <div style={{width:80}}/>
-                        <LabeledInputComponent/>
-                    </div>
-                           
+            <div style={{
+                flex:1,display: 'flex',flexDirection:'column',backgroundColor:WHITE,
+                borderRadius:3,
+                boxShadow:'3px 5px 3px 3px #707070'}}>
+                <HeaderListComponent title='Password' height={40}/>
 
-                </div>
+                <div style={{flex:1,
+                    paddingLeft:80,paddingRight:80,paddingBottom:30,paddingTop:30,
+                    display:'flex',flexDirection:'row',alignItems:'center'}}>
+
+                    
+                        <div style={{flex:4}}>
+                            <LabeledInputComponent label='Current Password'/>
+                        </div>
+                        <div style={{flex:1}}/>
+                        <div style={{flex:4}}>
+                            <LabeledInputComponent label='New Password'/>
+                        </div>
+                               
+                        
+                        <div style={{flex:1}}/>
+                        <div style={{flex:4}}>
+                            <LabeledInputComponent label='Repeat New Password'/>
+                        </div>
+                  
+                    </div>
+                
                 
             </div>
-                    
+              
            
     )
     }

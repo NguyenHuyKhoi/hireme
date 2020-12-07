@@ -1,6 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
-import FilterComponent from '../components/common/filter.component';
+import FilterComponent from '../components/input/filter.component';
 import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';

@@ -39,10 +39,14 @@ export default class CategoryItemComponent extends Component {
                 display:'flex',flexDirection: 'column',justifyContent: 'center',alignItems: 'center'}}>
             
                 <CategoryIcon icon='home' color={ this.state.hover?WHITE:BLUE_1}/>
-                <SmallFieldComponent 
-                    background_color={this.state.hover?BLUE_0:GRAY_3} 
-                    label_color={this.state.hover?WHITE:GRAY_1} 
-                    label={category.tasks}/>
+
+                {/* <div style={{marginTop:2}}> */}
+                    <SmallFieldComponent 
+                        background_color={this.state.hover?BLUE_0:GRAY_3} 
+                        label_color={this.state.hover?WHITE:GRAY_1} 
+                        label={category.tasks}/>
+                {/* </div>
+               */}
 
                 <text style={{fontSize:textSizes.NORMAL,marginLeft:20,marginRight:20,
                         color: this.state.hover?WHITE:BLACK}}>

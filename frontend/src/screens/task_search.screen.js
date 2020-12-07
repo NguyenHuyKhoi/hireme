@@ -4,7 +4,7 @@ import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
 import TaskListComponent from '../components/task/task_list.component';
-import FilterComponent from '../components/common/filter.component';
+import FilterComponent from '../components/input/filter.component';
 
 export default class TaskSearchScreen extends Component {
     render(){

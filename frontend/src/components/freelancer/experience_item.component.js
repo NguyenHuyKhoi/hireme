@@ -22,14 +22,14 @@ export default class ExperienceItemComponent extends Component {
                 backgroundColor:this.props.index%2==0?WHITE:BLUE_2}}>    
 
                     <div style={{flex:1}}/>
-                    <div style={{flex:2}}>
+                    <div style={{flex:1.5}}>
                         <img 
                         src='https://randomuser.me/api/portraits/men/22.jpg'  
                             style={{width: '80%',aspectRatio:1,borderRadius:'50%'}}/>
                     </div>
                   
                         
-                    <div style={{display:'flex',flex:8,marginLeft:20,
+                    <div style={{display:'flex',flex:8,
                         justifyContent: 'center',
                         flexDirection: 'column'}}>
 

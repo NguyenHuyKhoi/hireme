@@ -12,12 +12,12 @@ import CompanyDetailScreen from './screens/company_detail.screen';
 import FreelancerDetailScreen from './screens/freelancer_detail.screen';
 import DashBoardHomeScreen from './screens/dashboard/dashboard_home.screen';
 import DashBoardChatScreen from './screens/dashboard/dashboard_chat.screen';
-import DashBoardPostTaskScreen from './screens/dashboard/dashboard_post_task.screen';
 import DashBoardTaskListScreen from './screens/dashboard/dashboard_task_list';
 import DashBoardPaymentScreen from './screens/dashboard/dashboard_payment.screen';
 import DashboardSettingFreelancerScreen from './screens/dashboard/dashboard_setting_freelancer.screen';
 import DashboardSettingCompanyScreen from './screens/dashboard/dashboard_setting_company.screen';
 import DashBoardTaskManagementScreen from './screens/dashboard/dashboard_task_management';
+import DashBoardTaskPostScreen from './screens/dashboard/dashboard_task_post.screen';
 
 
 
@@ -47,7 +47,7 @@ export default class  App extends Component {
 						{/* dashboard screens */}
 						
 						<Route path={routePaths.DASHBOARD_HOME} component={DashBoardHomeScreen}/>
-						<Route path={routePaths.DASHBOARD_TASK_POST} component={DashBoardPostTaskScreen}/>
+						<Route path={routePaths.DASHBOARD_TASK_POST} component={DashBoardTaskPostScreen}/>
 						<Route path={routePaths.DASHBOARD_TASK_LIST} component={DashBoardTaskListScreen}/>
 						<Route path={routePaths.DASHBOARD_TASK_MANAMENT} component={DashBoardTaskManagementScreen}/>
 						<Route path={routePaths.DASHBOARD_CHAT} component={DashBoardChatScreen}/>

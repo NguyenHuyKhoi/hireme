@@ -7,11 +7,11 @@ import FooterBarComponent from '../components/common/footer_bar.component';
 import HeaderBarComponent from '../components/common/header_bar.component';
 import SkillsListComponent from '../components/common/skills_list.component';
 import BiddingListComponent from '../components/task/bidding_list.component';
-import TaskAttachmentsComponent from '../components/task/task_attachments.component';
 import TaskDetailHeaderComponent from '../components/task/task_detail_header.component';
 import TaskListComponent from '../components/task/task_list.component';
 import TaskPlaceBidComponent from '../components/task/task_place_bid.component';
 import { BLUE_1, BLUE_2, GREEN_1, GREEN_2, WHITE } from '../utils/palette';
+import AttachmentsComponent from '../components/task/attachments.component';
 export default class TaskDetailScreen extends Component {
     render(){
         return (
@@ -53,7 +53,7 @@ export default class TaskDetailScreen extends Component {
                             {/* attachments */}
 
                             <div style={{marginTop:50}}>
-                                <TaskAttachmentsComponent/>
+                                <AttachmentsComponent/>
                             </div>
                             
                             {/* biddings */}

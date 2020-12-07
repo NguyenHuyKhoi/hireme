@@ -1,8 +1,12 @@
 //import from library 
 import React, {Component} from 'react'
+import { textSizes } from '../../utils/constants'
+import { BLACK, GRAY_2, GRAY_4, GRAY_5, GREEN_1, WHITE, YELLOW } from '../../utils/palette'
+import ButtonComponent from '../common/button.component'
+import HeaderListComponent from '../common/header_list.component'
 
-import LabeledInputComponent from '../common/labeled_input.component'
-import LabeledSelectedInputComponent from '../common/labeled_selected_input.component'
+import LabeledInputComponent from '../input/labeled_input.component'
+import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
 
 
 export default class BalanceCardComponent extends Component {
@@ -10,52 +14,53 @@ export default class BalanceCardComponent extends Component {
 
     render(){
         return (
-            <div style={{marginTop: 40,display:'flex',width:'100%',alignSelf:'baseline',flexDirection: 'column', backgroundColor: '#392753'}}>
+            <div style={{backgroundColor:WHITE,
+                height:360,
+                boxShadow:'3px 5px 3px 3px #707070',
+                display:'flex',flex:1,flexDirection: 'column'}}>
 
-            {/* header */}
-            <div style={{width:'100%',height:40,backgroundColor: '#935335',
-                display:'flex',flexDirection: 'row',alignItems: 'center'}}>
-                <text style={{fontSize:20,color:'#000000',marginLeft:10}}>
-                    Balance
-                </text>
-            </div>
+                <HeaderListComponent title='Balance' height={40}/>
+                <div style={{flex:1,display:'flex',justifyContent: 'center',alignItems:'center'}}>
 
-            <div style={{flex:1,display:'flex',
-                backgroundColor: '#923755',justifyContent: 'center',alignItems:'center'}}>
+                    <div style={{height:'80%',width:'70%',borderRadius:8,
+                        backgroundColor:GRAY_4,
+                        borderWidth:5,borderColor:BLACK,
+                        display:'flex',flexDirection:'column',alignItems:'center',justifyContent: 'center'}}>
 
-                <div style={{marginTop: 20,marginBottom: 20,width:'60%',alignSelf:'baseline',borderRadius:10,backgroundColor: '#385035',
-                display:'flex',flexDirection:'column',alignItems:'center',justifyContent: 'center'}}>
-                    <text style={{fontSize:20,color:'#000000',marginTop: 20}}>
-                        Current Account
-                    </text>
-                    <text style={{fontSize:30,color:'#000000',fontWeight:'bold'}}>
-                        $2500
-                    </text>
+                        <text style={{fontSize:textSizes.HEADER,color:GRAY_2}}>
+                            Current Account
+                        </text>
+                        <text style={{fontSize:textSizes.HUGE,color:BLACK,fontWeight:'bold'}}>
+                            $2500
+                        </text>
 
-                
-                    <div style={{width:'70%',display:'flex',flexDirection:'row',justifyContent: 'space-between'}}>
-                        <LabeledInputComponent/>
-                        <div style={{width:60}}/>
-                        <LabeledSelectedInputComponent/>
-                    </div>
+                    
+                        <div style={{width:'70%',display:'flex',flexDirection:'row'}}>
+                            <div style={{flex:4}}>
+                                <LabeledInputComponent label='Amount'/>
+                            </div>
 
-                    <div style={{width:'90%',marginTop: 20,marginBottom: 20,display:'flex',flexDirection:'row',justifyContent: 'space-between'}}>
-                        <div style={{width:'20%',height:40,borderRadius:10,backgroundColor: '#302585',
-                            display:'flex',justifyContent: 'center',alignItems:'center'}}>
-                            <text style={{fontSize:18,color:'#395854'}}>
-                                Withdraw
-                            </text>
+                            <div style={{flex:1}}/>
+
+                            <div style={{flex:4}}>
+                                <LabeledSelectedInputComponent label='Card'/>
+                            </div>
+                          
                         </div>
 
-                        <div style={{width:'20%',height:40,borderRadius:10,backgroundColor: '#302585',
-                            display:'flex',justifyContent: 'center',alignItems:'center'}}>
-                            <text style={{fontSize:18,color:'#395854'}}>
-                                Recharge
-                            </text>
+                        <div style={{width:'90%',marginTop: 20,display:'flex',flexDirection:'row',justifyContent: 'space-between'}}>
+                            <div style={{width: '20%'}}>
+                                <ButtonComponent label='Withdraw' color={YELLOW}/>
+                            </div>
+
+                            <div style={{width: '20%'}}>
+                                <ButtonComponent label='Recharge' color={GREEN_1}/>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-            </div>
+            
         </div>
    
     )

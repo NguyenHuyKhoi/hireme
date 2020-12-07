@@ -1,8 +1,11 @@
 //import from library 
 import React, {Component} from 'react'
+import { WHITE } from '../../utils/palette'
+import HeaderListComponent from '../common/header_list.component'
 
-import LabeledInputComponent from '../common/labeled_input.component'
-import LabeledSelectedInputComponent from '../common/labeled_selected_input.component'
+import LabeledInputComponent from '../input/labeled_input.component'
+import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
+import TextareaInputComponent from '../input/textarea_input.component'
 
 
 export default class SettingProfileCompanyComponent extends Component {
@@ -10,49 +13,46 @@ export default class SettingProfileCompanyComponent extends Component {
 
     render(){
         return (
-            <div style={{marginTop:20,width:'100%',alignSelf:'baseline',backgroundColor: '#093255' }}> 
+            <div style={{
+                flex:1,display: 'flex',flexDirection:'column',backgroundColor:WHITE,
+                borderRadius:8,
+                boxShadow:'3px 5px 3px 3px #707070',}}>
+                <HeaderListComponent title='Profile' height={40}/>
+
                 <div style={{flex:1,
-                    paddingLeft:60,paddingRight:60,paddingTop:20,paddingBottom:20
-                    ,backgroundColor: '#937353',
+                    padding:50,
                     display:'flex',justifyContent:'center',flexDirection:'column'}}>
-                    <text style={{fontSize:25,color:'#000000'}}>
-                        Profile 
-                    </text>
 
-
-                    <div style={{marginTop:20,flex:1,flexDirection:'column',display:'flex',backgroundColor: '#239895'}}>
                         <div style={{display:'flex',flexDirection: 'row'}}>
                             {/* col1_1 */}
-                            <div style={{display:'flex',flexDirection: 'column',flex:1,
-                                backgroundColor: '#309835'}}>
+                            <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
 
                                 <div style={{width:'70%'}}>
                                     <LabeledInputComponent label='Company Name'/>
                                 </div>
 
-                                <div style={{width:'70%'}}>
+                                <div style={{width:'70%',marginTop:30}}>
                                     <LabeledInputComponent label='Location'/>
                                 </div>
-                                <div style={{width:'70%'}}>
+                                <div style={{width:'70%',marginTop:30}}>
                                     <LabeledInputComponent label='Tag line'/>
                                 </div>
                             </div>
 
                             {/* col1_2 */}
                             <div style={{display:'flex',flexDirection: 'column',flex:1,
-                                alignItems:'center',
-                                backgroundColor: '#274282'}}>
+                                alignItems:'center'}}>
 
                                 <div style={{width:'70%'}}>
                                     <LabeledSelectedInputComponent label='Employ size'/>
                                 </div>
 
-                                <div style={{width:'70%'}}>
+                                <div style={{width:'70%',marginTop:30}}>
                                     <LabeledSelectedInputComponent label='Business Area'/>
                                 </div>
 
-                                <div style={{width:'70%'}}>
-                                    <LabeledSelectedInputComponent label='website link'/>
+                                <div style={{width:'70%',marginTop:30}}>
+                                    <LabeledInputComponent label='website link'/>
                                 </div>
 
                         
@@ -61,19 +61,12 @@ export default class SettingProfileCompanyComponent extends Component {
 
                         </div>
                         
-                        <div style={{marginTop:20,display:'flex',width:'100%',height:240,alignSelf:'baseline',
-                        flexDirection: 'column'}}>
-                        <text style={{fontSize:20,color:'#000000'}}>
-                            Description
-                        </text> 
-                        <textarea  style={{marginTop:20,flex:1,padding:10,backgroundColor: '#923835'}}
-                        
-                            placeholder='Enter you description'/>
+                        <div style={{marginTop:40}}>
+                            <TextareaInputComponent label='About' placeholder='Describe  your company'/>
                         </div>
 
-                    </div>
-                  
                 </div>
+                  
                 
             </div>
                     

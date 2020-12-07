@@ -1,7 +1,8 @@
 //import from library 
 import React, {Component} from 'react'
 import SkillsListComponent from '../common/skills_list.component';
-import TaskAttachmentsComponent from './task_attachments.component';
+import AttachmentsComponent from './attachments.component';
+import TaskAttachmentsComponent from './attachments.component';
 import TaskDetailHeaderComponent from './task_detail_header.component';
 
 
@@ -40,7 +41,7 @@ Capitalize on low hanging fruit to identify a ballpark value added activity to b
                     </div>
 
                     {/* attachments */}
-                    <TaskAttachmentsComponent/>
+                    <AttachmentsComponent/>
 
                         {/* skills */}
                     <SkillsListComponent/>

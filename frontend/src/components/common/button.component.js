@@ -8,11 +8,14 @@ export default class ButtonComponent extends Component {
         const label=this.props.label
         const color=this.props.color;
         const text_color=this.props.text_color;
+        const height=this.props.height;
         return (
             <div 
                 onClick={this.props.onClick}
                 style={{...styles.container,
-                    backgroundColor: color!==undefined?color:BLUE_1}}>
+                    backgroundColor: color!==undefined?color:BLUE_1,
+                    height: height!==undefined?height:45
+                    }}>
                 <text style={{ fontSize: textSizes.NORMAL,color:text_color!==undefined?text_color:WHITE}}>
                    {label}
                 </text>
@@ -25,7 +28,6 @@ const styles= {
     container : {
         display: 'flex',
         flex:1,
-        height: 45,
         justifyContent: 'center',
         alignItems:'center',
         borderRadius: 5

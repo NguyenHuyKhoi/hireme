@@ -13,7 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const logo123='FaTwitter'
 export default class HeaderBarComponent extends Component {
     render(){
-        const is_login=false;
+        const is_login=true;
         const IconName=`Icons.FaHome`;
         return (
             <div style={{width:'100vw',height: 80,backgroundColor:WHITE,

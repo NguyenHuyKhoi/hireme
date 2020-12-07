@@ -2,8 +2,10 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
 import sample_db from '../../sample_db/sample_db.json'
-import { routePaths } from '../../utils/constants';
+import { routePaths, textSizes } from '../../utils/constants';
+import { BLUE_1, GRAY_2, GRAY_3, GRAY_4, WHITE } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
+import HeaderListComponent from '../common/header_list.component';
 
 
 const conversation=sample_db.conversation   ;
@@ -15,10 +17,10 @@ class MyMessage extends Component {
         return (
             <div style={{...styles.message,
                 flexDirection: 'row-reverse'}}>
-                <img src={sender.avatar} style={styles.avatar}/>
+                <img src={sender.avatar} style={{height:50,width:50, borderRadius: 25}}/>
                 <div style={{...styles.content_container,
-                    backgroundColor: '#3F50CD',marginRight:20}}>
-                    <text style={styles.normal_text}>
+                    backgroundColor: BLUE_1,marginRight:20}}>
+                    <text style={{ fontSize: textSizes.SMALL, color:WHITE }}>
                         {message.content}
                     </text>
                 </div>
@@ -37,15 +39,14 @@ class PartnerMessage extends Component {
 
                 <Link to={routePaths.FREELANCER_DETAIL}
                     style={{textDecoration:'none'}}>
-                    <img src={sender.avatar} style={styles.avatar}/>
+                    <img src={sender.avatar} style={{height:50,width:50, borderRadius: 25}}/>
                 </Link>
               
 
                 <div style={{...styles.content_container,
-                    backgroundColor: '#F0F0F0',marginLeft:20}}>
+                    backgroundColor: GRAY_4,marginLeft:20}}>
 
-                    <text style={{...styles.normal_text,
-                        color:'#707070'}}>
+                    <text style={{fontSize:textSizes.SMALL,color:GRAY_2}}>
                         {message.content}
                     </text>
 
@@ -60,16 +61,9 @@ export default class ConversationComponent extends Component {
         const users =conversation.users;
         const messages =conversation.messages
         return (
-            <div  style={styles.container}>    
-                <div style={styles.header}>
-                    <text style={styles.partner_name}>
-                        {users[1].name}
-                    </text>
-                    <text style={styles.btn_del_chat}>
-                        Delete conversation
-                    </text>
-                </div>
-                <div style={styles.body}>
+            <div  style={{flexDirection:'column', display:'flex',flex:1}}>    
+                <HeaderListComponent title={users[1].name}/>
+                <div style={{flex:1,display: 'flex',flexDirection: 'column',overflowY: 'scroll'}}>
                     {
                         messages.map(message=>(
                             message.sender.id===0?
@@ -79,9 +73,20 @@ export default class ConversationComponent extends Component {
                         ))
                     }
                 </div>
-                <div style={styles.footer}>
-                    <input style={styles.message_input} placeholder='Your message...' />
-                    <ButtonComponent label='Send' color='#3F50CD'/>
+
+                <div style={{width:'100%',height:60,display:'flex',flexDirection:'row',
+                    backgroundColor:GRAY_4,
+                    justifyContent:'space-around',alignItems:'center'}}>
+
+                    <input style={{ width:'60%', height:40,backgroundColor: WHITE,
+                        paddingLeft:10,fontSize: textSizes.NORMAL,
+                        borderColor:GRAY_3,borderWidth: 1}} 
+                        placeholder='Your message...' />
+
+                    <div style={{width: '20%'}}>
+                        <ButtonComponent label='Send' />
+                    </div>
+                  
 
                 </div>
             </div>
@@ -90,80 +95,25 @@ export default class ConversationComponent extends Component {
 }
 
 const styles={
-    container :{    
-        flexDirection:'column',
-        display:'flex',
-        flex:1
-    },
-    header:{
-        display: 'flex',
-        flex:1,
-        height: 25,
-        backgroundColor: '#3F50CD',
-        flexDirection: 'row',
-        padding:10,
-        justifyContent: 'space-between',
-        alignItems: 'center'
-    },
     partner_name:{
         fontSize: 25,
         color:'#ffffff'
-    },
-    normal_text:{
-        fontSize: 17,
-        color:'#ffffff'
-    },
-    avatar:{
-        height:50,
-        width:50,
-        borderRadius: 25
     },
     message:{
         display: 'flex',
         flex:1,
         paddingRight: 20,
         paddingLeft: 20,
-        paddingTop: 12,
+        paddingTop: 20,
         flexDirection: 'row',
-        alignItems: 'center',
     },
     content_container:{
-        borderRadius: 10,
-        padding:10,
+        borderRadius: 7,
+        padding:7,
         maxWidth: '70%',
     
-    },
-    btn_del_chat:{
-        fontSize: 15,
-        color:'#F0F0F0'
-    },
-    body:{
-        flex:15,
-        display: 'flex',
-        flexDirection: 'column',
-        overflowY: 'scroll'
-    },
-    footer:{
-        display: 'flex',
-        flex:1,
-        height: 40,
-        backgroundColor: '#F0F0F0',
-        flexDirection: 'row',
-        paddingTop:10,
-        paddingBottom: 10,
-        paddingLeft: 30,
-        paddingRight: 30,
-        justifyContent: 'space-between',
-        alignItems: 'center'
-    },
-    message_input:{
-        width:'60%',
-        height:40,
-        backgroundColor: '#ffffff',
-        paddingLeft:10,
-        fontSize: 20,
-        borderWidth: 0
     }
+
     
 }
 

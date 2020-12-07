@@ -6,6 +6,7 @@ import sample_db from '../../sample_db/sample_db.json'
 import HeaderListComponent from '../common/header_list.component'
 import PaginationComponent from '../common/pagination.component'
 import CreditCardItemComponent from './credit_card_item.component'
+import { WHITE } from '../../utils/palette'
 
 let cards=sample_db.credit_cards.slice(0,3)
 let new_card={
@@ -24,22 +25,26 @@ export default class CreditCardListComponent extends Component {
         const cards2=cards.slice(0,3);
         return (
             <div style={{
-                marginTop: 20,
-                display:'flex',flex:1,flexDirection: 'column',backgroundColor: '#903553'}}>
+                marginTop: 20,backgroundColor:WHITE,
+                boxShadow:'3px 5px 3px 3px #707070',
+                display:'flex',flex:1,flexDirection: 'column'}}>
                 {/* header list */}
-                <HeaderListComponent/>
+                <HeaderListComponent title='Credit Cards' height={40}/>
                 
                 {/* body list */}
 
-                <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
+                <div style={{display:'flex',flex:1,flexDirection:'row'}}>
+                    {/* <div style={{flex:1}}/> */}
+                    <div style={{flex:8,display:'flex',flexDirection: 'column'}}>
                     {
                         cards2.map((card,index)=>(
                             <CreditCardItemComponent card={card} index={index}/>
                         ))
                     }
+                    </div>
+                    {/* <div style={{flex:1}}/> */}
                 </div>
 
-                <PaginationComponent/>
 
             </div>
         )

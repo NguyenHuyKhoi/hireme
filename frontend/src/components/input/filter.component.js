@@ -1,9 +1,9 @@
 //import from library 
 import React, {Component} from 'react'
-import LabeledInputComponent from '../common/labeled_input.component'
-import LabeledSelectedInputComponent from '../common/labeled_selected_input.component'
-import RangeInputComponent from '../common/range_input.component'
-import SkillsPickerComponent from '../common/skills_picker.component'
+import LabeledInputComponent from '../input/labeled_input.component'
+import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
+import RangeInputComponent from '../input/range_input.component'
+import SkillsPickerComponent from '../input/skills_picker.component'
 
 export default class FilterComponent extends Component {
     render(){

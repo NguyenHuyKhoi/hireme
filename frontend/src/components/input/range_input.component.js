@@ -7,7 +7,7 @@ export default class RangeInputComponent extends Component {
     render(){
         return (
             <div style={{display:'flex',width: '100%',flexDirection: 'column'}}>
-                <text style={{fontSize:textSizes.BIG,color:BLACK}}>
+                <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>
                     {this.props.label===undefined?'No Label':this.props.label}
                 </text>
                 

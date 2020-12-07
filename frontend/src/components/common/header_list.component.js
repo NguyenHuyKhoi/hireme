@@ -5,8 +5,11 @@ import { BLACK, BLUE_1, GRAY_2, GRAY_3, WHITE } from '../../utils/palette'
 
 export default class HeaderListComponent extends Component {
     render(){
+        const height =this.props.height;
         return (
-            <div style={{width:'100%',height:60,display:'flex',flexDirection: 'row',
+            <div style={{width:'100%',
+                height:height!==undefined?height:60,
+                display:'flex',flexDirection: 'row',
                 backgroundColor: BLUE_1,
                 alignItems: 'center',justifyContent: 'space-between'}}>
 

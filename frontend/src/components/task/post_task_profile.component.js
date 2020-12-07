@@ -1,83 +1,88 @@
 //import from library 
 import React, {Component} from 'react'
+import { BLACK, GRAY_1, GRAY_2, GRAY_3, WHITE } from '../../utils/palette'
 
-import LabeledInputComponent from '../common/labeled_input.component'
-import LabeledSelectedInputComponent from '../common/labeled_selected_input.component'
-import RangeInputComponent from '../common/range_input.component'
-import SkillsPickerComponent from '../common/skills_picker.component'
+import LabeledInputComponent from '../input/labeled_input.component'
+import TextareaInputComponent from '../input/textarea_input.component'
+import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
+import RangeInputComponent from '../input/range_input.component'
+import SkillsPickerComponent from '../input/skills_picker.component'
 import UploadFilesComponent from '../common/upload_files.component'
 import ExperienceListComponent from '../freelancer/experience_list.component'
+import AttachmentsComponent from './attachments.component'
+import { textSizes } from '../../utils/constants'
+import HeaderListComponent from '../common/header_list.component'
 
 export default class PostTaskProfileComponent extends Component {
    
 
     render(){
         return (
-            <div style={{marginTop:20,width:'100%',alignSelf:'baseline',backgroundColor: '#093255' }}>
-                
+
+            <div style={{
+                flex:1,display: 'flex',flexDirection:'column',backgroundColor:WHITE,
+                borderRadius:8,
+                boxShadow:'3px 5px 3px 3px #707070',}}>
+                <HeaderListComponent title='Complete This Form' height={40}/>
+
                 <div style={{flex:1,
-                    paddingLeft:60,paddingRight:60,paddingTop:20,paddingBottom:20
-                    ,backgroundColor: '#937353',
+                    padding:50,
                     display:'flex',justifyContent:'center',flexDirection:'column'}}>
-
-                    {/* row1 */}
-                    <div style={{display:'flex',flexDirection: 'row'}}>
-
-                        {/* col1_1 */}
-                        <div style={{display:'flex',flexDirection: 'column',flex:1,
-                            backgroundColor: '#309835'}}>
-
-                            <div style={{width:'70%'}}>
-                                <LabeledInputComponent/>
-                            </div>
-
-                            <div style={{width:'80%'}}>
-                                <RangeInputComponent label='Budget'/>
-                            </div>
-
-                            <SkillsPickerComponent/>
-
-                        </div>
-
-                            {/* col1_2 */}
-                        <div style={{display:'flex',flexDirection: 'column',flex:1,
-                            alignItems:'center',
-                            backgroundColor: '#274282'}}>
-
-                            <div style={{width:'70%'}}>
-                                <LabeledSelectedInputComponent/>
-                            </div>
-
-                            <div style={{width:'70%'}}>
-                                <LabeledSelectedInputComponent/>
-                            </div>
-
-                            <div style={{width:'70%'}}>
-                                <UploadFilesComponent/>
-                            </div>
-                        </div>
-
-                    
-                    </div>
-
-                    {/* row2 */}
-
-                    <div style={{marginTop:20,display:'flex',width:'100%',height:240,alignSelf:'baseline',
-                        flexDirection: 'column'}}>
-                        <text style={{fontSize:20,color:'#000000'}}>
-                            Description
-                        </text> 
-                        <textarea  style={{marginTop:20,flex:1,padding:10,backgroundColor: '#923835'}}
-                            
-                            placeholder='Enter you description'/>
-                    </div>
                 
-            
+                        {/* row1 */}
+                        <div style={{display:'flex',flexDirection: 'row'}}>
+                            {/* col1_1 */}
+                            <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
+
+                                <div style={{width:'70%'}}>
+                                    <LabeledInputComponent label='Project Name'/>
+                                </div>
+
+                                <div style={{width:'80%',marginTop:30}}>
+                                    <RangeInputComponent label='Budget'/>
+                                </div>
+
+                                <div style={{width:'100%',marginTop:30}}>
+                                    <SkillsPickerComponent/>
+                                </div>
+
+
+                            </div>
+
+                                {/* col1_2 */}
+                            <div style={{display:'flex',flexDirection: 'column',flex:1,
+                                alignItems:'center'}}>
+
+                                <div style={{width:'70%'}}>
+                                    <LabeledSelectedInputComponent label='Category'/>
+                                </div>
+
+                                <div style={{width:'70%',marginTop:30}}>
+                                    <LabeledSelectedInputComponent label='Type'/>
+                                </div>
+
+                                <div style={{width:'70%',marginTop:30}}>
+                                    <AttachmentsComponent can_upload={true}/>
+                                </div>
+                            </div>
+
+                        
+                        </div>
+
+                        {/* row2 */}
+
+                       <div style={{marginTop:30}}>
+                           <TextareaInputComponent label='Description' placeholder='Describe Your Task'/>
+                       </div>
+                    
+                
+                        
+        
                     
                 </div>
-                
+              
             </div>
-                    
+                  
            
     )
     }

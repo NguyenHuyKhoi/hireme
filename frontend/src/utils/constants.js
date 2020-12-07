@@ -30,6 +30,7 @@ export const  textSizes={
     NORMAL : 20,
     SMALL  :16,
     BIG    :24,
-    HEADER :28
+    HEADER :28,
+    HUGE :32
 }
 export const SHOW_LAYOUT=false

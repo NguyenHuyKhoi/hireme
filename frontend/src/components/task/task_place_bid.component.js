@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import { textSizes } from '../../utils/constants'
 import { BLACK, GRAY_1, GRAY_2, GRAY_3, GRAY_4,GRAY_5, WHITE } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
-import NumberInputComponent from '../common/number_input.component'
+import NumberInputComponent from '../input/number_input.component'
 
 export default class TaskPlaceBidComponent extends Component {
     render(){

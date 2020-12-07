@@ -1,10 +1,11 @@
 //import from library 
 import React, {Component} from 'react'
 import ButtonComponent from '../common/button.component'
-import LabeledInputComponent from '../common/labeled_input.component'
+import LabeledInputComponent from '../input/labeled_input.component'
 import RateScoreComponent from '../common/rate_score.component'
 import UploadFilesComponent from '../common/upload_files.component'
-import TaskAttachmentsComponent from './task_attachments.component'
+import AttachmentsComponent from './attachments.component'
+import TaskAttachmentsComponent from './attachments.component'
 import TaskNotesComponent from './task_notes.component'
 // * bidding [
 //     {
@@ -48,7 +49,7 @@ export default class StageItemComponent extends Component {
                     backgroundColor: '#358359'}}>
                     <div style={{display:'flex',flex:1,flexDirection:'column',padding: 20,
                         backgroundColor: '#274845'}}>
-                            <TaskAttachmentsComponent/>   
+                            <AttachmentsComponent/>   
                             <LabeledInputComponent label='Link'/>
                             <TaskNotesComponent/>
 

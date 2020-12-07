@@ -28,11 +28,13 @@ export default class FreelancerDetailHeaderComponent extends Component {
                     <text style={{fontSize:textSizes.NORMAL,color:BLACK,marginBottom:5}}>
                         A software developments
                     </text>
-
-                    <SmallFieldComponent 
-                        background_color={YELLOW} 
-                        label_color={WHITE} 
-                        label={'4.2'}/>
+                    <div style={{}}>
+                        <SmallFieldComponent 
+                            background_color={YELLOW} 
+                            label_color={WHITE} 
+                            label={'4.2'}/>
+                    </div>
+                  
                 </div>
             </div>
 

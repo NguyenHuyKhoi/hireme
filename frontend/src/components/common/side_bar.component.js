@@ -1,8 +1,11 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
-import { routePaths } from '../../utils/constants'
-
+import { routePaths, textSizes } from '../../utils/constants'
+import { BLUE_1, GRAY_2, WHITE } from '../../utils/palette';
+import ButtonComponent from './button.component';
+import logo from '../../assets/images/logo.png'
+import CustomIconComponent from './custom_icon.component';
 const sidebarItems=[
     {
         label:'Dashboard',
@@ -21,8 +24,8 @@ const sidebarItems=[
         screen:routePaths.DASHBOARD_PAYMENT
     },
     {
-        label:'Setting',
-        screen:routePaths.DASHBOARD_SETTING_FREELANCER
+        label:'Settinggg',
+        screen:routePaths.DASHBOARD_SETTING_COMPANY
     },
     {
         label:'Logout',
@@ -31,53 +34,69 @@ const sidebarItems=[
 
 ]
 class Item extends Component{
+    constructor(props){
+        super(props);
+        this.state={
+            hover:false
+        }
+    }
+
     render(){
         const item=this.props.item;
         return (
-            <div style={{height:50,width:'100%',display:'flex',
-                flexDirection: 'row',alignItems: 'center',
-                justifyContent: 'center',backgroundColor: '#935735'}}>
-                <Link style={{fontSize:20,color:'#205823',textDecoration:'none'}}
-                    to={item.screen}>
+            <Link 
+                onMouseLeave={()=>this.setState({hover:false})}
+                onMouseEnter={()=>this.setState({hover:true})}
+                to={item.screen}
+                style={{display:'flex',width:'100%',
+                alignSelf:'center',textDecoration:'none',
+                flexDirection: 'row',alignItems: 'center'}}>
+                <CustomIconComponent name='home' color={this.state.hover?BLUE_1: GRAY_2}/>
+                <text style={{marginLeft:20,fontSize:textSizes.NORMAL,
+                    color:this.state.hover?BLUE_1: GRAY_2}}
+                   >
                     {item.label}
-                </Link>
-            </div>
+                </text>
+            </Link>
         )
     }
 }
 export default class SidebarComponent extends Component {
+
     render(){
         return (
-            <div style={{flex:1,display:'flex',flexDirection: 'column',
-            alignItems: 'center',backgroundColor: '#302585'}}>
+            <div style={{flex:1,height:'100vh',display:'flex',flexDirection: 'column',backgroundColor: WHITE,
+                boxShadow:'5px 0px 3px 3px #707070'
+            }}>
             
-            <div style={{width:'100%',display: 'flex',height:30,
-                flexDirection: 'row',justifyContent:'center'}}>
-                <Link to={routePaths.HOME} 
-                    style={{width:'60%',height:60,marginTop:15,textDecoration:'none',backgroundColor:'#929355'}}>
-                     
-                </Link>
-            </div>
-            <Link 
-                to={routePaths.DASHBOARD_TASK_POST}
-                style={{textDecoration:'none',marginTop:60,width:120,height:40,borderRadius:10,
-                display:'flex',justifyContent: 'center',alignItems: 'center',
-                
-                left:60,
-                backgroundColor: '#023583'}}>
-                     <text style={{fontSize:20,color:'#205823'}}>
-                        Post Task
-                    </text>
-            </Link>
-            <div style={{marginTop:30,display:'flex',width:'100%',flexDirection: 'column'}}>
+                <div style={{flex:1,display:'flex',justifyContent:'center',alignItems:'center'}}>
+                    <img src={logo} style={{width:'60%',height:'80%'}}/>
+                </div>
+                <div style={{flex:2,display:'flex',justifyContent:'center',alignItems:'center'}}>
+                    <Link 
+                        to={routePaths.DASHBOARD_TASK_POST}
+                        style={{width:'60%',textDecoration:'none'}}>
+                        <ButtonComponent label='Post A Task'/>
+                    </Link>
+                </div>
 
-                {
-                    sidebarItems.map((item,index)=>
-                        <Item item={item}/>
-                    )
-                }
+                <div style={{flex:4,display:'flex',flexDirection:'row'}}>
+                        <div style={{flex:1}}/>
+                        <div style={{flex:3,display:'flex',flexDirection:'column',
+                        justifyContent:'space-between'}}>
+                        {
+                            sidebarItems.map((item,index)=>
+                                <Item 
+                                    item={item} />
+                            )
+                        }
+                        </div>
+                        <div style={{flex:1}}/>
+                        
+            
                 
-            </div>
+                </div>
+                <div style={{flex:3}}/>     
         </div>
 
         )

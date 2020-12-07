@@ -6,7 +6,6 @@ import TaskTabsBaComponent from '../../components/common/task_tabs.component'
 import BiddingListComponent from '../../components/task/bidding_list.component';
 import PaymentTabComponent from '../../components/task/payment_tab.component';
 import StageListComponent from '../../components/task/stage_list.component';
-import TaskAttachmentsComponent from '../../components/task/task_attachments.component';
 import TaskDetailTabComponent from '../../components/task/task_detail.component';
 import TaskDetailTab from '../../components/task/task_detail.component';
 import TaskItemBriefComponent from '../../components/task/task_item_brief.component';

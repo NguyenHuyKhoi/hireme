@@ -1,57 +1,61 @@
 //import from library 
 import React, {Component} from 'react'
 import ChatComponent from '../../components/chat/chat.component'
-import LabeledInputComponent from '../../components/common/labeled_input.component'
-import LabeledSelectedInputComponent from '../../components/common/labeled_selected_input.component'
-import RangeInputComponent from '../../components/common/range_input.component'
+import LabeledInputComponent from '../../components/input/labeled_input.component'
+import LabeledSelectedInputComponent from '../../components/input/labeled_selected_input.component'
+import RangeInputComponent from '../../components/input/range_input.component'
 import SidebarComponent from '../../components/common/side_bar.component'
-import SkillsPickerComponent from '../../components/common/skills_picker.component'
+import SkillsPickerComponent from '../../components/input/skills_picker.component'
 import UploadFilesComponent from '../../components/common/upload_files.component'
 import SettingAccountComponent from '../../components/setting/setting_account.component'
 import SettingPasswordComponent from '../../components/setting/setting_password.component'
 import SettingProfileFreelancerComponent from '../../components/setting/setting_profile_freelancer.component'
-import { SIDEBAR_RATIO } from '../../utils/constants'
+import { routePaths, SIDEBAR_RATIO } from '../../utils/constants'
+import { GRAY_6 } from '../../utils/palette'
+import HeaderListComponent from '../../components/common/header_list.component'
+import ButtonComponent from '../../components/common/button.component'
+import { Link } from 'react-router-dom'
+
 export default class DashboardSettingFreelancerScreen extends Component {
     render(){
         return (
 
-            <div style={{width:'100vw',backgroundColor: '#392855',
-                display:'flex',flexDirection: 'row'}}>
+            <div style={{width:'100vw',backgroundColor:GRAY_6,
+            display:'flex',flexDirection: 'row'}}>
 
                 {/* sidebar */}
-                <SidebarComponent/>
+                <SidebarComponent />
                 {/* body */}
                 <div style={{display:'flex',flex:SIDEBAR_RATIO,
-                    paddingLeft:30,paddingRight:30,
-                    paddingTop:40,paddingBottom:40,
-                    marginBottom:100,
-                    backgroundColor: '#902823'}}>
+                    paddingLeft:60,paddingRight:60,
+                    paddingTop:110,paddingBottom:100}}>
 
-                    <div style={{display:'flex',flex:1,flexDirection: 'column',
-                        backgroundColor: '#392753'}}>
+                    <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
 
                         {/* header */}
-                        <div style={{width:'100%',height:40,backgroundColor: '#935335',
-                            display:'flex',flexDirection: 'row',alignItems: 'center'}}>
-                            <text style={{fontSize:20,color:'#000000',marginLeft:30}}>
-                                Setting
-                            </text>
-                        </div>
+                        <HeaderListComponent title='Setting'/>
 
                         {/* form  */}
-                        <SettingAccountComponent/>
 
-                        <SettingProfileFreelancerComponent/>
-                    
-                        <SettingPasswordComponent/>
-                        {/* submit button */}
-                        <div style={{marginTop:40,width:'20%',height:50,borderRadius:10,
-                            backgroundColor: '#028334',
-                            display:'flex',justifyContent: 'center',alignItems:'center'}}>
-                            <text style={{fontSize:18,color:'#032058'}}>
-                                Post Task
-                            </text>
+                        <div style={{marginTop:15}}>
+                            <SettingAccountComponent/>
                         </div>
+                      
+                        <div style={{marginTop:60}}>
+                            <SettingProfileFreelancerComponent/>
+                        </div>
+
+                        <div style={{marginTop:60}}>
+                            <SettingPasswordComponent/>
+                        </div>
+                        {/* submit button */}
+
+
+                        <Link 
+                             to={routePaths.DASHBOARD_HOME}
+                            style={{marginTop:50,width:'25%',textDecoration:'none'}}>
+                            <ButtonComponent label='Save Your Changes' height={60}/>
+                        </Link>
                     </div>
                 </div>
 

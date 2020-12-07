@@ -9,10 +9,6 @@ import SingleFieldComponent from '../components/common/single_field.component';
 import CompanyDetailHeaderComponent from '../components/company/company_detail_header.component';
 import BiddingListComponent from '../components/task/bidding_list.component';
 import ReviewListComponent from '../components/task/review_list.component';
-import TaskAttachmentsComponent from '../components/task/task_attachments.component';
-import TaskDetailHeaderComponent from '../components/task/task_detail_header.component';
-import TaskListComponent from '../components/task/task_list.component';
-import TaskPlaceBidComponent from '../components/task/task_place_bid.component';
 import { WHITE } from '../utils/palette';
 
 export default class CompanyDetailScreen extends Component {

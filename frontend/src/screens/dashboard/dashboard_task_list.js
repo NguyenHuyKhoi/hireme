@@ -3,20 +3,19 @@ import React, {Component} from 'react'
 import SidebarComponent from '../../components/common/side_bar.component'
 import TaskListBriefComponent from '../../components/task/task_list_brief.component'
 import { SIDEBAR_RATIO } from '../../utils/constants'
+import { GRAY_6 } from '../../utils/palette'
 
 export default class DashBoardTaskListScreen extends Component {
     render(){
         return (
 
-            <div style={{width:'100vw',height:'100vh',backgroundColor: '#392855',
+            <div style={{width:'100vw',height:'100vh',backgroundColor: GRAY_6,
                 display:'flex',flexDirection: 'row'}}>
 
                 {/* sidebar */}
                 <SidebarComponent/>
                 {/* body */}
-                <div style={{display:'flex',flex:SIDEBAR_RATIO,flexDirection: 'column',
-                    backgroundColor: '#902823',
-                    padding:60}}>
+                <div style={{display:'flex',flex:SIDEBAR_RATIO,padding:60}}>
 
                     <TaskListBriefComponent/>
                 </div>
