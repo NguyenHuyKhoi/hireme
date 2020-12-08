@@ -18,6 +18,7 @@ const biddings=sample_db.biddings   ;
 export default class BiddingListComponent extends Component {
     render(){
         const list = biddings.slice(0,4)
+        const company_view=this.props.company_view;
         return (
             <div style={{flex:1,
             display:'flex',flexDirection: 'column'}}>
@@ -27,7 +28,7 @@ export default class BiddingListComponent extends Component {
                 <div style={{flex:1,display:'flex',flexDirection: 'column'}}>
                     {
                     list.map((item,index)=>
-                    <BiddingItemComponent bidding={item} index={index} key ={index}/>
+                        <BiddingItemComponent bidding={item} index={index} key ={index}/>
                     )
                     }
                 </div>

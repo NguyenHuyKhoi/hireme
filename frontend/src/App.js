@@ -1,7 +1,6 @@
 import React ,{Component,Fragment} from 'react'
 import { BrowserRouter,Route, Link, NavLink, Switch } from "react-router-dom";
 import './App.css';
-
 import {routePaths} from './utils/constants'
 import HomeScreen from './screens/home.screen';
 import FreelancerSearchScreen from './screens/freelancer_search.screen';
@@ -18,8 +17,10 @@ import DashboardSettingFreelancerScreen from './screens/dashboard/dashboard_sett
 import DashboardSettingCompanyScreen from './screens/dashboard/dashboard_setting_company.screen';
 import DashBoardTaskManagementScreen from './screens/dashboard/dashboard_task_management';
 import DashBoardTaskPostScreen from './screens/dashboard/dashboard_task_post.screen';
+import TestLibsScreen from './test_libs/test_libs.screen';
 
 
+library.add(fab);
 
 export default class  App extends Component {
 	render (){
@@ -37,7 +38,7 @@ export default class  App extends Component {
 					</nav> */}
 					<Switch>
 						{/* //outside screens */}
-				
+
 						<Route path={routePaths.FREELANCER_SEARCH} component={FreelancerSearchScreen}/>
 						<Route path={routePaths.FREELANCER_DETAIL} component={FreelancerDetailScreen}/>
 						<Route path={routePaths.TASK_SEARCH} component={TaskSearchScreen}/>
@@ -55,8 +56,12 @@ export default class  App extends Component {
 						<Route path={routePaths.DASHBOARD_SETTING_FREELANCER} component={DashboardSettingFreelancerScreen}/>
 						<Route path={routePaths.DASHBOARD_SETTING_COMPANY} component={DashboardSettingCompanyScreen}/>
 
+						<Route path={routePaths.TEST_LIBS} component={TestLibsScreen}/>
 
 						<Route path={routePaths.HOME} component={HomeScreen}/>
+
+						
+
 					</Switch>
 			</BrowserRouter>
 			

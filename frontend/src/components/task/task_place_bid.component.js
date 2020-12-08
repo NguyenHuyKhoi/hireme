@@ -43,7 +43,7 @@ export default class TaskPlaceBidComponent extends Component {
                     display:'flex',justifyContent: 'center',alignItems: 'center',
                         backgroundColor: GRAY_2}}>
                     <text style={{fontSize:textSizes.SMALL,color:WHITE}}>
-                            Don't have an account ? Sign-up
+                        More feasible cost, more chances.
                     </text>
                 </div>
             </div>

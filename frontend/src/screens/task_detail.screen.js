@@ -59,7 +59,7 @@ export default class TaskDetailScreen extends Component {
                             {/* biddings */}
                             
                             <div style={{marginTop:50}}>
-                                <BiddingListComponent/>
+                                <BiddingListComponent company_view={false}/>
                             </div>
                         </div>
 

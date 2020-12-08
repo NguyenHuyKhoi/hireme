@@ -40,7 +40,7 @@ export default class BiddingItemComponent extends Component {
     render(){
         const bidding = this.props.bidding
         const freelancer= bidding.freelancer
-        const company_view=true;
+        const company_view=this.props.company_view;
         return (
             <div style={{width:'100%',display:'flex',flexDirection:'column',
                 backgroundColor:this.props.index%2==0?WHITE:BLUE_2}}>
@@ -92,7 +92,7 @@ export default class BiddingItemComponent extends Component {
                 </div>
 
                 {
-                company_view ?
+                company_view!==undefined && company===true ?
                 <div style={{width:'100%',alignSelf:'baseline', paddingBottom:30,display: 'flex',
                     justifyContent:'space-between',alignItems: 'center',
                 }}> 

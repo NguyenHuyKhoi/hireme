@@ -1,6 +1,8 @@
-import {FaHome} from "react-icons/fa"
+import {FaHome,FaAdd} from "react-icons/fa"
 export const bullshitIcons={
-    home :<FaHome/>
+    home :<FaHome/>,
+    add:<MdAddBox/>
+    
 }
 
 export const routePaths={
@@ -20,6 +22,8 @@ export const routePaths={
     DASHBOARD_PAYMENT:'/dashboard/payment',
     DASHBOARD_SETTING_FREELANCER:'/dashboard/setting/freelancer',
     DASHBOARD_SETTING_COMPANY:'/dashboard/setting/company',
+
+    TEST_LIBS:'/test/libs'
 }
 
 

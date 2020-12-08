@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import { textSizes } from '../../utils/constants'
-import { BLACK, BLUE_1, GRAY_2, GRAY_3, GRAY_5, WHITE } from '../../utils/palette'
+import { BLACK, BLUE_1, GRAY_2, GRAY_3, GRAY_5, RED_1, WHITE } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
 
 class NormalFile extends Component{
@@ -15,9 +15,16 @@ class NormalFile extends Component{
                 CV file
             </text>
 
-            <text style={{marginLeft:15,fontSize:textSizes.SMALL,color:GRAY_2}}>
-                pdf
-            </text>
+            <div style={{display:'flex',flexDirection:'row',justifyContent:'space-between',
+                width: '80%',marginLeft:15}}>
+                <text style={{fontSize:textSizes.SMALL,color:GRAY_2}}>
+                    pdf
+                </text>
+                <text style={{fontSize:textSizes.SMALL,color:RED_1}}>
+                    Delete
+                </text>
+            </div>
+           
             </div>
                         
         )
@@ -44,7 +51,7 @@ class NewFile extends Component{
 }
 export default class AttachmentsComponent extends Component {
     render(){
-        const can_upload=this.props.can_upload
+        const is_edit=this.props.is_edit
         return (
             <div style={{width:'100%',alignSelf: 'baseline',
                 display:'flex',flexDirection: 'column'}}>
@@ -53,9 +60,9 @@ export default class AttachmentsComponent extends Component {
                 </text>
 
                 <div style={{width:'100%',display:'flex',flexDirection: 'row',alignSelf: 'baseline',
-                    flexWrap:'wrap',alignItems: 'flex-start',justifyContent:'space-between'}}>
+                    flexWrap:'wrap',alignItems: 'flex-start',justifyContent:'space-between '}}>
                     {
-                        can_upload!==undefined?
+                        is_edit!==undefined?
                         <NewFile/>
                         :
                         null

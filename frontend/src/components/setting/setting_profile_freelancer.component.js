@@ -55,7 +55,7 @@ export default class   SettingProfileFreelancerComponent extends Component {
                                 </div>    
 
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <AttachmentsComponent can_upload={true}/>
+                                    <AttachmentsComponent is_edit={true}/>
                                 </div>                          
                             </div>
 
