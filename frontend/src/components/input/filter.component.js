@@ -3,30 +3,40 @@ import React, {Component} from 'react'
 import LabeledInputComponent from '../input/labeled_input.component'
 import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
 import RangeInputComponent from '../input/range_input.component'
-import SkillsPickerComponent from '../input/skills_picker.component'
+import ListPickerComponent from './list_picker.component'
+
+import { inputField } from '../../redux/constant/input.constant'
+
 
 export default class FilterComponent extends Component {
+
+
     render(){
         return (
             <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
 
-                <LabeledSelectedInputComponent label='Category'/>
+                <LabeledSelectedInputComponent 
+                    input_field={inputField.CATEGORY}/>
 
                 
                 <div style={{marginTop:20}}>
-                    <LabeledInputComponent label='Keyword'/>
+                    <LabeledInputComponent 
+                        input_field={inputField.KEYWORD}/>
                 </div>
 
                 <div style={{marginTop:20}}>
-                    <RangeInputComponent label='Hourly Rate'/>
+                    <RangeInputComponent 
+                        input_field={inputField.HOURLY_RATE}/>
                 </div>
 
                 <div style={{marginTop:20}}>
-                    <RangeInputComponent label='Fixed Price'/>
+                    <RangeInputComponent
+                        input_field={inputField.FIXED_PRICE} />
                 </div>
 
                 <div style={{marginTop:20}}>
-                    <SkillsPickerComponent/>
+                    <ListPickerComponent 
+                        input_field={inputField.SKILLS}/>
                 </div>
 
             </div>

@@ -20,7 +20,9 @@ export default class TaskListBriefComponent extends Component {
                 <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
                 {
                     [1,2,3,4,5].map((item,index)=>
-                        <TaskItemBriefComponent  index={index}/>
+                        <TaskItemBriefComponent  
+                            key={''+index}
+                            index={index}/>
                     )
                 }
                 </div>

@@ -1,5 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
+import { inputField } from '../../redux/constant/input.constant';
 import { WHITE } from '../../utils/palette';
 import DescriptionComponent from '../common/description.component';
 import SkillsListComponent from '../common/skills_list.component';
@@ -31,7 +32,7 @@ export default class TaskDetailTabComponent extends Component {
                         </div>
 
                         <div style={{marginTop:30}}>
-                            <AttachmentsComponent/>
+                            <AttachmentsComponent input_field={inputField.FILES}/>
                         </div>
 
                         <div style={{marginTop:30}}>

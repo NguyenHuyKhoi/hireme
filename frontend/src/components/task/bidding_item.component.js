@@ -92,7 +92,7 @@ export default class BiddingItemComponent extends Component {
                 </div>
 
                 {
-                company_view!==undefined && company===true ?
+                company_view!==undefined && company_view===true ?
                 <div style={{width:'100%',alignSelf:'baseline', paddingBottom:30,display: 'flex',
                     justifyContent:'space-between',alignItems: 'center',
                 }}> 

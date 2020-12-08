@@ -44,7 +44,8 @@ export default class TaskTabsBarComponent extends Component {
             <div style={{width:'100%',height:30,display:'flex',flexDirection: 'row'}}>
                 {
                     taskTabItems.map((item,index)=>
-                        <TabBar 
+                        <TabBar
+                            key={''+index} 
                             item={item}
                             is_focused={index===focus_tab_index}
                             onClick={()=>this.props.onClickTab(index)}/>

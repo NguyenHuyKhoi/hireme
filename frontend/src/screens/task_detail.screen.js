@@ -12,6 +12,7 @@ import TaskListComponent from '../components/task/task_list.component';
 import TaskPlaceBidComponent from '../components/task/task_place_bid.component';
 import { BLUE_1, BLUE_2, GREEN_1, GREEN_2, WHITE } from '../utils/palette';
 import AttachmentsComponent from '../components/task/attachments.component';
+import { inputField } from '../redux/constant/input.constant';
 export default class TaskDetailScreen extends Component {
     render(){
         return (
@@ -53,7 +54,7 @@ export default class TaskDetailScreen extends Component {
                             {/* attachments */}
 
                             <div style={{marginTop:50}}>
-                                <AttachmentsComponent/>
+                                <AttachmentsComponent input_field={inputField.FILES}/>
                             </div>
                             
                             {/* biddings */}

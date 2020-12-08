@@ -9,6 +9,7 @@ import ButtonInputComponent from '../input/button_input.component'
 import StageItemComponent from './stage_item.component'
 import TaskItemComponent from './task_item.component'
 import TaskItemBriefComponent from './task_item_brief.component'
+import './style.css'
 
 export default class StageListComponent extends Component {
     render(){
@@ -21,10 +22,12 @@ export default class StageListComponent extends Component {
                 {/* body list */}
                     <div style={{flex:1,overflowX:'scroll'}}>
                         <div style={{flex:1,display:'flex',flexDirection:'row',
-                        paddingLeft:30,paddingRight:30}}>
+                        paddingLeft:30,paddingRight:30}} >
                         {
-                            [1].map((item)=>
-                                <StageItemComponent stage={{status:'this object tests 2 mode of stage item: create_state and display_existed_stage'}}/>
+                            [1,2,3,4].map((item,index)=>
+                                <StageItemComponent 
+                                    key={''+index}
+                                    stage={{status:'this object tests 2 mode of stage item: create_state and display_existed_stage'}}/>
                             )
                         
                         }

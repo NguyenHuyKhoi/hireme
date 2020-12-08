@@ -37,8 +37,8 @@ export default class CreditCardListComponent extends Component {
                     {/* <div style={{flex:1}}/> */}
                     <div style={{flex:8,display:'flex',flexDirection: 'column'}}>
                     {
-                        cards2.map((card,index)=>(
-                            <CreditCardItemComponent card={card} index={index}/>
+                        cards2.map((item,index)=>(
+                            <CreditCardItemComponent card={item} index={index} key={''+index}/>
                         ))
                     }
                     </div>

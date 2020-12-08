@@ -1,7 +1,14 @@
-import {FaHome,FaAdd} from "react-icons/fa"
+import {FaHome,FaAdd,FaAdobe, FaMobile,FaWikipediaW,FaAccessibleIcon,FaBitcoin, FaHubspot, FaPaypal, FaBroom} from "react-icons/fa"
 export const bullshitIcons={
     home :<FaHome/>,
-    add:<MdAddBox/>
+    cat_design:<FaAdobe/>,
+    cat_mobile:<FaMobile/>,
+    cat_web:<FaWikipediaW/>,
+    cat_account:<FaBitcoin/>,
+    cat_customer:<FaAccessibleIcon/>,
+    cat_engineer:<FaHubspot/>,
+    cat_sale:<FaPaypal/>,
+    cat_writing:<FaBroom/>
     
 }
 

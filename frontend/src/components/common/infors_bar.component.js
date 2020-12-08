@@ -10,8 +10,10 @@ export default class InforsBarComponent extends Component {
             <div style={{width:'100%',display:'flex',flexDirection: 'row',
                 justifyContent: 'space-between',alignItems: 'center'}}>
                 {
-                   [1,2,3].map((item)=>
-                   <div style={{display:'flex',flexDirection: 'column',alignItems: 'center'}}>
+                   [1,2,3].map((item,index)=>
+                   <div 
+                        key={''+index}
+                        style={{display:'flex',flexDirection: 'column',alignItems: 'center'}}>
                        <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>
                            $35
                        </text>

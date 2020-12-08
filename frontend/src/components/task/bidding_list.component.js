@@ -28,7 +28,7 @@ export default class BiddingListComponent extends Component {
                 <div style={{flex:1,display:'flex',flexDirection: 'column'}}>
                     {
                     list.map((item,index)=>
-                        <BiddingItemComponent bidding={item} index={index} key ={index}/>
+                        <BiddingItemComponent bidding={item} index={index} key ={''+index}/>
                     )
                     }
                 </div>

@@ -87,6 +87,7 @@ export default class ChatListComponent extends Component {
                     {
                         chats.map((chat,index)=>(
                             <ChatItem 
+                                key={''+index}
                                 chat={chat} 
                                 index={index} 
                                 is_current_chat={index===this.state.current_chat_index}

@@ -20,7 +20,9 @@ export default class UploadFilesComponent extends Component {
                 <div style={{marginTop:20,width:'100%',display:'flex',flexDirection:'row',flexWrap:'wrap'}}>
                     {
                     [1,2,3,4].map((item,index)=>
-                        <text style={{marginRight:40,fontSize:20,color:'#359550'}}>
+                        <text 
+                            key={''+index}
+                            style={{marginRight:40,fontSize:20,color:'#359550'}}>
                             File1.pdf
                         </text>
                     )  

@@ -4,13 +4,13 @@ import React, {Component} from 'react'
 import LabeledInputComponent from '../input/labeled_input.component'
 import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
 import RangeInputComponent from '../input/range_input.component'
-import SkillsPickerComponent from '../input/skills_picker.component'
-import UploadFilesComponent from '../common/upload_files.component'
+import ListPickerComponent from '../input/list_picker.component'
 import ExperienceListComponent from '../freelancer/experience_list.component'
 import HeaderListComponent from '../common/header_list.component'
 import { WHITE } from '../../utils/palette'
-import AttachmentsComponent from '../task/attachments.component'
+import AttachmentsComponent from '../input/attachments.component'
 import TextareaInputComponent from '../input/textarea_input.component'
+import { inputField } from '../../redux/constant/input.constant'
 
 export default class   SettingProfileFreelancerComponent extends Component {
    
@@ -32,15 +32,15 @@ export default class   SettingProfileFreelancerComponent extends Component {
                             <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
 
                                 <div style={{width:'70%'}}>
-                                    <LabeledInputComponent label='Tagline'/>
+                                    <LabeledInputComponent input_field={inputField.TAGLINE}/>
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <RangeInputComponent label='Hourly Rate'/>
+                                    <RangeInputComponent input_field={inputField.HOURLY_RATE}/>
                                 </div>
 
                                 <div style={{width: '100%',marginTop:30}}>
-                                    <SkillsPickerComponent/>
+                                    <ListPickerComponent input_field={inputField.SKILLS} />
                                 </div>
                               
 
@@ -51,11 +51,12 @@ export default class   SettingProfileFreelancerComponent extends Component {
                                 alignItems:'center'}}>
 
                                 <div style={{width:'70%'}}>
-                                    <LabeledSelectedInputComponent label='Category'/>
+                                    <LabeledSelectedInputComponent 
+                                        input_field={inputField.CATEGORY}/>
                                 </div>    
 
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <AttachmentsComponent is_edit={true}/>
+                                    <AttachmentsComponent is_edit={true} input_field={inputField.FILES}/>
                                 </div>                          
                             </div>
 

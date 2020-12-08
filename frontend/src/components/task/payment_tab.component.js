@@ -1,5 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
+import { inputField } from '../../redux/constant/input.constant';
 import sample_db from '../../sample_db/sample_db.json'
 import { textSizes } from '../../utils/constants';
 import { BLUE_1, GRAY_2, GREEN_1, RED_1, WHITE, YELLOW } from '../../utils/palette';
@@ -131,9 +132,11 @@ export default class PaymentTabComponent extends Component {
                             display:'flex',flexDirection: 'column',
                             alignItems: 'center',justifyContent: 'space-between'}}>
                         {
-                            action_buttons[company_view===true?0:1].map(btn=>
+                            action_buttons[company_view===true?0:1].map((item,index)=>
                                 
-                                <ActionButtons data={btn} onClick={()=>this.onClickBtn(btn.code)}/>
+                                <ActionButtons 
+                                    key={''+index}
+                                    data={btn} onClick={()=>this.onClickBtn(btn.code)}/>
                             )
                         }
                     </div>
@@ -141,7 +144,9 @@ export default class PaymentTabComponent extends Component {
                 </div>  
 
                 <div style={{marginTop:30}}>
-                    <ButtonInputComponent  btn_label='Send' placeholder='Leave a review when job is done !'/>
+                    <ButtonInputComponent  btn_label='Send'
+                        input_field={inputField.REVIEW} 
+                        placeholder='Leave a review when job is done !'/>
                 </div>
             
      

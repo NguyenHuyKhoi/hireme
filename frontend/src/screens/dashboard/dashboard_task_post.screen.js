@@ -1,16 +1,10 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import ChatComponent from '../../components/chat/chat.component'
-import LabeledInputComponent from '../../components/input/labeled_input.component'
-import LabeledSelectedInputComponent from '../../components/input/labeled_selected_input.component'
-import RangeInputComponent from '../../components/input/range_input.component'
 import SidebarComponent from '../../components/common/side_bar.component'
-import SkillsPickerComponent from '../../components/input/skills_picker.component'
-import UploadFilesComponent from '../../components/common/upload_files.component'
 import PostTaskProfileComponent from '../../components/task/post_task_profile.component'
 import { routePaths, SIDEBAR_RATIO, textSizes,PADDING_BODY_DASHBOARD } from '../../utils/constants'
-import { BLUE_1, WHITE,GRAY_6 } from '../../utils/palette'
+import {GRAY_6 } from '../../utils/palette'
 import ButtonComponent from '../../components/common/button.component'
 import HeaderListComponent from '../../components/common/header_list.component'
 

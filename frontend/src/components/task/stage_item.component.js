@@ -10,6 +10,7 @@ import TaskNotesComponent from './task_notes.component'
 import { BLACK, BLUE_1, GREEN_1, WHITE } from '../../utils/palette'
 import { textSizes } from '../../utils/constants'
 import SmallFieldComponent from '../common/small_field.component'
+import { inputField } from '../../redux/constant/input.constant'
 // * bidding [
 //     {
 //       * id
@@ -97,15 +98,15 @@ export default class StageItemComponent extends Component {
                     <div style={{display:'flex',flex:1,flexDirection:'column',padding: 20}}>
                             
                             
-                            <AttachmentsComponent is_edit={true}/>
+                            <AttachmentsComponent is_edit={true} input_field={inputField.FILES}/>
 
                             <div style={{width:'80%',marginTop:15}}>
-                                <LabeledInputComponent label='Link'/>
+                                <LabeledInputComponent input_field={inputField.LINK}/>
                             </div>  
 
                             <div style={{width:'100%',marginTop:15,
                                 paddingBottom:stage!==undefined?40:0}}>
-                                <TaskNotesComponent/>
+                                <TaskNotesComponent input_field={inputField.NOTE}/>
                             </div>   
                            
                        

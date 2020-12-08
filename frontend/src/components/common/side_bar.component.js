@@ -85,6 +85,7 @@ export default class SidebarComponent extends Component {
                         {
                             sidebarItems.map((item,index)=>
                                 <Item 
+                                    key={''+index}
                                     item={item} />
                             )
                         }

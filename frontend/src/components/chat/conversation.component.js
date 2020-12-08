@@ -66,16 +66,16 @@ export default class ConversationComponent extends Component {
                 <HeaderListComponent title={users[1].name}/>
                 <div style={{flex:1,display: 'flex',flexDirection: 'column',overflowY: 'scroll'}}>
                     {
-                        messages.map(message=>(
+                        messages.map((item,index)=>(
                             message.sender.id===0?
-                            <MyMessage message={message}/>
+                            <MyMessage key={''+index} message={item}/>
                             :
-                            <PartnerMessage message={message}/>
+                            <PartnerMessage key={''+index} message={item}/>
                         ))
                     }
                 </div>
 
-               <ButtonInputComponent  btn_label='Send' placeholder='Type your message ...'/>
+               <ButtonInputComponent btn_label='Send' input_field={inputField.MESSAGE} placeholder='Type your message ...'/>
             </div>
         )
     }

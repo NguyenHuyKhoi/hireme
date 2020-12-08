@@ -68,8 +68,8 @@ export default class AttachmentsComponent extends Component {
                         null
                     }
                     {
-                        [1,2,3,4,5].map((item)=>
-                            <NormalFile/>
+                        [1,2,3,4,5].map((item,index)=>
+                            <NormalFile key={''+index}/>
                         )
                     }
                 </div>

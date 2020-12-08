@@ -42,6 +42,7 @@ export default class AuthTabsComponent extends Component {
                 {
                     tabs.map((item,index)=>
                         <TabBar 
+                            key={''+index}
                             onClick={()=>this.props.onClickTab(index)}
                             tab={item}
                             is_focused={idx===index}/>

@@ -5,7 +5,7 @@ import LabeledInputComponent from '../../components/input/labeled_input.componen
 import LabeledSelectedInputComponent from '../../components/input/labeled_selected_input.component'
 import RangeInputComponent from '../../components/input/range_input.component'
 import SidebarComponent from '../../components/common/side_bar.component'
-import SkillsPickerComponent from '../../components/input/skills_picker.component'
+import ListPickerComponent from '../../components/input/list_picker.component'
 import UploadFilesComponent from '../../components/common/upload_files.component'
 import SettingAccountComponent from '../../components/setting/setting_account.component'
 import SettingPasswordComponent from '../../components/setting/setting_password.component'

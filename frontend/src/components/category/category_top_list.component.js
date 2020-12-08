@@ -23,7 +23,7 @@ export default class CategoryTopListComponent extends Component {
                 alignItems: 'flex-start'}}>
                 {
                     categories.map((item,index)=>
-                        <CategoryItemComponent category={item} index={index}/>
+                        <CategoryItemComponent key={''+index} category={item} index={index}/>
                     )
                 }
             </div>  

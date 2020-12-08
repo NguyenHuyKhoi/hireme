@@ -82,7 +82,7 @@ export default class TaskNotesComponent extends Component {
                     <NoteItem/>
                     {
                         notes.map((item,index)=>
-                            <NoteItem note={item}/>
+                            <NoteItem note={item} key={''+index}/>
                         )
                     }
                 </div>

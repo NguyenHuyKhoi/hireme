@@ -3,7 +3,6 @@ import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import { routePaths, textSizes } from '../../utils/constants'
 import { BLUE_1, GRAY_1, GRAY_2, WHITE } from '../../utils/palette'
-import ButtonInputComponent from '../input/button_input.component'
 import ButtonComponent from './button.component'
 
 export default class FooterBarComponent extends Component {

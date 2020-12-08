@@ -21,8 +21,10 @@ export default class SkillsListComponent extends Component {
                 <div style={{marginTop:8,width:'100%',alignSelf: 'baseline',display:'flex',
                 flexDirection: 'row',flexWrap:'wrap',alignItems: 'flex-start'}}>
                 {
-                    skills.map((item)=>
-                        <div style={{display:'flex',marginRight:10,marginTop:7,
+                    skills.map((item,index)=>
+                        <div 
+                            key={''+index}
+                            style={{display:'flex',marginRight:10,marginTop:7,
                             justifyContent: 'center',alignItems: 'center',
                             borderRadius:5,backgroundColor: BLUE_2,padding: 7}}>
                             <text style={{fontSize:textSizes,color:BLUE_1}}>

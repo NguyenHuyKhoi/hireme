@@ -1,5 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
+import { inputField } from '../../redux/constant/input.constant'
 import { WHITE } from '../../utils/palette'
 import HeaderListComponent from '../common/header_list.component'
 
@@ -28,14 +29,15 @@ export default class SettingProfileCompanyComponent extends Component {
                             <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
 
                                 <div style={{width:'70%'}}>
-                                    <LabeledInputComponent label='Company Name'/>
+                                    <LabeledInputComponent 
+                                        input_field={inputField.COMPANY_NAME}/>
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <LabeledInputComponent label='Location'/>
+                                    <LabeledInputComponent input_field={inputField.LOCATION}/>
                                 </div>
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <LabeledInputComponent label='Tag line'/>
+                                    <LabeledInputComponent input_field={inputField.TAGLINE}/>
                                 </div>
                             </div>
 
@@ -44,15 +46,15 @@ export default class SettingProfileCompanyComponent extends Component {
                                 alignItems:'center'}}>
 
                                 <div style={{width:'70%'}}>
-                                    <LabeledSelectedInputComponent label='Employ size'/>
+                                    <LabeledSelectedInputComponent input_field={inputField.COMPANY_SIZE}/>
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <LabeledSelectedInputComponent label='Business Area'/>
+                                    <LabeledSelectedInputComponent input_field={inputField.BUSINESS_AREA}/>
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <LabeledInputComponent label='website link'/>
+                                    <LabeledInputComponent input_field={inputField.LINK}/>
                                 </div>
 
                         
@@ -62,7 +64,9 @@ export default class SettingProfileCompanyComponent extends Component {
                         </div>
                         
                         <div style={{marginTop:40}}>
-                            <TextareaInputComponent label='About' placeholder='Describe  your company'/>
+                            <TextareaInputComponent 
+                                input_field={inputField.DESCRIPTION} 
+                                placeholder='Describe  your company'/>
                         </div>
 
                 </div>

@@ -19,7 +19,9 @@ export default class ReviewListComponent extends Component {
                 <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
                 {
                     [1,2,3,4].map((item,index)=>
-                        <ReviewItemComponent review={{is_company:index%2==0}} index={index}/>
+                        <ReviewItemComponent 
+                            key={''+index}
+                            review={{is_company:index%2==0}} index={index}/>
                     )
                 }
                 </div>

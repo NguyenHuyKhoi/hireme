@@ -6,6 +6,7 @@ import { BLACK, BLUE_1, GRAY_2, WHITE } from '../../utils/palette'
 import ButtonComponent from './button.component'
 import ButtonInputComponent from '../input/button_input.component'
 import { textSizes } from '../../utils/constants'
+import { inputField } from '../../redux/constant/input.constant'
 export default class HomeBannerComponent extends Component {
     render(){
         return (
@@ -39,7 +40,10 @@ export default class HomeBannerComponent extends Component {
 
 
                         <div style={{width:'80%',marginTop:20}}>
-                            <ButtonInputComponent btn_label='Search' placeholder='E.g : Task title'/>
+                            <ButtonInputComponent 
+                                btn_label='Search' 
+                                placeholder='E.g : Task title'
+                                input_field={inputField.KEYWORD}/>
                         </div>
                     
                     </div>

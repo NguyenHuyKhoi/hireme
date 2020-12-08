@@ -3,10 +3,14 @@ import React, {Component} from 'react'
 import { textSizes } from '../../utils/constants'
 import { BLACK, BLUE_1, GRAY_2, GRAY_5, RED_1, WHITE } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
+import {connect }from 'react-redux'
+import * as actions from '../../redux/action/input.action'
 
 class NormalFile extends Component{
     render(){
         const is_edit=this.props.is_edit
+
+        
         return(
             <div style={{marginRight:10,marginTop: 7,width:'9vw',height:70,borderRadius:8,
                 backgroundColor: GRAY_5,
@@ -56,14 +60,18 @@ class NewFile extends Component{
         )
     }
 }
-export default class AttachmentsComponent extends Component {
+class AttachmentsComponent extends Component {
     render(){
         const is_edit=this.props.is_edit
+
+        const input_field=this.props.input_field;
+        console.log('input_field of AttachmentsComponent:',input_field)
+        console.log('input_store:',this.props.input_store)
         return (
             <div style={{width:'100%',alignSelf: 'baseline',
                 display:'flex',flexDirection: 'column'}}>
                 <text style={{fontSize:textSizes.BIG,color:BLACK}}>
-                    Attachments
+                    {input_field.label}
                 </text>
 
                 <div style={{width:'100%',display:'flex',flexDirection: 'row',alignSelf: 'baseline',
@@ -75,8 +83,8 @@ export default class AttachmentsComponent extends Component {
                         null
                     }
                     {
-                        [1,2,3,4,5].map((item)=>
-                            <NormalFile is_edit={is_edit}/>
+                        [1,2,3,4,5].map((item,index)=>
+                            <NormalFile is_edit={is_edit}  key={''+index}/>
                         )
                     }
                 </div>
@@ -89,3 +97,12 @@ export default class AttachmentsComponent extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+	input_store: state.input_store
+});
+
+
+
+
+export default connect(mapStateToProps,actions)(AttachmentsComponent)

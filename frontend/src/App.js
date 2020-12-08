@@ -1,5 +1,8 @@
 import React ,{Component,Fragment} from 'react'
 import { BrowserRouter,Route, Link, NavLink, Switch } from "react-router-dom";
+import {Provider} from 'react-redux'
+import {store} from '../src/redux/store/index.store'
+
 import './App.css';
 import {routePaths} from './utils/constants'
 import HomeScreen from './screens/home.screen';
@@ -20,50 +23,52 @@ import DashBoardTaskPostScreen from './screens/dashboard/dashboard_task_post.scr
 import TestLibsScreen from './test_libs/test_libs.screen';
 
 
-library.add(fab);
 
 export default class  App extends Component {
 	render (){
 		return (
-			<BrowserRouter>	
-					{/* <nav >
-						<div style={{display: 'flex',flexDirection: 'column'}}>
-							<Link to={routePaths.HOME}>Home</Link>
-							<Link to={routePaths.FREELANCER_SEARCH}>FREELANCER_SEARCH</Link>
-							<Link to={routePaths.FREELANCER_DETAIL}>FREELANCER_DETAIL</Link>
-							<Link to={routePaths.TASK_SEARCH}>TASK_SEARCH</Link>
-						</div>
-
-					
-					</nav> */}
-					<Switch>
-						{/* //outside screens */}
-
-						<Route path={routePaths.FREELANCER_SEARCH} component={FreelancerSearchScreen}/>
-						<Route path={routePaths.FREELANCER_DETAIL} component={FreelancerDetailScreen}/>
-						<Route path={routePaths.TASK_SEARCH} component={TaskSearchScreen}/>
-						<Route path={routePaths.TASK_DETAIL} component={TaskDetailScreen}/>
-						<Route path={routePaths.COMPANY_DETAIL} component={CompanyDetailScreen}/>
-						
-						{/* dashboard screens */}
-						
-						<Route path={routePaths.DASHBOARD_HOME} component={DashBoardHomeScreen}/>
-						<Route path={routePaths.DASHBOARD_TASK_POST} component={DashBoardTaskPostScreen}/>
-						<Route path={routePaths.DASHBOARD_TASK_LIST} component={DashBoardTaskListScreen}/>
-						<Route path={routePaths.DASHBOARD_TASK_MANAMENT} component={DashBoardTaskManagementScreen}/>
-						<Route path={routePaths.DASHBOARD_CHAT} component={DashBoardChatScreen}/>
-						<Route path={routePaths.DASHBOARD_PAYMENT} component={DashBoardPaymentScreen}/>
-						<Route path={routePaths.DASHBOARD_SETTING_FREELANCER} component={DashboardSettingFreelancerScreen}/>
-						<Route path={routePaths.DASHBOARD_SETTING_COMPANY} component={DashboardSettingCompanyScreen}/>
-
-						<Route path={routePaths.TEST_LIBS} component={TestLibsScreen}/>
-
-						<Route path={routePaths.HOME} component={HomeScreen}/>
+			<Provider store={store}>
+				<BrowserRouter>	
+						{/* <nav >
+							<div style={{display: 'flex',flexDirection: 'column'}}>
+								<Link to={routePaths.HOME}>Home</Link>
+								<Link to={routePaths.FREELANCER_SEARCH}>FREELANCER_SEARCH</Link>
+								<Link to={routePaths.FREELANCER_DETAIL}>FREELANCER_DETAIL</Link>
+								<Link to={routePaths.TASK_SEARCH}>TASK_SEARCH</Link>
+							</div>
 
 						
+						</nav> */}
+						<Switch>
+							{/* //outside screens */}
 
-					</Switch>
-			</BrowserRouter>
+							<Route path={routePaths.FREELANCER_SEARCH} component={FreelancerSearchScreen}/>
+							<Route path={routePaths.FREELANCER_DETAIL} component={FreelancerDetailScreen}/>
+							<Route path={routePaths.TASK_SEARCH} component={TaskSearchScreen}/>
+							<Route path={routePaths.TASK_DETAIL} component={TaskDetailScreen}/>
+							<Route path={routePaths.COMPANY_DETAIL} component={CompanyDetailScreen}/>
+							
+							{/* dashboard screens */}
+							
+							<Route path={routePaths.DASHBOARD_HOME} component={DashBoardHomeScreen}/>
+							<Route path={routePaths.DASHBOARD_TASK_POST} component={DashBoardTaskPostScreen}/>
+							<Route path={routePaths.DASHBOARD_TASK_LIST} component={DashBoardTaskListScreen}/>
+							<Route path={routePaths.DASHBOARD_TASK_MANAMENT} component={DashBoardTaskManagementScreen}/>
+							<Route path={routePaths.DASHBOARD_CHAT} component={DashBoardChatScreen}/>
+							<Route path={routePaths.DASHBOARD_PAYMENT} component={DashBoardPaymentScreen}/>
+							<Route path={routePaths.DASHBOARD_SETTING_FREELANCER} component={DashboardSettingFreelancerScreen}/>
+							<Route path={routePaths.DASHBOARD_SETTING_COMPANY} component={DashboardSettingCompanyScreen}/>
+
+							<Route path={routePaths.TEST_LIBS} component={TestLibsScreen}/>
+
+							<Route path={routePaths.HOME} component={HomeScreen}/>
+
+							
+
+						</Switch>
+				</BrowserRouter>
+				
+			</Provider>
 			
 		);
   	}

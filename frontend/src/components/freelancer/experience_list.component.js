@@ -22,7 +22,9 @@ export default class ExperienceListComponent extends Component {
                 <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
                 {
                     [1,2,3,4].map((item,index)=>
-                        <ExperienceItemComponent index={index} can_edit={can_edit} />
+                        <ExperienceItemComponent 
+                            key={''+index}
+                            index={index} can_edit={can_edit} />
                     )
                 }
                 </div>

@@ -19,8 +19,8 @@ export default class FreelancerTopListComponent extends Component {
                     flexDirection: 'row'
                 }}>
                     {
-                        [1,2,3].map((item)=>
-                            <FreelancerItemComponent/>
+                        [1,2,3].map((item,index)=>
+                            <FreelancerItemComponent  key={''+index}/>
                         )
                     }
                 </div>  

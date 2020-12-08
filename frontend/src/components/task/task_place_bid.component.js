@@ -1,5 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
+import { inputField } from '../../redux/constant/input.constant'
 import { textSizes } from '../../utils/constants'
 import { BLACK, GRAY_1, GRAY_2, GRAY_3, GRAY_4,GRAY_5, WHITE } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
@@ -25,11 +26,12 @@ export default class TaskPlaceBidComponent extends Component {
                         justifyContent: 'center',alignItems: 'center',
                         backgroundColor: GRAY_5}}>
                         
-                        <NumberInputComponent/>
+                        <NumberInputComponent
+                            input_field={inputField.BIDDING_TIME}/>
 
 
                         <div style={{width: '100%',marginTop:20}}>
-                            <NumberInputComponent/>
+                            <NumberInputComponent   input_field={inputField.BIDDING_COST}/>
                         </div>
                       
 

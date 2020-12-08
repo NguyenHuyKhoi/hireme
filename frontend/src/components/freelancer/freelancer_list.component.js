@@ -17,8 +17,8 @@ export default class FreelancerListComponent extends Component {
                     marginTop:20,
                     flexDirection: 'row',justifyContent:'space-between',flexWrap: 'wrap',alignItems: 'flex-start'}}>
                 {
-                    [1,2,3,4,5,6].map((item)=>
-                        <FreelancerItemComponent/>
+                    [1,2,3,4,5,6].map((item,index)=>
+                        <FreelancerItemComponent  key={''+index}/>
                     )
                 }
                 </div>

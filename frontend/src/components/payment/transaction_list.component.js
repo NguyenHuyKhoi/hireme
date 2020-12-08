@@ -38,8 +38,8 @@ export default class TransactionListComponent extends Component {
                     <div style={{display:'flex',flex:8,flexDirection: 'column'}}>
             
                         {
-                            cards2.map((card,index)=>(
-                                <TransactionItemComponent card={card} index={index}/>
+                            cards2.map((item,index)=>(
+                                <TransactionItemComponent card={item} index={index} key={''+index}/>
                             ))
                         }
                     </div>

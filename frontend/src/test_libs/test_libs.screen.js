@@ -3,12 +3,13 @@ import React, {Component} from 'react'
 
 import Select from 'react-select';
 import { Range } from 'react-range';
-import ReactUploadFile from 'react-upload-file';
-
-
+import {connect }from 'react-redux'
+import * as actions from '../redux/action/input.action'
 import { textSizes } from '../utils/constants';
 import { BLACK, GRAY_6, WHITE } from '../utils/palette';
 import ButtonComponent from '../components/common/button.component';
+
+
 const colourOptions= [
     { value: {title:'category1'}, label: 'ChocolateLabel' },
     { value: {title:'category2'}, label: 'StrawberryLabel' },
@@ -24,8 +25,7 @@ const options = {
   
 
    
-
-export default class TestLibsScreen extends Component {
+ class TestLibsScreen extends Component {
     handleChange = selectedOption => {
         alert(selectedOption.value.title);
     };
@@ -47,6 +47,9 @@ export default class TestLibsScreen extends Component {
                         options={colourOptions}
                     />
                 </div>
+
+                <input style={{width:400,height:40,fontSize:textSizes.SMALL,color:BLACK}}
+                    onChange={(e)=>this.props.inputAField({some_field:e.target.value})}/>
 
                 {/* react-range */}
 
@@ -82,3 +85,12 @@ export default class TestLibsScreen extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+	input_store: state.input_store
+});
+
+
+
+
+export default connect(mapStateToProps,actions)(TestLibsScreen)

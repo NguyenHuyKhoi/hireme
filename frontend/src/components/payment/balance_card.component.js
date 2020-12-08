@@ -1,5 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
+import { inputField } from '../../redux/constant/input.constant'
 import { textSizes } from '../../utils/constants'
 import { BLACK, GRAY_2, GRAY_4, GRAY_5, GREEN_1, WHITE, YELLOW } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
@@ -37,13 +38,15 @@ export default class BalanceCardComponent extends Component {
                     
                         <div style={{width:'70%',display:'flex',flexDirection:'row'}}>
                             <div style={{flex:4}}>
-                                <LabeledInputComponent label='Amount'/>
+                                <LabeledInputComponent 
+                                    input_field={inputField.TRANSFER_AMOUNT}/>
                             </div>
 
                             <div style={{flex:1}}/>
 
                             <div style={{flex:4}}>
-                                <LabeledSelectedInputComponent label='Card'/>
+                                <LabeledSelectedInputComponent 
+                                    input_field={inputField.TRANSDER_CARD}/>
                             </div>
                           
                         </div>
