@@ -2,10 +2,12 @@
 import React, {Component} from 'react'
 import { textSizes } from '../../utils/constants'
 import { BLACK, BLUE_1, GRAY_2, GRAY_3, WHITE } from '../../utils/palette'
-
+import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
 export default class HeaderListComponent extends Component {
     render(){
         const height =this.props.height;
+        const filter=this.props.filter
+        console.log('Header_filter :',filter)
         return (
             <div style={{width:'100%',
                 height:height!==undefined?height:60,
@@ -18,16 +20,13 @@ export default class HeaderListComponent extends Component {
                 </text>
 
                 {
-                    this.props.is_sort!==undefined?
-                    <div style={{display:'flex',flexDirection: 'row',marginRight:20}}>
-                        <text style={{fontSize:16,color:GRAY_3}}>
-                            Sort By: 
-                        </text>
-
-                        <text style={{marginLeft:20,fontSize:16,color:GRAY_3}}>
-                            Newest
-                        </text>
+                    filter!==undefined?
+                    <div style={{width:'20%',marginRight: 30}}>
+                        <LabeledSelectedInputComponent 
+                            hide_label={true}
+                            input_field={filter}/>
                     </div>
+                   
                     :
                     null
                 }

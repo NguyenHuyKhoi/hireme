@@ -33,6 +33,34 @@ const sidebarItems=[
     },
 
 ]
+
+const sidebarAdminItems=[
+    {
+        label:'Dashboard',
+        screen:routePaths.ADMIN_HOME
+    },
+    {
+        label:'User',
+        screen:routePaths.ADMIN_USER_LIST
+    },
+    {
+        label:'Task',
+        screen:routePaths.ADMIN_TASK_LIST
+    },
+    {
+        label:'Chat',
+        screen:routePaths.ADMIN_CHAT
+    },
+    {
+        label:'Setting',
+        screen:routePaths.ADMIN_SETTING
+    },
+    {
+        label:'Logout',
+        screen:routePaths.HOME
+    },
+
+]
 class Item extends Component{
     constructor(props){
         super(props);
@@ -64,6 +92,8 @@ class Item extends Component{
 export default class SidebarComponent extends Component {
 
     render(){
+        const is_admin=this.props.is_admin!==undefined?this.props.is_admin:false;
+        const items=is_admin?sidebarAdminItems:sidebarItems;
         return (
             <div style={{flex:1,height:'100vh',display:'flex',flexDirection: 'column',backgroundColor: WHITE,
                 boxShadow:'3px 0px 10px 3px #707070'
@@ -83,7 +113,7 @@ export default class SidebarComponent extends Component {
                         <div style={{flex:3,display:'flex',flexDirection:'column',
                         justifyContent:'space-between'}}>
                         {
-                            sidebarItems.map((item,index)=>
+                            items.map((item,index)=>
                                 <Item 
                                     key={''+index}
                                     item={item} />
@@ -95,12 +125,19 @@ export default class SidebarComponent extends Component {
             
                 
                 </div>
+               
                 <div style={{flex:3,display:'flex',justifyContent:'center',alignItems:'center'}}>
-                    <Link 
-                        to={routePaths.DASHBOARD_TASK_POST}
-                        style={{width:'60%',textDecoration:'none'}}>
-                        <ButtonComponent label='Post A Task'/>
-                    </Link>
+                    {
+                        is_admin?
+                        '.'
+                        :
+                        <Link 
+                            to={routePaths.DASHBOARD_TASK_POST}
+                            style={{width:'60%',textDecoration:'none'}}>
+                            <ButtonComponent label='Post A Task'/>
+                        </Link>
+                    }
+                    
                 </div>
 
         </div>

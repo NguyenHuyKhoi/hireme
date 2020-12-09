@@ -2,15 +2,12 @@
 import React, {Component} from 'react'
 import ButtonComponent from '../common/button.component'
 import LabeledInputComponent from '../input/labeled_input.component'
-import RateScoreComponent from '../common/rate_score.component'
-import UploadFilesComponent from '../common/upload_files.component'
-import AttachmentsComponent from './attachments.component'
-import TaskAttachmentsComponent from './attachments.component'
-import TaskNotesComponent from './task_notes.component'
 import { BLACK, BLUE_1, GREEN_1, WHITE } from '../../utils/palette'
 import { textSizes } from '../../utils/constants'
 import SmallFieldComponent from '../common/small_field.component'
 import { inputField } from '../../redux/constant/input.constant'
+import TaskNoteListComponent from './task_note_list.component'
+import AttachmentsComponent from '../input/attachments.component'
 // * bidding [
 //     {
 //       * id
@@ -55,17 +52,17 @@ class TimeLine extends Component{
 export default class StageItemComponent extends Component {
     render(){
         const stage=this.props.stage;
+        const is_new =this.props.is_new!==undefined?this.props.is_new:false;
         return (
-            <div style={{width:'32vw',height:525,
-                display:'flex',flexDirection: 'column'}}>
-              
+            <div style={{width:420,height:525,
+                display:'flex',flexDirection: 'column'}}>   
                 <TimeLine/>
 
                 <div style={{marginTop: 5,width:'80%',height:45,backgroundColor: GREEN_1,
                     display:'flex',flexDirection:'row',alignItems:'center',paddingLeft:15}}>
 
                     <input 
-                        disabled={false}
+                        disabled={!is_new}
                         style={{
                             fontSize:textSizes.NORMAL,color:WHITE,height: 35,
                             backgroundColor: 'rgba(0,0,0,0)',
@@ -74,9 +71,8 @@ export default class StageItemComponent extends Component {
                         value='Requirement analytics'/>
 
                     {
-                        stage===undefined?
+                        is_new?
                         <input 
-                            disabled={false}
                             style={{
                                 fontSize:textSizes.NORMAL,color:WHITE,height: 35,width: 40,
                                 backgroundColor: 'rgba(0,0,0,0)',
@@ -88,7 +84,7 @@ export default class StageItemComponent extends Component {
 
                     }
                    
-                </div>
+                </div> 
 
                 <div style={{display:'flex',flex:1,width:'80%',
                     backgroundColor: WHITE,overflowY:'scroll',
@@ -105,13 +101,13 @@ export default class StageItemComponent extends Component {
                             </div>  
 
                             <div style={{width:'100%',marginTop:15,
-                                paddingBottom:stage!==undefined?40:0}}>
-                                <TaskNotesComponent input_field={inputField.NOTE}/>
+                                paddingBottom:!is_new?40:0}}>
+                                <TaskNoteListComponent />
                             </div>   
                            
                        
                             {
-                                stage===undefined?
+                                is_new?
                                 <div style={{marginTop:20,width: '100%',paddingBottom:40,
                                     display:'flex',justifyContent:'center',alignItems:'center'}}>
                                     <ButtonComponent label='Add Stage'/>

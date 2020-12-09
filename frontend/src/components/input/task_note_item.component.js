@@ -2,35 +2,14 @@
 import React, {Component} from 'react'
 import { textSizes } from '../../utils/constants'
 import { BLACK, BLUE_1, GREEN_1, WHITE, YELLOW } from '../../utils/palette'
+import { Range } from 'react-range';
+import {connect }from 'react-redux'
+import * as actions from '../../redux/action/input.action'
 
-const notes=[
-    {
-        is_me:true,
-        content:'Please zoom in the picture, i can see...'
-    },
-    {
-        is_me:true,
-        content:'Ok, i will do it now, waiting!'
-    },
-    {
-        is_me:false,
-        content:'Hurry up if you don\'t want to over deadline,want to over deadline,want to over deadline, we don\'t have much time'
-    },
-    {
-        is_me:true,
-        content:'I\ll complete this task on tonight'
-    },
-    {
-        is_me:false,
-        content:'Thanks for working with me!!!'
-    },
-    
-]
-
-
-class NoteItem extends Component{
+class TaskNoteItemComponent extends Component{
     render(){
         const note=this.props.note;
+        const input_field=this.props.input_field
         return (
             <div style={{
                     marginTop: 10,width:'100%',height:80,borderRadius:4,
@@ -42,11 +21,12 @@ class NoteItem extends Component{
                     <div style={{width:'100%',display: 'flex',flexDirection: 'row',
                         justifyContent:'space-between'}}>
                         <input 
-
+                            placeholder={input_field.placeholder}
+                            onChange={(e)=>this.props.inputAField({[input_field.key]:e.target.value})}
                             style={{marginLeft:10,width: '60%',height: 45,fontSize:textSizes.SMALL,
                                 color:WHITE,
                                 outline:'none',backgroundColor:'rgba(0,0,0,0)',borderColor:'rgba(0,0,0,0)'}}
-                            placeholder='Add a note'
+                
                             />
 
                         <div style={{marginLeft:20,marginRight:10,width: 70,height:40,borderRadius:5,backgroundColor:WHITE,
@@ -69,29 +49,11 @@ class NoteItem extends Component{
         )
     }
 }
-export default class TaskNotesComponent extends Component {
-    render(){
-        return (
-            <div style={{width:'100%',alignSelf: 'baseline',
-                display:'flex',flexDirection: 'column'}}>
-                <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>
-                    Notes:
-                </text>
+const mapStateToProps = state => ({
+	input_store: state.input_store
+});
 
-                <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
-                    <NoteItem/>
-                    {
-                        notes.map((item,index)=>
-                            <NoteItem note={item} key={''+index}/>
-                        )
-                    }
-                </div>
-                
-            </div>
 
-            
-        
-    
-        )
-    }
-}
+
+
+export default connect(mapStateToProps,actions)(TaskNoteItemComponent)

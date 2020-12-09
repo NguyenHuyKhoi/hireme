@@ -1,6 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
+import { inputField } from '../../redux/constant/input.constant';
 import sample_db from '../../sample_db/sample_db.json'
 import { routePaths, textSizes } from '../../utils/constants';
 import { BLUE_1, GRAY_2, GRAY_3, GRAY_4, WHITE } from '../../utils/palette';
@@ -67,7 +68,7 @@ export default class ConversationComponent extends Component {
                 <div style={{flex:1,display: 'flex',flexDirection: 'column',overflowY: 'scroll'}}>
                     {
                         messages.map((item,index)=>(
-                            message.sender.id===0?
+                            item.sender.id===0?
                             <MyMessage key={''+index} message={item}/>
                             :
                             <PartnerMessage key={''+index} message={item}/>
@@ -75,7 +76,9 @@ export default class ConversationComponent extends Component {
                     }
                 </div>
 
-               <ButtonInputComponent btn_label='Send' input_field={inputField.MESSAGE} placeholder='Type your message ...'/>
+                <ButtonInputComponent 
+                    btn_label='Send' 
+                    input_field={inputField.MESSAGE} />
             </div>
         )
     }

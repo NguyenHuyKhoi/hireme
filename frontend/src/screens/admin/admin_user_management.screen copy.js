@@ -14,7 +14,7 @@ import { GRAY_6 } from '../../utils/palette';
 import TaskDetailScreen from '../task_detail.screen';
 import TaskSearchScreen from '../task_search.screen';
 
-export default class DashBoardTaskManagementScreen extends Component {
+export default class AdminUserManagementScreen extends Component {
 
     constructor(props){
         super(props);
@@ -50,7 +50,7 @@ export default class DashBoardTaskManagementScreen extends Component {
                 display:'flex',flexDirection: 'row'}}>
 
                 {/* sidebar */}
-                <SidebarComponent/>
+                <SidebarComponent is_admin={true} />
                 {/* body */}
                 <div style={{display:'flex',flex:SIDEBAR_RATIO,flexDirection: 'column',padding:PADDING_BODY_DASHBOARD}}>
                     <TaskTabsBaComponent 

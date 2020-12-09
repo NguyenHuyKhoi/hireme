@@ -16,7 +16,7 @@ import { GRAY_6 } from '../../utils/palette'
 import HeaderListComponent from '../../components/common/header_list.component'
 import ButtonComponent from '../../components/common/button.component'
 import { Link } from 'react-router-dom'
-export default class DashboardSettingCompanyScreen extends Component {
+export default class AdminSettingScreen extends Component {
     render(){
         return (
 
@@ -24,7 +24,7 @@ export default class DashboardSettingCompanyScreen extends Component {
             display:'flex',flexDirection: 'row'}}>
 
                 {/* sidebar */}
-                <SidebarComponent />
+                <SidebarComponent is_admin={true} />
                 {/* body */}
                 <div style={{display:'flex',flex:SIDEBAR_RATIO,
                     padding:PADDING_BODY_DASHBOARD}}>
@@ -37,11 +37,7 @@ export default class DashboardSettingCompanyScreen extends Component {
                         <div style={{marginTop:30}}>
                             <SettingAccountComponent/>
                         </div>
-                      
-                        <div style={{marginTop:60}}>
-                            <SettingProfileCompanyComponent/>
-                        </div>
-
+                    
                         <div style={{marginTop:60}}>
                             <SettingPasswordComponent/>
                         </div>

@@ -42,7 +42,6 @@ export default class HomeBannerComponent extends Component {
                         <div style={{width:'80%',marginTop:20}}>
                             <ButtonInputComponent 
                                 btn_label='Search' 
-                                placeholder='E.g : Task title'
                                 input_field={inputField.KEYWORD}/>
                         </div>
                     

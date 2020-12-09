@@ -45,8 +45,16 @@ export default class BalanceCardComponent extends Component {
                             <div style={{flex:1}}/>
 
                             <div style={{flex:4}}>
-                                <LabeledSelectedInputComponent 
-                                    input_field={inputField.TRANSDER_CARD}/>
+                                {
+                                    1===0?
+                                    <LabeledSelectedInputComponent 
+                                        input_field={inputField.TRANSFER_CARD}/>
+                                    :
+                                    <text style={{fontSize: textSizes.NORMAL,color:BLACK}}>
+                                        You have no credit card, please insert one.
+                                    </text>
+                                }
+                             
                             </div>
                           
                         </div>

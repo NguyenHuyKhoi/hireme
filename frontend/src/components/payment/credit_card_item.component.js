@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import ButtonComponent from '../common/button.component'
-import LabelInlineInputComponent from '../input/labeled_inline_input.component'
+import LabelInputComponent from '../input/labeled_input.component'
 import CardCompanyPickerComponent from '../input/card_company_picker.component'
 
 
@@ -13,23 +13,20 @@ import { inputField } from '../../redux/constant/input.constant'
 export default class CreditCardItemComponent extends Component {
     
     render(){
-        const card=this.state.card;
-        console.log('hello')
-        const index=this.props.index
-        const disabled=card.is_new_card!==undefined?false:true
+        const is_new_card=this.props.is_new_card;
+        const card=this.props.card;
+        const index=this.props.index;
+        const disabled=is_new_card!==undefined?false:true
 
         return (
             <div  style={{padding:20,display:'flex',flex:1,flexDirection:'column',
                 backgroundColor:index%2==1?WHITE:GRAY_4}}>    
 
                     <div style={styles.row}>
-                        <CardCompanyPickerComponent input_field={inputField.CARD_COMPANY}/>
+                        <CardCompanyPickerComponent 
+                            input_field={inputField.CARD_COMPANY}/>
 
                         <div 
-                            onClick={()=>{
-                                if (!disabled) this.createCard()
-                                    else this.deleteCard()
-                            }}
                             style={{...styles.action_btn,
                                 backgroundColor: !disabled?GREEN_1:RED_1}}>
                             <text style={styles.action_btn_label}>
@@ -43,46 +40,65 @@ export default class CreditCardItemComponent extends Component {
                    
 
                     <div style={{marginTop:10}}>
-                        <LabelInlineInputComponent 
+                        <div style={{width:'50%'}}>
+                        <LabelInputComponent 
                             size={textSizes.NORMAL}
+                            inline={true}
                             disabled={disabled}
                             input_field={inputField.CARD_NUMBER}
                             />
+                        </div>
                     </div>
                    
      
 
                         
                     <div style={styles.row}>
-
-                        
-                        <LabelInlineInputComponent 
-                            size={textSizes.NORMAL}
+                        <div style={{width:'30%'}}>
+                        <LabelInputComponent 
+                            size={textSizes.SMALL}
                             disabled={disabled}
+                            inline={true}
                             input_field={inputField.CARD_OWNER}
                             />
-                        
-                        <LabelInlineInputComponent 
-                            size={textSizes.NORMAL}
+                        </div>
+                        <div style={{width:'5%'}}/>
+                        <div style={{width:'5%'}}/>
+                        <div style={{width:'30%'}}>
+                        <LabelInputComponent 
+                            size={textSizes.SMALL}
                             disabled={disabled}
+                            inline={true}
                             input_field={inputField.CARD_DATE}
                             />
+                        </div>
+
+                        <div style={{width:'5%'}}/>
 
                        
                     </div>
                     <div style={styles.row}>
 
-                        <LabelInlineInputComponent 
-                            size={textSizes.NORMAL}
+                        <div style={{width:'30%'}}>
+                        <LabelInputComponent 
+                            size={textSizes.SMALL}
                             disabled={disabled}
+                            inline={true}
                             input_field={inputField.CARD_EMAIL}
                         />
-                        
-                        <LabelInlineInputComponent 
-                            size={textSizes.NORMAL}
-                            disabled={disabled}
-                            input_field={inputField.CARD_CVV}
-                            />
+                        </div>
+                        <div style={{width:'5%'}}/>
+                        <div style={{width:'5%'}}/>
+                        <div style={{width:'30%'}}>
+                            <LabelInputComponent 
+                                size={textSizes.SMALL}
+                                disabled={disabled}
+                                inline={true}
+                                input_field={inputField.CARD_CVV}
+                                />
+                        </div>
+                        <div style={{width:'5%'}}/>
+                      
 
                     </div> 
 
@@ -102,7 +118,8 @@ const styles={
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: 3
+        marginTop: 3,
+        paddingRight: 20
     },
     action_btn:{
         width: 40,

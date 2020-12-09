@@ -65,8 +65,7 @@ export default class SettingProfileCompanyComponent extends Component {
                         
                         <div style={{marginTop:40}}>
                             <TextareaInputComponent 
-                                input_field={inputField.DESCRIPTION} 
-                                placeholder='Describe  your company'/>
+                                input_field={inputField.DESCRIPTION} />
                         </div>
 
                 </div>

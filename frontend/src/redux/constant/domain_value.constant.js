@@ -22,6 +22,10 @@ export const cardCompanies=[
     }
 ]
 
+export const hourlyRate=[10,500]
+export const fixedPrice=[10,10000]
+export const biddingTime=[1,100]
+export const cvv=[0,999]
 export const businessAreas=[
     {
         name:'Strategy'
@@ -644,5 +648,51 @@ export const categories=[
                 description:''
             }
         ]
+    }
+]
+
+export const taskFilter=[
+    {
+        name:'All',
+        status:'all'
+    },
+    {
+        name:'Not Approved',
+        status:'not_approved'
+    },
+    {
+        name:'Bidding',
+        status:'bidding'
+    },
+    {
+        name:'Doing',
+        status:'doing'
+    },
+    {
+        name:'Done',
+        status:'done'
+    },
+    {
+        name:'Reported',
+        status:'report'
+    },
+    {
+        name:'Cancel',
+        status:'cancel'
+    }
+]
+
+export const userFilter=[
+    {
+        name:'All',
+        code:'all'
+    },
+    {
+        name:'Freelancer',
+        code:'freelancer'
+    },
+    {
+        name:'Company',
+        code:'company'
     }
 ]

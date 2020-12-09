@@ -30,6 +30,16 @@ export const routePaths={
     DASHBOARD_SETTING_FREELANCER:'/dashboard/setting/freelancer',
     DASHBOARD_SETTING_COMPANY:'/dashboard/setting/company',
 
+    ADMIN_HOME:'/admin/home',
+    ADMIN_USER_LIST:'/admin/user/list',
+    ADMIN_USER_MANAGEMENT:'/admin/user/management',
+    ADMIN_TASK_LIST:'/admin/task/list',
+    ADMIN_TASK_MANAGEMENT:'/admin/task/management',
+    ADMIN_REPORT_LIST:'/admin/report/list',
+    ADMIN_REPORT_MANAGEMENT:'/admin/report/management',
+    ADMIN_CHAT:'/admin/chat',
+    ADMIN_SETTING:'/admin/setting',
+
     TEST_LIBS:'/test/libs'
 }
 

@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
+import { inputField } from '../../redux/constant/input.constant'
 import HeaderListComponent from '../common/header_list.component'
-import PaginationComponent from '../common/pagination.component'
 import TaskItemComponent from './task_item.component'
 
 export default class TaskListComponent extends Component {

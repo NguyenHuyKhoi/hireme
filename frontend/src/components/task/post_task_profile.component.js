@@ -6,7 +6,7 @@ import LabeledInputComponent from '../input/labeled_input.component'
 import TextareaInputComponent from '../input/textarea_input.component'
 import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
 import RangeInputComponent from '../input/range_input.component'
-import ListPickerComponent from '../input/list_picker.component'
+import SkillPickerComponent from '../input/skill_picker.component'
 import UploadFilesComponent from '../common/upload_files.component'
 import ExperienceListComponent from '../freelancer/experience_list.component'
 import AttachmentsComponent from '../input/attachments.component'
@@ -43,7 +43,7 @@ export default class PostTaskProfileComponent extends Component {
                                 </div>
 
                                 <div style={{width:'100%',marginTop:30}}>
-                                    <ListPickerComponent input_field={inputField.SKILLS}/>
+                                    <SkillPickerComponent input_field={inputField.SKILLS}/>
                                 </div>
 
 
@@ -73,7 +73,7 @@ export default class PostTaskProfileComponent extends Component {
                         {/* row2 */}
 
                        <div style={{marginTop:30}}>
-                           <TextareaInputComponent label='Description' placeholder='Describe Your Task'/>
+                           <TextareaInputComponent input_field={inputField.DESCRIPTION}/>
                        </div>
                     
                 

@@ -21,6 +21,13 @@ import DashboardSettingCompanyScreen from './screens/dashboard/dashboard_setting
 import DashBoardTaskManagementScreen from './screens/dashboard/dashboard_task_management';
 import DashBoardTaskPostScreen from './screens/dashboard/dashboard_task_post.screen';
 import TestLibsScreen from './test_libs/test_libs.screen';
+import AdminHomeScreen from './screens/admin/admin_home.screen';
+import AdminUserListScreen from './screens/admin/admin_user_list.screen';
+import AdminUserManagementScreen from './screens/admin/admin_user_management.screen copy';
+import AdminTaskListScreen from './screens/admin/admin_task_list.screen';
+import AdminTaskManagementScreen from './screens/admin/admin_task_management.screen';
+import AdminChatScreen from './screens/admin/admin_chat.screen';
+import AdminSettingScreen from './screens/admin/admin_setting.screen';
 
 
 
@@ -59,7 +66,19 @@ export default class  App extends Component {
 							<Route path={routePaths.DASHBOARD_SETTING_FREELANCER} component={DashboardSettingFreelancerScreen}/>
 							<Route path={routePaths.DASHBOARD_SETTING_COMPANY} component={DashboardSettingCompanyScreen}/>
 
+							{/* admin screens */}
+							
+							<Route path={routePaths.ADMIN_HOME} component={AdminHomeScreen}/>
+							<Route path={routePaths.ADMIN_USER_LIST} component={AdminUserListScreen}/>
+							<Route path={routePaths.ADMIN_USER_MANAGEMENT} component={AdminUserManagementScreen}/>
+							<Route path={routePaths.ADMIN_TASK_LIST} component={AdminTaskListScreen}/>
+							<Route path={routePaths.ADMIN_TASK_MANAGEMENT} component={AdminTaskManagementScreen}/>
+							<Route path={routePaths.ADMIN_CHAT} component={AdminChatScreen}/>
+							<Route path={routePaths.ADMIN_SETTING} component={AdminSettingScreen}/>
+							
+
 							<Route path={routePaths.TEST_LIBS} component={TestLibsScreen}/>
+
 
 							<Route path={routePaths.HOME} component={HomeScreen}/>
 

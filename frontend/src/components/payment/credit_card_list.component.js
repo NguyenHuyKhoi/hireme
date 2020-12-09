@@ -9,17 +9,7 @@ import CreditCardItemComponent from './credit_card_item.component'
 import { WHITE } from '../../utils/palette'
 
 let cards=sample_db.credit_cards.slice(0,3)
-let new_card={
-    number :'',
-    owner_name   :'',
-    email :'',
-    expired_date:'',
-    ccv:'',
-    card_company:'',
-    is_new_card:true
-}
 
-cards=[new_card,...cards];
 export default class CreditCardListComponent extends Component {
     render(){
         const cards2=cards.slice(0,3);
@@ -36,9 +26,10 @@ export default class CreditCardListComponent extends Component {
                 <div style={{display:'flex',flex:1,flexDirection:'row'}}>
                     {/* <div style={{flex:1}}/> */}
                     <div style={{flex:8,display:'flex',flexDirection: 'column'}}>
+                    <CreditCardItemComponent is_new_card={true} index={0}  key={''+0}/>
                     {
                         cards2.map((item,index)=>(
-                            <CreditCardItemComponent card={item} index={index} key={''+index}/>
+                            <CreditCardItemComponent card={item} index={index+1} key={''+(index+1)}/>
                         ))
                     }
                     </div>

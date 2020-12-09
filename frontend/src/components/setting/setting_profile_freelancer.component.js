@@ -4,7 +4,7 @@ import React, {Component} from 'react'
 import LabeledInputComponent from '../input/labeled_input.component'
 import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
 import RangeInputComponent from '../input/range_input.component'
-import ListPickerComponent from '../input/list_picker.component'
+import SkillPickerComponent from '../input/skill_picker.component'
 import ExperienceListComponent from '../freelancer/experience_list.component'
 import HeaderListComponent from '../common/header_list.component'
 import { WHITE } from '../../utils/palette'
@@ -40,7 +40,7 @@ export default class   SettingProfileFreelancerComponent extends Component {
                                 </div>
 
                                 <div style={{width: '100%',marginTop:30}}>
-                                    <ListPickerComponent input_field={inputField.SKILLS} />
+                                    <SkillPickerComponent input_field={inputField.SKILLS} />
                                 </div>
                               
 
@@ -72,7 +72,8 @@ export default class   SettingProfileFreelancerComponent extends Component {
                         </div>
                         
                         <div style={{marginTop:30}}>
-                           <TextareaInputComponent   label='Description' placeholder='Describe Your Task'/>
+                           <TextareaInputComponent
+                             input_field={inputField.DESCRIPTION} />
                        </div>
 
                 </div>

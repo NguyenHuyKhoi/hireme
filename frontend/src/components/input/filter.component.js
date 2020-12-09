@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import LabeledInputComponent from '../input/labeled_input.component'
 import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
 import RangeInputComponent from '../input/range_input.component'
-import ListPickerComponent from './list_picker.component'
+import SkillPickerComponent from './skill_picker.component'
 
 import { inputField } from '../../redux/constant/input.constant'
 
@@ -35,7 +35,7 @@ export default class FilterComponent extends Component {
                 </div>
 
                 <div style={{marginTop:20}}>
-                    <ListPickerComponent 
+                    <SkillPickerComponent 
                         input_field={inputField.SKILLS}/>
                 </div>
 

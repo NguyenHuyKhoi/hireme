@@ -136,7 +136,7 @@ export default class PaymentTabComponent extends Component {
                                 
                                 <ActionButtons 
                                     key={''+index}
-                                    data={btn} onClick={()=>this.onClickBtn(btn.code)}/>
+                                    data={item} onClick={()=>this.onClickBtn(item   .code)}/>
                             )
                         }
                     </div>
@@ -144,9 +144,9 @@ export default class PaymentTabComponent extends Component {
                 </div>  
 
                 <div style={{marginTop:30}}>
-                    <ButtonInputComponent  btn_label='Send'
-                        input_field={inputField.REVIEW} 
-                        placeholder='Leave a review when job is done !'/>
+                    <ButtonInputComponent  
+                        btn_label='Send'
+                        input_field={inputField.REVIEW} />
                 </div>
             
      

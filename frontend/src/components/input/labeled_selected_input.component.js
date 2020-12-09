@@ -11,22 +11,30 @@ class LabeledSelectedInputComponent extends Component {
     
     render(){
         const input_field=this.props.input_field;
-        const selectOptions=input_field.domain_value.map(item=>{
+        const hide_label=this.props.hide_label!==undefined?this.props.hide_label:false
+        let arr=input_field.domain_value;
+        const selectOptions=arr.map(item=>{
             return{ value:item,label:item.name}
         })
 
         const defaultOption={value:input_field.default_value,label:input_field.default_value.name}
         
-        console.log('input_field of LabeledSelectedInputComponent:',input_field)
-        console.log('input_store:',this.props.input_store)
+        console.log('input_field_key:',input_field.key)
         return (
 
             <div style={{display:'flex',width: '100%',flexDirection: 'column'}}>
-                <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>
-                    {input_field.label}
-                </text>
+                {
+                    hide_label?
+                    null
+                    :
+                    <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>
+                        {input_field.label}
+                    </text>
 
-                <div style={{width:'100%',height:30,marginTop:15,fontSize:textSizes.NORMAL}}>
+                }
+                
+                <div style={{width:'100%',height:30,
+                    marginTop:hide_label?0:15,fontSize:textSizes.NORMAL}}>
                     <Select
                         style={{fontSize:textSizes.SMALL}}
                         defaultValue={defaultOption}

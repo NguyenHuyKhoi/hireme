@@ -6,19 +6,29 @@ import ButtonComponent from '../common/button.component'
 
 import {connect }from 'react-redux'
 import * as actions from '../../redux/action/input.action'
+import visa_logo from '../../assets/images/visa.PNG'
+import master_card_logo from '../../assets/images/master_card.PNG'
+import american_express_logo from '../../assets/images/american_express.PNG'
+import discover_logo from '../../assets/images/discover.PNG'
 
- class CardCompanyPickerComponent extends Component {
+const card_logo=[
+    visa_logo,
+    master_card_logo,
+    american_express_logo,
+    discover_logo
+]
+
+class CardCompanyPickerComponent extends Component {
     render(){
         const input_field=this.props.input_field;
-        console.log('input_field of CardCompanyPickerComponent:',input_field)
-        console.log('input_store:',this.props.input_store)
+        console.log('card_input_field_key:',input_field)
         return (
             <div style={{width:'100%',display: 'flex', flexDirection: 'row',justifyContent: 'space-between'}}>
                 {
                     input_field.domain_value.map((item,index)=>
                         <img 
                             key={''+index}
-                            src={type.logo} 
+                            src={card_logo[index]} 
                             onClick={()=>{
                                 this.props.inputAField({[input_field.key]:item})
                             }}

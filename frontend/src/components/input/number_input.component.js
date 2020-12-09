@@ -11,8 +11,7 @@ class NumberInputComponent extends Component {
     state={ranges:[10]}
     render(){
         const input_field=this.props.input_field;
-        console.log('input_field of numberInputComponent:',input_field)
-        console.log('input_store:',this.props.input_store)
+        console.log('input_field_key:',input_field.key)
         const inputInStore=this.props.input_store[input_field.key];
         return (
             <div style={{display:'flex',width: '100%',flexDirection: 'column'}}>
@@ -38,7 +37,7 @@ class NumberInputComponent extends Component {
                         step={1}   
                         min={input_field.domain_value[0]}      
                         max={input_field.domain_value[1]}
-                        values={inputInStore!==undefined?inputInStore[0]:input_field.default_value}
+                        values={inputInStore}
                         onChange={(values) => this.props.inputAField({[input_field.key]:values})}
                         renderTrack={({ props, children }) => (
                                 <div

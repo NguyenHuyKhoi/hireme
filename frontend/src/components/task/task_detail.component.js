@@ -4,8 +4,7 @@ import { inputField } from '../../redux/constant/input.constant';
 import { WHITE } from '../../utils/palette';
 import DescriptionComponent from '../common/description.component';
 import SkillsListComponent from '../common/skills_list.component';
-import AttachmentsComponent from './attachments.component';
-import TaskAttachmentsComponent from './attachments.component';
+import AttachmentsComponent from '../input/attachments.component';
 import TaskDetailHeaderComponent from './task_detail_header.component';
 
 

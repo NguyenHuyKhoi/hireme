@@ -1,4 +1,4 @@
-import { businessAreas, cardCompanies, categories, companySizes, taskTypes } from "./domain_value.constant"
+import { biddingTime, businessAreas, cardCompanies, categories, companySizes, cvv, fixedPrice, hourlyRate, taskFilter, taskTypes, userFilter } from "./domain_value.constant"
 
 export const inputAction={
     INPUT_A_FIELD:'INPUT_A_FIELD'
@@ -8,7 +8,8 @@ export const inputField={
     EMAIL:{
         key:'EMAIL',
         label:'Email',
-        type:'email'
+        type:'email',
+        placeholder:'Enter email'
        
     },
     PASSWORD:{
@@ -49,29 +50,30 @@ export const inputField={
     KEYWORD:{
         key:'KEYWORD',
         label:'Keyword',
-        type:'text'
+        type:'text',
+        placeholder:'Eg: mobile dev'
         
     },
 
     HOURLY_RATE:{
         key:'HOURLY_RATE',
         label:'Hourly Rate',
-        default_value:[50],
-        domain_value:[10,100],
+        default_value:[10,400],
+        domain_value:hourlyRate,
         unit:'$'
     },
 
     FIXED_PRICE:{
         key:'FIXED_PRICE',
         label:'Fixed Price',
-        default_value:[50,1000],
-        domain_value:[10,10000],
+        default_value:[50,5000],
+        domain_value:fixedPrice,
         unit:'$'
     },
 
     SKILLS:{
         key:'SKILLS',
-        label:'Fixed Price',
+        label:'Skills',
         default_value:[],
         domain_value:categories[0].predefined_skills
     },
@@ -79,8 +81,8 @@ export const inputField={
     BIDDING_COST:{
         key:'BIDDING_COST',
         label:'Bidding Cost',
-        default_value:[500],
-        domain_value:[10,10000],
+        default_value:[50,1000],
+        domain_value:fixedPrice,
         unit:'$'
     },
 
@@ -88,22 +90,23 @@ export const inputField={
         key:'BIDDING_TIME',
         label:'Bidding Time',
         default_value:[20],
-        domain_value:[1,100],
+        domain_value:biddingTime,
         unit:'hour'
     },
 
     TASK_NAME:{
         key:'TASK_NAME',
         label:'Task Name',
-        type:'text'
+        type:'text',
+        placeholder:'Eg: Build a chat app'
         
     },
 
     TASK_BUDGET:{
         key:'TASK_BUDGET',
         label:'Task Budget',
-        default_value:[500],
-        domain_value:[10,10000],
+        default_value:[50,5000],
+        domain_value:fixedPrice,
         unit:'$'
     },
 
@@ -123,13 +126,15 @@ export const inputField={
     DESCRIPTION:{
         key:'DESCRIPTION',
         label:'Description',
-        type:'text'
+        type:'text',
+        placeholder:'Write detail more ...'
     },
 
     MESSAGE:{
         key:'MESSAGE',
         label:'Message',
-        type:'text'
+        type:'text',
+        placeholder:'Enter your message'
     },
 
 
@@ -137,7 +142,7 @@ export const inputField={
         key:'CARD_COMPANY',
         label:'Card Company',
         default_value:cardCompanies[0],
-        domain_name:cardCompanies
+        domain_value:cardCompanies
     },
 
     CARD_NUMBER:{
@@ -156,7 +161,7 @@ export const inputField={
 
     CARD_DATE:{
         key:'CARD_DATE',
-        label:'Expired :',
+        label:'Expired ',
         default_value:new Date(),
         type:'date'
     },
@@ -164,7 +169,7 @@ export const inputField={
     CARD_CVV:{
         key:'CARD_CVV',
         label:'CVV/CCV',
-        domain_value:[0,999],
+        domain_value:cvv,
         type:'number'
     },
 
@@ -182,7 +187,7 @@ export const inputField={
         type:'number'
     },
 
-    TRANSDER_CARD:{
+    TRANSFER_CARD:{
         key:'TRANSFER_CARD',
         label:'Card'
     },
@@ -203,49 +208,57 @@ export const inputField={
     TAGLINE:{
         key:'TAGLINE',
         label:'Tagline',
-        type:'text'
+        type:'text',
+        placeholder:'Short description...'
     },
 
     EXP_ROLE:{
         key:'EXP_ROLE',
         label:'Role',
-        type:'text'
+        type:'text',
+        placeholder:'Eg: Fresher / Junior ...'
     },
 
     EXP_COMPANY:{
         key:'EXP_COMPANY',
         label:'Company',
-        type:'text'
+        type:'text',
+        placeholder:'Eg: Facebook'
     },
 
     EXP_FROM:{
         key: 'EXP_FROM',
         label:'From',
-        type:'date'
+        type:'date',
+        placeholder:'Eg : 12/02/2016'
     },
 
     EXP_TO:{
         key:'EXP_TO',
         label:'To',
-        type:'date'
+        type:'date',
+        placeholder:'Eg : 12/10/2018'
     },
 
     EXP_DESCRIPTION:{
         key:'EXP_DESCRIPTION',
         label:'Description',
-        type:'text'
+        type:'text',
+        placeholder:'Describe detail your work, skills, ....'
     },
 
     REVIEW:{
         key:'REVIEW',
         label:'Review',
-        type:'text'
+        type:'text',
+        placeholder:'Leave a review when task is comfirmed done!!!'
     },
 
     COMPANY_NAME:{
         key:'COMPANY_NAME',
         label:'Company Name',
-        type:'text'
+        type:'text',
+        placeholder:'Eg: Facebook'
     },
 
     COMPANY_SIZE:{
@@ -277,7 +290,23 @@ export const inputField={
     NOTE:{
         key:'NOTE',
         label:'Note',
-        type:'text'
+        type:'text',
+        placeholder:'Add a note...'
+    },
+
+    TASK_FILTER:{
+        key:'TASK_FILTER',
+        label:'Filter',
+        default_value:taskFilter[0],
+        domain_value:taskFilter
+    },
+
+    USER_FILTER:{
+        key:'USER_FILTER',
+        label:'Filter',
+        default_value:userFilter[0],
+        domain_value:userFilter
     }
+    
 }
 

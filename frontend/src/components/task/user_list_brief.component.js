@@ -5,9 +5,9 @@ import { WHITE } from '../../utils/palette'
 import HeaderListComponent from '../common/header_list.component'
 import PaginationComponent from '../common/pagination.component'
 import TaskItemComponent from './task_item.component'
-import TaskItemBriefComponent from './task_item_brief.component'
+import UserItemBriefComponent from './user_item_brief.component'
 
-export default class TaskListBriefComponent extends Component {
+export default class UserListBriefComponent extends Component {
     render(){
         return (
             <div style={{ display:'flex',flex:1,flexDirection: 'column',backgroundColor: WHITE,
@@ -15,14 +15,14 @@ export default class TaskListBriefComponent extends Component {
                 boxShadow:'3px 5px 3px 3px #707070'}}>
                 {/* header list */}
                 <HeaderListComponent   title='Tasks'
-                    filter={inputField.TASK_FILTER}/>
+                    filter={inputField.USER_FILTER}/>
                 
                 {/* body list */}
 
                 <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
                 {
                     [1,2,3,4,5].map((item,index)=>
-                        <TaskItemBriefComponent  
+                        <UserItemBriefComponent  
                             key={''+index}
                             index={index}/>
                     )

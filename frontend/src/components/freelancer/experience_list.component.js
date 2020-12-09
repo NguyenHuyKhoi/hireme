@@ -20,13 +20,14 @@ export default class ExperienceListComponent extends Component {
                 {/* body list */}
 
                 <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
-                {
-                    [1,2,3,4].map((item,index)=>
-                        <ExperienceItemComponent 
-                            key={''+index}
-                            index={index} can_edit={can_edit} />
-                    )
-                }
+                    <ExperienceItemComponent is_new={true} index={0}  key={''+0}/>
+                    {
+                        [1,2].map((item,index)=>(
+                            <ExperienceItemComponent experience={item} index={index+1} key={''+(index+1)}/>
+                        ))
+                    }
+            
+               
                 </div>
 
                 {/* pagination  */}

@@ -9,65 +9,60 @@ import ButtonInputComponent from '../input/button_input.component'
 import StageItemComponent from './stage_item.component'
 import TaskItemComponent from './task_item.component'
 import TaskItemBriefComponent from './task_item_brief.component'
-import './style.css'
 
 export default class StageListComponent extends Component {
     render(){
         return (
-            <div style={{ display:'flex',width:'100%',flexDirection: 'row',backgroundColor:WHITE,
-                    flexDirection:'row',
-                    boxShadow:'5px 5px 25px 3px #707070',
-                    alignItems:'flex-start'}}>
+            <div style={{ display:'flex',flexDirection: 'row',backgroundColor:WHITE, overflowX:'scroll',
+                    paddingLeft:30,
+                    boxShadow:'5px 5px 25px 3px #707070'}}>
                 
-                {/* body list */}
-                    <div style={{flex:1,overflowX:'scroll'}}>
-                        <div style={{flex:1,display:'flex',flexDirection:'row',
-                        paddingLeft:30,paddingRight:30}} >
-                        {
-                            [1,2,3,4].map((item,index)=>
+                    {
+                        [1,2].map((item,index)=>
+                            <div style={{width:'40vw'}}>
                                 <StageItemComponent 
-                                    key={''+index}
-                                    stage={{status:'this object tests 2 mode of stage item: create_state and display_existed_stage'}}/>
-                            )
-                        
-                        }
-                        <div style={{display:'flex',flex:1,paddingTop:50,
-                            flexDirection:'column',alignItems: 'center'}}>
-
-     
-                            <div style={{display:'flex',justifyContent:'center',alignItems:'center',padding:15,
-                                flexDirection:'column',borderRadius:4,backgroundColor: RED_1}}>
-                                <text style={{fontSize:textSizes.NORMAL,color:WHITE}}>
-                                    DEADLINE
-                                </text>
-                                <text style={{fontSize:textSizes.SMALL,color:WHITE}}>
-                                    08:00
-                                </text>
-                                <text style={{fontSize:textSizes.SMALL,color:WHITE}}>
-                                    02/12/2020
-                                </text>
+                                    key={''+index}/>
                             </div>
-
                             
-
-                            <text style={{marginTop:20,fontSize:textSizes.NORMAL,
-                                    width: 360,
-                                    color:BLACK,textAlign:'center'}}>
-                                    If task reaches 100%, press to confirm it be completed.
-                                    After that, budget will transfer to freelancer.
-                            </text>
-
-                            <div style={{marginTop:20,width:200}}>
-                                <ButtonComponent label='Confirm'/>
-                            </div>
-                        </div>
-
+                        )
                     
+                    }
 
+                    <div style={{width:'40vw'}}>
+                        <StageItemComponent 
+                            is_new={true}/>
+                    </div>
+                    <div style={{display:'flex',width:400,paddingTop:50,
+                        flexDirection:'column',alignItems: 'center'}}>
+
+
+                        <div style={{display:'flex',justifyContent:'center',alignItems:'center',padding:15,
+                            flexDirection:'column',borderRadius:4,backgroundColor: RED_1}}>
+                            <text style={{fontSize:textSizes.NORMAL,color:WHITE}}>
+                                DEADLINE
+                            </text>
+                            <text style={{fontSize:textSizes.SMALL,color:WHITE}}>
+                                08:00
+                            </text>
+                            <text style={{fontSize:textSizes.SMALL,color:WHITE}}>
+                                02/12/2020
+                            </text>
                         </div>
 
+                        
+
+                        <text style={{marginTop:20,fontSize:textSizes.NORMAL,
+                                width: 360,
+                                color:BLACK,textAlign:'center'}}>
+                                If task reaches 100%, press to confirm it be completed.
+                                After that, budget will transfer to freelancer.
+                        </text>
+
+                        <div style={{marginTop:20,width:200}}>
+                            <ButtonComponent label='Confirm'/>
+                        </div>
                     </div>
-                   
+
                    
          
 

@@ -4,36 +4,28 @@ import { textSizes } from '../../utils/constants'
 import { BLACK, BLUE_1, GRAY_1, GRAY_2, GRAY_3, GRAY_5, WHITE } from '../../utils/palette'
 import {connect }from 'react-redux'
 import * as actions from '../../redux/action/input.action'
+import { inputField } from '../../redux/constant/input.constant'
 
 class Item extends Component{
-    constructor(props){
-        super(props);
-        this.state={
-            is_picked:false
-        }
-    }
-
     render(){
-        const is_picked=this.state.is_picked;
+        const item=this.props.item;
+        const is_picked=this.props.is_picked;
         return (
             <div
-                onClick={()=>{
-                    this.setState({is_picked:!is_picked});
-                    this.props.onClick();
-                }} 
+                onClick={this.props.onClick} 
                 style={{display:'flex',marginRight:10,marginTop:7,
                     justifyContent: 'center',alignItems: 'center',
                     borderRadius:3,padding: 7,
                     backgroundColor: is_picked?BLUE_1:GRAY_3}}>
             <text style={{fontSize:textSizes.SMALL,
                     color: is_picked?WHITE:GRAY_1}}>
-                {this.props.name} 
+                {item.name} 
             </text>
         </div>
         )
     }
 }
-class ListPickerComponent extends Component {
+class SkillPickerComponent extends Component {
 
     getValueFromStore=()=>{
         const arr=this.props.input_store[this.props.input_field.key];
@@ -50,6 +42,8 @@ class ListPickerComponent extends Component {
         else{
             arr.push(e);
         };
+
+        console.log('Picked Arr on SkillPicker :',arr);
         this.props.inputAField({[this.props.input_field.key]:arr})
     }
 
@@ -60,8 +54,12 @@ class ListPickerComponent extends Component {
 
     render(){
         const input_field=this.props.input_field;
-        console.log('input_field of ListPickerComponent:',input_field)
-        console.log('input_store:',this.props.input_store)
+        const categoryFieldInStore=this.props.input_store[inputField.CATEGORY.key]
+        const domain_value=categoryFieldInStore!==undefined?
+                categoryFieldInStore.predefined_skills
+                :
+                input_field.domain_value;
+        console.log('input_field_key:',input_field.key)
         return (
             <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
                     <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>
@@ -71,15 +69,18 @@ class ListPickerComponent extends Component {
                     <div style={{marginTop:5,width:'100%',alignSelf: 'baseline',display:'flex',
                         flexDirection: 'row',flexWrap:'wrap',alignItems: 'flex-start'}}>
                         {
-                            input_field.domain_value===undefined?
+                            domain_value===undefined?
                             null
                             :
-                            input_field.domain_value.map((item,index)=>{
+                            domain_value.map((item,index)=>{
+                           //     console.log('Item in SkillPicker :',item)
                                 const is_picked=this.isPickedItem(item);
                                 return (
-                                    <Item item={item}
-                                    onClick={()=>this.onClickItem(item)}
-                                    is_picked={is_picked}
+                                    <Item 
+                                        item={item}
+                                        key={''+index}
+                                        onClick={()=>this.onClickItem(item)}
+                                        is_picked={is_picked}
                                     />
                                 )
                              }
@@ -100,4 +101,4 @@ const mapStateToProps = state => ({
 
 
 
-export default connect(mapStateToProps,actions)(ListPickerComponent)
+export default connect(mapStateToProps,actions)(SkillPickerComponent)
