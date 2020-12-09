@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import { inputField } from '../../redux/constant/input.constant'
 import { textSizes } from '../../utils/constants'
-import { BLACK, BLUE_1, GREEN_1, WHITE, YELLOW } from '../../utils/palette'
+import { BLACK, BLUE_1, GREEN_1, WHITE, YELLOW_1 } from '../../utils/palette'
 import TaskNoteItemComponent from '../input/task_note_item.component'
 const notes=[
     {

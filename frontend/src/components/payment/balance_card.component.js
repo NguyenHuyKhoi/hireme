@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import { inputField } from '../../redux/constant/input.constant'
 import { textSizes } from '../../utils/constants'
-import { BLACK, GRAY_2, GRAY_4, GRAY_5, GREEN_1, WHITE, YELLOW } from '../../utils/palette'
+import { BLACK, GRAY_2, GRAY_4, GRAY_5, GREEN_1, WHITE, YELLOW_1 } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
 import HeaderListComponent from '../common/header_list.component'
 
@@ -61,7 +61,7 @@ export default class BalanceCardComponent extends Component {
 
                         <div style={{width:'90%',marginTop: 20,display:'flex',flexDirection:'row',justifyContent: 'space-between'}}>
                             <div style={{width: '20%'}}>
-                                <ButtonComponent label='Withdraw' color={YELLOW}/>
+                                <ButtonComponent label='Withdraw' color={YELLOW_1}/>
                             </div>
 
                             <div style={{width: '20%'}}>

@@ -3,12 +3,7 @@ import React, {Component} from 'react'
 import { textSizes } from '../../utils/constants'
 import { BLACK, RED_1, WHITE } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
-import HeaderListComponent from '../common/header_list.component'
-import PaginationComponent from '../common/pagination.component'
-import ButtonInputComponent from '../input/button_input.component'
 import StageItemComponent from './stage_item.component'
-import TaskItemComponent from './task_item.component'
-import TaskItemBriefComponent from './task_item_brief.component'
 
 export default class StageListComponent extends Component {
     render(){

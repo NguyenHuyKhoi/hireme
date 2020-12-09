@@ -1,4 +1,4 @@
-import { biddingTime, businessAreas, cardCompanies, categories, companySizes, cvv, fixedPrice, hourlyRate, taskFilter, taskTypes, userFilter } from "./domain_value.constant"
+import { biddingTime, businessAreas, cardCompanies, categories, companySizes, cvv, fixedPrice, hourlyRate, taskState, taskTypes, userFilter } from "./domain_value.constant"
 
 export const inputAction={
     INPUT_A_FIELD:'INPUT_A_FIELD'
@@ -81,7 +81,7 @@ export const inputField={
     BIDDING_COST:{
         key:'BIDDING_COST',
         label:'Bidding Cost',
-        default_value:[50,1000],
+        default_value:[1000],
         domain_value:fixedPrice,
         unit:'$'
     },
@@ -297,8 +297,8 @@ export const inputField={
     TASK_FILTER:{
         key:'TASK_FILTER',
         label:'Filter',
-        default_value:taskFilter[0],
-        domain_value:taskFilter
+        default_value:taskState[0],
+        domain_value:taskState
     },
 
     USER_FILTER:{
@@ -306,7 +306,29 @@ export const inputField={
         label:'Filter',
         default_value:userFilter[0],
         domain_value:userFilter
-    }
+    },
+
+    TASK_STATE:{
+        key:'TASK_STATE',
+        label:'State',
+        default_value:taskState[0],
+        domain_value:taskState
+    },
     
+
+    TASK_REPORT:{
+        key:'TASK_REPORT',
+        label:'Report'
+    },
+
+    TASK_REVIEW:{
+        key:'TASK_REVIEW',
+        label:'Review',
+    },
+
+    TASK_GIVE_UP:{
+        key:'GIVE_UP',
+        label:'Give up'
+    }
 }
 

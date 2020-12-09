@@ -19,7 +19,7 @@ export default class DashBoardTaskManagementScreen extends Component {
     constructor(props){
         super(props);
         this.state={
-            focus_tab_index:3
+            focus_tab_index:0
         }
     }
     renderBody=()=>{

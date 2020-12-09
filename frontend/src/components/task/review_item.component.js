@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
 import { routePaths, textSizes } from '../../utils/constants';
-import { BLACK, BLUE_2, WHITE, YELLOW } from '../../utils/palette';
+import { BLACK, BLUE_2, WHITE, YELLOW_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component'
 import RateScoreComponent from '../common/rate_score.component'
 import SmallFieldComponent from '../common/small_field.component';
@@ -59,7 +59,7 @@ export default class ReviewItemComponent extends Component {
                         </text>
 
                         <SmallFieldComponent 
-                            background_color={YELLOW} 
+                            background_color={YELLOW_1} 
                             label_color={WHITE} 
                             label={'4.2'}/>
                 

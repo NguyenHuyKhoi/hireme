@@ -651,34 +651,38 @@ export const categories=[
     }
 ]
 
-export const taskFilter=[
+export const taskState=[
     {
         name:'All',
-        status:'all'
+        code:'all'
     },
     {
         name:'Not Approved',
-        status:'not_approved'
+        code:'not_approved'
+    },
+    {
+        name:'Rejected',
+        code:'rejected'
     },
     {
         name:'Bidding',
-        status:'bidding'
+        code:'bidding'
     },
     {
         name:'Doing',
-        status:'doing'
+        code:'doing'
     },
     {
         name:'Done',
-        status:'done'
+        code:'done'
     },
     {
         name:'Reported',
-        status:'report'
+        code:'reported'
     },
     {
         name:'Cancel',
-        status:'cancel'
+        code:'canceled'
     }
 ]
 

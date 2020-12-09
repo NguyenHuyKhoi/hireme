@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import { textSizes } from '../../utils/constants'
-import { BLACK, BLUE_1, GREEN_1, WHITE, YELLOW } from '../../utils/palette'
+import { BLACK, BLUE_1, GREEN_1, WHITE, YELLOW_1 } from '../../utils/palette'
 import { Range } from 'react-range';
 import {connect }from 'react-redux'
 import * as actions from '../../redux/action/input.action'
@@ -13,7 +13,7 @@ class TaskNoteItemComponent extends Component{
         return (
             <div style={{
                     marginTop: 10,width:'100%',height:80,borderRadius:4,
-                    backgroundColor: note===undefined?BLUE_1:note.is_me?GREEN_1:YELLOW,
+                    backgroundColor: note===undefined?BLUE_1:note.is_me?GREEN_1:YELLOW_1,
                     display:'flex',flexDirection:'row',alignItems:'center'}}>
                 {
                     note===undefined?

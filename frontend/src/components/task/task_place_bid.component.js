@@ -26,12 +26,13 @@ export default class TaskPlaceBidComponent extends Component {
                         justifyContent: 'center',alignItems: 'center',
                         backgroundColor: GRAY_5}}>
                         
-                        <NumberInputComponent
-                            input_field={inputField.BIDDING_TIME}/>
-
+                        <NumberInputComponent   input_field={inputField.BIDDING_COST}/>
+                     
 
                         <div style={{width: '100%',marginTop:20}}>
-                            <NumberInputComponent   input_field={inputField.BIDDING_COST}/>
+                            <NumberInputComponent
+                                input_field={inputField.BIDDING_TIME}/>
+
                         </div>
                       
 

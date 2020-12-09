@@ -8,14 +8,21 @@ import * as actions from '../../redux/action/input.action'
  class TextareaInputComponent extends Component {
     render(){
         const input_field=this.props.input_field;
+        const hide_label=this.props.hide_label!==undefined?this.props.hide_label:false
         console.log('input_field_key:',input_field.key)
 
         return (
             <div style={{display:'flex',width:'100%',height:240,alignSelf:'baseline',
                 flexDirection: 'column'}}>
-                <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>
-                    {input_field.label}
-                </text> 
+                {
+                    hide_label?
+                    null
+                    :
+                    <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>
+                        {input_field.label}
+                    </text> 
+                }
+               
                 <textarea 
                     placeholder={input_field.placeholder}
                     type={input_field.type!==undefined?input_field.type:'text'} 

@@ -9,15 +9,15 @@ import banner from '../../assets/images/banner.jpg'
 class ProjectBudget extends Component {
     render(){
         return (
-            <div style={{width: '80%',height:'60%',borderRadius:6,
+            <div style={{width: '100%',height:'60%',borderRadius:6,
                 backgroundColor:BLUE_1,display: 'flex',justifyContent: 'center',
                 flexDirection:'column',
                 alignItems: 'center'}}>
-                <text style={{fontSize:textSizes.NORMAL,color:GRAY_3}}>
+                <text style={{fontSize:textSizes.SMALL,color:GRAY_3}}>
                     Project Budget
                 </text>
 
-                <text style={{fontSize:textSizes.BIG,color:WHITE}}>
+                <text style={{fontSize:textSizes.NORMAL,color:WHITE}}>
                     $2200 - $6000
                 </text>
             </div>

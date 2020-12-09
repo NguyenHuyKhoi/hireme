@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import { routePaths, textSizes } from '../../utils/constants'
-import { BLACK, BLUE_1, BLUE_2, GRAY_3, WHITE, YELLOW } from '../../utils/palette'
+import { BLACK, BLUE_1, BLUE_2, GRAY_3, WHITE, YELLOW_1 } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
 import RateScoreComponent from '../common/rate_score.component'
 import SmallFieldComponent from '../common/small_field.component'
@@ -70,7 +70,7 @@ export default class BiddingItemComponent extends Component {
 
                             <div style={{marginTop:3}}>
                                 <SmallFieldComponent 
-                                    background_color={YELLOW} 
+                                    background_color={YELLOW_1} 
                                     label_color={WHITE} 
                                     label={'4.2'}/>
                             </div>
@@ -102,7 +102,7 @@ export default class BiddingItemComponent extends Component {
                     </div>
                     <div style={{flex:0.3}}/>
                     <div style={{flex:1,marginRight:20}}>
-                        <ButtonComponent color={YELLOW} label='Chat'/>
+                        <ButtonComponent color={YELLOW_1} label='Chat'/>
                     </div>
                     <div style={{flex:0.3}}/>
                     <div style={{flex:1}}>

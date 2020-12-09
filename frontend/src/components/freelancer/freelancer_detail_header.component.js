@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import RateScoreComponent from '../common/rate_score.component'
 import banner from '../../assets/images/banner.jpg'
-import { BLACK, WHITE, YELLOW } from '../../utils/palette'
+import { BLACK, WHITE, YELLOW_1 } from '../../utils/palette'
 import SmallFieldComponent from '../common/small_field.component'
 import { textSizes } from '../../utils/constants'
 export default class FreelancerDetailHeaderComponent extends Component {
@@ -30,7 +30,7 @@ export default class FreelancerDetailHeaderComponent extends Component {
                     </text>
                     <div style={{}}>
                         <SmallFieldComponent 
-                            background_color={YELLOW} 
+                            background_color={YELLOW_1} 
                             label_color={WHITE} 
                             label={'4.2'}/>
                     </div>

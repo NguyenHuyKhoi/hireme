@@ -3,27 +3,27 @@ import React, {Component} from 'react'
 import { inputField } from '../../redux/constant/input.constant'
 import { WHITE } from '../../utils/palette'
 import HeaderListComponent from '../common/header_list.component'
-import PaginationComponent from '../common/pagination.component'
-import TaskItemComponent from './task_item.component'
-import UserItemBriefComponent from './user_item_brief.component'
+import TaskItemAdminComponent from './task_item_admin.component'
 
-export default class UserListBriefComponent extends Component {
+export default class TaskListAdminComponent extends Component {
     render(){
+        const is_admin=this.props.is_admin!==undefined?this.props.is_admin:false;
         return (
             <div style={{ display:'flex',flex:1,flexDirection: 'column',backgroundColor: WHITE,
 
                 boxShadow:'3px 5px 3px 3px #707070'}}>
                 {/* header list */}
                 <HeaderListComponent   title='Tasks'
-                    filter={inputField.USER_FILTER}/>
+                    filter={inputField.TASK_FILTER}/>
                 
                 {/* body list */}
 
                 <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
                 {
                     [1,2,3,4,5].map((item,index)=>
-                        <UserItemBriefComponent  
+                        <TaskItemAdminComponent  
                             key={''+index}
+                            is_admin={is_admin}
                             index={index}/>
                     )
                 }

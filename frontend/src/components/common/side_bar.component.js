@@ -7,10 +7,7 @@ import ButtonComponent from './button.component';
 import logo from '../../assets/images/logo.png'
 import CustomIconComponent from './custom_icon.component';
 const sidebarItems=[
-    {
-        label:'Dashboard',
-        screen:routePaths.DASHBOARD_HOME
-    },
+
     {
         label:'Tasks',
         screen:routePaths.DASHBOARD_TASK_LIST
@@ -35,10 +32,6 @@ const sidebarItems=[
 ]
 
 const sidebarAdminItems=[
-    {
-        label:'Dashboard',
-        screen:routePaths.ADMIN_HOME
-    },
     {
         label:'User',
         screen:routePaths.ADMIN_USER_LIST

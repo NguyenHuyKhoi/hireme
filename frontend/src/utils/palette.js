@@ -5,7 +5,8 @@ export const BLUE_2='#F0F2FD'
 export const WHITE='#ffffff';
 export const BLACK='#000000';
 
-export const YELLOW='#FEBE42';
+export const YELLOW_1='#FEBE42';
+export const YELLOW_2='#F1D7A5'
 
 export const GREEN_1='#47BB67';
 export const GREEN_2='#E7F8EC';

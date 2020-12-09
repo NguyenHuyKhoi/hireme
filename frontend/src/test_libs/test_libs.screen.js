@@ -1,6 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
-
+import Pagination from "react-js-pagination";
 import Select from 'react-select';
 import { Range } from 'react-range';
 import {connect }from 'react-redux'
@@ -26,57 +26,37 @@ const options = {
 
    
  class TestLibsScreen extends Component {
-    handleChange = selectedOption => {
-        alert(selectedOption.value.title);
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+          activePage: 15
+        };
+      }
 
-    state = { range_values: [50] };
+     
+    handlePageChange(pageNumber) {
+        console.log(`active page is ${pageNumber}`);
+        this.setState({activePage: pageNumber});
+      }
     render(){
         return (
 
             <div style={{width:'100vw',height:'100vh',
-                backgroundColor:GRAY_6,overflowX:'hidden',
+                backgroundColor:GRAY_6,
                 display:'flex',flexDirection: 'row'}}>
               
-                <i class="fas fa-camera"></i>
-                {/* react-select */}
-                <div style={{width: 400,height:50}}>
-                    <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>react-select</text>
-                    <Select
-                        onChange={this.handleChange}
-                        options={colourOptions}
+        
+
+                {/* pagination */}
+                    <Pagination
+                    style={{display: 'flex',flexDirection: 'row'}}
+                    activePage={this.state.activePage}
+                    itemsCountPerPage={10}
+                    totalItemsCount={450}
+                    pageRangeDisplayed={5}
+                    onChange={this.handlePageChange.bind(this)}
                     />
-                </div>
 
-                <input style={{width:400,height:40,fontSize:textSizes.SMALL,color:BLACK}}
-                    onChange={(e)=>this.props.inputAField({some_field:e.target.value})}/>
-
-                {/* react-range */}
-
-                <div style={{width: 400,height:50,marginTop:50}}>
-                    <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>react-range</text>
-                    <Range
-                        step={0.1}   min={0}      max={100}
-                        values={this.state.range_values}
-                        onChange={(values) => this.setState({ range_values:values })}
-                        renderTrack={({ props, children }) => (
-                                <div
-                                    {...props}
-                                    style={{
-                                        ...props.style,height: '6px', width: '100%',backgroundColor: '#ccc' }}>
-                                    {children}
-                                </div>
-                        )}
-                        renderThumb={({ props }) => (
-                                <div
-                                    {...props}
-                                    style={{
-                                        ...props.style,height: '42px',width: '42px',backgroundColor: '#999' }}/>
-                        )}
-                    />
-                </div>
-
-                {/* fontawesome icon  */}
 
                 
 

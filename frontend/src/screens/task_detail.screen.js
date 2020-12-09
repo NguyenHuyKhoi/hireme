@@ -10,10 +10,35 @@ import BiddingListComponent from '../components/task/bidding_list.component';
 import TaskDetailHeaderComponent from '../components/task/task_detail_header.component';
 import TaskListComponent from '../components/task/task_list.component';
 import TaskPlaceBidComponent from '../components/task/task_place_bid.component';
-import { BLUE_1, BLUE_2, GREEN_1, GREEN_2, WHITE } from '../utils/palette';
+import { BLUE_1, BLUE_2, GREEN_1, GREEN_2, RED_2, WHITE } from '../utils/palette';
 import AttachmentsComponent from '../components/input/attachments.component';
 import { inputField } from '../redux/constant/input.constant';
+import ReportTaskModal from '../components/input/report_task.modal';
 export default class TaskDetailScreen extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            open_report_modal:false,
+        }
+    }
+
+    openReportModal=()=>{
+        this.setState({
+            open_report_modal:true
+        })
+    }
+
+    closeReportModal=()=>{
+        this.setState({
+            open_report_modal:false
+        })
+    }
+
+    reportTask=()=>{
+        alert('report task  ');
+        this.closeReportModal();
+    }
+
     render(){
         return (
 
@@ -22,6 +47,12 @@ export default class TaskDetailScreen extends Component {
 
                 {/* header */}
                 <HeaderBarComponent/>
+
+                <ReportTaskModal
+                    is_open={this.state.open_report_modal} 
+                    clickBack={this.closeReportModal}
+                    clickReport={this.reportTask}
+                />
 
                 {/* body */}
                 <div style={{width:'100vw',display:'flex',flexDirection: 'column',
@@ -82,6 +113,13 @@ export default class TaskDetailScreen extends Component {
 
                             <div style={{marginTop:50}}>
                                 <TaskPlaceBidComponent/>
+                            </div>
+
+                            <div style={{width: '100%',marginTop:50}}>
+                                <ButtonComponent 
+                                    onClick={this.openReportModal}
+                                    color={RED_2} text_color={WHITE}
+                                    label='Report Task'/>
                             </div>
                         </div>
                         <div style={{flex:1}}/>

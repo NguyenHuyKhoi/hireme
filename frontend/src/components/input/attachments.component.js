@@ -1,12 +1,17 @@
 //import from library 
 import React, {Component} from 'react'
 import { textSizes } from '../../utils/constants'
-import { BLACK, BLUE_1, GRAY_2, GRAY_5, RED_1, WHITE } from '../../utils/palette'
+import { BLACK, BLUE_1, GRAY_2, GRAY_4, GRAY_5, RED_1, WHITE } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
 import {connect }from 'react-redux'
 import * as actions from '../../redux/action/input.action'
 
 class NewFile extends Component{
+    // onFileChange=(e)=>{
+    //     console.log('picked_files:',e.target.files);
+    //     this.props
+    // }
+
     render(){
         return(
             <div style={{marginRight:10,marginTop: 7,width:'9vw',height:70,borderRadius:8,
@@ -18,6 +23,7 @@ class NewFile extends Component{
             </text>
 
             <div style={{width:'60%',marginTop:5}}>
+                {/* <input type="file" onChange={this.onFileChange} multiple /> */}
                 <ButtonComponent height={30} label='Choose' color={WHITE} text_color={BLUE_1}/>
             </div>
             </div>
@@ -31,7 +37,7 @@ class NormalFile extends Component{
         const is_edit=this.props.is_edit
         return(
             <div style={{marginRight:10,marginTop: 7,width:'9vw',height:70,borderRadius:8,
-                backgroundColor: GRAY_5,
+                backgroundColor: GRAY_4,
                 flexDirection: 'column',
                 display:'flex',justifyContent: 'center'}}>
                 <text style={{marginLeft:15,fontSize:textSizes.SMALL,color:BLACK}}>
