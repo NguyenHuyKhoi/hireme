@@ -8,12 +8,28 @@ import TopFreelancersComponent from '../components/freelancer/freelancer_top_lis
 import AuthModal from '../components/common/auth.modal';
 import { BLACK, BLUE_1, WHITE } from '../utils/palette';
 
-
-import temp_sample_db from '../sample_db/temp_sample_db.json'
+import api from '../sample_db/fake_api_responses.json'
 
 const topCategories=temp_sample_db.top_categories;
 
 export default class HomeScreen extends Component {
+
+    constructor(props){
+        super(props);
+        this.state={
+            popular_categories:[],
+            popular_freelancers:[]
+        }
+    };
+
+    componentDidMount=()=>{
+        //fake api response : get_popular_categories :
+        this.setState({
+            popular_categories:api.get_popular_categories,
+            popular_freelancers:api.get_popular_freelancers
+        })
+    }
+
     render(){
         return (
 
@@ -33,11 +49,11 @@ export default class HomeScreen extends Component {
                     {/* banner */}
                     <HomeBannerComponent/>
                     {/* top categories */}
-                    <TopCategoriesComponent categories={topCategories}/>
+                    <TopCategoriesComponent categories={this.state.popular_categories}/>
 
                     {/* top freelancers */}
 
-                    <TopFreelancersComponent/>
+                    <TopFreelancersComponent freelacers={this.state.popular_freelancers}/>
                 </div>
 
 

@@ -26,6 +26,7 @@ import AdminTaskListScreen from './screens/admin/admin_task_list.screen';
 import AdminChatScreen from './screens/admin/admin_chat.screen';
 import AdminSettingScreen from './screens/admin/admin_setting.screen';
 import DashBoardTaskManagementScreen from './screens/dashboard/dashboard_task_management';
+import UploadFileAxiosScreen from './test_libs/upload_file_axios';
 
 
 
@@ -74,6 +75,7 @@ export default class  App extends Component {
 							
 
 							<Route path={routePaths.TEST_LIBS} component={TestLibsScreen}/>
+							<Route path={routePaths.UPLOAD_FILE_AXIOS} component={UploadFileAxiosScreen}/>
 
 
 							<Route path={routePaths.HOME} component={HomeScreen}/>

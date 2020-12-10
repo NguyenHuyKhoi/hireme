@@ -68,7 +68,7 @@ export default class   SettingProfileFreelancerComponent extends Component {
                       
                             
                         <div style={{width:'100%',marginTop:40}}>
-                            <ExperienceListComponent header_height={40} can_edit={true}/>
+                            <ExperienceListComponent header_height={40} is_edit={true}/>
                         </div>
                         
                         <div style={{marginTop:30}}>

@@ -33,12 +33,18 @@ class LabeledInputComponent extends Component {
               
                 <div style={{flex:3}}>
                 <input 
+                    disabled={disabled}
                     placeholder={input_field.placeholder}
                     type={input_field.type!==undefined?input_field.type:'text'}
                     onChange={(e)=>this.props.inputAField({[input_field.key]:e.target.value})}
-                    style={{width:'100%',height: size===textSizes.NORMAL?30:25,fontSize:size,
+                    style={{
+                        width:'100%',height: size===textSizes.NORMAL?30:25,
+                        fontSize:size,
                         marginTop:inline?0:15,
-                        marginLeft:inline?15:0}}
+                        marginLeft:inline?15:0,
+                        border:disabled?'none':'default',
+                        outline:disabled?'none':'default'
+                    }}
                     />
                 </div>
             

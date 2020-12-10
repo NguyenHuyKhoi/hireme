@@ -17,10 +17,22 @@ import LabelInputComponent from '../input/labeled_input.component'
 
 export default class ExperienceItemComponent extends Component {
     render(){
-        const is_new=this.props.is_new;
+        const is_new=this.props.is_new!==undefined?this.props.is_new:false;
+        const is_edit=this.props.is_edit!==undefined?this.props.is_edit:false;
         const experience=this.props.experience;
         const index=this.props.index;
-        const disabled=is_new!==undefined?false:true
+
+        const input_not_disabled = (is_edit && is_new)
+        const btn_add_visible= (is_edit && is_new)
+        const btn_remove_visible= (is_edit===true && is_new===false)
+        // if  on edit_mode (freelancer_setting_screen) :(is_edit === true )
+        //   + new_experience_item : (is_new===true)  input is not disabled, btn_add is visible (not disable);
+        //   + old_experience_items: (is_new===false) input is disable ,btn_remove is visible (not disable);
+
+        //if on view_mode (freelancer_detail_screen) : is_edit === false
+        //   + new_experience_item :  (is_new===true)input is disable ,btn_add is invisiable (disable); 
+        //   + old_experience_item :  (is_new===false) input is disable ,btn_remobe is invisiable (disable); 
+        const disabled=!(is_edit && is_new );
         return (
             <div  
                 style={{
@@ -34,22 +46,42 @@ export default class ExperienceItemComponent extends Component {
                         justifyContent:'space-between'}}>
                         <div style={{width:'45%'}}>
                             <LabelInputComponent 
-                                disabled={disabled}
+                                disabled={!input_not_disabled}
                                 hide_label={true}
                                 inline={true}
                                 input_field={inputField.EXP_ROLE}
                                 />
                         </div>
-                        <div 
+                        {
+                            btn_add_visible?
+                            <div 
                             style={{...styles.action_btn,
                                 marginRight:20,
-                                backgroundColor: !disabled?GREEN_1:RED_1}}>
-                            <text style={styles.action_btn_label}>
-                                {
-                                    !disabled?'+':'-'
-                                }
-                            </text>
-                        </div>
+                                backgroundColor:GREEN_1}}>
+                                <text style={styles.action_btn_label}>
+                                    +
+                                </text>
+                            </div>
+                            :
+                            null
+
+                        }
+
+                        {
+                            btn_remove_visible?
+                            <div 
+                            style={{...styles.action_btn,
+                                marginRight:20,
+                                toundColor: RED_1}}>
+                                <text style={styles.action_btn_label}>
+                                    -
+                                </text>
+                            </div>
+                            :
+                            null
+
+                        }
+                       
                     </div>
                     
                     
@@ -60,7 +92,7 @@ export default class ExperienceItemComponent extends Component {
                         <div style={{width:'30%',marginRight:40}}>
                             <LabelInputComponent 
                                 size={textSizes.SMALL}
-                                disabled={disabled}
+                                disabled={!input_not_disabled}
                                 hide_label={true}
                                 inline={true}
                                 input_field={inputField.EXP_COMPANY}
@@ -73,7 +105,7 @@ export default class ExperienceItemComponent extends Component {
                             <div style={{display:'flex',flex:1,marginRight: 20}}>
                             <LabelInputComponent 
                                 size={textSizes.SMALL}
-                                disabled={disabled}
+                                disabled={!input_not_disabled}
                                 inline={true}
                                 hide_label={true}
                                 input_field={inputField.EXP_FROM}
@@ -85,7 +117,7 @@ export default class ExperienceItemComponent extends Component {
                             <div style={{display:'flex',flex:1}}>
                             <LabelInputComponent 
                                 size={textSizes.SMALL}
-                                disabled={disabled}
+                                disabled={!input_not_disabled}
                                 hide_label={true}
                                 inline={true}
                                 input_field={inputField.EXP_TO}
@@ -100,7 +132,7 @@ export default class ExperienceItemComponent extends Component {
                     <div style={{width:'90%',marginTop:3}}>
                         <LabelInputComponent 
                             size={textSizes.SMALL}
-                            disabled={disabled}
+                            disabled={!input_not_disabled}
                             inline={true}
                             hide_label={true}
                             input_field={inputField.EXP_DESCRIPTION}

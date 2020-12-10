@@ -36,7 +36,8 @@ export const routePaths={
     ADMIN_CHAT:'/admin/chat',
     ADMIN_SETTING:'/admin/setting',
 
-    TEST_LIBS:'/test/libs'
+    TEST_LIBS:'/test/libs',
+    UPLOAD_FILE_AXIOS:'/test/upload_file_axios'
 }
 
 

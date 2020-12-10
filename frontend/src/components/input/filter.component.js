@@ -9,7 +9,7 @@ import { inputField } from '../../redux/constant/input.constant'
 
 
 export default class FilterComponent extends Component {
-
+const 
 
     render(){
         return (

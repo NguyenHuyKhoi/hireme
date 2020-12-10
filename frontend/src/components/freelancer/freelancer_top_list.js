@@ -6,6 +6,8 @@ import FreelancerItemComponent from './freelancer_item.component'
 
 export default class FreelancerTopListComponent extends Component {
     render(){
+        const freelancers=this.props.freelancers;
+        freelancers=freelancers.slide(0,3);
         return (
             <div style={{width:'100vw',
                 alignSelf: 'baseline',
@@ -19,7 +21,7 @@ export default class FreelancerTopListComponent extends Component {
                     flexDirection: 'row'
                 }}>
                     {
-                        [1,2,3].map((item,index)=>
+                        freelancers.map((item,index)=>
                             <FreelancerItemComponent  key={''+index}/>
                         )
                     }

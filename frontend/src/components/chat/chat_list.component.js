@@ -7,6 +7,7 @@ import { BLACK, BLUE_1, GRAY_1, GRAY_2, GRAY_3, GRAY_4, GRAY_5, WHITE } from '..
 import HeaderListComponent from '../common/header_list.component';
 
 
+
 const chats=sample_db.chats   ;
 
 class ChatItem extends Component {
