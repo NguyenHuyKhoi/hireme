@@ -8,7 +8,8 @@ export const bullshitIcons={
     cat_customer:<FaAccessibleIcon/>,
     cat_engineer:<FaHubspot/>,
     cat_sale:<FaPaypal/>,
-    cat_writing:<FaBroom/>
+    cat_writing:<FaBroom/>,
+    
     
 }
 

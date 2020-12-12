@@ -2,14 +2,14 @@
 import React, {Component} from 'react'
 import ButtonComponent from '../common/button.component'
 
-import sample_db from '../../sample_db/sample_db.json'
+import sample_db from '../../sample_db/fake_api_responses.json'
 import HeaderListComponent from '../common/header_list.component'
 import PaginationComponent from '../common/pagination.component'
 import CreditCardItemComponent from './credit_card_item.component'
 import TransactionItemComponent from './transaction_item.component'
 import { WHITE } from '../../utils/palette'
 
-let cards=sample_db.credit_cards.slice(0,3)
+let cards=sample_db.get_detail_payment.credit_cards
 let new_card={
     number :'',
     owner_name   :'',

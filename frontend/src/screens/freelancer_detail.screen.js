@@ -12,8 +12,28 @@ import banner from '../assets/images/banner.jpg'
 import DescriptionComponent from '../components/common/description.component';
 import { WHITE } from '../utils/palette';
 import SkillsListComponent from '../components/common/skills_list.component';
+
+import api from '../sample_db/fake_api_responses.json'
 export default class FreelancerDetailScreen extends Component {
+
+    constructor(props){
+        super(props);
+        this.state={
+            freelancer:null,
+            reviews:[]
+        }
+    }
+
+    componentDidMount=()=>{
+        this.setState({
+            freelancer:api.get_detail_freelancer,
+            reviews:api.get_reviews
+        })
+    }
     render(){
+        const freelancer=this.state.freelancer;
+        const reviews=this.state.reviews
+        console.log('freelancer_detail screen:',freelancer);
         return (
 
             <div style={{width:'100vw',
@@ -23,7 +43,10 @@ export default class FreelancerDetailScreen extends Component {
                 {/* header */}
                 <HeaderBarComponent/>
 
-                {/* body */}
+                {
+                freelancer===null?
+                null
+                :
                 <div style={{width:'100vw',display:'flex',flexDirection: 'column',
                     paddingBottom:60,
                     overflowX:'hidden',
@@ -32,9 +55,9 @@ export default class FreelancerDetailScreen extends Component {
                     
                     {/* header task detail */}
                     
-                     <FreelancerDetailHeaderComponent/>
+                    <FreelancerDetailHeaderComponent freelancer={freelancer}/>
                     {/* body task detail  */}
- 
+
                     <div style={{width:'100%',display:'flex',flexDirection:'row'}}>
                         <div style={{flex:1}}/>
                         {/* column1 */}
@@ -45,23 +68,21 @@ export default class FreelancerDetailScreen extends Component {
                             <div style={{marginTop:30}}>
                                 <DescriptionComponent 
                                     title='About me'
-                                    content='Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
-
-                                    Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.'/>
+                                    content={freelancer.description}/>
                             </div>
-                           
+                        
                             {/* experience list */}
                             
                             <div style={{marginTop:50}}>
-                                <ExperienceListComponent/>
+                                <ExperienceListComponent experiences={freelancer.experiencers}/>
                             </div>
-                           
+                        
 
                             <div style={{marginTop:50}}>
                                 {/* reviews list */}
-                                <ReviewListComponent/>
+                                <ReviewListComponent reviews={reviews}/>
                             </div>
-                          
+                        
                         </div>
 
                         <div style={{flex:0.5}}/>
@@ -71,27 +92,40 @@ export default class FreelancerDetailScreen extends Component {
                             marginLeft:50,  alignSelf:'baseline'}}>
 
                             {/* skills */}
-                            <SkillsListComponent/>
+                            <SkillsListComponent skills={freelancer.skills}/>
 
 
                             {/* infor bar  */}
                             <div style={{marginTop:50}}>
-                                <InforsBarComponent/>
+                                <InforsBarComponent fields={[
+                                    {
+                                        key:'Hourly Rate',value:freelancer.hourly_rate
+                                    },
+                                    {
+                                        key:'Done Tasks',value:freelancer.done_tasks
+                                    },
+                                    {
+                                        key:'Income($)',value:freelancer.income
+                                    }
+                                ]}/>
                             </div>
 
                             <div style={{marginTop:15}}>
                                 <ButtonComponent label='Make an offer'/>
                             </div>
                         
-                          
+                        
                         </div>
                         <div style={{flex:1}}/>
                     </div>
-               
-               
+            
+            
                 </div>
 
 
+                }
+                {/* body */}
+                
                 {/* footer */}
                 <FooterBarComponent/>
             </div>

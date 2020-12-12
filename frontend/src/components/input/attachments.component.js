@@ -34,6 +34,7 @@ class NewFile extends Component{
 
 class NormalFile extends Component{
     render(){
+        const attachment=this.props.attachment;
         const is_edit=this.props.is_edit
         return(
             <div style={{marginRight:10,marginTop: 7,width:'9vw',height:70,borderRadius:8,
@@ -41,14 +42,14 @@ class NormalFile extends Component{
                 flexDirection: 'column',
                 display:'flex',justifyContent: 'center'}}>
                 <text style={{marginLeft:15,fontSize:textSizes.SMALL,color:BLACK}}>
-                    CV file
+                    {attachment.name}
                 </text>
 
                 <div style={{display:'flex',width:'75%',marginLeft:15,
                     alignSelf:'baseline',
                     flexDirection:'row',justifyContent:'space-between'}}>
                     <text style={{fontSize:textSizes.SMALL,color:GRAY_2}}>
-                        pdf
+                        {attachment.type}
                     </text>
                     {
                         is_edit!==undefined && is_edit===true?
@@ -74,8 +75,8 @@ class NormalFile extends Component{
 
 class AttachmentsComponent extends Component {
     render(){
-        const is_edit=this.props.is_edit
-
+        const attachments=this.props.attachments!==undefined?this.props.attachments:[];
+        const is_edit=this.props.is_edit!==undefined?this.props.is_edit:false
         const input_field=this.props.input_field;
         console.log('input_field_key:',input_field.key)
         return (
@@ -86,17 +87,18 @@ class AttachmentsComponent extends Component {
                 </text>
 
                 <div style={{width:'100%',display:'flex',flexDirection: 'row',
-                    justifyContent:'space-between', 
                     flexWrap:'wrap',alignItems: 'flex-start'}}>
                     {
-                        is_edit!==undefined?
+                        is_edit?
                         <NewFile/>
                         :
                         null
                     }
                     {
-                        [1,2,3,4,5].map((item,index)=>
-                            <NormalFile is_edit={is_edit}  key={''+index}/>
+                        attachments.map((item,index)=>
+                            <NormalFile 
+                                attachment={item}
+                                is_edit={is_edit}  key={''+index}/>
                         )
                     }
                 </div>

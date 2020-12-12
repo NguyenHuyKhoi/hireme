@@ -6,10 +6,12 @@ import DescriptionComponent from '../common/description.component';
 import SkillsListComponent from '../common/skills_list.component';
 import AttachmentsComponent from '../input/attachments.component';
 import TaskDetailHeaderComponent from './task_detail_header.component';
-
+import api from '../../sample_db/fake_api_responses.json'
 
 export default class TaskDetailTabComponent extends Component {
+
     render(){
+        const task=this.props.task;
         return (
             <div style={{display:'flex',flex:1,flexDirection: 'column',backgroundColor: WHITE,
 
@@ -18,24 +20,22 @@ export default class TaskDetailTabComponent extends Component {
                     
             {/* header task detail */}
             
-                <TaskDetailHeaderComponent/>
+                <TaskDetailHeaderComponent task={task}/>
                 <div style={{flex:1,display:'flex',flexDirection:'row'}}>
                     <div style={{flex:1}}/>
                     <div style={{flex:7.5,display:'flex',flexDirection:'column',paddingBottom:50}}>
                         <div style={{marginTop:30}}>
                             <DescriptionComponent 
-                                title='About me'
-                                content='Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
-
-                                Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.'/>
+                                title='About This Task:'
+                                content={task.description}/>
                         </div>
 
                         <div style={{marginTop:30}}>
-                            <AttachmentsComponent input_field={inputField.FILES}/>
+                            <AttachmentsComponent attachments={task.attachments} input_field={inputField.FILES}/>
                         </div>
 
                         <div style={{marginTop:30}}>
-                            <SkillsListComponent/>
+                            <SkillsListComponent skills={task.skills}/>
                         </div>
         
                     </div>

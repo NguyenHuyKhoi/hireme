@@ -1,12 +1,11 @@
 //import from library 
 import React, {Component} from 'react'
-import sample_db from '../../sample_db/sample_db.json'
+import sample_db from '../../sample_db/fake_api_responses.json'
 import { WHITE } from '../../utils/palette';
 import ChatListComponent from './chat_list.component';
 import ConversationComponent from './conversation.component';
 
 
-const chats=sample_db.chats   ;
 
 export default class ChatComponent extends Component {
 

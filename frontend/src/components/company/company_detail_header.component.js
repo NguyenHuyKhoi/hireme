@@ -7,6 +7,7 @@ import SmallFieldComponent from '../common/small_field.component'
 
 export default class CompanyDetailHeaderComponent extends Component {
     render(){
+        const company=this.props.company
         return (
             
             <div style={{width:'100%',height:150,
@@ -17,22 +18,22 @@ export default class CompanyDetailHeaderComponent extends Component {
 
                 <div style={{flex:1}}/>
                 <div style={{flex:5,display:'flex',flexDirection: 'row',alignItems: 'center'}}>
-                    <img src='https://randomuser.me/api/portraits/men/17.jpg'
+                    <img src={company.avatar}
                         style={{height: '60%',aspectRatio:1,borderRadius:'50%'}}/>
                     
                     <div style={{marginLeft:15,display:'flex',flex:1,flexDirection: 'column'}}>
                         <text style={{fontSize:textSizes.BIG,color:BLACK}}>
-                            Facebook
+                            {company.company_name}
                         </text>
 
                         <text style={{fontSize:textSizes.NORMAL,color:BLACK,marginBottom:5}}>
-                            A software company
+                            {company.tagline}
                         </text>
 
-                        <SmallFieldComponent 
+                        {/* <SmallFieldComponent 
                             background_color={YELLOW_1} 
                             label_color={WHITE} 
-                            label={'4.2'}/>
+                            label={company.rate_score}/> */}
                     </div>
                 </div>
 

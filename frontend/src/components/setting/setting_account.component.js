@@ -12,6 +12,7 @@ export default class SettingAccountComponent extends Component {
    
 
     render(){
+        const account=this.props.account
         return (
             <div style={{
                 flex:1,display: 'flex',flexDirection:'column',backgroundColor:WHITE,
@@ -31,17 +32,22 @@ export default class SettingAccountComponent extends Component {
                             <div style={{display:'flex',flexDirection:'row' }}>
                                 <div style={{flex:4}}>
                                     <LabeledInputComponent 
+                                        value={account.first_name}
                                         input_field={inputField.FIRST_NAME}/>
                                 </div>
                                 <div style={{flex:2}}/>
                                 <div style={{flex:4}}>
-                                    <LabeledInputComponent input_field={inputField.LAST_NAME}/>
+                                    <LabeledInputComponent 
+                                         value={account.last_name}
+                                        input_field={inputField.LAST_NAME}/>
                                 </div>
                                
                             </div>
 
                             <div style={{marginTop:15}}>
-                                <LabeledInputComponent input_field={inputField.EMAIL}/>
+                                <LabeledInputComponent 
+                                    value={account.email}
+                                    input_field={inputField.EMAIL}/>
                             </div>
                          
                         </div>

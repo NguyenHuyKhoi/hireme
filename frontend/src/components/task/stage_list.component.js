@@ -7,15 +7,17 @@ import StageItemComponent from './stage_item.component'
 
 export default class StageListComponent extends Component {
     render(){
+        const stages=this.props.stages!==undefined?this.props.stages:[]
         return (
             <div style={{ display:'flex',flexDirection: 'row',backgroundColor:WHITE, overflowX:'scroll',
                     paddingLeft:30,
                     boxShadow:'5px 5px 25px 3px #707070'}}>
                 
                     {
-                        [1,2].map((item,index)=>
+                        stages.map((item,index)=>
                             <div style={{width:'40vw'}}>
                                 <StageItemComponent 
+                                    stage={item}
                                     key={''+index}/>
                             </div>
                             

@@ -6,17 +6,18 @@ import TaskItemComponent from './task_item.component'
 
 export default class TaskListComponent extends Component {
     render(){
+        const tasks=this.props.tasks;
         return (
             <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
                 {/* header list */}
-                <HeaderListComponent title='Freelancers' is_sort={true}/>
+                <HeaderListComponent title='Tasks' is_sort={true}/>
                 
                 {/* body list */}
 
                 <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
                 {
-                    [1,2,3,4,5].map((item,index)=>
-                        <TaskItemComponent key={''+index}/>
+                    tasks.map((item,index)=>
+                        <TaskItemComponent task={item} key={''+index}/>
                     )
                 }
                 </div>

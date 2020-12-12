@@ -11,8 +11,9 @@ class NumberInputComponent extends Component {
     state={ranges:[10]}
     render(){
         const input_field=this.props.input_field;
+        const value=this.props.value
         console.log('input_field_key:',input_field.key)
-        const inputInStore=this.props.input_store[input_field.key];
+        const inputInStore=value!==undefined?value:this.props.input_store[input_field.key];
         return (
             <div style={{display:'flex',width: '100%',flexDirection: 'column'}}>
                 <text style={{fontSize:textSizes.NORMAL,color:BLACK,marginBottom:10}}>

@@ -8,6 +8,7 @@ import ReviewItemComponent from './experience_item.component';
 
 export default class ExperienceListComponent extends Component {
     render(){
+        const experiences=this.props.experiences!==undefined?this.props.experiences:[]
         const header_height=this.props.header_height;
         const is_edit=this.props.is_edit!==undefined?this.props.is_edit:false;
         return (
@@ -20,13 +21,20 @@ export default class ExperienceListComponent extends Component {
                 {/* body list */}
 
                 <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
-                    <ExperienceItemComponent  
-                        is_edit={is_edit} 
-                        is_new={true} 
-                        index={0}  
-                        key={''+0}/>
                     {
-                        [1,2].map((item,index)=>(
+                        is_edit?
+                        <ExperienceItemComponent  
+                            is_edit={is_edit} 
+                            is_new={true} 
+                            index={0}  
+                            key={''+0}/>
+                        :
+                        null
+                    }
+
+                  
+                    {
+                        experiences.map((item,index)=>(
                             <ExperienceItemComponent 
                                 is_edit={is_edit}
                                 is_new={false}

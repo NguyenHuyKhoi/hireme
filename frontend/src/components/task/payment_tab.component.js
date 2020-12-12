@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import { inputField } from '../../redux/constant/input.constant';
-import sample_db from '../../sample_db/sample_db.json'
+import sample_db from '../../sample_db/fake_api_responses'
 import { textSizes } from '../../utils/constants';
 import { BLUE_1, GRAY_2, GREEN_1, RED_1, WHITE, YELLOW_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';

@@ -6,6 +6,8 @@ import PaginationComponent from '../common/pagination.component'
 
 export default class FreelancerListComponent extends Component {
     render(){
+        const freelancers=this.props.freelancers!==undefined?this.props.freelancers:[];
+
         return (
             <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
                 {/* header list */}
@@ -17,8 +19,8 @@ export default class FreelancerListComponent extends Component {
                     marginTop:20,
                     flexDirection: 'row',justifyContent:'space-between',flexWrap: 'wrap',alignItems: 'flex-start'}}>
                 {
-                    [1,2,3,4,5,6].map((item,index)=>
-                        <FreelancerItemComponent  key={''+index}/>
+                    freelancers.map((item,index)=>
+                        <FreelancerItemComponent freelancer={item} key={''+index}/>
                     )
                 }
                 </div>

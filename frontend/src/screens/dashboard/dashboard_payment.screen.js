@@ -13,8 +13,20 @@ import TransactionListComponent from '../../components/payment/transaction_list.
 import { PADDING_BODY_DASHBOARD, SIDEBAR_RATIO } from '../../utils/constants'
 import { GRAY_6 } from '../../utils/palette'
 import HeaderListComponent from '../../components/common/header_list.component'
-
+import api from '../../sample_db/fake_api_responses.json'
 export default class DashBoardPaymentScreen extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            tasks:[]
+        }
+    }
+
+    componentDidMount=()=>{
+        this.setState({
+            tasks:api.get_task_list
+        })
+    }
     render(){
         return (
 

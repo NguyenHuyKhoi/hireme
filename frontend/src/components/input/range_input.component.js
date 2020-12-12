@@ -11,8 +11,9 @@ class RangeInputComponent extends Component {
 
     render(){
         const input_field=this.props.input_field;
+        const value=this.props.value
         console.log('input_field_key:',input_field.key)
-        const inputInStore=this.props.input_store[input_field.key];
+        const inputInStore=value!==undefined?value:this.props.input_store[input_field.key];
         return (
             <div style={{display:'flex',width: '100%',flexDirection: 'column'}}>
                 <text style={{fontSize:textSizes.NORMAL,color:BLACK,marginBottom:10}}>
@@ -33,6 +34,7 @@ class RangeInputComponent extends Component {
                 {/* <div style={{marginTop:15,width:'80%',height:5,backgroundColor: '#392583'}}> */}
                     <Range
                         step={1}   
+
                         min={input_field.domain_value[0]}      
                         max={input_field.domain_value[1]}
                         values={inputInStore}

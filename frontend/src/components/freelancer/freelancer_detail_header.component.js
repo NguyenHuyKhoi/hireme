@@ -7,8 +7,8 @@ import SmallFieldComponent from '../common/small_field.component'
 import { textSizes } from '../../utils/constants'
 export default class FreelancerDetailHeaderComponent extends Component {
     render(){
+        const freelancer=this.props.freelancer;
         return (
-            
             <div style={{width:'100%',height:150,
                 backgroundImage:`url(${banner})`,
                 backgroundRepeat:  'no-repeat',
@@ -17,22 +17,22 @@ export default class FreelancerDetailHeaderComponent extends Component {
 
             <div style={{flex:1}}/>
             <div style={{flex:5,display:'flex',flexDirection: 'row',alignItems: 'center'}}>
-                <img src='https://randomuser.me/api/portraits/men/17.jpg'
+                <img src={freelancer.avatar}
                     style={{height: '60%',aspectRatio:1,borderRadius:'50%'}}/>
                 
                 <div style={{marginLeft:15,display:'flex',flex:1,flexDirection: 'column'}}>
                     <text style={{fontSize:textSizes.BIG,color:BLACK}}>
-                        Freelancer 1
+                        {freelancer.name}
                     </text>
 
                     <text style={{fontSize:textSizes.NORMAL,color:BLACK,marginBottom:5}}>
-                        A software developments
+                        {freelancer.tagline}
                     </text>
-                    <div style={{}}>
+                    <div style={{flex:1}}>
                         <SmallFieldComponent 
                             background_color={YELLOW_1} 
                             label_color={WHITE} 
-                            label={'4.2'}/>
+                            label={freelancer.rate_score}/>
                     </div>
                   
                 </div>

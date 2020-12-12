@@ -92,7 +92,7 @@ export default class HeaderBarComponent extends Component {
                     {
                     is_login?
                         <Link 
-                            to ={routePaths.ADMIN_HOME}
+                            to ={routePaths.DASHBOARD_TASK_LIST}
                             style={{display: 'flex',flexDirection: 'row',alignItems:'center',textDecoration:'none'}}>
                             <img src='https://randomuser.me/api/portraits/women/25.jpg' 
                                 style={{width:50,height:50,borderRadius:25}}/>

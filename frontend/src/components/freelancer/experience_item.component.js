@@ -17,9 +17,12 @@ import LabelInputComponent from '../input/labeled_input.component'
 
 export default class ExperienceItemComponent extends Component {
     render(){
+       
+        const experience=this.props.experience;
+        console.log('experience_item :',experience)
         const is_new=this.props.is_new!==undefined?this.props.is_new:false;
         const is_edit=this.props.is_edit!==undefined?this.props.is_edit:false;
-        const experience=this.props.experience;
+
         const index=this.props.index;
 
         const input_not_disabled = (is_edit && is_new)
@@ -49,6 +52,7 @@ export default class ExperienceItemComponent extends Component {
                                 disabled={!input_not_disabled}
                                 hide_label={true}
                                 inline={true}
+                                value={is_new?'':experience.role}
                                 input_field={inputField.EXP_ROLE}
                                 />
                         </div>
@@ -95,6 +99,7 @@ export default class ExperienceItemComponent extends Component {
                                 disabled={!input_not_disabled}
                                 hide_label={true}
                                 inline={true}
+                                value={is_new?'':experience.company_name}
                                 input_field={inputField.EXP_COMPANY}
                                 />
                         </div>
@@ -108,6 +113,7 @@ export default class ExperienceItemComponent extends Component {
                                 disabled={!input_not_disabled}
                                 inline={true}
                                 hide_label={true}
+                                value={is_new?new Date():experience.start_time}
                                 input_field={inputField.EXP_FROM}
                                 />
                             </div>
@@ -120,6 +126,7 @@ export default class ExperienceItemComponent extends Component {
                                 disabled={!input_not_disabled}
                                 hide_label={true}
                                 inline={true}
+                                value={is_new?new Date():experience.end_time}
                                 input_field={inputField.EXP_TO}
                                 />
                             </div>
@@ -135,6 +142,7 @@ export default class ExperienceItemComponent extends Component {
                             disabled={!input_not_disabled}
                             inline={true}
                             hide_label={true}
+                            value={is_new?'':experience.description}
                             input_field={inputField.EXP_DESCRIPTION}
                             />
                     </div>

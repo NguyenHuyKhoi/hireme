@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 
 import LabeledInputComponent from '../input/labeled_input.component'
 import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
-import RangeInputComponent from '../input/range_input.component'
+import NumberInputComponent from '../input/number_input.component'
 import SkillPickerComponent from '../input/skill_picker.component'
 import ExperienceListComponent from '../freelancer/experience_list.component'
 import HeaderListComponent from '../common/header_list.component'
@@ -16,6 +16,8 @@ export default class   SettingProfileFreelancerComponent extends Component {
    
 
     render(){
+        const profile=this.props.profile;
+        console.log('profile_freelancer :',profile);
         return (
             <div style={{
                 flex:1,display: 'flex',flexDirection:'column',backgroundColor:WHITE,
@@ -32,15 +34,21 @@ export default class   SettingProfileFreelancerComponent extends Component {
                             <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
 
                                 <div style={{width:'70%'}}>
-                                    <LabeledInputComponent input_field={inputField.TAGLINE}/>
+                                    <LabeledInputComponent
+                                        value={profile.tagline} 
+                                        input_field={inputField.TAGLINE}/>
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <RangeInputComponent input_field={inputField.HOURLY_RATE}/>
+                                    <NumberInputComponent 
+                                        value={[profile.hourly_rate]}
+                                        input_field={inputField.HOURLY_RATE}/>
                                 </div>
 
                                 <div style={{width: '100%',marginTop:30}}>
-                                    <SkillPickerComponent input_field={inputField.SKILLS} />
+                                    <SkillPickerComponent 
+                                        skills={profile.skills}
+                                        input_field={inputField.SKILLS} />
                                 </div>
                               
 
@@ -52,11 +60,14 @@ export default class   SettingProfileFreelancerComponent extends Component {
 
                                 <div style={{width:'70%'}}>
                                     <LabeledSelectedInputComponent 
+                                        value={profile.category}
                                         input_field={inputField.CATEGORY}/>
                                 </div>    
 
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <AttachmentsComponent is_edit={true} input_field={inputField.FILES}/>
+                                    <AttachmentsComponent
+                                        attachments={profile.attachments}
+                                        is_edit={true} input_field={inputField.FILES}/>
                                 </div>                          
                             </div>
 
@@ -68,11 +79,15 @@ export default class   SettingProfileFreelancerComponent extends Component {
                       
                             
                         <div style={{width:'100%',marginTop:40}}>
-                            <ExperienceListComponent header_height={40} is_edit={true}/>
+                            <ExperienceListComponent 
+                                experiencers={profile.experiencers}
+                                header_height={40} 
+                                is_edit={true}/>
                         </div>
                         
                         <div style={{marginTop:30}}>
                            <TextareaInputComponent
+                            value={profile.description}
                              input_field={inputField.DESCRIPTION} />
                        </div>
 

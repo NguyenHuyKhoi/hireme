@@ -11,8 +11,25 @@ import CompanyDetailHeaderComponent from '../components/company/company_detail_h
 import ReviewListComponent from '../components/task/review_list.component';
 import { WHITE } from '../utils/palette';
 
+import api from '../sample_db/fake_api_responses.json'
 export default class CompanyDetailScreen extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            company:null,
+            reviews:[]
+        }
+    }
+
+    componentDidMount=()=>{
+        this.setState({
+            company:api.get_detail_company,
+            reviews:api.get_reviews
+        })
+    }
     render(){
+        const company=this.state.company;
+        const reviews=this.state.reviews;
         return (
 
             <div style={{width:'100vw',backgroundColor: WHITE,
@@ -29,62 +46,83 @@ export default class CompanyDetailScreen extends Component {
 
                     
                     {/* header task detail */}
-                    
-                     <CompanyDetailHeaderComponent/>
+                    {
+                        company===null?
+                        null
+                        :
+                        <CompanyDetailHeaderComponent company={company}/>
+                    }
+                    {
+                        company===null?
+                        null
+                        :
+                        <div style={{width:'100%',display:'flex',flexDirection:'row'}}>
+                            <div style={{flex:1}}/>
+                            
+                            {/* column1 */}
+                            <div style={{flex:5,display:'flex',flexDirection: 'column',
+                                alignSelf:'baseline'}}>
+
+                                {/* description */}
+                                <div style={{marginTop:30}}>
+                                    <DescriptionComponent 
+                                        title='About Company'
+                                        content={company.description}/>
+                                </div>
+                            
+
+                                <div style={{marginTop:50}}>
+                                    {/* reviews list */}
+                                    <ReviewListComponent reviews={reviews}/>
+                                </div>
+                            
+                            </div>
+
+                            <div style={{flex:0.5}}/>
+
+                            {/* column2 */}
+                            <div style={{flex:2,display:'flex',flexDirection: 'column',
+                                marginLeft:50,  alignSelf:'baseline'}}>
+                                {/* infor bar  */}
+                                <div style={{marginTop:30}}>
+                                    <SingleFieldComponent field={{
+                                        key:'Employee size :',
+                                        value:company.employee_size
+                                    }} />
+                                </div>
+
+                                <div style={{marginTop:40}}>
+                                    <SingleFieldComponent field={{
+                                        key:'Location :',
+                                        value:company.location
+                                    }}/>
+                                </div>
+
+                                <div style={{marginTop:40}}>
+                                    <SingleFieldComponent field={{
+                                        key:'Business Area :',
+                                        value:company.business_area
+                                    }}/>
+                                </div>
+
+                                <div style={{marginTop:40}}>
+                                    <SingleFieldComponent field={{
+                                        key:'Website link:',
+                                        value:company.website_link
+                                    }}/>
+                                </div>
+
+
+                            
+                            </div>
+                            <div style={{flex:1}}/>
+                        </div>
+           
+                    }
+                   
                     {/* body task detail  */}
  
-                    <div style={{width:'100%',display:'flex',flexDirection:'row'}}>
-                        <div style={{flex:1}}/>
-                        
-                        {/* column1 */}
-                        <div style={{flex:5,display:'flex',flexDirection: 'column',
-                            alignSelf:'baseline'}}>
-
-                            {/* description */}
-                            <div style={{marginTop:30}}>
-                                <DescriptionComponent 
-                                    title='About me'
-                                    content='Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.
-
-                                    Capitalize on low hanging fruit to identify a ballpark value added activity to beta test. Override the digital divide with additional clickthroughs from DevOps. Nanotechnology immersion along the information highway will close the loop on focusing solely on the bottom line.'/>
-                            </div>
-                        
-
-                            <div style={{marginTop:50}}>
-                                {/* reviews list */}
-                                <ReviewListComponent/>
-                            </div>
-                          
-                        </div>
-
-                        <div style={{flex:0.5}}/>
-
-                         {/* column2 */}
-                        <div style={{flex:2,display:'flex',flexDirection: 'column',
-                            marginLeft:50,  alignSelf:'baseline'}}>
-                            {/* infor bar  */}
-                            <div style={{marginTop:30}}>
-                                <SingleFieldComponent/>
-                            </div>
-
-                            <div style={{marginTop:40}}>
-                                <SingleFieldComponent/>
-                            </div>
-
-                            <div style={{marginTop:40}}>
-                                <SingleFieldComponent/>
-                            </div>
-
-                            <div style={{marginTop:40}}>
-                                <SingleFieldComponent/>
-                            </div>
-
-
-                          
-                        </div>
-                        <div style={{flex:1}}/>
-                    </div>
-               
+                   
                 </div>
 
 

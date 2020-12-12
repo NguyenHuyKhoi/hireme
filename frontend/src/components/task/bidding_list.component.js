@@ -1,12 +1,12 @@
 //import from library 
 import React, {Component} from 'react'
 
-import sample_db from '../../sample_db/sample_db.json'
+import sample_db from '../../sample_db/fake_api_responses.json'
 import HeaderListComponent from '../common/header_list.component';
 import PaginationComponent from '../common/pagination.component';
 import BiddingItemComponent from './bidding_item.component';
 
-const biddings=sample_db.biddings   ;
+const biddings=sample_db.get_bidding_list   ;
 // * bidding [
 //     {
 //       * id
@@ -17,7 +17,7 @@ const biddings=sample_db.biddings   ;
 //   ]
 export default class BiddingListComponent extends Component {
     render(){
-        const list = biddings.slice(0,4)
+        const biddings=this.props.biddings!==undefined?this.props.biddings:[];
         const company_view=this.props.company_view;
         return (
             <div style={{flex:1,
@@ -27,7 +27,7 @@ export default class BiddingListComponent extends Component {
 
                 <div style={{flex:1,display:'flex',flexDirection: 'column'}}>
                     {
-                    list.map((item,index)=>
+                    biddings.map((item,index)=>
                         <BiddingItemComponent bidding={item} index={index} key ={''+index}/>
                     )
                     }

@@ -2,6 +2,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
 import { routePaths, textSizes } from '../../utils/constants';
+import { collapseText } from '../../utils/helper';
 import { BLACK, BLUE_2, WHITE, YELLOW_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component'
 import RateScoreComponent from '../common/rate_score.component'
@@ -16,8 +17,11 @@ import SmallFieldComponent from '../common/small_field.component';
 //    + task : { id ,name }
 
 export default class ReviewItemComponent extends Component {
+
     render(){
         const review=this.props.review;
+        const reviewer =review.reviewer;
+        const task=review.task;
         return (
             <div  style={{width:'100%',height:150, 
                 flexDirection:'row', display:'flex',
@@ -27,7 +31,7 @@ export default class ReviewItemComponent extends Component {
                 <div style={{flex:1}}/>
                 <div style={{flex:2}}>
                     <img 
-                    src='https://randomuser.me/api/portraits/men/22.jpg'  
+                    src={reviewer.avatar} 
                         style={{width: '80%',aspectRatio:1,borderRadius:'50%'}}/>
                 </div>
                     
@@ -38,7 +42,7 @@ export default class ReviewItemComponent extends Component {
                     <Link
                         to={routePaths.TASK_DETAIL}
                         style={{fontSize:textSizes.BIG,color:BLACK,textDecoration:'none'}}>
-                        Develope a ecommercer app 
+                        {collapseText(task.name,30)} 
                     </Link>
 
                     <div style={{display:'flex',width:'100%',flexDirection: 'row',
@@ -46,27 +50,22 @@ export default class ReviewItemComponent extends Component {
                         <Link
                             to={review.is_company?routePaths.COMPANY_DETAIL:routePaths.FREELANCER_DETAIL}
                             style={{fontSize:textSizes.SMALL,color:BLACK,textDecoration:'none'}}>
-                                {
-                                    review.is_company?
-                                    'Facebook'
-                                    :
-                                    'Freelancer'
-                                }
+                                    {reviewer.name}
                         </Link>
                     
                         <text style={{fontSize:textSizes.SMALL,color:BLACK}}>
-                            14/02/2019
+                            {review.time}
                         </text>
 
                         <SmallFieldComponent 
                             background_color={YELLOW_1} 
                             label_color={WHITE} 
-                            label={'4.2'}/>
+                            label={review.rate_score}/>
                 
                     </div>
 
                     <text style={{marginTop:5,fontSize:textSizes.SMALL,color:BLACK}}>
-                        Great company and especially ideal for the career-minded individual. The company is large enough to offer a variety of jobs.
+                        {collapseText(review.content,100)}
                     </text>
                 </div> 
                 <div style={{flex:1}}/>

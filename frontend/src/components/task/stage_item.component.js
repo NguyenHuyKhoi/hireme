@@ -19,6 +19,8 @@ import AttachmentsComponent from '../input/attachments.component'
 
 class TimeLine extends Component{
     render(){
+        const deadline=this.props.deadline
+        const percentage=this.props.percentage;
         return (
             <div style={{width: '100%',height: 50,display:'flex',flexDirection:'column'}}>
 
@@ -56,7 +58,7 @@ export default class StageItemComponent extends Component {
         return (
             <div style={{width:420,height:525,
                 display:'flex',flexDirection: 'column'}}>   
-                <TimeLine/>
+                <TimeLine />
 
                 <div style={{marginTop: 5,width:'80%',height:45,backgroundColor: GREEN_1,
                     display:'flex',flexDirection:'row',alignItems:'center',paddingLeft:15}}>

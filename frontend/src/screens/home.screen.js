@@ -10,7 +10,7 @@ import { BLACK, BLUE_1, WHITE } from '../utils/palette';
 
 import api from '../sample_db/fake_api_responses.json'
 
-const topCategories=temp_sample_db.top_categories;
+const topCategories=api.top_categories;
 
 export default class HomeScreen extends Component {
 
@@ -53,7 +53,7 @@ export default class HomeScreen extends Component {
 
                     {/* top freelancers */}
 
-                    <TopFreelancersComponent freelacers={this.state.popular_freelancers}/>
+                    <TopFreelancersComponent freelancers={this.state.popular_freelancers}/>
                 </div>
 
 

@@ -657,14 +657,6 @@ export const taskState=[
         code:'all'
     },
     {
-        name:'Not Approved',
-        code:'not_approved'
-    },
-    {
-        name:'Rejected',
-        code:'rejected'
-    },
-    {
         name:'Bidding',
         code:'bidding'
     },

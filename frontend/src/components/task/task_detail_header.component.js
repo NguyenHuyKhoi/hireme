@@ -8,6 +8,8 @@ import banner from '../../assets/images/banner.jpg'
 
 class ProjectBudget extends Component {
     render(){
+        const budget=this.props.budget;
+        const type_price=this.props.type_price;
         return (
             <div style={{width: '100%',height:'60%',borderRadius:6,
                 backgroundColor:BLUE_1,display: 'flex',justifyContent: 'center',
@@ -18,7 +20,7 @@ class ProjectBudget extends Component {
                 </text>
 
                 <text style={{fontSize:textSizes.NORMAL,color:WHITE}}>
-                    $2200 - $6000
+                    {'$'+budget[0]+' - '+'%'+budget[1]}
                 </text>
             </div>
         )
@@ -26,6 +28,9 @@ class ProjectBudget extends Component {
 }
 export default class TaskDetailHeaderComponent extends Component {
     render(){
+        const task=this.props.task
+        console.log('task_header :',task)
+        const company=task.company
         return (
             <div style={{width:'100%',height:150,
                 backgroundImage:`url(${banner})`,
@@ -35,23 +40,26 @@ export default class TaskDetailHeaderComponent extends Component {
 
             <div style={{flex:1}}/>
             <div style={{flex:5,display:'flex',flexDirection: 'row',alignItems: 'center'}}>
-                <img src='https://randomuser.me/api/portraits/men/17.jpg'
+                <img src={company.avatar}
                     style={{height: '60%',aspectRatio:1,borderRadius:'50%'}}/>
                 
                 <div style={{marginLeft:15,display:'flex',flex:1,flexDirection: 'column'}}>
                     <text style={{fontSize:textSizes.BIG,color:BLACK}}>
-                        Food delivery Mobile Application
+                        {task.task_name}
                     </text>
 
-                    <text style={{fontSize:textSizes.NORMAL,color:BLACK,marginBottom:5}}>
-                        A software company
-                    </text>
+                    <Link 
+                        to={routePaths.COMPANY_DETAIL}
+                        style={{fontSize:textSizes.NORMAL,color:BLACK,marginBottom:5,textDecoration:'none'}}>
+                        {company.name}
+                    </Link>
                 </div>
             </div>
             <div style={{flex:1}}/>
 
             <div style={{flex:2,display: 'flex',justifyContent: 'center',alignItems: 'center'}}>
-                <ProjectBudget/>
+                <ProjectBudget budget={[task.min_suggested_price,task.max_suggested_price]}
+                    type_price={task.type_price}/>
 
             </div>
 

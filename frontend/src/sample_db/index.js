@@ -231,7 +231,7 @@ let create_detail_freelancer=()=>{
     tagline:lorem.generateSentences(1),
     description:lorem.generateSentences(4+rand(20)),
     rate_score:rand(50)/10,
-    tasks_done:rand(100),
+    done_tasks:rand(100),
     hourly_rate:rand(200),
     income:rand(100000),
     category:{

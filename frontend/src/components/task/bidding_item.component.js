@@ -17,6 +17,9 @@ import SmallFieldComponent from '../common/small_field.component'
 
 class BiddingBudget extends Component {
     render(){
+        const intended_time=this.props.intended_time!==undefined?this.props.intended_time:10
+        const intended_cost=this.props.intended_cost!==undefined?this.props.intended_cost:200
+
         return (
             <div style={{width: '100%',height:80,borderRadius:6,
             
@@ -24,10 +27,10 @@ class BiddingBudget extends Component {
                 flexDirection:'column',
                 alignItems: 'center'}}>
                 <text style={{fontSize:textSizes.NORMAL,color:WHITE}}>
-                    $2200
+                    {'$'+intended_cost}
                 </text>
                 <text style={{fontSize:textSizes.SMALL,color:GRAY_3}}>
-                    in 7 days
+                    in {intended_time} days
                 </text>
 
                 
@@ -38,9 +41,10 @@ class BiddingBudget extends Component {
 
 export default class BiddingItemComponent extends Component {
     render(){
-        const bidding = this.props.bidding
+        const bidding = this.props.bidding;
         const freelancer= bidding.freelancer
         const company_view=this.props.company_view;
+        console.log('bidding_item',bidding.intended_time);
         return (
             <div style={{width:'100%',display:'flex',flexDirection:'column',
                 backgroundColor:this.props.index%2==0?WHITE:BLUE_2}}>
@@ -53,7 +57,7 @@ export default class BiddingItemComponent extends Component {
                         <div style={{flex:1.5,height:'100%',
                             display:'flex',justifyContent:'center',alignItems:'center'}}>
                             <img 
-                                src='https://randomuser.me/api/portraits/men/22.jpg'  
+                                src={freelancer.avatar} 
                                 style={{height: '50%',aspectRatio:1,borderRadius:'50%'}}/>
                         </div>
                             
@@ -72,7 +76,7 @@ export default class BiddingItemComponent extends Component {
                                 <SmallFieldComponent 
                                     background_color={YELLOW_1} 
                                     label_color={WHITE} 
-                                    label={'4.2'}/>
+                                    label={freelancer.rate_score}/>
                             </div>
                         
 
@@ -81,7 +85,9 @@ export default class BiddingItemComponent extends Component {
                         </div> 
 
                         <div style={{flex:1.5,height:'100%',display: 'flex',justifyContent: 'center',alignItems: 'center',}}>
-                            <BiddingBudget/>
+                            <BiddingBudget 
+                                intended_time={bidding.intended_time}
+                                intended_cost={bidding.intended_cost}/>
 
                         </div>
                 

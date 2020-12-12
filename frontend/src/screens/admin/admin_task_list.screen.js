@@ -4,8 +4,20 @@ import TaskListAdminComponent from '../../components/admin/task_list_admin.compo
 import SidebarComponent from '../../components/common/side_bar.component'
 import { SIDEBAR_RATIO,PADDING_BODY_DASHBOARD } from '../../utils/constants'
 import { GRAY_6 } from '../../utils/palette'
-
+import api from '../../sample_db/fake_api_responses.json'
 export default class AdminTaskListScreen extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            tasks:[]
+        }
+    }
+
+    componentDidMount=()=>{
+        this.setState({
+            tasks:api.get_task_list
+        })
+    }
     render(){
         return (
 

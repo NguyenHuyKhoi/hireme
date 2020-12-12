@@ -91,7 +91,7 @@ export const inputField={
         label:'Bidding Time',
         default_value:[20],
         domain_value:biddingTime,
-        unit:'hour'
+        unit:'day'
     },
 
     TASK_NAME:{
@@ -286,8 +286,20 @@ export const inputField={
         label:'Link',
         type:'text'
     },
+
+    STAGE_DEADLINE:{
+        key:'STAGE_DEADLINE'
+    },
+
+    STAGE_TITLE:{
+        key:'STAGE_TITLE',
+    },
+
+    STAGE_PERCENTAGE:{
+        key:'STAGE_PERCENTAGE'
+    },
     
-    NOTE:{
+    STAGE_NOTE:{
         key:'NOTE',
         label:'Note',
         type:'text',

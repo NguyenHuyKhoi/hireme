@@ -6,7 +6,24 @@ import HeaderBarComponent from '../components/common/header_bar.component';
 import TaskListComponent from '../components/task/task_list.component';
 import FilterComponent from '../components/input/filter.component';
 
+import api from '../sample_db/fake_api_responses.json'
+
+
 export default class TaskSearchScreen extends Component {
+
+    constructor(props){
+        super(props);
+        this.state={
+            tasks:[]
+        }
+    }
+
+    componentDidMount=()=>{
+        this.setState({
+            tasks:api.search_tasks
+        });
+    }
+
     render(){
         return (
 
@@ -23,13 +40,13 @@ export default class TaskSearchScreen extends Component {
                     <div style={{flex:1}}/>
                     {/* filters */}
                     <div style={{flex:2}}>
-                        <FilterComponent/>
+                        <FilterComponent />
                     </div>
 
                     <div style={{flex:0.5}}/>
 
                     <div style={{flex:5.5}}>
-                        <TaskListComponent/>
+                        <TaskListComponent tasks={this.state.tasks}/>
                     </div>
                  
                     <div style={{flex:1}}/>

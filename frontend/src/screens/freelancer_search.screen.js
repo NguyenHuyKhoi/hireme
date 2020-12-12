@@ -5,9 +5,24 @@ import FooterBarComponent from '../components/common/footer_bar.component';
 
 import HeaderBarComponent from '../components/common/header_bar.component';
 import FreelancerListComponent from '../components/freelancer/freelancer_list.component';
-
+import api from '../sample_db/fake_api_responses.json'
 export default class FreelancerSearchScreen extends Component {
+
+    constructor(props){
+        super(props);
+        this.state={
+            freelancers:[]
+        }
+    }
+
+    componentDidMount=()=>{
+        this.setState({
+            freelancers:api.search_freelancers
+        })
+    }
     render(){
+
+        const freelancers=this.state.freelancers;
         return (
 
             <div style={{width:'100vw',height:'100vh',
@@ -30,7 +45,7 @@ export default class FreelancerSearchScreen extends Component {
                     <div style={{flex:0.5}}/>
 
                     <div style={{flex:5.5}}>
-                        <FreelancerListComponent/>
+                        <FreelancerListComponent freelancers={freelancers}/>
                     </div>
                  
                     <div style={{flex:1}}/>

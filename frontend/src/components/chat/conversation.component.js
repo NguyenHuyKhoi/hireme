@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
 import { inputField } from '../../redux/constant/input.constant';
-import sample_db from '../../sample_db/sample_db.json'
+import sample_db from '../../sample_db/fake_api_responses.json'
 import { routePaths, textSizes } from '../../utils/constants';
 import { BLUE_1, GRAY_2, GRAY_3, GRAY_4, WHITE } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
@@ -10,7 +10,7 @@ import HeaderListComponent from '../common/header_list.component';
 import ButtonInputComponent from '../input/button_input.component';
 
 
-const conversation=sample_db.conversation   ;
+const conversation=sample_db.get_conversation   ;
 
 class MyMessage extends Component {
     render (){

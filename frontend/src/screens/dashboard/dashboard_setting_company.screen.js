@@ -16,7 +16,20 @@ import { GRAY_6 } from '../../utils/palette'
 import HeaderListComponent from '../../components/common/header_list.component'
 import ButtonComponent from '../../components/common/button.component'
 import { Link } from 'react-router-dom'
+import api from '../../sample_db/fake_api_responses.json'
 export default class DashboardSettingCompanyScreen extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            tasks:[]
+        }
+    }
+
+    componentDidMount=()=>{
+        this.setState({
+            tasks:api.get_task_list
+        })
+    }
     render(){
         return (
 

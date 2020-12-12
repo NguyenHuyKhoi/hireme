@@ -5,7 +5,7 @@ import banner from '../../assets//images/banner.jpg'
 import { BLACK, BLUE_1, GRAY_2, WHITE } from '../../utils/palette'
 import ButtonComponent from './button.component'
 import ButtonInputComponent from '../input/button_input.component'
-import { textSizes } from '../../utils/constants'
+import { routePaths, textSizes } from '../../utils/constants'
 import { inputField } from '../../redux/constant/input.constant'
 export default class HomeBannerComponent extends Component {
     render(){
@@ -25,7 +25,7 @@ export default class HomeBannerComponent extends Component {
                         </text>
 
                         <text style={{fontSize:textSizes.NORMAL,color:WHITE,marginTop:5}}>
-                            Thousands small company use hireo to make their ideas be reality.
+                            Thousands small company use us to make their ideas be reality.
                         </text>
 
                         <div style={{marginTop: 20,width:'30%',height:40,borderRadius:5,
@@ -39,11 +39,13 @@ export default class HomeBannerComponent extends Component {
                         </div>
 
 
-                        <div style={{width:'80%',marginTop:20}}>
+                        <Link 
+                            to={routePaths.TASK_SEARCH}
+                            style={{width:'80%',marginTop:20,textDecoration:'none'}}>
                             <ButtonInputComponent 
                                 btn_label='Search' 
                                 input_field={inputField.KEYWORD}/>
-                        </div>
+                        </Link>
                     
                     </div>
                 </div>

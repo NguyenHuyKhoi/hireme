@@ -1,20 +1,17 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
-import sample_db from '../../sample_db/sample_db.json'
+import sample_db from '../../sample_db/fake_api_responses.json'
 import { routePaths, textSizes } from '../../utils/constants';
+import { collapseText } from '../../utils/helper';
 import { BLACK, BLUE_1, GRAY_1, GRAY_2, GRAY_3, GRAY_4, GRAY_5, WHITE } from '../../utils/palette';
 import HeaderListComponent from '../common/header_list.component';
 
 
 
-const chats=sample_db.chats   ;
+const chats=sample_db.get_chat_list   ;
 
 class ChatItem extends Component {
-    collapseText =(text,limit)=>{
-        return text.substring(0,Math.min(text.length,limit))+'...'
-    }
-
     render (){
         const chat = this.props.chat
         return (
@@ -47,15 +44,15 @@ class ChatItem extends Component {
                         alignItems:'center',
                         justifyContent: 'space-between',marginBottom:3}}>
                             <text style={{   fontSize: textSizes.NORMAL,color:GRAY_1}}>
-                                {this.collapseText(chat.partner.name,12)}
+                                {collapseText(chat.partner.name,12)}
                             </text>
                             <text style={{ fontSize: textSizes.SMALL,color:GRAY_2}}>
-                                {this.collapseText(chat.latest_message.time,10)}
+                                {collapseText(chat.latest_message.time,10)}
                             </text>
                     </div>
 
                     <text style={{ fontSize: textSizes.SMALL,color:GRAY_2}}>
-                        {this.collapseText(chat.latest_message.content,30)}
+                        {collapseText(chat.latest_message.content,30)}
                     </text>
                 
                 </div>

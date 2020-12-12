@@ -5,9 +5,10 @@ import { BLACK, BLUE_1, BLUE_2 } from '../../utils/palette'
 const skills=['HTML5','Android','CSS','Bootstrap']
 export default class SkillsListComponent extends Component {
     render(){
+        const skills=this.props.skills
+        const hide_title=this.props.hide_title!==undefined?this.props.hide_title:false
         return (
-            <div style={{width:'100%',display:'flex',flexDirection: 'column',
-                alignSelf: 'baseline'}}>
+            <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
 
                 {
                     this.props.hide_title!==undefined?
@@ -18,17 +19,17 @@ export default class SkillsListComponent extends Component {
                     </text>
                 }
              
-                <div style={{marginTop:8,width:'100%',alignSelf: 'baseline',display:'flex',
+                <div style={{marginTop:hide_title?0:7,width:'100%',alignSelf: 'baseline',display:'flex',
                 flexDirection: 'row',flexWrap:'wrap',alignItems: 'flex-start'}}>
                 {
-                    skills.map((item,index)=>
+                    skills.slice(0,7).map((item,index)=>
                         <div 
                             key={''+index}
-                            style={{display:'flex',marginRight:10,marginTop:7,
+                            style={{display:'flex',marginRight:6,marginBottom:5,
                             justifyContent: 'center',alignItems: 'center',
-                            borderRadius:5,backgroundColor: BLUE_2,padding: 7}}>
+                            borderRadius:3,backgroundColor: BLUE_2,padding: 5}}>
                             <text style={{fontSize:textSizes,color:BLUE_1}}>
-                                {item} 
+                                {item.name} 
                             </text>
                         </div>
                         )
