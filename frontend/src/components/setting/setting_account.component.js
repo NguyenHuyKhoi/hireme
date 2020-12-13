@@ -1,6 +1,5 @@
 //import from library 
 import React, {Component} from 'react'
-import { inputField } from '../../redux/constant/input.constant'
 import { WHITE } from '../../utils/palette'
 import HeaderListComponent from '../common/header_list.component'
 
@@ -32,22 +31,22 @@ export default class SettingAccountComponent extends Component {
                             <div style={{display:'flex',flexDirection:'row' }}>
                                 <div style={{flex:4}}>
                                     <LabeledInputComponent 
-                                        value={account.first_name}
-                                        input_field={inputField.FIRST_NAME}/>
+                                        label='First Name'
+                                        value={account.first_name}/>
                                 </div>
                                 <div style={{flex:2}}/>
                                 <div style={{flex:4}}>
                                     <LabeledInputComponent 
-                                        value={account.last_name}
-                                        input_field={inputField.LAST_NAME}/>
+                                         label='Last Name'
+                                        value={account.last_name}/>
                                 </div>
                                
                             </div>
 
                             <div style={{marginTop:15}}>
                                 <LabeledInputComponent 
-                                    value={account.email}
-                                    input_field={inputField.EMAIL}/>
+                                     label='Email'
+                                    value={account.email}/>
                             </div>
                          
                         </div>

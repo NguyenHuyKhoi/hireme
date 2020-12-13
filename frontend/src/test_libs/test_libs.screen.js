@@ -1,31 +1,13 @@
 //import from library 
 import React, {Component} from 'react'
 import Pagination from "react-js-pagination";
-import Select from 'react-select';
-import { Range } from 'react-range';
-import {connect }from 'react-redux'
-import * as actions from '../redux/action/input.action'
-import { textSizes } from '../utils/constants';
 import { BLACK, GRAY_6, WHITE } from '../utils/palette';
-import ButtonComponent from '../components/common/button.component';
 
 
-const colourOptions= [
-    { value: {title:'category1'}, label: 'ChocolateLabel' },
-    { value: {title:'category2'}, label: 'StrawberryLabel' },
-    { value: {title:'category3'}, label: 'VanillaLabel' }
-]
-
-const options = {
-    baseUrl: 'http://127.0.0.1',
-    query: {
-      warrior: 'fight'
-    }
-}
   
 
    
- class TestLibsScreen extends Component {
+ export default class TestLibsScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -65,12 +47,3 @@ const options = {
         )
     }
 }
-
-const mapStateToProps = state => ({
-	input_store: state.input_store
-});
-
-
-
-
-export default connect(mapStateToProps,actions)(TestLibsScreen)

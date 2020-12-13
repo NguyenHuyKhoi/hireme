@@ -6,9 +6,8 @@ import CardCompanyPickerComponent from '../input/card_company_picker.component'
 
 
 import { BLACK, GRAY_2, GRAY_4, GREEN_1, RED_1, WHITE } from '../../utils/palette'
-import { textSizes } from '../../utils/constants'
-import { inputField } from '../../redux/constant/input.constant'
-import { cardCompanies } from '../../redux/constant/domain_value.constant'
+import { TEXT_SIZES } from '../../utils/constants'
+import { CARD_COMPANIES_DOMAIN } from '../../utils/constants'
 
 
 export default class CreditCardItemComponent extends Component {
@@ -26,8 +25,7 @@ export default class CreditCardItemComponent extends Component {
 
                     <div style={styles.row}>
                         <CardCompanyPickerComponent 
-                            value={is_new?cardCompanies[0].code: credit_card.card_company}
-                            input_field={inputField.CARD_COMPANY}/>
+                            value={is_new?CARD_COMPANIES_DOMAIN[0].code: credit_card.card_company}/>
 
                         <div 
                             style={{...styles.action_btn,
@@ -45,12 +43,11 @@ export default class CreditCardItemComponent extends Component {
                     <div style={{marginTop:10}}>
                         <div style={{width:'50%'}}>
                         <LabelInputComponent 
-                            size={textSizes.NORMAL}
+                            label='Number :'
+                            size={TEXT_SIZES.NORMAL}
                             inline={true}
                             value={is_new?'':credit_card.number}
-                            disabled={disabled}
-                            input_field={inputField.CARD_NUMBER}
-                            />
+                            disabled={disabled} />
                         </div>
                     </div>
                    
@@ -60,22 +57,25 @@ export default class CreditCardItemComponent extends Component {
                     <div style={styles.row}>
                         <div style={{width:'30%'}}>
                         <LabelInputComponent 
-                            size={textSizes.SMALL}
+                            label='Owner :'
+                            size={TEXT_SIZES.SMALL}
                             disabled={disabled}
                             value={is_new?'':credit_card.owner_name}
                             inline={true}
-                            input_field={inputField.CARD_OWNER}
+                      
                             />
                         </div>
                         <div style={{width:'5%'}}/>
                         <div style={{width:'5%'}}/>
                         <div style={{width:'30%'}}>
                         <LabelInputComponent 
-                            size={textSizes.SMALL}
+                            label='Expired :'
+                            size={TEXT_SIZES.SMALL}
                             disabled={disabled}
                             inline={true}
+                            type='date'
                             value={is_new?new Date():credit_card.expired_date}
-                            input_field={inputField.CARD_DATE}
+                      
                             />
                         </div>
 
@@ -87,22 +87,24 @@ export default class CreditCardItemComponent extends Component {
 
                         <div style={{width:'30%'}}>
                         <LabelInputComponent 
-                            size={textSizes.SMALL}
+                            label='Email :'
+                            size={TEXT_SIZES.SMALL}
                             disabled={disabled}
                             inline={true}
                             value={is_new?'':credit_card.email}
-                            input_field={inputField.CARD_EMAIL}
+                      
                         />
                         </div>
                         <div style={{width:'5%'}}/>
                         <div style={{width:'5%'}}/>
                         <div style={{width:'30%'}}>
                             <LabelInputComponent 
-                                size={textSizes.SMALL}
+                                  label='Ccv :'
+                                size={TEXT_SIZES.SMALL}
                                 disabled={disabled}
                                 inline={true}
                                 value={is_new?'':credit_card.ccv}
-                                input_field={inputField.CARD_CVV}
+                      
                                 />
                         </div>
                         <div style={{width:'5%'}}/>

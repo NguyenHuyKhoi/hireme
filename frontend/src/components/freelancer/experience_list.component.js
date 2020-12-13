@@ -9,6 +9,8 @@ import ReviewItemComponent from './experience_item.component';
 export default class ExperienceListComponent extends Component {
     render(){
         const experiences=this.props.experiences!==undefined?this.props.experiences:[]
+
+        console.log('experiences :',experiences)
         const header_height=this.props.header_height;
         const is_edit=this.props.is_edit!==undefined?this.props.is_edit:false;
         return (

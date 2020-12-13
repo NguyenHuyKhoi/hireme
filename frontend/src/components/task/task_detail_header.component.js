@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import { routePaths, textSizes } from '../../utils/constants'
+import { routePaths, TEXT_SIZES } from '../../utils/constants'
 import { BLACK, BLUE_1, BLUE_2, GRAY_2, GRAY_3, WHITE } from '../../utils/palette'
 import SmallFieldComponent from '../common/small_field.component'
 import banner from '../../assets/images/banner.jpg'
@@ -15,11 +15,11 @@ class ProjectBudget extends Component {
                 backgroundColor:BLUE_1,display: 'flex',justifyContent: 'center',
                 flexDirection:'column',
                 alignItems: 'center'}}>
-                <text style={{fontSize:textSizes.SMALL,color:GRAY_3}}>
+                <text style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_3}}>
                     Project Budget
                 </text>
 
-                <text style={{fontSize:textSizes.NORMAL,color:WHITE}}>
+                <text style={{fontSize:TEXT_SIZES.NORMAL,color:WHITE}}>
                     {'$'+budget[0]+' - '+'%'+budget[1]}
                 </text>
             </div>
@@ -44,13 +44,13 @@ export default class TaskDetailHeaderComponent extends Component {
                     style={{height: '60%',aspectRatio:1,borderRadius:'50%'}}/>
                 
                 <div style={{marginLeft:15,display:'flex',flex:1,flexDirection: 'column'}}>
-                    <text style={{fontSize:textSizes.BIG,color:BLACK}}>
+                    <text style={{fontSize:TEXT_SIZES.BIG,color:BLACK}}>
                         {task.task_name}
                     </text>
 
                     <Link 
                         to={routePaths.COMPANY_DETAIL}
-                        style={{fontSize:textSizes.NORMAL,color:BLACK,marginBottom:5,textDecoration:'none'}}>
+                        style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,marginBottom:5,textDecoration:'none'}}>
                         {company.name}
                     </Link>
                 </div>

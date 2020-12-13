@@ -9,15 +9,11 @@ export default class DashBoardChatScreen extends Component {
     constructor(props){
         super(props);
         this.state={
-            tasks:[]
+            user_id:null
         }
     }
 
-    componentDidMount=()=>{
-        this.setState({
-            tasks:api.get_task_list
-        })
-    }
+
     render(){
         return (
 
@@ -29,7 +25,7 @@ export default class DashBoardChatScreen extends Component {
                 {/* body */}
                 <div style={{display:'flex',flex:SIDEBAR_RATIO,padding:PADDING_BODY_DASHBOARD}}>
 
-                    <ChatComponent/>
+                    <ChatComponent user_id={this.state.user_id} />
                 </div>
 
             </div>

@@ -1,6 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
-import { textSizes } from '../../utils/constants'
+import { TEXT_SIZES } from '../../utils/constants'
 import { BLACK, GRAY_1, WHITE } from '../../utils/palette'
 
 export default class InforsBarComponent extends Component {
@@ -14,10 +14,10 @@ export default class InforsBarComponent extends Component {
                    <div 
                         key={''+index}
                         style={{display:'flex',flexDirection: 'column',alignItems: 'center'}}>
-                       <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>
+                       <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>
                            {item.value}
                        </text>
-                       <text style={{fontSize:textSizes.SMALL,color:GRAY_1,textAlign:'center'}}>
+                       <text style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_1,textAlign:'center'}}>
                            {item.key}
                        </text>
                    </div>

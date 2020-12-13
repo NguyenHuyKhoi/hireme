@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import Modal from 'react-modal';
 import { Link } from 'react-router-dom';
-import { routePaths, textSizes } from '../../utils/constants';
+import { routePaths, TEXT_SIZES } from '../../utils/constants';
 import { BLACK, RED_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
 
@@ -14,10 +14,10 @@ class ReportItem extends Component{
                 width: '100%',alignSelf: 'baseline',borderRadius:6,marginBottom:25}}>
                 <Link 
                     to={routePaths.FREELANCER_DETAIL}
-                    style={{fontSize: textSizes.NORMAL,color:BLACK,textDecoration:'none'}}>
+                    style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK,textDecoration:'none'}}>
                     From : freelancer1 
                 </Link>
-                <text style={{marginTop:5,fontSize: textSizes.SMALL,color:BLACK,
+                <text style={{marginTop:5,fontSize: TEXT_SIZES.SMALL,color:BLACK,
                     textAlign:'center'}}>
                     The task has many problems. I think admin should ban it early .The task has many problems. I think admin should ban it early The task has many problems. I think admin should ban it early 
                 </text>
@@ -65,11 +65,11 @@ export default class ViewReportsModal extends Component {
                                 justifyContent:'flex-end'}}>
                                 <text 
                                     onClick={this.props.clickClose}
-                                    style={{fontSize: textSizes.SMALL,color:RED_1}}>
+                                    style={{fontSize: TEXT_SIZES.SMALL,color:RED_1}}>
                                     Close
                                 </text>
                             </div>
-                            <text style={{fontSize: textSizes.BIG,color:BLACK,marginBottom:20}}>
+                            <text style={{fontSize: TEXT_SIZES.BIG,color:BLACK,marginBottom:20}}>
                                 Reports about task 
                             </text>
 

@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import { routePaths, textSizes } from '../../utils/constants'
+import { routePaths, TEXT_SIZES } from '../../utils/constants'
 import { collapseText } from '../../utils/helper'
 import { BLACK, GRAY_2, GRAY_5, WHITE } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
@@ -20,15 +20,15 @@ export default class TaskItemComponent extends Component {
                 <div style={{flex:8,display:'flex',flexDirection: 'column',padding: 20}}>
 
                     <div style={{flex:3,display:'flex',flexDirection:'column'}}>
-                        <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>
+                        <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>
                             {task.task_name}
                         </text>
 
-                        <text style={{fontSize:textSizes.SMALL,color:GRAY_2}}>
+                        <text style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_2}}>
                             {task.post_time}
                         </text>
 
-                        <text style={{marginTop:10,fontSize:textSizes.SMALL,color:GRAY_2  }}>
+                        <text style={{marginTop:10,fontSize:TEXT_SIZES.SMALL,color:GRAY_2  }}>
                             {collapseText(task.description,180)}
                         </text>
                     </div>

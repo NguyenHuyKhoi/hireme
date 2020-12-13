@@ -10,8 +10,7 @@ import HeaderListComponent from '../common/header_list.component'
 import { WHITE } from '../../utils/palette'
 import AttachmentsComponent from '../input/attachments.component'
 import TextareaInputComponent from '../input/textarea_input.component'
-import { inputField } from '../../redux/constant/input.constant'
-import { categories } from '../../redux/constant/domain_value.constant'
+import { CATEGORIES_DOMAIN, HOURLY_RATE_DOMAIN } from '../../utils/constants'
 
 export default class   SettingProfileFreelancerComponent extends Component {
 
@@ -19,7 +18,7 @@ export default class   SettingProfileFreelancerComponent extends Component {
 
     render(){
         const profile=this.props.profile;
-        console.log('profile_freelancer :',profile);
+        console.log('profile_freelancer :',profile.description);
         return (
             <div style={{
                 flex:1,display: 'flex',flexDirection:'column',backgroundColor:WHITE,
@@ -37,20 +36,21 @@ export default class   SettingProfileFreelancerComponent extends Component {
 
                                 <div style={{width:'70%'}}>
                                     <LabeledInputComponent
-                                        value={profile.tagline} 
-                                        input_field={inputField.TAGLINE}/>
+                                        label='Tagline'
+                                        value={profile.tagline} />
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
                                     <NumberInputComponent 
-                                        value={[profile.hourly_rate]}
-                                        input_field={inputField.HOURLY_RATE}/>
+                                        label='Hourly Rate'
+                                        domain={HOURLY_RATE_DOMAIN}
+                                        value={[profile.hourly_rate]}/>
                                 </div>
 
                                 <div style={{width: '100%',marginTop:30}}>
                                     <SkillPickerComponent 
-                                        value={profile.skills}
-                                        input_field={inputField.SKILLS} />
+                                        label='Skills'
+                                        category_name={profile.category}/>
                                 </div>
                               
 
@@ -62,14 +62,16 @@ export default class   SettingProfileFreelancerComponent extends Component {
 
                                 <div style={{width:'70%'}}>
                                     <LabeledSelectedInputComponent 
-                                        value={profile.category}
-                                        input_field={inputField.CATEGORY}/>
+                                        label='Category'
+                                        domain={CATEGORIES_DOMAIN.map(item=>item.name)}
+                                        value={profile.category}/>
                                 </div>    
 
                                 <div style={{width:'70%',marginTop:30}}>
                                     <AttachmentsComponent
-                                        attachments={profile.attachments}
-                                        is_edit={true} input_field={inputField.FILES}/>
+                                        label='Attachments'
+                                        is_edit={true}
+                                        attachments={profile.attachments}/>
                                 </div>                          
                             </div>
 
@@ -82,15 +84,15 @@ export default class   SettingProfileFreelancerComponent extends Component {
                             
                         <div style={{width:'100%',marginTop:40}}>
                             <ExperienceListComponent 
-                                experiencers={profile.experiencers}
+                                experiences={profile.experiences}
                                 header_height={40} 
                                 is_edit={true}/>
                         </div>
                         
                         <div style={{marginTop:30}}>
                            <TextareaInputComponent
-                            value={profile.description}
-                             input_field={inputField.DESCRIPTION} />
+                            label='Description'
+                            value={profile.description} />
                        </div>
 
                 </div>

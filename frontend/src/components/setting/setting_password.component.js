@@ -1,6 +1,5 @@
 //import from library 
 import React, {Component} from 'react'
-import { inputField } from '../../redux/constant/input.constant'
 import { WHITE } from '../../utils/palette'
 import HeaderListComponent from '../common/header_list.component'
 
@@ -25,17 +24,19 @@ export default class SettingPasswordComponent extends Component {
 
                     
                         <div style={{flex:4}}>
-                            <LabeledInputComponent input_field={inputField.PASSWORD}/>
+                            <LabeledInputComponent
+                                 label='Password' />
                         </div>
                         <div style={{flex:1}}/>
                         <div style={{flex:4}}>
-                            <LabeledInputComponent input_field={inputField.NEW_PASSWORD}/>
+                            <LabeledInputComponent
+                                 label='New Password' />
                         </div>
                                
                         
                         <div style={{flex:1}}/>
                         <div style={{flex:4}}>
-                            <LabeledInputComponent input_field={inputField.REPEAT_NEW_PASSWORD}/>
+                            <LabeledInputComponent  label='Re-enter New Password' />
                         </div>
                   
                     </div>

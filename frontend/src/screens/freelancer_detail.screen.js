@@ -74,7 +74,7 @@ export default class FreelancerDetailScreen extends Component {
                             {/* experience list */}
                             
                             <div style={{marginTop:50}}>
-                                <ExperienceListComponent experiences={freelancer.experiencers}/>
+                                <ExperienceListComponent experiences={freelancer.experiences}/>
                             </div>
                         
 

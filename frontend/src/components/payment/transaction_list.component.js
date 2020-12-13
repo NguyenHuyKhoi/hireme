@@ -23,6 +23,7 @@ let new_card={
 cards=[new_card,...cards];
 export default class TransactionListComponent extends Component {
     render(){
+        const transaction_history=this.props.transaction_history;
         const cards2=cards.slice(0,3);
         return (
             <div style={{ display:'flex',flex:1,flexDirection: 'column',backgroundColor: WHITE,
@@ -38,8 +39,9 @@ export default class TransactionListComponent extends Component {
                     <div style={{display:'flex',flex:8,flexDirection: 'column'}}>
             
                         {
-                            cards2.map((item,index)=>(
-                                <TransactionItemComponent card={item} index={index} key={''+index}/>
+                            transaction_history.map((item,index)=>(
+                                <TransactionItemComponent 
+                                    transaction={item} index={index} key={''+index}/>
                             ))
                         }
                     </div>

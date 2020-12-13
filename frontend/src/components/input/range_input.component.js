@@ -1,40 +1,29 @@
 //import from library 
 import React, {Component} from 'react'
-import { textSizes } from '../../utils/constants'
+import { TEXT_SIZES } from '../../utils/constants'
 import { BLACK, BLUE_1, WHITE } from '../../utils/palette'
 import { Range } from 'react-range';
-import {connect }from 'react-redux'
-import * as actions from '../../redux/action/input.action'
 
-class RangeInputComponent extends Component {
-
-    constructor(props){
-        super(props);
-        const input_field=this.props.input_field;
-        let value=this.props.value;
-        if (value!==undefined){
-            this.props.inputAField({[input_field.key]:value})
-        }
-    }
+export default class RangeInputComponent extends Component {
 
     render(){
-        const input_field=this.props.input_field;
-        console.log('input_field_key:',input_field.key)
-        const inputInStore=this.props.input_store[input_field.key];
+        const domain=this.props.domain;
+        const value=this.props.value;
+        const unit=this.props.unit!==undefined?this.props.unit:'$';
+        const label=this.props.label!==undefined?this.props.label:'';
+
+        console.log('domain_value:',domain,value)
         return (
             <div style={{display:'flex',width: '100%',flexDirection: 'column'}}>
-                <text style={{fontSize:textSizes.NORMAL,color:BLACK,marginBottom:10}}>
-                    {input_field.label}
+                <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,marginBottom:10}}>
+                    {label}
                 </text>
                 
                 <div style={{width: '100%',display:'flex',flexDirection:'row',justifyContent:'center',marginBottom:20}}>
-                    <text style={{fontSize:textSizes.SMALL,color:WHITE,padding: 7,
+                    <text style={{fontSize:TEXT_SIZES.SMALL,color:WHITE,padding: 7,
                         backgroundColor:BLACK,borderRadius:5}}>
                             {
-                                inputInStore!==undefined?
-                                inputInStore[0]+' '+input_field.unit+' - '+inputInStore[1]+' '+input_field.unit
-                                :
-                               ''
+                                value[0]+' '+unit+' - '+value[1]+' '+unit
                             }
                     </text>
                 </div>
@@ -42,10 +31,10 @@ class RangeInputComponent extends Component {
                     <Range
                         step={1}   
 
-                        min={input_field.domain_value[0]}      
-                        max={input_field.domain_value[1]}
-                        values={inputInStore}
-                        onChange={(values) => this.props.inputAField({[input_field.key]:values})}
+                        min={domain[0]}      
+                        max={domain[1]}
+                        values={value}
+                        onChange={(values) =>this.props.onChange(values)}
                         renderTrack={({ props, children }) => (
                                 <div
                                     {...props}
@@ -68,12 +57,3 @@ class RangeInputComponent extends Component {
         )
     }
 }
-
-const mapStateToProps = state => ({
-	input_store: state.input_store
-});
-
-
-
-
-export default connect(mapStateToProps,actions)(RangeInputComponent)

@@ -1,6 +1,5 @@
 //import from library 
 import React, {Component} from 'react'
-import { inputField } from '../../redux/constant/input.constant'
 import { WHITE } from '../../utils/palette'
 import HeaderListComponent from '../common/header_list.component'
 import TaskItemAdminComponent from './task_item_admin.component'
@@ -13,8 +12,7 @@ export default class TaskListAdminComponent extends Component {
 
                 boxShadow:'3px 5px 3px 3px #707070'}}>
                 {/* header list */}
-                <HeaderListComponent   title='Tasks'
-                    filter={inputField.TASK_FILTER}/>
+                <HeaderListComponent   title='Tasks'/>
                 
                 {/* body list */}
 

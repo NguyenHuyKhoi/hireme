@@ -1,7 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
-import { inputField } from '../../redux/constant/input.constant'
-import { textSizes } from '../../utils/constants'
+import { BIDDING_TIME_DOMAIN, FIXED_PRICE_DOMAIN, TEXT_SIZES } from '../../utils/constants'
 import { BLACK, GRAY_1, GRAY_2, GRAY_3, GRAY_4,GRAY_5, WHITE } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
 import NumberInputComponent from '../input/number_input.component'
@@ -16,7 +15,7 @@ export default class TaskPlaceBidComponent extends Component {
 
                 <div style={{flex:1,
                     display:'flex',justifyContent: 'center',alignItems: 'center',backgroundColor:GRAY_4}}>
-                    <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>
+                    <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>
                             Bidding on task
                     </text>
                 </div>
@@ -26,12 +25,18 @@ export default class TaskPlaceBidComponent extends Component {
                         justifyContent: 'center',alignItems: 'center',
                         backgroundColor: GRAY_5}}>
                         
-                        <NumberInputComponent   input_field={inputField.BIDDING_COST}/>
+                        <NumberInputComponent 
+                            label='Enter bidding cost '
+                            domain={FIXED_PRICE_DOMAIN}
+                            value={[4000]}/>
                      
 
                         <div style={{width: '100%',marginTop:20}}>
                             <NumberInputComponent
-                                input_field={inputField.BIDDING_TIME}/>
+                                label='Enter bidding time (day) '
+                                domain={BIDDING_TIME_DOMAIN}
+                                unit=' days'
+                                value={[20]}/>
 
                         </div>
                       
@@ -45,7 +50,7 @@ export default class TaskPlaceBidComponent extends Component {
                 <div style={{flex:1,
                     display:'flex',justifyContent: 'center',alignItems: 'center',
                         backgroundColor: GRAY_2}}>
-                    <text style={{fontSize:textSizes.SMALL,color:WHITE}}>
+                    <text style={{fontSize:TEXT_SIZES.SMALL,color:WHITE}}>
                         More feasible cost, more chances.
                     </text>
                 </div>

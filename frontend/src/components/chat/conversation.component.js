@@ -1,16 +1,12 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
-import { inputField } from '../../redux/constant/input.constant';
-import sample_db from '../../sample_db/fake_api_responses.json'
-import { routePaths, textSizes } from '../../utils/constants';
+import { routePaths, TEXT_SIZES } from '../../utils/constants';
 import { BLUE_1, GRAY_2, GRAY_3, GRAY_4, WHITE } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
 import HeaderListComponent from '../common/header_list.component';
 import ButtonInputComponent from '../input/button_input.component';
 
-
-const conversation=sample_db.get_conversation   ;
 
 class MyMessage extends Component {
     render (){
@@ -22,7 +18,7 @@ class MyMessage extends Component {
                 <img src={sender.avatar} style={{height:50,width:50, borderRadius: 25}}/>
                 <div style={{...styles.content_container,
                     backgroundColor: BLUE_1,marginRight:20}}>
-                    <text style={{ fontSize: textSizes.SMALL, color:WHITE }}>
+                    <text style={{ fontSize: TEXT_SIZES.SMALL, color:WHITE }}>
                         {message.content}
                     </text>
                 </div>
@@ -37,6 +33,7 @@ class PartnerMessage extends Component {
         const sender =message.sender
         return (
             <div style={{...styles.message,
+                alignSelf:'baseline',
                 flexDirection: 'row'}}>
 
                 <Link to={routePaths.FREELANCER_DETAIL}
@@ -46,9 +43,10 @@ class PartnerMessage extends Component {
               
 
                 <div style={{...styles.content_container,
+                    alignSelf:'baseline',
                     backgroundColor: GRAY_4,marginLeft:20}}>
 
-                    <text style={{fontSize:textSizes.SMALL,color:GRAY_2}}>
+                    <text style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_2}}>
                         {message.content}
                     </text>
 
@@ -60,15 +58,18 @@ class PartnerMessage extends Component {
 export default class ConversationComponent extends Component {
 
     render(){
+        const conversation=this.props.conversation;
         const users =conversation.users;
         const messages =conversation.messages
+
+        console.log('messages:',messages)
         return (
             <div  style={{flexDirection:'column', display:'flex',flex:1}}>    
                 <HeaderListComponent title={users[1].name}/>
                 <div style={{flex:1,display: 'flex',flexDirection: 'column',overflowY: 'scroll'}}>
                     {
                         messages.map((item,index)=>(
-                            item.sender.id===0?
+                            item.sender.id===users[0].id?
                             <MyMessage key={''+index} message={item}/>
                             :
                             <PartnerMessage key={''+index} message={item}/>
@@ -77,8 +78,7 @@ export default class ConversationComponent extends Component {
                 </div>
 
                 <ButtonInputComponent 
-                    btn_label='Send' 
-                    input_field={inputField.MESSAGE} />
+                    btn_label='Send'  />
             </div>
         )
     }
@@ -91,7 +91,6 @@ const styles={
     },
     message:{
         display: 'flex',
-        flex:1,
         paddingRight: 20,
         paddingLeft: 20,
         paddingTop: 20,

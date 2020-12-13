@@ -1,6 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
-import { textSizes } from '../../utils/constants'
+import { TEXT_SIZES } from '../../utils/constants'
 import { BLACK, BLUE_1, BLUE_2 } from '../../utils/palette'
 const skills=['HTML5','Android','CSS','Bootstrap']
 export default class SkillsListComponent extends Component {
@@ -14,7 +14,7 @@ export default class SkillsListComponent extends Component {
                     this.props.hide_title!==undefined?
                     null
                     :
-                    <text style={{fontSize:textSizes.BIG,color:BLACK}}>
+                    <text style={{fontSize:TEXT_SIZES.BIG,color:BLACK}}>
                         Skills 
                     </text>
                 }
@@ -28,7 +28,7 @@ export default class SkillsListComponent extends Component {
                             style={{display:'flex',marginRight:6,marginBottom:5,
                             justifyContent: 'center',alignItems: 'center',
                             borderRadius:3,backgroundColor: BLUE_2,padding: 5}}>
-                            <text style={{fontSize:textSizes,color:BLUE_1}}>
+                            <text style={{fontSize:TEXT_SIZES,color:BLUE_1}}>
                                 {item.name} 
                             </text>
                         </div>

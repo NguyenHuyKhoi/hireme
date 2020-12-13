@@ -55,11 +55,11 @@ export default class DashBoardPaymentScreen extends Component {
                             </div>
                           
                             <div style={{marginTop:60}}>
-                                <BalanceCardComponent/>
+                                <BalanceCardComponent balance={payment.balance} />
                             </div>
     
                             <div style={{marginTop:60}}>
-                                <TransactionListComponent/>
+                                <TransactionListComponent transaction_history={payment.transaction_history}/>
                             </div>
     
                          

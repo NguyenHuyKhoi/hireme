@@ -120,7 +120,7 @@ let create_reviews=(num)=>{
 }
 
 let create_experiences=()=>{
-  let experiencers=[];
+  let experiences=[];
   let num_exp=rand(6);
   for (let i=0;i<num_exp;i++){
     let exp={
@@ -132,9 +132,9 @@ let create_experiences=()=>{
       end_time:create_date()
     };
 
-    experiencers.push(exp)
+    experiences.push(exp)
   }
-  return experiencers;
+  return experiences;
 }
 
 let create_biddings=()=>{
@@ -221,7 +221,7 @@ let create_brief_freelancer=(num)=>{
 }
 
 let create_detail_freelancer=()=>{
-  let experiencers=create_experiences();
+  let experiences=create_experiences();
   let skills=create_skills();
 
 
@@ -237,7 +237,7 @@ let create_detail_freelancer=()=>{
       id:''+rand(10),
       name:lorem.generateWords(2)
     },
-    experiencers:experiencers,
+    experiences:experiences,
     skills:skills
   }
 
@@ -418,7 +418,7 @@ const GET_TASK_LIST=10
 const GET_CHAT_LIST=8
 const GET_STAGE_LIST=4
 //create objects 
-let get_popular_categories= []
+let get_popular_CATEGORIES_DOMAIN= []
 for (let i=0;i<GET_POPULAR_CATEGORY;i++){
   let category={
     id:''+i,
@@ -426,7 +426,7 @@ for (let i=0;i<GET_POPULAR_CATEGORY;i++){
     description:lorem.generateSentences(1),
     tasks:''+rand(1000)
   }
-  get_popular_categories.push(category)
+  get_popular_CATEGORIES_DOMAIN.push(category)
 }
 
 let get_popular_freelancers =create_brief_freelancer(GET_POPULAR_FREELANCER)
@@ -484,7 +484,7 @@ const get_setting_freelancer={
     description:lorem.generateSentences(4+rand(20)),
     attachments:create_attachments(),
     skills:create_skills,
-    experiencers:create_experiences()
+    experiences:create_experiences()
   }
 }
 
@@ -526,7 +526,7 @@ let get_chat_list=create_chat_list(GET_CHAT_LIST)
 let get_stage_list=create_stage_list(GET_STAGE_LIST);
 ///collect objects to only object
 let db= {
-    get_popular_categories:get_popular_categories,
+    get_popular_CATEGORIES_DOMAIN:get_popular_CATEGORIES_DOMAIN,
     get_popular_freelancers:get_popular_freelancers,
     search_freelancers:search_freelancers,
     search_tasks:search_tasks,

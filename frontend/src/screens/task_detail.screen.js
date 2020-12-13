@@ -11,7 +11,6 @@ import TaskDetailHeaderComponent from '../components/task/task_detail_header.com
 import TaskPlaceBidComponent from '../components/task/task_place_bid.component';
 import { BLUE_1, BLUE_2, GREEN_1, GREEN_2, RED_2, WHITE } from '../utils/palette';
 import AttachmentsComponent from '../components/input/attachments.component';
-import { inputField } from '../redux/constant/input.constant';
 import ReportTaskModal from '../components/input/report_task.modal';
 
 import api from '../sample_db/fake_api_responses.json'
@@ -104,12 +103,12 @@ export default class TaskDetailScreen extends Component {
                                 {/* attachments */}
 
                                 <div style={{marginTop:50}}>
-                                    <AttachmentsComponent input_field={inputField.FILES}
+                                    <AttachmentsComponent 
                                         attachments={task.attachments}/>
                                 </div>
                                 
                                 {/* biddings */}
-                                
+
                                 <div style={{marginTop:50}}>
                                     <BiddingListComponent 
                                         biddings={biddings}

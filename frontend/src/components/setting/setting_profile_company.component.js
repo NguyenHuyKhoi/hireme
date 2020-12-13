@@ -1,13 +1,12 @@
 //import from library 
 import React, {Component} from 'react'
-import { inputField } from '../../redux/constant/input.constant'
 import { WHITE } from '../../utils/palette'
 import HeaderListComponent from '../common/header_list.component'
 
 import LabeledInputComponent from '../input/labeled_input.component'
 import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
 import TextareaInputComponent from '../input/textarea_input.component'
-
+import {BUSINESS_AREA_DOMAIN, COMPANY_SIZES_DOMAIN} from '../../utils/constants'
 
 export default class SettingProfileCompanyComponent extends Component {
    
@@ -31,19 +30,19 @@ export default class SettingProfileCompanyComponent extends Component {
 
                                 <div style={{width:'70%'}}>
                                     <LabeledInputComponent 
-                                        value={profile.company_name}
-                                        input_field={inputField.COMPANY_NAME}/>
+                                        label='Company Name'
+                                        value={profile.company_name}/>
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <LabeledInputComponent  
-                                        value={profile.location}
-                                        input_field={inputField.LOCATION}/>
+                                    <LabeledInputComponent 
+                                        label='Location' 
+                                        value={profile.location}/>
                                 </div>
                                 <div style={{width:'70%',marginTop:30}}>
                                     <LabeledInputComponent 
-                                        value={profile.tagline}
-                                        input_field={inputField.TAGLINE}/>
+                                         label='Tagline'
+                                        value={profile.tagline}/>
                                 </div>
                             </div>
 
@@ -53,20 +52,22 @@ export default class SettingProfileCompanyComponent extends Component {
 
                                 <div style={{width:'70%'}}>
                                     <LabeledSelectedInputComponent 
-                                        value={profile.employee_size}
-                                        input_field={inputField.COMPANY_SIZE}/>
+                                        label='Employee Size'
+                                        domain={COMPANY_SIZES_DOMAIN}
+                                        value={profile.employee_size}/>
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
                                     <LabeledSelectedInputComponent 
-                                        value={profile.business_area} 
-                                        input_field={inputField.BUSINESS_AREA}/>
+                                        label='Business Area'
+                                        domain={BUSINESS_AREA_DOMAIN}
+                                        value={profile.business_area} />
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <LabeledInputComponent 
-                                        value={profile.website_link}
-                                        input_field={inputField.LINK}/>
+                                    <LabeledInputComponent
+                                        label='Website Link' 
+                                        value={profile.website_link}/>
                                 </div>
 
                         
@@ -77,7 +78,7 @@ export default class SettingProfileCompanyComponent extends Component {
                         
                         <div style={{marginTop:40}}>
                             <TextareaInputComponent 
-                                input_field={inputField.DESCRIPTION} />
+                                label='Description' />
                         </div>
 
                 </div>

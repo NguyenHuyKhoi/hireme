@@ -10,8 +10,6 @@ import { BLACK, BLUE_1, WHITE } from '../utils/palette';
 
 import api from '../sample_db/fake_api_responses.json'
 
-const topCategories=api.top_categories;
-
 export default class HomeScreen extends Component {
 
     constructor(props){
@@ -23,7 +21,6 @@ export default class HomeScreen extends Component {
     };
 
     componentDidMount=()=>{
-        //fake api response : get_popular_categories :
         this.setState({
             popular_categories:api.get_popular_categories,
             popular_freelancers:api.get_popular_freelancers
@@ -48,7 +45,7 @@ export default class HomeScreen extends Component {
 
                     {/* banner */}
                     <HomeBannerComponent/>
-                    {/* top categories */}
+                    {/* top CATEGORIES_DOMAIN */}
                     <TopCategoriesComponent categories={this.state.popular_categories}/>
 
                     {/* top freelancers */}

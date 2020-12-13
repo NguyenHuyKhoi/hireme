@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
-import { routePaths, textSizes } from '../../utils/constants';
+import { routePaths, TEXT_SIZES } from '../../utils/constants';
 import { collapseText } from '../../utils/helper';
 import { BLACK, BLUE_2, WHITE, YELLOW_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component'
@@ -41,19 +41,19 @@ export default class ReviewItemComponent extends Component {
 
                     <Link
                         to={routePaths.TASK_DETAIL}
-                        style={{fontSize:textSizes.BIG,color:BLACK,textDecoration:'none'}}>
-                        {collapseText(task.name,30)} 
+                        style={{fontSize:TEXT_SIZES.BIG,color:BLACK,textDecoration:'none'}}>
+                        {'On task : '+collapseText(task.name,30)} 
                     </Link>
 
                     <div style={{display:'flex',width:'100%',flexDirection: 'row',
-                        justifyContent: 'space-between',alignItems: 'center'}}>
+                        justifyContent: 'space-between',alignItems: 'center',marginTop:10}}>
                         <Link
                             to={review.is_company?routePaths.COMPANY_DETAIL:routePaths.FREELANCER_DETAIL}
-                            style={{fontSize:textSizes.SMALL,color:BLACK,textDecoration:'none'}}>
+                            style={{fontSize:TEXT_SIZES.SMALL,color:BLACK,textDecoration:'none'}}>
                                     {reviewer.name}
                         </Link>
                     
-                        <text style={{fontSize:textSizes.SMALL,color:BLACK}}>
+                        <text style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
                             {review.time}
                         </text>
 
@@ -64,7 +64,7 @@ export default class ReviewItemComponent extends Component {
                 
                     </div>
 
-                    <text style={{marginTop:5,fontSize:textSizes.SMALL,color:BLACK}}>
+                    <text style={{marginTop:5,fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
                         {collapseText(review.content,100)}
                     </text>
                 </div> 

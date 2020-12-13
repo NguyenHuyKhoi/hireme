@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import { routePaths, textSizes } from '../../utils/constants'
+import { routePaths, TEXT_SIZES } from '../../utils/constants'
 import { BLACK, BLUE_1, BLUE_2, GRAY_3, WHITE, YELLOW_1 } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
 import RateScoreComponent from '../common/rate_score.component'
@@ -26,10 +26,10 @@ class BiddingBudget extends Component {
                 backgroundColor:BLUE_1,display: 'flex',justifyContent: 'center',
                 flexDirection:'column',
                 alignItems: 'center'}}>
-                <text style={{fontSize:textSizes.NORMAL,color:WHITE}}>
+                <text style={{fontSize:TEXT_SIZES.NORMAL,color:WHITE}}>
                     {'$'+intended_cost}
                 </text>
-                <text style={{fontSize:textSizes.SMALL,color:GRAY_3}}>
+                <text style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_3}}>
                     in {intended_time} days
                 </text>
 
@@ -67,7 +67,7 @@ export default class BiddingItemComponent extends Component {
 
                             <Link
                                 to={routePaths.FREELANCER_DETAIL}
-                                style={{ textDecoration:'none',fontSize: textSizes.BIG,  
+                                style={{ textDecoration:'none',fontSize: TEXT_SIZES.BIG,  
                                 color: BLACK,marginBottom: 5}}>
                                 {freelancer.name}
                             </Link>

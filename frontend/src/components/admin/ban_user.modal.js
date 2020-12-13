@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import Modal from 'react-modal';
-import { textSizes } from '../../utils/constants';
+import { TEXT_SIZES } from '../../utils/constants';
 import { BLACK, RED_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
 export default class BanUserModal extends Component {
@@ -24,11 +24,11 @@ export default class BanUserModal extends Component {
                             alignItems:'center',justifyContent:'center',
                             width: '25vw',height: '25vh',borderRadius:6,
                             padding:15}}>
-                            <text style={{fontSize: textSizes.NORMAL,color:BLACK}}>
+                            <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
                                 Ban this user?
                             </text>
 
-                            <text style={{marginTop:5,fontSize: textSizes.SMALL,color:BLACK,
+                            <text style={{marginTop:5,fontSize: TEXT_SIZES.SMALL,color:BLACK,
                                 textAlign:'center'}}>
                                 When user is banner ,she/he can't log in anymore.
                                 You can unban any time.

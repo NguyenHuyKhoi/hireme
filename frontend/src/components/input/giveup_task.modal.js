@@ -1,13 +1,13 @@
 //import from library 
 import React, {Component} from 'react'
 import Modal from 'react-modal';
-import { inputField } from '../../redux/constant/input.constant';
-import { textSizes } from '../../utils/constants';
+
+import { TEXT_SIZES } from '../../utils/constants';
 import { BLACK, RED_1, YELLOW_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
 import TextareaInputComponent from './textarea_input.component'
-export default class GiveupTaskModal extends Component {
 
+export default class GiveupTaskModal extends Component {
     render(){
         const is_open=this.props.is_open
         return (
@@ -26,13 +26,12 @@ export default class GiveupTaskModal extends Component {
                             alignItems:'center',justifyContent:'center',
                             width: '30vw',height: '40wh',borderRadius:6,
                             padding:15}}>
-                            <text style={{fontSize: textSizes.NORMAL,color:BLACK}}>
+                            <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
                                 Why do you give up this task ?
                             </text>
 
                             <TextareaInputComponent
-                                hide_label={true}
-                                input_field={inputField.TASK_GIVE_UP} />
+                                hide_label={true}/>
                         
 
                             <div style={{width: '100%',display: 'flex',flexDirection: 'row',

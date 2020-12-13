@@ -1,6 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
-import { textSizes } from '../../utils/constants';
+import { TEXT_SIZES } from '../../utils/constants';
 import { BLACK, GRAY_1, GRAY_2, GRAY_4, GREEN_1, WHITE } from '../../utils/palette';
 import AuthTabsComponent from './auth_tabs.component';
 import ButtonComponent from './button.component';
@@ -29,7 +29,7 @@ class IconInput extends Component {
                 <input 
                     type={is_secret!==undefined?'password':'default'}
                     style={{
-                        flex:1,paddingLeft:10,fontSize:textSizes.SMALL,
+                        flex:1,paddingLeft:10,fontSize:TEXT_SIZES.SMALL,
                         height:size-5,outline:'none'}} 
                         placeholder={this.props.placehoder}/>
             </div>
@@ -48,7 +48,7 @@ class UserType extends Component{
                     backgroundColor:is_picked?GREEN_1:GRAY_4,
                     display:'flex',
                     justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
-                <text style={{fontSize:textSizes.SMALL,
+                <text style={{fontSize:TEXT_SIZES.SMALL,
                     color:is_picked?WHITE:GRAY_1}}>
                     {this.props.type}
                 </text>
@@ -73,7 +73,7 @@ class CommonTab extends Component{
                 display:'flex',flex:1,backgroundColor:WHITE,
                 flexDirection:'column',alignItems:'center',
                 padding:30}}>
-                <text style={{fontSize:textSizes.BIG,color:BLACK}}>
+                <text style={{fontSize:TEXT_SIZES.BIG,color:BLACK}}>
                     {
                         idx===0?
                         'We are glad to see you again'
@@ -127,13 +127,13 @@ class CommonTab extends Component{
                         flexDirection:'row',justifyContent:'space-between'}}>
                         <text 
                             
-                            style={{fontSize:textSizes.SMALL,color:GRAY_2}}>
+                            style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_2}}>
                            Forgot password
                         </text>
 
                         <text 
                             onClick={this.props.onClickRegister}
-                            style={{fontSize:textSizes.SMALL,color:GRAY_2}}>
+                            style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_2}}>
                            Sign up
                         </text>
                     </div>

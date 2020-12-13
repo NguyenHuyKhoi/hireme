@@ -1,6 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
-import { textSizes } from '../../utils/constants'
+import { TEXT_SIZES } from '../../utils/constants'
 import { BLUE_1, WHITE } from '../../utils/palette'
 
 export default class ButtonComponent extends Component {
@@ -16,7 +16,7 @@ export default class ButtonComponent extends Component {
                     backgroundColor: color!==undefined?color:BLUE_1,
                     height: height!==undefined?height:45
                     }}>
-                <text style={{ fontSize: textSizes.NORMAL,color:text_color!==undefined?text_color:WHITE}}>
+                <text style={{ fontSize: TEXT_SIZES.NORMAL,color:text_color!==undefined?text_color:WHITE}}>
                    {label}
                 </text>
             </div>

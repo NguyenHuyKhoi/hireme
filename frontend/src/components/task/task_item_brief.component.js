@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import { routePaths, textSizes } from '../../utils/constants'
+import { routePaths, TEXT_SIZES } from '../../utils/constants'
 import { collapseText, convertFullDateToOnlyDay } from '../../utils/helper';
 import { WHITE,GRAY_4, BLACK, YELLOW_1, GRAY_2, GRAY_3, BLUE_1, GREEN_1, RED_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
@@ -24,7 +24,7 @@ export default class TaskItemBriefComponent extends Component {
                 <div style={{display:'flex',flex:8,flexDirection: 'column',justifyContent:'center'}}>
 
                     <div style={{display:'flex',flexDirection:'row'}}>
-                        <text style={{fontSize:textSizes.NORMAL,color:BLACK }}>
+                        <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK }}>
                            {collapseText(task.name,30)}
                         </text>
 
@@ -52,7 +52,7 @@ export default class TaskItemBriefComponent extends Component {
                         <div style={{display:'flex',flex:1}}    >
                             {
                                 task.post_time!==undefined?
-                                <text style={{fontSize:textSizes.SMALL,color:BLACK}}>
+                                <text style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
                                     {'Posted :'+convertFullDateToOnlyDay(task.post_time)}
                                 </text>
                                 :
@@ -63,7 +63,7 @@ export default class TaskItemBriefComponent extends Component {
                         <div style={{display:'flex',flex:1}}    >
                             {
                                 task.undertaked_time!==undefined?
-                                <text style={{fontSize:textSizes.SMALL,color:BLACK}}>
+                                <text style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
                                     {'Posted :'+convertFullDateToOnlyDay(task.undertaked_time)}
                                 </text>
                                 :
@@ -74,7 +74,7 @@ export default class TaskItemBriefComponent extends Component {
                         <div style={{display:'flex',flex:1}}>
                             {
                                 task.done_time!==undefined?
-                                <text style={{fontSize:textSizes.SMALL,color:BLACK}}>
+                                <text style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
                                     {'Posted :'+convertFullDateToOnlyDay(task.done_time)}
                                 </text>
                                 :

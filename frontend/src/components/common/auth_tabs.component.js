@@ -1,6 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
-import { textSizes } from '../../utils/constants';
+import { TEXT_SIZES } from '../../utils/constants';
 import { BLUE_1, GRAY_2, GRAY_4, WHITE } from '../../utils/palette';
 
 const tabs=[
@@ -22,7 +22,7 @@ class TabBar extends Component{
                     display:'flex',flex:1,alignItems: 'center',
                     justifyContent: 'center',
                     backgroundColor: is_focused?WHITE:GRAY_4}}>
-                <text style={{fontSize:textSizes.SMALL,
+                <text style={{fontSize:TEXT_SIZES.SMALL,
                     color:is_focused?BLUE_1:GRAY_2}}>
                     {tab.label}
                 </text>
@@ -52,7 +52,7 @@ export default class AuthTabsComponent extends Component {
                     onClick={this.props.onClickClose}
                     style={{height:50,width:50,backgroundColor:GRAY_4,
                         display:'flex',justifyContent:'center',alignItems:'center'}}>
-                    <text style={{fontSize:textSizes.HUGE,color: GRAY_2}}>
+                    <text style={{fontSize:TEXT_SIZES.HUGE,color: GRAY_2}}>
                         x    
                     </text>        
                 </div>   

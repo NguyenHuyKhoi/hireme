@@ -3,9 +3,8 @@ import React, {Component} from 'react'
 import ButtonComponent from '../common/button.component'
 import LabeledInputComponent from '../input/labeled_input.component'
 import { BLACK, BLUE_1, GREEN_1, WHITE } from '../../utils/palette'
-import { textSizes } from '../../utils/constants'
+import { TEXT_SIZES } from '../../utils/constants'
 import SmallFieldComponent from '../common/small_field.component'
-import { inputField } from '../../redux/constant/input.constant'
 import TaskNoteListComponent from './task_note_list.component'
 import AttachmentsComponent from '../input/attachments.component'
 // * bidding [
@@ -30,7 +29,7 @@ class TimeLine extends Component{
                         alignSelf:'baseline'}}>
 
                         <input 
-                            style={{fontSize:textSizes.SMALL,color:BLACK,width:'6vw',
+                            style={{fontSize:TEXT_SIZES.SMALL,color:BLACK,width:'6vw',
                             backgroundColor: 'rgba(0,0,0,0)',
                             outline:'none',
                             borderColor:'rgba(0,0,0,0)'
@@ -66,7 +65,7 @@ export default class StageItemComponent extends Component {
                     <input 
                         disabled={!is_new}
                         style={{
-                            fontSize:textSizes.NORMAL,color:WHITE,height: 35,
+                            fontSize:TEXT_SIZES.NORMAL,color:WHITE,height: 35,
                             backgroundColor: 'rgba(0,0,0,0)',
                             outline:'none',
                             borderColor:'rgba(0,0,0,0)'}} 
@@ -76,7 +75,7 @@ export default class StageItemComponent extends Component {
                         is_new?
                         <input 
                             style={{
-                                fontSize:textSizes.NORMAL,color:WHITE,height: 35,width: 40,
+                                fontSize:TEXT_SIZES.NORMAL,color:WHITE,height: 35,width: 40,
                                 backgroundColor: 'rgba(0,0,0,0)',
                                 outline:'none',
                                 borderColor:'rgba(0,0,0,0)'}} 
@@ -96,10 +95,10 @@ export default class StageItemComponent extends Component {
                     <div style={{display:'flex',flex:1,flexDirection:'column',padding: 20}}>
                             
                             
-                            <AttachmentsComponent is_edit={true} input_field={inputField.FILES}/>
+                            <AttachmentsComponent is_edit={true}/>
 
                             <div style={{width:'80%',marginTop:15}}>
-                                <LabeledInputComponent input_field={inputField.LINK}/>
+                                <LabeledInputComponent/>
                             </div>  
 
                             <div style={{width:'100%',marginTop:15,

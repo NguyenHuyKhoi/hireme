@@ -1,6 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
-import { bullshitIcons, textSizes } from '../../utils/constants'
+import { bullshitIcons, TEXT_SIZES } from '../../utils/constants'
 import { BLACK } from '../../utils/palette'
 import {IconContext} from 'react-icons'
 export default class SingleFieldComponent extends Component {
@@ -10,7 +10,7 @@ export default class SingleFieldComponent extends Component {
             <div style={{width:'100%',display:'flex',
                 flexDirection: 'column',alignSelf: 'baseline'}}>
 
-            <text style={{fontSize:textSizes.BIG,color:BLACK}}>
+            <text style={{fontSize:TEXT_SIZES.BIG,color:BLACK}}>
                 {field.key} 
             </text>
 
@@ -22,7 +22,7 @@ export default class SingleFieldComponent extends Component {
                     </div>
                 </IconContext.Provider> */}
 
-                <text style={{marginLeft:5,fontSize:textSizes.NORMAL,color:BLACK}}>
+                <text style={{marginLeft:5,fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>
                         {field.value} 
                 </text>
                 

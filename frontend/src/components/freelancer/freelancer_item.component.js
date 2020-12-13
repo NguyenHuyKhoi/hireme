@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import { routePaths, textSizes } from '../../utils/constants'
+import { routePaths, TEXT_SIZES } from '../../utils/constants'
 import { BLACK, BLUE_0, GRAY_1, GRAY_3, WHITE, YELLOW_1 } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
 import InforsBarComponent from '../common/infors_bar.component'
@@ -19,11 +19,11 @@ export default class FreelancerItemComponent extends Component {
                 <img src={freelancer.avatar} 
                     style={{width:'40%',height:'25%',borderRadius:'50%'}}/>
 
-                <text style={{marginTop:20,fontSize:textSizes.NORMAL,color:BLACK
+                <text style={{marginTop:20,fontSize:TEXT_SIZES.NORMAL,color:BLACK
                     }}>
                     {freelancer.name}
                 </text>
-                <text style={{fontSize:textSizes.SMALL,color:GRAY_1,textAlign:'center',marginBottom:10}}>
+                <text style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_1,textAlign:'center',marginBottom:10}}>
                     {freelancer.tagline}
                 </text>
 

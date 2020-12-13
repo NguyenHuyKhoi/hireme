@@ -10,9 +10,8 @@ import SkillPickerComponent from '../input/skill_picker.component'
 import UploadFilesComponent from '../common/upload_files.component'
 import ExperienceListComponent from '../freelancer/experience_list.component'
 import AttachmentsComponent from '../input/attachments.component'
-import { textSizes } from '../../utils/constants'
+import { CATEGORIES_DOMAIN, FIXED_PRICE_DOMAIN, TASKS_TYPE_DOMAIN, TEXT_SIZES } from '../../utils/constants'
 import HeaderListComponent from '../common/header_list.component'
-import { inputField } from '../../redux/constant/input.constant'
 
 export default class PostTaskProfileComponent extends Component {
 
@@ -35,15 +34,20 @@ export default class PostTaskProfileComponent extends Component {
                             <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
 
                                 <div style={{width:'70%'}}>
-                                    <LabeledInputComponent input_field={inputField.TASK_NAME}/>
+                                    <LabeledInputComponent label='Task Name'/>
                                 </div>
 
                                 <div style={{width:'80%',marginTop:30}}>
-                                    <RangeInputComponent input_field={inputField.TASK_BUDGET}/>
+                                    <RangeInputComponent 
+                                        label='What is your estimated budget?' 
+                                        domain={FIXED_PRICE_DOMAIN}
+                                        value={[1000,5000]}/>
                                 </div>
 
                                 <div style={{width:'100%',marginTop:30}}>
-                                    <SkillPickerComponent input_field={inputField.SKILLS}/>
+                                    <SkillPickerComponent  
+                                        label='Required Skills'
+                                        category_name={CATEGORIES_DOMAIN[0].name} />
                                 </div>
 
 
@@ -54,16 +58,21 @@ export default class PostTaskProfileComponent extends Component {
                                 alignItems:'center'}}>
 
                                 <div style={{width:'70%'}}>
-                                    <LabeledSelectedInputComponent input_field={inputField.CATEGORY}/>
+                                    <LabeledSelectedInputComponent  
+                                        label='Category'
+                                        domain={CATEGORIES_DOMAIN.map(item=>item.name)}
+                                        value={CATEGORIES_DOMAIN[0].name}/>
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <LabeledSelectedInputComponent input_field={inputField.TASK_TYPE}/>
+                                    <LabeledSelectedInputComponent
+                                        label='Type'
+                                        domain={TASKS_TYPE_DOMAIN}
+                                        value={TASKS_TYPE_DOMAIN[0]} />
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <AttachmentsComponent is_edit={true} 
-                                        input_field={inputField.FILES}/>
+                                    <AttachmentsComponent is_edit={true} />
                                 </div>
                             </div>
 
@@ -73,7 +82,8 @@ export default class PostTaskProfileComponent extends Component {
                         {/* row2 */}
 
                        <div style={{marginTop:30}}>
-                           <TextareaInputComponent input_field={inputField.DESCRIPTION}/>
+                           <TextareaInputComponent 
+                            label='Descrition'/>
                        </div>
                     
                 

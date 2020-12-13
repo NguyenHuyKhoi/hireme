@@ -5,8 +5,8 @@ import banner from '../../assets//images/banner.jpg'
 import { BLACK, BLUE_1, GRAY_2, WHITE } from '../../utils/palette'
 import ButtonComponent from './button.component'
 import ButtonInputComponent from '../input/button_input.component'
-import { routePaths, textSizes } from '../../utils/constants'
-import { inputField } from '../../redux/constant/input.constant'
+import { routePaths, TEXT_SIZES } from '../../utils/constants'
+
 export default class HomeBannerComponent extends Component {
     render(){
         return (
@@ -20,11 +20,11 @@ export default class HomeBannerComponent extends Component {
                     <div style={{width:'50%',alignSelf:'baseline',display: 'flex',flexDirection: 'column',
                         marginLeft:120}}>
 
-                        <text style={{fontSize:textSizes.HEADER,color:WHITE,fontWeight:'bold'}}>
+                        <text style={{fontSize:TEXT_SIZES.HEADER,color:WHITE,fontWeight:'bold'}}>
                             Hire Expert or be hire for any job, any time
                         </text>
 
-                        <text style={{fontSize:textSizes.NORMAL,color:WHITE,marginTop:5}}>
+                        <text style={{fontSize:TEXT_SIZES.NORMAL,color:WHITE,marginTop:5}}>
                             Thousands small company use us to make their ideas be reality.
                         </text>
 
@@ -33,7 +33,7 @@ export default class HomeBannerComponent extends Component {
                             display: 'flex', justifyContent: 'center', 
                             alignItems: 'center'}}>
 
-                            <text style={{fontSize:textSizes.NORMAL,color:WHITE}}>
+                            <text style={{fontSize:TEXT_SIZES.NORMAL,color:WHITE}}>
                                 What do you want ?
                             </text>
                         </div>
@@ -43,8 +43,7 @@ export default class HomeBannerComponent extends Component {
                             to={routePaths.TASK_SEARCH}
                             style={{width:'80%',marginTop:20,textDecoration:'none'}}>
                             <ButtonInputComponent 
-                                btn_label='Search' 
-                                input_field={inputField.KEYWORD}/>
+                                btn_label='Search' />
                         </Link>
                     
                     </div>

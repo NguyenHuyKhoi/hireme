@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import{Link,NavLink} from 'react-router-dom'
-import {bullshitIcons, routePaths, textSizes} from '../../utils/constants'
+import {bullshitIcons, routePaths, TEXT_SIZES} from '../../utils/constants'
 import { BLACK, BLUE_1,GRAY_2, WHITE } from '../../utils/palette';
 import logo from '../../assets//images/logo.png'
 import * as Icons from "react-icons/fa"
@@ -66,16 +66,16 @@ export default class HeaderBarComponent extends Component {
                     
 
                     <Link to ={routePaths.HOME}
-                        style={{fontSize:textSizes.NORMAL,color:BLACK,textDecoration:'none'}}>
+                        style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,textDecoration:'none'}}>
                             Home
                     </Link>
                     <Link to ={routePaths.FREELANCER_SEARCH}
-                        style={{fontSize:textSizes.NORMAL,color:BLACK,textDecoration:'none'}}>
+                        style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,textDecoration:'none'}}>
                             Find Freelancers
                     </Link>
 
                     <Link to ={routePaths.TASK_SEARCH}
-                        style={{fontSize:textSizes.NORMAL,color:BLACK,textDecoration:'none'}}>
+                        style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,textDecoration:'none'}}>
                             Find Tasks
                     </Link>
 
@@ -97,14 +97,14 @@ export default class HeaderBarComponent extends Component {
                             <img src='https://randomuser.me/api/portraits/women/25.jpg' 
                                 style={{width:50,height:50,borderRadius:25}}/>
                             <text 
-                                style={{marginLeft:10,fontSize:textSizes.SMALL,color:BLACK}}>
+                                style={{marginLeft:10,fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
                                     My Account
                             </text>
                         </Link>
                     :
                         <text 
                             onClick={this.openAuthModal}
-                            style={{fontSize:textSizes.SMALL,color:BLACK}}>
+                            style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
                             Login/Register  
                         </text>
                     }   

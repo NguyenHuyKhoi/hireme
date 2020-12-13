@@ -25,6 +25,8 @@ export default class DashboardSettingFreelancerScreen extends Component {
     }
     render(){
         const setting=this.state.setting;
+
+        console.log('setting_freelancer:',setting)
         return (
 
             <div style={{width:'100vw',backgroundColor:GRAY_6,

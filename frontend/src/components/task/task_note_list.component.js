@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
-import { inputField } from '../../redux/constant/input.constant'
-import { textSizes } from '../../utils/constants'
+
+import { TEXT_SIZES } from '../../utils/constants'
 import { BLACK, BLUE_1, GREEN_1, WHITE, YELLOW_1 } from '../../utils/palette'
 import TaskNoteItemComponent from '../input/task_note_item.component'
 const notes=[
@@ -35,12 +35,12 @@ export default class TaskNoteListComponent extends Component {
         return (
             <div style={{width:'100%',alignSelf: 'baseline',
                 display:'flex',flexDirection: 'column'}}>
-                <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>
+                <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>
                     Notes:
                 </text>
 
                 <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
-                    <TaskNoteItemComponent input_field={inputField.NOTE}/>
+                    <TaskNoteItemComponent />
                     {
                         notes.map((item,index)=>
                             <TaskNoteItemComponent note={item} key={''+index}/>

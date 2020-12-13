@@ -1,6 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
-import { textSizes } from '../../utils/constants';
+import { TEXT_SIZES } from '../../utils/constants';
 import { BLACK, BLUE_1, GRAY_4, WHITE } from '../../utils/palette';
 const taskTabItems=[
     {
@@ -29,7 +29,7 @@ class TabBar extends Component{
                 style={{display:'flex',flex:1,alignItems: 'center',
                 justifyContent: 'center',
                 backgroundColor: is_focused?WHITE:GRAY_4}}>
-                <text style={{fontSize:textSizes.NORMAL,
+                <text style={{fontSize:TEXT_SIZES.NORMAL,
                         color:is_focused?BLUE_1:BLACK}}>
                     {item.label}
                 </text>

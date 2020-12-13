@@ -1,19 +1,20 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
-import sample_db from '../../sample_db/fake_api_responses.json'
-import { routePaths, textSizes } from '../../utils/constants';
-import { collapseText } from '../../utils/helper';
+import { routePaths, TEXT_SIZES } from '../../utils/constants';
+import { collapseText, convertFullDateToOnlyDay } from '../../utils/helper';
 import { BLACK, BLUE_1, GRAY_1, GRAY_2, GRAY_3, GRAY_4, GRAY_5, WHITE } from '../../utils/palette';
 import HeaderListComponent from '../common/header_list.component';
 
 
 
-const chats=sample_db.get_chat_list   ;
 
 class ChatItem extends Component {
     render (){
         const chat = this.props.chat
+        const partner=chat.partner;
+        const latest_message=chat.latest_message;
+        const task=chat.task
         return (
             <div 
                 onClick={this.props.onClick}
@@ -33,27 +34,38 @@ class ChatItem extends Component {
 
                 <div style={{flex:1,display:'flex',justifyContent:'center',alignItems:'center'}}>
                     <img style={{ width:'100%',aspectRatio:1,borderRadius: '50%'}} 
-                            src={'https://randomuser.me/api/portraits/men/22.jpg'}/>
+                            src={partner.avatar}/>
                 </div>
 
                 
                 <div style={{display:'flex',flex:6,flexDirection:'column',paddingLeft:15,
                     justifyContent:'center'}}>
 
+                    
                     <div style={{ display: 'flex',flexDirection: 'row',
                         alignItems:'center',
-                        justifyContent: 'space-between',marginBottom:3}}>
-                            <text style={{   fontSize: textSizes.NORMAL,color:GRAY_1}}>
-                                {collapseText(chat.partner.name,12)}
+                        justifyContent: 'space-between'}}>
+                            <text style={{   fontSize: TEXT_SIZES.NORMAL,color:GRAY_1}}>
+                                {collapseText(partner.name,12)}
                             </text>
-                            <text style={{ fontSize: textSizes.SMALL,color:GRAY_2}}>
-                                {collapseText(chat.latest_message.time,10)}
+                            <text style={{ fontSize: TEXT_SIZES.SMALL,color:GRAY_2}}>
+                                {convertFullDateToOnlyDay(latest_message.time)}
                             </text>
                     </div>
 
-                    <text style={{ fontSize: textSizes.SMALL,color:GRAY_2}}>
-                        {collapseText(chat.latest_message.content,30)}
+                    <text style={{ fontSize: TEXT_SIZES.SMALL,color:GRAY_2}}>
+                        {collapseText(latest_message.content,30)}
                     </text>
+                    {
+                        task!==undefined  && task!==null?
+                        <Link   
+                            to={routePaths.DASHBOARD_TASK_MANAMENT} 
+                            style={{   fontSize: TEXT_SIZES.SMALL,color:BLUE_1,textDecoration:'none'}}>
+                            {'On task :'+collapseText(task.name,20)}
+                        </Link>
+                        :
+                        null
+                    }
                 
                 </div>
 
@@ -75,6 +87,10 @@ export default class ChatListComponent extends Component {
         }
     }
     render(){
+
+        const chat_list=this.props.chat_list
+
+        console.log('chat_list :',chat_list);
         return (
             <div  style={{display:'flex',flex:1, flexDirection:'column'}} >    
 
@@ -83,7 +99,7 @@ export default class ChatListComponent extends Component {
                 <div style={{  display: 'flex',flex:1,flexDirection: 'column',
                     overflowY: 'scroll'}}>
                     {
-                        chats.map((chat,index)=>(
+                        chat_list.map((chat,index)=>(
                             <ChatItem 
                                 key={''+index}
                                 chat={chat} 

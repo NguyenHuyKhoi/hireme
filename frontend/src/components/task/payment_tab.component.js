@@ -1,8 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
-import { inputField } from '../../redux/constant/input.constant';
 import sample_db from '../../sample_db/fake_api_responses'
-import { textSizes } from '../../utils/constants';
+import { TEXT_SIZES } from '../../utils/constants';
 import { BLUE_1, GRAY_2, GREEN_1, RED_1, WHITE, YELLOW_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
 import ButtonInputComponent from '../input/button_input.component';
@@ -59,7 +58,7 @@ class ActionButtons extends Component{
                     boxShadow:'3px 3px 3px 3px #707070',
                     backgroundColor: data.background,
                     display:'flex',justifyContent: 'center',alignItems: 'center'}}>
-                <text style={{color:WHITE,fontSize: textSizes.NORMAL,marginLeft:10}}>
+                <text style={{color:WHITE,fontSize: TEXT_SIZES.NORMAL,marginLeft:10}}>
                     {data.title}
                 </text>
             </div>  
@@ -71,7 +70,7 @@ class SingleField extends Component {
     render(){
         return (
             <text style={{
-                fontSize:this.props.big!==undefined?textSizes.HUGE:textSizes.NORMAL,
+                fontSize:this.props.big!==undefined?TEXT_SIZES.HUGE:TEXT_SIZES.NORMAL,
                 color:WHITE}}>
                 {this.props.label}
             </text>

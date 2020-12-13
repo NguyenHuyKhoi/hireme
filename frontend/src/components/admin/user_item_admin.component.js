@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import { routePaths, textSizes } from '../../utils/constants'
+import { routePaths, TEXT_SIZES } from '../../utils/constants'
 import { WHITE,GRAY_4, BLACK, YELLOW_1, GRAY_2, GRAY_3, BLUE_1, RED_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
 import RateScoreComponent from '../common/rate_score.component'
@@ -48,7 +48,7 @@ export default class UserItemAdminComponent extends Component {
                 <div style={{display:'flex',flex:6,flexDirection: 'column',justifyContent:'center'}}>
 
                     <div style={{display:'flex',flexDirection:'row'}}>
-                        <text style={{fontSize:textSizes.NORMAL,color:BLACK }}>
+                        <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK }}>
                             Username 1
                         </text>
 
@@ -65,13 +65,13 @@ export default class UserItemAdminComponent extends Component {
                         justifyContent: 'space-between'}}>
 
                         <div style={{display:'flex',flex:1}}>
-                            <text style={{fontSize:textSizes.SMALL,color:BLACK}}>
+                            <text style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
                                 Type : Freelancer
                             </text>
                         </div>
 
                         <div style={{display:'flex',flex:1}}    >
-                            <text style={{fontSize:textSizes.SMALL,color:BLACK}}>
+                            <text style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
                                 Email : uesr@gmail.com
                             </text>
                         </div>

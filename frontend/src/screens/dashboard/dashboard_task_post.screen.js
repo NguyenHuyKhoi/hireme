@@ -3,24 +3,12 @@ import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import SidebarComponent from '../../components/common/side_bar.component'
 import PostTaskProfileComponent from '../../components/task/post_task_profile.component'
-import { routePaths, SIDEBAR_RATIO, textSizes,PADDING_BODY_DASHBOARD } from '../../utils/constants'
+import { routePaths, SIDEBAR_RATIO, TEXT_SIZES,PADDING_BODY_DASHBOARD } from '../../utils/constants'
 import {GRAY_6 } from '../../utils/palette'
 import ButtonComponent from '../../components/common/button.component'
 import HeaderListComponent from '../../components/common/header_list.component'
 import api from '../../sample_db/fake_api_responses.json'
 export default class DashBoardTaskPostScreen extends Component {
-    constructor(props){
-        super(props);
-        this.state={
-            tasks:[]
-        }
-    }
-
-    componentDidMount=()=>{
-        this.setState({
-            tasks:api.get_task_list
-        })
-    }
     render(){
         return (
 

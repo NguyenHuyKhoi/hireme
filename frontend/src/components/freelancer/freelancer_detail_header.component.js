@@ -4,7 +4,7 @@ import RateScoreComponent from '../common/rate_score.component'
 import banner from '../../assets/images/banner.jpg'
 import { BLACK, WHITE, YELLOW_1 } from '../../utils/palette'
 import SmallFieldComponent from '../common/small_field.component'
-import { textSizes } from '../../utils/constants'
+import { TEXT_SIZES } from '../../utils/constants'
 export default class FreelancerDetailHeaderComponent extends Component {
     render(){
         const freelancer=this.props.freelancer;
@@ -21,11 +21,11 @@ export default class FreelancerDetailHeaderComponent extends Component {
                     style={{height: '60%',aspectRatio:1,borderRadius:'50%'}}/>
                 
                 <div style={{marginLeft:15,display:'flex',flex:1,flexDirection: 'column'}}>
-                    <text style={{fontSize:textSizes.BIG,color:BLACK}}>
+                    <text style={{fontSize:TEXT_SIZES.BIG,color:BLACK}}>
                         {freelancer.name}
                     </text>
 
-                    <text style={{fontSize:textSizes.NORMAL,color:BLACK,marginBottom:5}}>
+                    <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,marginBottom:5}}>
                         {freelancer.tagline}
                     </text>
                     <div style={{flex:1}}>

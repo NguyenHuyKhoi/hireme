@@ -1,42 +1,21 @@
 //import from library 
 import React, {Component} from 'react'
-import { textSizes } from '../../utils/constants'
+import { TEXT_SIZES } from '../../utils/constants'
 import { BLACK } from '../../utils/palette'
-import {connect }from 'react-redux'
-import * as actions from '../../redux/action/input.action'
-
 import Select from 'react-select';
-import { inputField } from '../../redux/constant/input.constant'
 
-class LabeledSelectedInputComponent extends Component {
-    constructor(props){
-        super(props);
-        const input_field=this.props.input_field;
-        let value=this.props.value;
-        if (value!==undefined){
-            this.props.inputAField({[input_field.key]:value})
-        }
-    }
+export default class LabeledSelectedInputComponent extends Component {
+
 
     render(){
-        const input_field=this.props.input_field;
-
+        const label=this.props.label!==undefined?this.props.label:'';
         const hide_label=this.props.hide_label!==undefined?this.props.hide_label:false
+        let domain=this.props.domain.map(item=>{
+            return { value:item,label:item}
+        });
+        let value={value:this.props.value,label:this.props.value};
 
-        let arr=input_field.domain_value;
-        const selectOptions=arr.map(item=>{
-            return{ value:item,label:item}
-        })
-
-        let defaultOption;
-        let  inputInStore=this.props.input_store[input_field.key];
-        if (inputInStore!==undefined){
-            defaultOption={value:inputInStore,label:inputInStore}
-        }
-        else {
-            defaultOption={value:input_field.default_value,label:input_field.default_value}
-        }
-            
+      
         return (
 
             <div style={{display:'flex',width: '100%',flexDirection: 'column'}}>
@@ -44,21 +23,21 @@ class LabeledSelectedInputComponent extends Component {
                     hide_label?
                     null
                     :
-                    <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>
-                        {input_field.label}
+                    <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>
+                        {label}
                     </text>
 
                 }
                 
                 <div style={{width:'100%',height:30,
-                    marginTop:hide_label?0:15,fontSize:textSizes.NORMAL}}>
+                    marginTop:hide_label?0:15,fontSize:TEXT_SIZES.NORMAL}}>
                     <Select
-                        style={{fontSize:textSizes.SMALL}}
-                        defaultValue={defaultOption}
+                        style={{fontSize:TEXT_SIZES.SMALL}}
+                        value={value}
                         onChange={(option)=>{
-                            this.props.inputAField({[input_field.key]:option.value})
+                            this.props.onChange(option)
                         }}
-                        options={selectOptions}
+                        options={domain}
                         />
                 </div>
 
@@ -70,11 +49,4 @@ class LabeledSelectedInputComponent extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-	input_store: state.input_store
-});
 
-
-
-
-export default connect(mapStateToProps,actions)(LabeledSelectedInputComponent)

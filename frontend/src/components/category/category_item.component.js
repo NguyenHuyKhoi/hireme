@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
-import { bullshitIcons, routePaths, textSizes } from '../../utils/constants'
+import { bullshitIcons, routePaths, TEXT_SIZES } from '../../utils/constants'
 import { BLACK, BLUE_0, BLUE_1, GRAY_1, GRAY_2, GRAY_3, WHITE } from '../../utils/palette'
 import {IconContext} from 'react-icons'
 import SmallFieldComponent from '../common/small_field.component'
@@ -48,11 +48,11 @@ export default class CategoryItemComponent extends Component {
                 {/* </div>
                */}
 
-                <text style={{fontSize:textSizes.NORMAL,marginLeft:20,marginRight:20,
+                <text style={{fontSize:TEXT_SIZES.NORMAL,marginLeft:20,marginRight:20,
                         color: this.state.hover?WHITE:BLACK}}>
                     {category.name}
                 </text>
-                <text style={{fontSize:textSizes.SMALL,
+                <text style={{fontSize:TEXT_SIZES.SMALL,
                     color: this.state.hover?GRAY_3:GRAY_1,marginTop:2,
                     marginLeft:20,marginRight:20,
                     textAlign:'center'}}>

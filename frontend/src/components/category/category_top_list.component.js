@@ -1,6 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
-import { textSizes } from '../../utils/constants'
+import { TEXT_SIZES } from '../../utils/constants'
 import { BLACK } from '../../utils/palette'
 import CategoryItemComponent from './category_item.component'
 
@@ -13,7 +13,7 @@ export default class CategoryTopListComponent extends Component {
                 alignSelf: 'baseline',
                 flexDirection: 'column',alignItems: 'center'}}>
 
-            <text style={{fontSize:textSizes.HEADER,color:BLACK,marginTop:50}}>
+            <text style={{fontSize:TEXT_SIZES.HEADER,color:BLACK,marginTop:50}}>
                 Popular Task Categories 
             </text>
 

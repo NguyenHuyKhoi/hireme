@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import banner from '../../assets/images/banner.jpg'
-import { textSizes } from '../../utils/constants'
+import { TEXT_SIZES } from '../../utils/constants'
 import { BLACK, WHITE, YELLOW_1 } from '../../utils/palette'
 import SmallFieldComponent from '../common/small_field.component'
 
@@ -22,11 +22,11 @@ export default class CompanyDetailHeaderComponent extends Component {
                         style={{height: '60%',aspectRatio:1,borderRadius:'50%'}}/>
                     
                     <div style={{marginLeft:15,display:'flex',flex:1,flexDirection: 'column'}}>
-                        <text style={{fontSize:textSizes.BIG,color:BLACK}}>
+                        <text style={{fontSize:TEXT_SIZES.BIG,color:BLACK}}>
                             {company.company_name}
                         </text>
 
-                        <text style={{fontSize:textSizes.NORMAL,color:BLACK,marginBottom:5}}>
+                        <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,marginBottom:5}}>
                             {company.tagline}
                         </text>
 
