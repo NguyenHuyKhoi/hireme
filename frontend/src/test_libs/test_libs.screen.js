@@ -1,6 +1,5 @@
 //import from library 
 import React, {Component} from 'react'
-import Pagination from "react-js-pagination";
 import { BLACK, GRAY_6, WHITE } from '../utils/palette';
 
 
@@ -27,18 +26,6 @@ import { BLACK, GRAY_6, WHITE } from '../utils/palette';
                 backgroundColor:GRAY_6,
                 display:'flex',flexDirection: 'row'}}>
               
-        
-
-                {/* pagination */}
-                    <Pagination
-                    style={{display: 'flex',flexDirection: 'row'}}
-                    activePage={this.state.activePage}
-                    itemsCountPerPage={10}
-                    totalItemsCount={450}
-                    pageRangeDisplayed={5}
-                    onChange={this.handlePageChange.bind(this)}
-                    />
-
 
                 
 

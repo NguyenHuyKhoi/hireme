@@ -9,8 +9,8 @@ import StageListComponent from '../../components/task/stage_list.component';
 import TaskDetailTabComponent from '../../components/task/task_detail.component';
 import TaskDetailTab from '../../components/task/task_detail.component';
 import TaskItemBriefComponent from '../../components/task/task_item_brief.component';
-import { SIDEBAR_RATIO,PADDING_BODY_DASHBOARD } from '../../utils/constants';
-import { GRAY_6 } from '../../utils/palette';
+import { SIDEBAR_RATIO,PADDING_BODY_DASHBOARD, TEXT_SIZES } from '../../utils/constants';
+import { GRAY_6,BLACK } from '../../utils/palette';
 import TaskDetailScreen from '../task_detail.screen';
 import TaskSearchScreen from '../task_search.screen';
 import api from '../../sample_db/fake_api_responses.json'
@@ -41,7 +41,17 @@ export default class DashBoardTaskManagementScreen extends Component {
                 if (this.state.task===null) return null;
                 return  <TaskDetailTabComponent task={this.state.task} />
             case 1:
-                return  <BiddingListComponent biddings={this.state.biddings} task_id={this.state.task_id}/>
+                if (this.state.biddings.length===0){
+                    return  <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
+                        There is not any biddings.Be the first !
+                    </text>
+                }
+                else {
+                   return   <BiddingListComponent 
+                        biddings={this.state.biddings}
+                        task_id={this.state.task_id}/>
+                }
+
             case 2:
                 return  <div style={{display:'flex',width:'100%',height:'80vh'}}>
                             <ChatComponent  task_id={this.state.task_id}/>

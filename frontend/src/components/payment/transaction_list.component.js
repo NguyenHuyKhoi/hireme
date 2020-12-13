@@ -22,9 +22,27 @@ let new_card={
 
 cards=[new_card,...cards];
 export default class TransactionListComponent extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            first_item_index:0,
+            last_item_index:Math.min(4,this.props.transaction_history.length-1)
+        }
+    }
+
+    switchPage=(l,r)=>{
+        this.setState({
+            first_item_index:l,
+            last_item_index:r
+        })
+    }
+
     render(){
         const transaction_history=this.props.transaction_history;
-        const cards2=cards.slice(0,3);
+        const l=this.state.first_item_index;
+        const r=this.state.last_item_index;
+    
+        console.log('Tasks :',this.props.tasks,l,r)
         return (
             <div style={{ display:'flex',flex:1,flexDirection: 'column',backgroundColor: WHITE,
 
@@ -39,7 +57,7 @@ export default class TransactionListComponent extends Component {
                     <div style={{display:'flex',flex:8,flexDirection: 'column'}}>
             
                         {
-                            transaction_history.map((item,index)=>(
+                            transaction_history.slice(l,r+1).map((item,index)=>(
                                 <TransactionItemComponent 
                                     transaction={item} index={index} key={''+index}/>
                             ))
@@ -48,6 +66,11 @@ export default class TransactionListComponent extends Component {
 
                     {/* <div style={{flex:1}}/> */}
                 </div>
+
+                
+                <PaginationComponent    
+                    onClickPage={(l,r)=>this.switchPage(l,r)}
+                    items={transaction_history.length} items_per_page={5} />
                 
 
             </div>

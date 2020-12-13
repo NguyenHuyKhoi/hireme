@@ -6,6 +6,8 @@ import FooterBarComponent from '../components/common/footer_bar.component';
 import HeaderBarComponent from '../components/common/header_bar.component';
 import FreelancerListComponent from '../components/freelancer/freelancer_list.component';
 import api from '../sample_db/fake_api_responses.json'
+import { TEXT_SIZES } from '../utils/constants';
+import { BLACK } from '../utils/palette';
 export default class FreelancerSearchScreen extends Component {
 
     constructor(props){
@@ -45,7 +47,15 @@ export default class FreelancerSearchScreen extends Component {
                     <div style={{flex:0.5}}/>
 
                     <div style={{flex:5.5}}>
-                        <FreelancerListComponent freelancers={freelancers}/>
+                        {
+                            freelancers.length===0?
+                            <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
+                                Don't find any freelancers 
+                            </text>
+                            :
+                            <FreelancerListComponent freelancers={freelancers}/>
+                        }
+                       
                     </div>
                  
                     <div style={{flex:1}}/>

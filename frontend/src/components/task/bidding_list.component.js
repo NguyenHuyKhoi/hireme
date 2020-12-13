@@ -1,12 +1,9 @@
 //import from library 
 import React, {Component} from 'react'
-
-import sample_db from '../../sample_db/fake_api_responses.json'
 import HeaderListComponent from '../common/header_list.component';
 import PaginationComponent from '../common/pagination.component';
 import BiddingItemComponent from './bidding_item.component';
 
-const biddings=sample_db.get_bidding_list   ;
 // * bidding [
 //     {
 //       * id
@@ -16,9 +13,29 @@ const biddings=sample_db.get_bidding_list   ;
 //     }
 //   ]
 export default class BiddingListComponent extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            first_item_index:0,
+            last_item_index:Math.min(4,this.props.biddings.length-1)
+        }
+    }
+
+    switchPage=(l,r)=>{
+        this.setState({
+            first_item_index:l,
+            last_item_index:r
+        })
+    }
+
     render(){
-        const biddings=this.props.biddings!==undefined?this.props.biddings:[];
+        const biddings=this.props.biddings;
         const company_view=this.props.company_view;
+        const l=this.state.first_item_index;
+        const r=this.state.last_item_index;
+
+        console.log('Tasks :',this.props.tasks,l,r)
+    
         return (
             <div style={{flex:1,
             display:'flex',flexDirection: 'column'}}>
@@ -27,11 +44,15 @@ export default class BiddingListComponent extends Component {
 
                 <div style={{flex:1,display:'flex',flexDirection: 'column'}}>
                     {
-                    biddings.map((item,index)=>
+                    biddings.slice(l,r+1).map((item,index)=>
                         <BiddingItemComponent bidding={item} index={index} key ={''+index}/>
                     )
                     }
                 </div>
+                
+                <PaginationComponent    
+                    onClickPage={(l,r)=>this.switchPage(l,r)}
+                    items={biddings.length} items_per_page={5} />
 
 
             </div>

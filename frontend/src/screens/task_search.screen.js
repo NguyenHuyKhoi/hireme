@@ -7,6 +7,8 @@ import TaskListComponent from '../components/task/task_list.component';
 import FilterComponent from '../components/input/filter.component';
 
 import api from '../sample_db/fake_api_responses.json'
+import { TEXT_SIZES } from '../utils/constants';
+import { BLACK } from '../utils/palette';
 
 
 export default class TaskSearchScreen extends Component {
@@ -25,6 +27,7 @@ export default class TaskSearchScreen extends Component {
     }
 
     render(){
+        const tasks=this.state.tasks;
         return (
 
             <div style={{width:'100vw',height:'100vh',
@@ -46,7 +49,14 @@ export default class TaskSearchScreen extends Component {
                     <div style={{flex:0.5}}/>
 
                     <div style={{flex:5.5}}>
-                        <TaskListComponent tasks={this.state.tasks}/>
+                        {
+                            tasks.length===0?
+                            <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
+                                Don't find any tasks 
+                            </text>
+                            :
+                            <TaskListComponent tasks={tasks}/>
+                        }
                     </div>
                  
                     <div style={{flex:1}}/>

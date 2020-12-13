@@ -14,6 +14,7 @@ import AttachmentsComponent from '../components/input/attachments.component';
 import ReportTaskModal from '../components/input/report_task.modal';
 
 import api from '../sample_db/fake_api_responses.json'
+import { TEXT_SIZES } from '../utils/constants';
 export default class TaskDetailScreen extends Component {
     constructor(props){
         super(props);
@@ -110,9 +111,18 @@ export default class TaskDetailScreen extends Component {
                                 {/* biddings */}
 
                                 <div style={{marginTop:50}}>
-                                    <BiddingListComponent 
-                                        biddings={biddings}
-                                        company_view={false}/>
+                                    {
+                                        biddings.length===0?
+                                        <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
+                                            There is not any biddings.Be the first !
+                                        </text>
+                                        :
+                                        <BiddingListComponent 
+                                            biddings={biddings}
+                                            company_view={false}/>
+
+                                    }
+                                   
                                 </div>
                             </div>
 
