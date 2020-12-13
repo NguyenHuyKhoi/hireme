@@ -13,6 +13,7 @@ export default class SettingProfileCompanyComponent extends Component {
    
 
     render(){
+        const profile=this.props.profile;
         return (
             <div style={{
                 flex:1,display: 'flex',flexDirection:'column',backgroundColor:WHITE,
@@ -30,14 +31,19 @@ export default class SettingProfileCompanyComponent extends Component {
 
                                 <div style={{width:'70%'}}>
                                     <LabeledInputComponent 
+                                        value={profile.company_name}
                                         input_field={inputField.COMPANY_NAME}/>
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <LabeledInputComponent input_field={inputField.LOCATION}/>
+                                    <LabeledInputComponent  
+                                        value={profile.location}
+                                        input_field={inputField.LOCATION}/>
                                 </div>
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <LabeledInputComponent input_field={inputField.TAGLINE}/>
+                                    <LabeledInputComponent 
+                                        value={profile.tagline}
+                                        input_field={inputField.TAGLINE}/>
                                 </div>
                             </div>
 
@@ -46,15 +52,21 @@ export default class SettingProfileCompanyComponent extends Component {
                                 alignItems:'center'}}>
 
                                 <div style={{width:'70%'}}>
-                                    <LabeledSelectedInputComponent input_field={inputField.COMPANY_SIZE}/>
+                                    <LabeledSelectedInputComponent 
+                                        value={profile.employee_size}
+                                        input_field={inputField.COMPANY_SIZE}/>
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <LabeledSelectedInputComponent input_field={inputField.BUSINESS_AREA}/>
+                                    <LabeledSelectedInputComponent 
+                                        value={profile.business_area} 
+                                        input_field={inputField.BUSINESS_AREA}/>
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <LabeledInputComponent input_field={inputField.LINK}/>
+                                    <LabeledInputComponent 
+                                        value={profile.website_link}
+                                        input_field={inputField.LINK}/>
                                 </div>
 
                         

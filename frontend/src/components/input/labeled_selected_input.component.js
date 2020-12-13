@@ -6,20 +6,37 @@ import {connect }from 'react-redux'
 import * as actions from '../../redux/action/input.action'
 
 import Select from 'react-select';
+import { inputField } from '../../redux/constant/input.constant'
 
 class LabeledSelectedInputComponent extends Component {
-    
+    constructor(props){
+        super(props);
+        const input_field=this.props.input_field;
+        let value=this.props.value;
+        if (value!==undefined){
+            this.props.inputAField({[input_field.key]:value})
+        }
+    }
+
     render(){
         const input_field=this.props.input_field;
+
         const hide_label=this.props.hide_label!==undefined?this.props.hide_label:false
+
         let arr=input_field.domain_value;
         const selectOptions=arr.map(item=>{
-            return{ value:item,label:item.name}
+            return{ value:item,label:item}
         })
 
-        const defaultOption={value:input_field.default_value,label:input_field.default_value.name}
-        
-        console.log('input_field_key:',input_field.key)
+        let defaultOption;
+        let  inputInStore=this.props.input_store[input_field.key];
+        if (inputInStore!==undefined){
+            defaultOption={value:inputInStore,label:inputInStore}
+        }
+        else {
+            defaultOption={value:input_field.default_value,label:input_field.default_value}
+        }
+            
         return (
 
             <div style={{display:'flex',width: '100%',flexDirection: 'column'}}>

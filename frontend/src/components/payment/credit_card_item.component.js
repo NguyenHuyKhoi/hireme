@@ -8,22 +8,25 @@ import CardCompanyPickerComponent from '../input/card_company_picker.component'
 import { BLACK, GRAY_2, GRAY_4, GREEN_1, RED_1, WHITE } from '../../utils/palette'
 import { textSizes } from '../../utils/constants'
 import { inputField } from '../../redux/constant/input.constant'
+import { cardCompanies } from '../../redux/constant/domain_value.constant'
 
 
 export default class CreditCardItemComponent extends Component {
     
     render(){
-        const is_new_card=this.props.is_new_card;
-        const card=this.props.card;
+        const is_new=this.props.is_new!==undefined?this.props.is_new:false;
+        const credit_card=this.props.credit_card;
         const index=this.props.index;
-        const disabled=is_new_card!==undefined?false:true
+        const disabled=is_new?false:true
 
+        console.log('credit_card_item',credit_card,is_new)
         return (
             <div  style={{padding:20,display:'flex',flex:1,flexDirection:'column',
                 backgroundColor:index%2==1?WHITE:GRAY_4}}>    
 
                     <div style={styles.row}>
                         <CardCompanyPickerComponent 
+                            value={is_new?cardCompanies[0].code: credit_card.card_company}
                             input_field={inputField.CARD_COMPANY}/>
 
                         <div 
@@ -44,6 +47,7 @@ export default class CreditCardItemComponent extends Component {
                         <LabelInputComponent 
                             size={textSizes.NORMAL}
                             inline={true}
+                            value={is_new?'':credit_card.number}
                             disabled={disabled}
                             input_field={inputField.CARD_NUMBER}
                             />
@@ -58,6 +62,7 @@ export default class CreditCardItemComponent extends Component {
                         <LabelInputComponent 
                             size={textSizes.SMALL}
                             disabled={disabled}
+                            value={is_new?'':credit_card.owner_name}
                             inline={true}
                             input_field={inputField.CARD_OWNER}
                             />
@@ -69,6 +74,7 @@ export default class CreditCardItemComponent extends Component {
                             size={textSizes.SMALL}
                             disabled={disabled}
                             inline={true}
+                            value={is_new?new Date():credit_card.expired_date}
                             input_field={inputField.CARD_DATE}
                             />
                         </div>
@@ -84,6 +90,7 @@ export default class CreditCardItemComponent extends Component {
                             size={textSizes.SMALL}
                             disabled={disabled}
                             inline={true}
+                            value={is_new?'':credit_card.email}
                             input_field={inputField.CARD_EMAIL}
                         />
                         </div>
@@ -94,6 +101,7 @@ export default class CreditCardItemComponent extends Component {
                                 size={textSizes.SMALL}
                                 disabled={disabled}
                                 inline={true}
+                                value={is_new?'':credit_card.ccv}
                                 input_field={inputField.CARD_CVV}
                                 />
                         </div>

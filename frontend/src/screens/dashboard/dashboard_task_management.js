@@ -22,6 +22,7 @@ export default class DashBoardTaskManagementScreen extends Component {
             task:null,
             biddings:[],
             stages:[],
+            focus_tab_index:0
 
         }
     }
@@ -58,7 +59,6 @@ export default class DashBoardTaskManagementScreen extends Component {
     }
     render(){
         return (
-
             <div style={{width:'100vw',backgroundColor: GRAY_6,
                 display:'flex',flexDirection: 'row'}}>
 

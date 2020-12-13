@@ -80,6 +80,7 @@ export const taskTypes=[
         code:'hourly_rate'
     }
 ]
+
 export const categories=[
     {
         id:0, //defined same both server and client
@@ -667,7 +668,7 @@ export const taskState=[
     {
         name:'Done',
         code:'done'
-    },
+    },  
     {
         name:'Reported',
         code:'reported'

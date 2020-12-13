@@ -21,16 +21,18 @@ export default class DashboardSettingCompanyScreen extends Component {
     constructor(props){
         super(props);
         this.state={
-            tasks:[]
+            setting:null
         }
     }
 
     componentDidMount=()=>{
+        console.log('setting_company :',api.get_setting_company)
         this.setState({
-            tasks:api.get_task_list
+            setting:api.get_setting_company
         })
     }
     render(){
+        const setting=this.state.setting;
         return (
 
             <div style={{width:'100vw',backgroundColor:GRAY_6,
@@ -42,17 +44,21 @@ export default class DashboardSettingCompanyScreen extends Component {
                 <div style={{display:'flex',flex:SIDEBAR_RATIO,
                     padding:PADDING_BODY_DASHBOARD}}>
 
+                    {
+                    setting===null?
+                    null
+                    :
                     <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
 
                         {/* header */}
                         <HeaderListComponent title='Setting'/>
 
                         <div style={{marginTop:30}}>
-                            <SettingAccountComponent/>
+                            <SettingAccountComponent account={setting.account}/>
                         </div>
                       
                         <div style={{marginTop:60}}>
-                            <SettingProfileCompanyComponent/>
+                            <SettingProfileCompanyComponent profile={setting.profile}/>
                         </div>
 
                         <div style={{marginTop:60}}>
@@ -70,6 +76,9 @@ export default class DashboardSettingCompanyScreen extends Component {
 
 
                     </div>
+                
+                    }
+                    
                 </div>
 
      

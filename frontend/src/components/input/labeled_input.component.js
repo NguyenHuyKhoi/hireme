@@ -7,17 +7,16 @@ import {connect }from 'react-redux'
 import * as actions from '../../redux/action/input.action'
 import { convertFullDateToOnlyDay } from '../../utils/helper'
 class LabeledInputComponent extends Component {
-
-    convertDate=(value)=>{
-        console.log('go_here')
-        var curr = new Date(value);
-        var date = curr.toISOString().substr(0,10);
-        return date;
+    constructor(props){
+        super(props);
+        const input_field=this.props.input_field;
+        let value=this.props.value;
+        if (value!==undefined){
+            console.log('Push into store field :',input_field.key,' value = ',value)
+            this.props.inputAField({[input_field.key]:value})
+        }
     }
 
-    fuckOff=(type,value)=>{
-        console.log('fuck_off',type,value)
-    }
 
     render(){
         const input_field=this.props.input_field;
@@ -25,8 +24,7 @@ class LabeledInputComponent extends Component {
         const size=this.props.size!==undefined?this.props.size:textSizes.NORMAL;
         const disabled=this.props.disabled!==undefined?this.props.disabled:false;
         const inline=this.props.inline!==undefined?this.props.inline:false;
-        const value=this.props.value!==undefined?this.props.value:'';
-        console.log('input_field_key:',input_field,value)
+        const inputInStore=this.props.input_store[input_field.key];
         return (
 
             <div style={{display:'flex',width: '100%',
@@ -47,12 +45,14 @@ class LabeledInputComponent extends Component {
               
                 <div style={{flex:3}}>
                 <input 
-                    defaultValue={
-                            input_field.type!==undefined && input_field.type==='date' && value!==''
+                    value={
+                            input_field.type!==undefined 
+                            && input_field.type==='date' 
+                            && inputInStore!==undefined
                             ?
-                            convertFullDateToOnlyDay(value)
+                            convertFullDateToOnlyDay(inputInStore)
                             :
-                            value
+                            inputInStore
                     }
                     disabled={disabled}
                     placeholder={input_field.placeholder}

@@ -44,7 +44,7 @@ export const inputField={
         key:'CATEGORY',
         label:'Category',
         default_value:categories[0],
-        domain_value:categories
+        domain_value:categories.map(item=>item.name)
     },
 
     KEYWORD:{
@@ -75,7 +75,7 @@ export const inputField={
         key:'SKILLS',
         label:'Skills',
         default_value:[],
-        domain_value:categories[0].predefined_skills
+        domain_value:categories[0].predefined_skills.map(item=>item.name)
     },
 
     BIDDING_COST:{
@@ -114,7 +114,7 @@ export const inputField={
         key:'TASK_TYPE',
         label:'Task type',
         default_value:taskTypes[0],
-        domain_value:taskTypes
+        domain_value:taskTypes.map(item=>item.name)
     },
         
     FILES:{
@@ -265,14 +265,14 @@ export const inputField={
         key:'COMPANY_SIZE',
         label:'Size ',
         default_value:companySizes[0],
-        domain_value:companySizes
+        domain_value:companySizes.map(item=>item.name)
     },
 
     BUSINESS_AREA:{
         key:'BUSINESS_AREA',
         label:'Business Area',
         default_value:businessAreas[0],
-        domain_value:businessAreas
+        domain_value:businessAreas.map(item=>item.name)
     },
 
     LOCATION:{
@@ -309,22 +309,22 @@ export const inputField={
     TASK_FILTER:{
         key:'TASK_FILTER',
         label:'Filter',
-        default_value:taskState[0],
-        domain_value:taskState
+        default_value:taskState[0].name,
+        domain_value:taskState.map(item=>item.name)
     },
 
     USER_FILTER:{
         key:'USER_FILTER',
         label:'Filter',
-        default_value:userFilter[0],
-        domain_value:userFilter
+        default_value:userFilter[0].name,
+        domain_value:userFilter.map(item=>item.name)
     },
 
     TASK_STATE:{
         key:'TASK_STATE',
         label:'State',
-        default_value:taskState[0],
-        domain_value:taskState
+        default_value:taskState[0].name,
+        domain_value:taskState.map(item=>item.name)
     },
     
 

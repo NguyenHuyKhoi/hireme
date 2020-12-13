@@ -5,6 +5,7 @@ import { BLACK, BLUE_1, GRAY_1, GRAY_2, GRAY_3, GRAY_5, WHITE } from '../../util
 import {connect }from 'react-redux'
 import * as actions from '../../redux/action/input.action'
 import { inputField } from '../../redux/constant/input.constant'
+import { categories } from '../../redux/constant/domain_value.constant'
 
 class Item extends Component{
     render(){
@@ -26,7 +27,23 @@ class Item extends Component{
     }
 }
 class SkillPickerComponent extends Component {
+    constructor(props){
+        super(props);
+        const input_field=this.props.input_field;
+        let value=this.props.value;
 
+        console.log('value_skills :',value);
+        if (value!==undefined){
+            this.props.inputAField({[input_field.key]:value})
+        }
+    }
+
+    findCategoryByName=(name)=>{
+        let arr=categories.filter(item=>item.name===name);
+        console.log('arr_cat:',arr[0]);
+        return arr[0]
+    }
+    
     getValueFromStore=()=>{
         const arr=this.props.input_store[this.props.input_field.key];
         if (arr===undefined) return [];
@@ -54,12 +71,13 @@ class SkillPickerComponent extends Component {
 
     render(){
         const input_field=this.props.input_field;
-        const categoryFieldInStore=this.props.input_store[inputField.CATEGORY.key]
-        const domain_value=categoryFieldInStore!==undefined?
-                categoryFieldInStore.predefined_skills
+        const categoryNameInStore=this.props.input_store[inputField.CATEGORY.key]
+        const cat=this.findCategoryByName(categoryNameInStore)
+        const domain_value=cat!==undefined?
+                cat.predefined_skills
                 :
                 input_field.domain_value;
-        console.log('input_field_key:',input_field.key)
+
         return (
             <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
                     <text style={{fontSize:textSizes.NORMAL,color:BLACK}}>

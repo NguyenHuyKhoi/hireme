@@ -1,7 +1,6 @@
 //import libs:
 let LoremIpsum=require('lorem-ipsum').LoremIpsum
 let fs=require('fs')
-let videos=require('./videos.json')
 
 //util functions : 
 let rand=(x)=>{

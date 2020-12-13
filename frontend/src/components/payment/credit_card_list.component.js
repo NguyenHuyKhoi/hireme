@@ -12,7 +12,8 @@ let cards=sample_db.get_detail_payment.credit_cards
 
 export default class CreditCardListComponent extends Component {
     render(){
-        const cards2=cards.slice(0,3);
+        const credit_cards=this.props.credit_cards;
+        console.log('credit_cards:',credit_cards);
         return (
             <div style={{
                 backgroundColor:WHITE,
@@ -26,10 +27,10 @@ export default class CreditCardListComponent extends Component {
                 <div style={{display:'flex',flex:1,flexDirection:'row'}}>
                     {/* <div style={{flex:1}}/> */}
                     <div style={{flex:8,display:'flex',flexDirection: 'column'}}>
-                    <CreditCardItemComponent is_new_card={true} index={0}  key={''+0}/>
+                    <CreditCardItemComponent is_new={true} index={0}  key={''+0}/>
                     {
-                        cards2.map((item,index)=>(
-                            <CreditCardItemComponent card={item} index={index+1} key={''+(index+1)}/>
+                        credit_cards.map((item,index)=>(
+                            <CreditCardItemComponent credit_card={item} index={index+1} key={''+(index+1)}/>
                         ))
                     }
                     </div>

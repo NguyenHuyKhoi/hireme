@@ -9,6 +9,8 @@ export default class HeaderListComponent extends Component {
         const height =this.props.height!==undefined?this.props.height:60;
         console.log('height_list :',height)
         const filter=this.props.filter!==undefined?this.props.filter:null
+
+        console.log('filter :',filter)
         return (
             <div style={{
                 width:'100%',

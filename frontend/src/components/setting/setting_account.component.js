@@ -38,7 +38,7 @@ export default class SettingAccountComponent extends Component {
                                 <div style={{flex:2}}/>
                                 <div style={{flex:4}}>
                                     <LabeledInputComponent 
-                                         value={account.last_name}
+                                        value={account.last_name}
                                         input_field={inputField.LAST_NAME}/>
                                 </div>
                                

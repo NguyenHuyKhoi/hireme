@@ -18,16 +18,17 @@ export default class DashBoardPaymentScreen extends Component {
     constructor(props){
         super(props);
         this.state={
-            tasks:[]
+            payment:null
         }
     }
 
     componentDidMount=()=>{
         this.setState({
-            tasks:api.get_task_list
+            payment:api.get_detail_payment
         })
     }
     render(){
+        const payment=this.state.payment
         return (
 
             <div style={{width:'100vw',backgroundColor:GRAY_6,
@@ -40,28 +41,35 @@ export default class DashBoardPaymentScreen extends Component {
                 <div style={{display:'flex',flex:SIDEBAR_RATIO,
                     padding:PADDING_BODY_DASHBOARD}}>
 
-                    <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
+                    {
+                        payment===null?
+                        null
+                        :
+                        <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
 
-                    {/* header */}
-                        <HeaderListComponent title='Payment'/>
-
-                        <div style={{marginTop:30}}>
-                            <CreditCardListComponent/>
+                        {/* header */}
+                            <HeaderListComponent title='Payment'/>
+    
+                            <div style={{marginTop:30}}>
+                                <CreditCardListComponent credit_cards={payment.credit_cards}/>
+                            </div>
+                          
+                            <div style={{marginTop:60}}>
+                                <BalanceCardComponent/>
+                            </div>
+    
+                            <div style={{marginTop:60}}>
+                                <TransactionListComponent/>
+                            </div>
+    
+                         
+    
+         
+    
                         </div>
-                      
-                        <div style={{marginTop:60}}>
-                            <BalanceCardComponent/>
-                        </div>
-
-                        <div style={{marginTop:60}}>
-                            <TransactionListComponent/>
-                        </div>
-
-                     
-
-     
-
-                    </div>
+                    
+                    }
+                  
                 </div>
 
      

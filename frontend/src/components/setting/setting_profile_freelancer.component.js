@@ -11,9 +11,11 @@ import { WHITE } from '../../utils/palette'
 import AttachmentsComponent from '../input/attachments.component'
 import TextareaInputComponent from '../input/textarea_input.component'
 import { inputField } from '../../redux/constant/input.constant'
+import { categories } from '../../redux/constant/domain_value.constant'
 
 export default class   SettingProfileFreelancerComponent extends Component {
-   
+
+
 
     render(){
         const profile=this.props.profile;
@@ -47,7 +49,7 @@ export default class   SettingProfileFreelancerComponent extends Component {
 
                                 <div style={{width: '100%',marginTop:30}}>
                                     <SkillPickerComponent 
-                                        skills={profile.skills}
+                                        value={profile.skills}
                                         input_field={inputField.SKILLS} />
                                 </div>
                               
