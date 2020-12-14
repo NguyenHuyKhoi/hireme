@@ -6,6 +6,9 @@ import AuthTabsComponent from './auth_tabs.component';
 import ButtonComponent from './button.component';
 import TaskTabsBarComponent from './task_tabs.component';
 
+import {connect }from 'react-redux'
+import * as action from '../../redux/action/user.action'
+
 class IconInput extends Component {
     render(){
         const size=45;
@@ -17,16 +20,9 @@ class IconInput extends Component {
                 boxShadow:'3px 3px 10px 2px #707070',
                // borderWidth:2,borderColor:GRAY_1
             }}>
-                <div style={{
-                    width:size,height:size,backgroundColor:GRAY_4,borderRadius:5,
-                    display:'flex',justifyContent:'center',alignItems:'center',
-                   // borderWidth:2,borderColor:GRAY_1
-                }}>
-                    <text style={{fontSize:25}}>
-                        x
-                    </text>
-                </div>
+
                 <input 
+                    onChange={e=>this.props.onChange(e.target.value)}
                     type={is_secret!==undefined?'password':'default'}
                     style={{
                         flex:1,paddingLeft:10,fontSize:TEXT_SIZES.SMALL,
@@ -88,9 +84,15 @@ class CommonTab extends Component{
                         justifyContent:'space-between'}}>
 
                         <UserType type='Freelancer' is_picked={fe} 
-                            onClick={()=>this.setState({register_as_freelancer:true})}/>
+                            onClick={()=>{
+                                this.props.updateInputs('user_type','freelancer')
+                                this.setState({register_as_freelancer:true})
+                            }}/>
                         <UserType type='Company' is_picked={!fe} 
-                            onClick={()=>this.setState({register_as_freelancer:false})}/>
+                            onClick={()=>{
+                                this.props.updateInputs('user_type','company')
+                                this.setState({register_as_freelancer:false})
+                            }}/>
                        
                     </div>
                     :
@@ -98,25 +100,29 @@ class CommonTab extends Component{
                 }
 
                 <div style={{width:'100%',marginTop:20}}>
-                    <IconInput  placehoder="Email..."/>
+                    <IconInput onChange={(value)=>this.props.updateInputs('email',value)} placehoder="Email..."/>
                 </div>
 
                 <div style={{width:'100%',marginTop:20}}>
-                    <IconInput  placehoder="Password..."  is_secret={true}/>
+                    <IconInput  onChange={(value)=>this.props.updateInputs('password',value)} placehoder="Password..."  is_secret={true}/>
                 </div>  
                 {
                     idx===1?
                     <div style={{width:'100%',marginTop:20}}>
-                        <IconInput  placehoder="Repeat password..."  is_secret={true}/>
+                        <IconInput onChange={(value)=>this.props.updateInputs('repeat_password',value)}  placehoder="Repeat password..."  is_secret={true}/>
                     </div>
                     :
                     null
                 }
 
                 <div 
-                    onClick={this.props.onClickBtn}
                     style={{width:'100%',marginTop:50}}>
-                    <ButtonComponent label={  idx===0? 'Login': 'Register' }/>
+                    <ButtonComponent 
+                        onClick={()=>{
+                            if (idx===0) this.props.onSignin();
+                                else this.props.onSignup()
+                        }}
+                        label={  idx===0? 'Login': 'Register' }/>
                 </div>  
 
         
@@ -145,16 +151,127 @@ class CommonTab extends Component{
     }
 }
 
-export default class AuthModal extends Component {
+class AuthModal extends Component {
 
     constructor(props){
         super(props);
         this.state={
-            focus_tab_index:0
+            focus_tab_index:0,
+            email:'',
+            password:'',
+            repeat_password:'',
+            user_type:'freelancer'
         }
     }
+
+    updateInputs=(field,value)=>{
+        this.setState({
+            [field]:value
+        });
+    }
+
+    validateInput=()=>{
+        const {email,password,repeat_password}=this.state;
+        if (email.length===0){
+            return 'Email is empty! '
+        }
+        if (email.length<10 || email.length>30){
+            return 'Email address is too short or too long (10 -> 30 chars)'
+        };
+        if (!email.endsWith('@gmail.com')){
+            return 'Email address is invalid !'
+        };
+        if (password.length===0){
+            return 'Password is empty !'
+        };
+
+
+        if (password.length<6 || password.length>20){
+            return 'Password is too short or too long (6->20 chars)'
+        };
+
+        if (this.state.focus_tab_index===0) return '';
+        
+        //sign up : 
+
+        if (repeat_password.length===0){
+            return 'Repeat Password is empty !'
+        };
+
+
+        if (repeat_password.length<6 || repeat_password.length>20){
+            return 'Repeat Password is too short or too long (6->20 chars)'
+        };
+    
+        if (password!==repeat_password){
+            return 'Password and repeat password don\'t same '
+        };
+
+        return '';
+    }
+
+    onSignin=()=>{
+        var err_msg=this.validateInput();
+        if (err_msg==='') {
+             this.props.onCloseModal();
+           // this.props.onClose();
+            //call api : 
+
+            //fake account : 
+            //for company : iamcompany@gmail.com 123qweASD
+            //for freelancer : iamfreelancer@gmail.com 123qweASD
+            //for admin : iamadmin@gmail.com  123qweASD
+
+            if (this.state.email==='iamcompany@gmail.com' && this.state.password==='123qweASD') {
+                alert('Sign in success')
+                this.props.loginSuccess({
+                    session_id:'ur238r23t8328t238vt8t834t83t8g5y',
+                    user_id:'12',
+                    user_name:'Johnson',
+                    user_type:'company'
+                });
+            }
+            else if (this.state.email==='iamfreelancer@gmail.com' && this.state.password==='123qweASD') {
+                alert('Sign in success')
+                this.props.loginSuccess({
+                    session_id:'fa8fs8f8a68f678f67a6f7af278f828ng8',
+                    user_id:'12',
+                    user_name:'Johnson',
+                    user_type:'freelancer'
+                });
+            }
+            else if (this.state.email==='iamadmin@gmail.com' && this.state.password==='123qweASD') {
+                alert('Sign in success')
+                this.props.loginSuccess({
+                    session_id:'g84ng88394899c934tc82687t23t446',
+                    user_id:'12',
+                    user_name:'Johnson',
+                    user_type:'admin'
+                });
+            }
+            else {
+                alert('Sign in fail, please check again email and password .')
+            }
+            //fake api responses 
+           
+        }
+        else alert(err_msg)
+    }
+
+    onSignup=()=>{
+        var err_msg=this.validateInput();
+        if (err_msg==='') {
+            //call api : 
+            alert('Sign up success');
+           // this.props.onClose();
+        }
+        else alert(err_msg)
+    }
+
     render(){
         const idx=this.state.focus_tab_index
+
+        console.log('this_state:',JSON.stringify(this.state))
         return (
 
             <div style={{width:'30vw',height:'80vh',backgroundColor: WHITE,
@@ -169,7 +286,9 @@ export default class AuthModal extends Component {
                     }
                     onClickClose={this.props.onClickClose}/>
                 <CommonTab 
-                    onClickBtn={this.props.onClickBtn}
+                    updateInputs={this.updateInputs}
+                    onSignin={this.onSignin}
+                    onSignup={this.onSignup}
                     focus_tab_index={idx} 
                     onClickRegister={()=>this.setState({
                         focus_tab_index:1
@@ -178,3 +297,9 @@ export default class AuthModal extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+	user_info: state.user_info,
+});
+
+export default connect(mapStateToProps,action)(AuthModal)

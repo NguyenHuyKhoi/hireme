@@ -9,19 +9,22 @@ import SkillsListComponent from '../components/common/skills_list.component';
 import BiddingListComponent from '../components/task/bidding_list.component';
 import TaskDetailHeaderComponent from '../components/task/task_detail_header.component';
 import TaskPlaceBidComponent from '../components/task/task_place_bid.component';
-import { BLUE_1, BLUE_2, GREEN_1, GREEN_2, RED_2, WHITE } from '../utils/palette';
+import { BLACK, BLUE_1, BLUE_2, GREEN_1, GREEN_2, RED_2, WHITE } from '../utils/palette';
 import AttachmentsComponent from '../components/input/attachments.component';
 import ReportTaskModal from '../components/input/report_task.modal';
 
 import api from '../sample_db/fake_api_responses.json'
 import { TEXT_SIZES } from '../utils/constants';
+import { convertFullDateToOnlyDay,convertFullDateToHour } from '../utils/helper';
 export default class TaskDetailScreen extends Component {
     constructor(props){
         super(props);
+
         this.state={
             open_report_modal:false,
             task:null,
-            biddings:[]
+            biddings:[],
+            task_id:this.props.match.params.id
         }
     }
 
@@ -43,6 +46,28 @@ export default class TaskDetailScreen extends Component {
     }
 
     componentDidMount=()=>{
+        // //Call_API_Here
+        // axios.get(BASE_URL+`/get_detail_task`,{
+        //         data:{
+        //             task_id:this.state.task_id
+        // 
+        //         }
+        //     })
+        //     .then(res => {
+        //     })
+        //     .catch(error => console.log(error));
+
+        // //Call_API_Here
+        // axios.get(BASE_URL+`/get_bidding_list`,{
+        //         data:{
+        //             task_id:this.state.task_id
+        // 
+        //         }
+        //     })
+        //     .then(res => {
+        //     })
+        //     .catch(error => console.log(error));
+        alert('Call API get_detail_task and get_bidding_list with task_id= '+this.state.task_id)
         this.setState({
             task:api.get_detail_task,
             biddings:api.get_bidding_list
@@ -102,11 +127,11 @@ export default class TaskDetailScreen extends Component {
                                 </div>
 
                                 {/* attachments */}
-
+{/* 
                                 <div style={{marginTop:50}}>
                                     <AttachmentsComponent 
                                         attachments={task.attachments}/>
-                                </div>
+                                </div> */}
                                 
                                 {/* biddings */}
 
@@ -138,7 +163,7 @@ export default class TaskDetailScreen extends Component {
                                 {/* times */}
                                 <div style={{width: '100%',marginTop:50}}>
                                     <ButtonComponent color={GREEN_2} text_color={GREEN_1}
-                                        label={task.post_time}/>
+                                        label={convertFullDateToOnlyDay(task.post_time)}/>
                                 </div>
                                 {/* place bid */}
 

@@ -17,16 +17,40 @@ export default class CompanyDetailScreen extends Component {
         super(props);
         this.state={
             company:null,
-            reviews:[]
+            reviews:[],
+            company_id:this.props.match.params.id
         }
     }
 
     componentDidMount=()=>{
+         // //Call_API_Here
+        // axios.get(BASE_URL+`/get_detail_company`,{
+        //         data:{
+        //             company_id:this.state.company_id
+        // 
+        //         }
+        //     })
+        //     .then(res => {
+        //     })
+        //     .catch(error => console.log(error));
+
+        // //Call_API_Here
+        // axios.get(BASE_URL+`/get_reviews`,{
+        //         data:{
+        //             company_id:this.state.company_id
+        // 
+        //         }
+        //     })
+        //     .then(res => {
+        //     })
+        //     .catch(error => console.log(error));
+        alert('Call API get_detail_company and get_reviews with company_id= '+this.state.company_id)
         this.setState({
             company:api.get_detail_company,
             reviews:api.get_reviews
         })
     }
+    
     render(){
         const company=this.state.company;
         const reviews=this.state.reviews;

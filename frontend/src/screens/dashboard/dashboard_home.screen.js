@@ -2,9 +2,11 @@
 import React, {Component} from 'react'
 import AuthModal from '../../components/common/auth.modal'
 import SidebarComponent from '../../components/common/side_bar.component'
-import { PADDING_BODY_DASHBOARD, SIDEBAR_RATIO } from '../../utils/constants'
+import { BASE_URL, PADDING_BODY_DASHBOARD, SIDEBAR_RATIO } from '../../utils/constants'
 import { GRAY_6 } from '../../utils/palette'
 import api from '../../sample_db/fake_api_responses.json'
+
+import axios from 'axios';
 export default class DashBoardHomeScreen extends Component {
     constructor(props){
         super(props);
@@ -18,6 +20,7 @@ export default class DashBoardHomeScreen extends Component {
             tasks:api.get_task_list
         })
     }
+
     render(){
         return (
 

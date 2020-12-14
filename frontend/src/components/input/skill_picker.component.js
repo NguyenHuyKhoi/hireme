@@ -25,7 +25,13 @@ class Item extends Component{
 }
 
 export default class SkillPickerComponent extends Component {
-
+    constructor(props){
+        super(props);
+        this.state={
+            picked_skills:[]
+        };
+        this.props.onChange(this.state.value)
+    }   
 
     getPredefinedSkills=(name)=>{
         let arr=CATEGORIES_DOMAIN.filter(item=>item.name===name);
@@ -34,6 +40,33 @@ export default class SkillPickerComponent extends Component {
         return cat.predefined_skills;
     }
 
+    isPicked=(skill_name)=>{
+        //only save skill_name on picked_skills
+        return (this.state.picked_skills.filter(item=>item===skill_name).length)>0;
+    }
+
+    clickItem= (skill_name)=>{
+
+        console.log('click_skill :',skill_name)
+
+        let arr=this.state.picked_skills;
+        // skill_name is not on picked_skills
+        if (this.isPicked(skill_name)){
+            arr=arr.filter(item=>item!==skill_name);
+        }
+        else{
+            arr.push(skill_name)
+        };
+
+        console.log('picked_skills:',arr)
+
+        this.setState({
+            picked_skills:arr
+        })
+
+        this.props.onChange(arr)
+
+    }
 
 
     render(){
@@ -53,12 +86,13 @@ export default class SkillPickerComponent extends Component {
                         {
                             domain.map((item,index)=>{
                            //     console.log('Item in SkillPicker :',item)
-                
+                                const is_picked=this.isPicked(item.name)
                                 return (
-                                    <Item 
+                                    <Item
+                                        onClick={()=>this.clickItem(item.name)} 
                                         item={item}
                                         key={''+index}
-                                        is_picked={false}
+                                        is_picked={is_picked}
                                     />
                                 )
                              }

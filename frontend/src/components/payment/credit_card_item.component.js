@@ -25,11 +25,27 @@ export default class CreditCardItemComponent extends Component {
 
                     <div style={styles.row}>
                         <CardCompanyPickerComponent 
-                            value={is_new?CARD_COMPANIES_DOMAIN[0].code: credit_card.card_company}/>
+                            disabled={disabled}
+                            onChange={value=>this.props.updateInputs('card_company',value)}
+                            value={is_new
+                                ?
+                                CARD_COMPANIES_DOMAIN[0].code
+                                : 
+                                credit_card.card_company
+                            }/>
 
                         <div 
+                            onClick={()=>{
+                                if (disabled) //click to delete :
+                                    this.props.onClick({
+                                        credit_card_id:credit_card.id,
+                                        credit_card_list_id: credit_card.credit_card_list_id
+                                    })
+                                else  this.props.onClick({})}
+                            }
                             style={{...styles.action_btn,
                                 backgroundColor: !disabled?GREEN_1:RED_1}}>
+                            
                             <text style={styles.action_btn_label}>
                                 {
                                     !disabled?'+':'-'
@@ -44,6 +60,8 @@ export default class CreditCardItemComponent extends Component {
                         <div style={{width:'50%'}}>
                         <LabelInputComponent 
                             label='Number :'
+                            type='number'
+                            onChange={value=>this.props.updateInputs('number',value)}
                             size={TEXT_SIZES.NORMAL}
                             inline={true}
                             value={is_new?'':credit_card.number}
@@ -58,6 +76,7 @@ export default class CreditCardItemComponent extends Component {
                         <div style={{width:'30%'}}>
                         <LabelInputComponent 
                             label='Owner :'
+                            onChange={value=>this.props.updateInputs('owner_name',value)}
                             size={TEXT_SIZES.SMALL}
                             disabled={disabled}
                             value={is_new?'':credit_card.owner_name}
@@ -70,6 +89,7 @@ export default class CreditCardItemComponent extends Component {
                         <div style={{width:'30%'}}>
                         <LabelInputComponent 
                             label='Expired :'
+                            onChange={value=>this.props.updateInputs('expired_date',value)}
                             size={TEXT_SIZES.SMALL}
                             disabled={disabled}
                             inline={true}
@@ -88,6 +108,7 @@ export default class CreditCardItemComponent extends Component {
                         <div style={{width:'30%'}}>
                         <LabelInputComponent 
                             label='Email :'
+                            onChange={value=>this.props.updateInputs('email',value)}
                             size={TEXT_SIZES.SMALL}
                             disabled={disabled}
                             inline={true}
@@ -99,7 +120,9 @@ export default class CreditCardItemComponent extends Component {
                         <div style={{width:'5%'}}/>
                         <div style={{width:'30%'}}>
                             <LabelInputComponent 
-                                  label='Ccv :'
+                                label='Ccv :'
+                                type='number'
+                                onChange={value=>this.props.updateInputs('ccv',value)}
                                 size={TEXT_SIZES.SMALL}
                                 disabled={disabled}
                                 inline={true}

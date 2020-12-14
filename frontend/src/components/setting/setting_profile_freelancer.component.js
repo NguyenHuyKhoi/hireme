@@ -36,6 +36,7 @@ export default class   SettingProfileFreelancerComponent extends Component {
 
                                 <div style={{width:'70%'}}>
                                     <LabeledInputComponent
+                                        onChange={(value)=>this.props.updateInputs('tagline',value)}
                                         label='Tagline'
                                         value={profile.tagline} />
                                 </div>
@@ -43,15 +44,12 @@ export default class   SettingProfileFreelancerComponent extends Component {
                                 <div style={{width:'70%',marginTop:30}}>
                                     <NumberInputComponent 
                                         label='Hourly Rate'
+                                        onChange={(value)=>this.props.updateInputs('hourly_rate',value[0])}
                                         domain={HOURLY_RATE_DOMAIN}
                                         value={[profile.hourly_rate]}/>
                                 </div>
 
-                                <div style={{width: '100%',marginTop:30}}>
-                                    <SkillPickerComponent 
-                                        label='Skills'
-                                        category_name={profile.category}/>
-                                </div>
+                             
                               
 
                             </div>
@@ -62,37 +60,42 @@ export default class   SettingProfileFreelancerComponent extends Component {
 
                                 <div style={{width:'70%'}}>
                                     <LabeledSelectedInputComponent 
+                                        onChange={value=>this.props.updateInputs('category',value)}
                                         label='Category'
                                         domain={CATEGORIES_DOMAIN.map(item=>item.name)}
                                         value={profile.category}/>
                                 </div>    
+                                <div style={{width: '70%',marginTop:30}}>
+                                    <SkillPickerComponent 
+                                        onChange={value=>this.props.updateInputs('skills',value)}
+                                        label='Skills'
+                                        category_name={profile.category}/>
+                                </div>
 
-                                <div style={{width:'70%',marginTop:30}}>
+                                {/* <div style={{width:'70%',marginTop:30}}>
                                     <AttachmentsComponent
                                         label='Attachments'
                                         is_edit={true}
                                         attachments={profile.attachments}/>
-                                </div>                          
+                                </div>                           */}
                             </div>
-
-
-
 
                         </div>
 
-                      
                             
-                        <div style={{width:'100%',marginTop:40}}>
-                            <ExperienceListComponent 
+                        {/* <div style={{width:'100%',marginTop:40}}>
+                            <ExperienceListComponent
+                                onChange={value=>this.props.updateInputs('experiences',value)} 
                                 experiences={profile.experiences}
                                 header_height={40} 
                                 is_edit={true}/>
-                        </div>
+                        </div> */}
                         
                         <div style={{marginTop:30}}>
                            <TextareaInputComponent
-                            label='Description'
-                            value={profile.description} />
+                                onChange={value=>this.props.updateInputs('description',value)} 
+                                label='Description'
+                                value={profile.description} />
                        </div>
 
                 </div>

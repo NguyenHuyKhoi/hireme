@@ -8,3 +8,9 @@ export const convertFullDateToOnlyDay=(value)=>{
     var date = curr.toISOString().substr(0,10);
     return date;
 };
+
+export const convertFullDateToHour=(value)=>{
+    var curr = new Date(value);
+    var date = curr.toISOString().substr(0,19);
+    return date;
+};

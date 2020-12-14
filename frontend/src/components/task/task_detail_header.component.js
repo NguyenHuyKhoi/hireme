@@ -49,7 +49,7 @@ export default class TaskDetailHeaderComponent extends Component {
                     </text>
 
                     <Link 
-                        to={routePaths.COMPANY_DETAIL}
+                        to={routePaths.COMPANY_DETAIL+`/${company.id}`}
                         style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,marginBottom:5,textDecoration:'none'}}>
                         {company.name}
                     </Link>

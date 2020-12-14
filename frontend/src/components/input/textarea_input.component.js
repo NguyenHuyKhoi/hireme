@@ -5,10 +5,20 @@ import { BLACK, GRAY_1, GRAY_2, GRAY_3, WHITE } from '../../utils/palette'
 
 
 export default  class TextareaInputComponent extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            value:this.props.value!==undefined?this.props.value:''
+        };
+        this.props.onChange(this.state.value)
+    };
+    
     render(){
+        const value=this.state.value;
+        
         const label=this.props.label!==undefined?this.props.label:'';
         const hide_label=this.props.hide_label!==undefined?this.props.hide_label:false
-        const value=this.props.value!==undefined?this.props.value:''
+       
         return (
             <div style={{display:'flex',width:'100%',height:240,alignSelf:'baseline',
                 flexDirection: 'column'}}>
@@ -23,7 +33,10 @@ export default  class TextareaInputComponent extends Component {
                
                 <textarea 
                     value={value}
-                    onChange={e=>this.props.onChange(e.target.value)}
+                    onChange={e=>{
+                        this.setState({value:e.target.value})
+                        this.props.onChange(e.target.value)
+                    }}
                     style={{
                         marginTop:20,flex:1,padding:10,backgroundColor: WHITE,
                         fontSize:TEXT_SIZES.NORMAL,

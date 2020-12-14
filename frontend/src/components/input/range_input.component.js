@@ -6,9 +6,17 @@ import { Range } from 'react-range';
 
 export default class RangeInputComponent extends Component {
 
+    constructor(props){
+        super(props);
+        let value=this.props.value!==undefined?this.props.value:''
+        this.state={
+            value:value
+        };
+     //   this.props.onChange(value)
+    }
     render(){
         const domain=this.props.domain;
-        const value=this.props.value;
+        const value=this.state.value;
         const unit=this.props.unit!==undefined?this.props.unit:'$';
         const label=this.props.label!==undefined?this.props.label:'';
 
@@ -34,7 +42,10 @@ export default class RangeInputComponent extends Component {
                         min={domain[0]}      
                         max={domain[1]}
                         values={value}
-                        onChange={(values) =>this.props.onChange(values)}
+                        onChange={(values) =>{
+                            this.setState({value:values})
+                            this.props.onChange(values)
+                        }}
                         renderTrack={({ props, children }) => (
                                 <div
                                     {...props}

@@ -79,7 +79,7 @@ export default class AttachmentsComponent extends Component {
         return (
             <div style={{width:'100%',alignSelf: 'baseline',
                 display:'flex',flexDirection: 'column'}}>
-                <text style={{fontSize:TEXT_SIZES.BIG,color:BLACK}}>
+                <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>
                     {label}
                 </text>
 

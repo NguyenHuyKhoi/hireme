@@ -9,6 +9,43 @@ import ButtonComponent from '../../components/common/button.component'
 import HeaderListComponent from '../../components/common/header_list.component'
 import api from '../../sample_db/fake_api_responses.json'
 export default class DashBoardTaskPostScreen extends Component {
+
+    groupInputs=()=>{
+        let filter={};
+        let state=this.state;
+
+
+        //fields as post_task API request structure 
+        let fields=['name','category','min_suggested_price','max_suggested_price','price_type','skills',
+            'attachments','description'];
+
+        fields.map(item=>{
+            if (state[item]!==undefined) filter[item]=state[item]
+        });
+        return filter
+    };
+
+    updateInputs=async (field,value)=>{
+        await this.setState({
+            [field]:value
+        })
+
+        console.log('inputs_nows:',JSON.stringify(this.state)) 
+    };
+
+
+    post=()=>{
+        alert('Call API post_task with body = :'+JSON.stringify(this.groupInputs()))
+        //Call_API_Here
+                // axios.get(BASE_URL+`/post_task`,{
+                //         data:{
+                //             this.groupInputs()
+                //         }
+                //     })
+                //     .then(res => {
+                //         })
+                //         .catch(error => console.log(error));
+    }
     render(){
         return (
 
@@ -29,13 +66,14 @@ export default class DashBoardTaskPostScreen extends Component {
                         {/* form  */}
 
                         <div style={{flex:1,marginTop:30}}>
-                            <PostTaskProfileComponent/>
+                            <PostTaskProfileComponent updateInputs={this.updateInputs}/>
                         </div>
                       
                         {/* submit button */}
 
                         <Link 
-                             to={routePaths.DASHBOARD_HOME}
+                            to={routePaths.DASHBOARD_TASK_LIST}
+                            onClick={this.post}
                             style={{marginTop:50,width:'25%',textDecoration:'none'}}>
                             <ButtonComponent label='Post This Task' height={60}/>
                         </Link>

@@ -8,6 +8,8 @@ import FreelancerListComponent from '../components/freelancer/freelancer_list.co
 import api from '../sample_db/fake_api_responses.json'
 import { TEXT_SIZES } from '../utils/constants';
 import { BLACK } from '../utils/palette';
+import {BASE_URL} from '../utils/constants'
+import axios from 'axios'
 export default class FreelancerSearchScreen extends Component {
 
     constructor(props){
@@ -17,11 +19,53 @@ export default class FreelancerSearchScreen extends Component {
         }
     }
 
-    componentDidMount=()=>{
+    // componentDidMount=()=>{
+    //     this.setState({
+    //         freelancers:api.search_freelancers
+    //     })
+    // }
+
+    groupInputs=()=>{
+        let filter={};
+        let state=this.state;
+        let fields=['category','keyword','hourly_rate','fixed_price','skills'];
+        fields.map(item=>{
+            if (state[item]!==undefined) filter[item]=state[item]
+        });
+        return filter
+    };
+
+    updateInputs=async (field,value)=>{
+        await this.setState({
+            [field]:value
+        })
+
+      //  console.log('filter_now:',JSON.stringify(this.state)) 
+    };
+
+    componentDidMount() {
+       
+    };
+
+    search=()=>{
+        alert('Call API search_freelancers with filter= :'+JSON.stringify(this.groupInputs()))
+        //Call_API_Here
+                // axios.get(BASE_URL+`/search_freelancers`,{
+                //         data:{
+                //             count:20,
+                //             filter:this.groupInputs()
+                //         }
+                //     })
+                //     .then(res => {
+                //         })
+                //         .catch(error => console.log(error));
         this.setState({
             freelancers:api.search_freelancers
         })
     }
+
+
+
     render(){
 
         const freelancers=this.state.freelancers;
@@ -41,7 +85,9 @@ export default class FreelancerSearchScreen extends Component {
                     <div style={{flex:1}}/>
                     {/* filters */}
                     <div style={{flex:2}}>
-                        <FilterComponent/>
+                        <FilterComponent
+                            clickSearch={this.search}
+                            updateInputs={this.updateInputs}/>
                     </div>
 
                     <div style={{flex:0.5}}/>

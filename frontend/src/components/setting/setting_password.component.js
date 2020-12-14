@@ -8,8 +8,6 @@ import LabeledSelectedInputComponent from '../input/labeled_selected_input.compo
 
 
 export default class SettingPasswordComponent extends Component {
-   
-
     render(){
         return (
             <div style={{
@@ -25,18 +23,22 @@ export default class SettingPasswordComponent extends Component {
                     
                         <div style={{flex:4}}>
                             <LabeledInputComponent
-                                 label='Password' />
+                                onChange={(value)=>this.props.updateInputs('password',value)} 
+                                label='Password' />
                         </div>
                         <div style={{flex:1}}/>
                         <div style={{flex:4}}>
                             <LabeledInputComponent
-                                 label='New Password' />
+                                onChange={(value)=>this.props.updateInputs('new_password',value)} 
+                                label='New Password' />
                         </div>
                                
                         
                         <div style={{flex:1}}/>
                         <div style={{flex:4}}>
-                            <LabeledInputComponent  label='Re-enter New Password' />
+                            <LabeledInputComponent  
+                                onChange={(value)=>this.props.updateInputs('repeat_new_password',value)} 
+                                label='Re-enter New Password' />
                         </div>
                   
                     </div>

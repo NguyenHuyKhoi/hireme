@@ -5,17 +5,26 @@ import { BLACK } from '../../utils/palette'
 import Select from 'react-select';
 
 export default class LabeledSelectedInputComponent extends Component {
-
+    constructor(props){
+        super(props);
+        let value=this.props.value!==undefined?this.props.value:''
+        this.state={
+            value:value
+        };
+     //   this.props.onChange(value)
+    }
 
     render(){
         const label=this.props.label!==undefined?this.props.label:'';
-        const hide_label=this.props.hide_label!==undefined?this.props.hide_label:false
+        const hide_label=this.props.hide_label!==undefined?this.props.hide_label:false;
+
+
         let domain=this.props.domain.map(item=>{
             return { value:item,label:item}
         });
-        let value={value:this.props.value,label:this.props.value};
 
-      
+        console.log('domain_select',domain)
+
         return (
 
             <div style={{display:'flex',width: '100%',flexDirection: 'column'}}>
@@ -33,9 +42,11 @@ export default class LabeledSelectedInputComponent extends Component {
                     marginTop:hide_label?0:15,fontSize:TEXT_SIZES.NORMAL}}>
                     <Select
                         style={{fontSize:TEXT_SIZES.SMALL}}
-                        value={value}
+                        value={this.state.value}
                         onChange={(option)=>{
-                            this.props.onChange(option)
+                            this.setState({value:option});
+                            console.log('selected_input',option.value)
+                            this.props.onChange(option.value)
                         }}
                         options={domain}
                         />

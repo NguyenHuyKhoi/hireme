@@ -29,18 +29,21 @@ export default class SettingProfileCompanyComponent extends Component {
                             <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
 
                                 <div style={{width:'70%'}}>
-                                    <LabeledInputComponent 
+                                    <LabeledInputComponent  
+                                        onChange={value=>{}}
                                         label='Company Name'
                                         value={profile.company_name}/>
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
                                     <LabeledInputComponent 
+                                         onChange={value=>{}}
                                         label='Location' 
                                         value={profile.location}/>
                                 </div>
                                 <div style={{width:'70%',marginTop:30}}>
                                     <LabeledInputComponent 
+                                         onChange={value=>{}}
                                          label='Tagline'
                                         value={profile.tagline}/>
                                 </div>
@@ -51,7 +54,8 @@ export default class SettingProfileCompanyComponent extends Component {
                                 alignItems:'center'}}>
 
                                 <div style={{width:'70%'}}>
-                                    <LabeledSelectedInputComponent 
+                                    <LabeledSelectedInputComponent
+                                         onChange={(value)=>{}} 
                                         label='Employee Size'
                                         domain={COMPANY_SIZES_DOMAIN}
                                         value={profile.employee_size}/>
@@ -59,6 +63,7 @@ export default class SettingProfileCompanyComponent extends Component {
 
                                 <div style={{width:'70%',marginTop:30}}>
                                     <LabeledSelectedInputComponent 
+                                         onChange={(value)=>{}}
                                         label='Business Area'
                                         domain={BUSINESS_AREA_DOMAIN}
                                         value={profile.business_area} />
@@ -66,6 +71,7 @@ export default class SettingProfileCompanyComponent extends Component {
 
                                 <div style={{width:'70%',marginTop:30}}>
                                     <LabeledInputComponent
+                                        onChange={(value)=>{}}
                                         label='Website Link' 
                                         value={profile.website_link}/>
                                 </div>
@@ -78,6 +84,7 @@ export default class SettingProfileCompanyComponent extends Component {
                         
                         <div style={{marginTop:40}}>
                             <TextareaInputComponent 
+                                onChange={value=>{}}
                                 label='Description' />
                         </div>
 

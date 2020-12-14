@@ -95,10 +95,10 @@ export default class StageItemComponent extends Component {
                     <div style={{display:'flex',flex:1,flexDirection:'column',padding: 20}}>
                             
                             
-                            <AttachmentsComponent is_edit={true}/>
+                            {/* <AttachmentsComponent is_edit={true}/> */}
 
                             <div style={{width:'80%',marginTop:15}}>
-                                <LabeledInputComponent/>
+                                <LabeledInputComponent  onChange={(value)=>{}}/>
                             </div>  
 
                             <div style={{width:'100%',marginTop:15,

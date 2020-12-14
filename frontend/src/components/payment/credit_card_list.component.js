@@ -27,10 +27,16 @@ export default class CreditCardListComponent extends Component {
                 <div style={{display:'flex',flex:1,flexDirection:'row'}}>
                     {/* <div style={{flex:1}}/> */}
                     <div style={{flex:8,display:'flex',flexDirection: 'column'}}>
-                    <CreditCardItemComponent is_new={true} index={0}  key={''+0}/>
+                    <CreditCardItemComponent 
+                        updateInputs={this.props.updateInputs}
+                        onClick={this.props.createCard}
+                        is_new={true} index={0}  key={''+0}/>
                     {
                         credit_cards.map((item,index)=>(
-                            <CreditCardItemComponent credit_card={item} index={index+1} key={''+(index+1)}/>
+                            <CreditCardItemComponent 
+                                onClick={this.props.deleteCard}
+                                updateInputs={this.props.updateInputs}
+                                credit_card={item} index={index+1} key={''+(index+1)}/>
                         ))
                     }
                     </div>

@@ -29,9 +29,9 @@ export default class TaskDetailTabComponent extends Component {
                                 content={task.description}/>
                         </div>
 
-                        <div style={{marginTop:30}}>
+                        {/* <div style={{marginTop:30}}>
                             <AttachmentsComponent attachments={task.attachments} />
-                        </div>
+                        </div> */}
 
                         <div style={{marginTop:30}}>
                             <SkillsListComponent skills={task.skills}/>

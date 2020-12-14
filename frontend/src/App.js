@@ -49,10 +49,10 @@ export default class  App extends Component {
 							{/* //outside screens */}
 
 							<Route path={routePaths.FREELANCER_SEARCH} component={FreelancerSearchScreen}/>
-							<Route path={routePaths.FREELANCER_DETAIL} component={FreelancerDetailScreen}/>
+							<Route path={routePaths.FREELANCER_DETAIL+'/:id'} component={FreelancerDetailScreen}/>
 							<Route path={routePaths.TASK_SEARCH} component={TaskSearchScreen}/>
-							<Route path={routePaths.TASK_DETAIL} component={TaskDetailScreen}/>
-							<Route path={routePaths.COMPANY_DETAIL} component={CompanyDetailScreen}/>
+							<Route path={routePaths.TASK_DETAIL+'/:id'} component={TaskDetailScreen}/>
+							<Route path={routePaths.COMPANY_DETAIL+'/:id'} component={CompanyDetailScreen}/>
 							
 							{/* dashboard screens */}
 							

@@ -21,10 +21,48 @@ export default class TaskSearchScreen extends Component {
     }
 
     componentDidMount=()=>{
+        // this.setState({
+        //     tasks:api.search_tasks
+        // });
+    }
+
+
+
+    updateInputs=async (field,value)=>{
+        await this.setState({
+            [field]:value
+        })
+
+        console.log('filter_now:',this.state) 
+    };
+
+    groupInputs=()=>{
+        let filter={};
+        let state=this.state;
+        let fields=['category','keyword','hourly_rate','fixed_price','skills'];
+        fields.map(item=>{
+            if (state[item]!==undefined) filter[item]=state[item]
+        });
+        return filter
+    };
+
+    search=()=> {
+        alert('Call API search_freelancers with filter=  :'+JSON.stringify(this.groupInputs()))
+        // //Call_API_Here
+        // axios.get(BASE_URL+`/search_tasks`,{
+        //         data:{
+        //             count:20,
+        //             filter:this.groupInputs()
+        //         }
+        //     })
+        //     .then(res => {
+  
+        //         })
+        //         .catch(error => console.log(error));
         this.setState({
             tasks:api.search_tasks
-        });
-    }
+        })
+    };
 
     render(){
         const tasks=this.state.tasks;
@@ -43,7 +81,9 @@ export default class TaskSearchScreen extends Component {
                     <div style={{flex:1}}/>
                     {/* filters */}
                     <div style={{flex:2}}>
-                        <FilterComponent />
+                        <FilterComponent  
+                            clickSearch={this.search}
+                            updateInputs={this.updateInputs} />
                     </div>
 
                     <div style={{flex:0.5}}/>

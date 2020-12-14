@@ -48,7 +48,7 @@ export default class FreelancerItemComponent extends Component {
                     ]}/>
                 </div>
                 <Link 
-                    to={routePaths.FREELANCER_DETAIL}
+                    to={routePaths.FREELANCER_DETAIL+`/${freelancer.id}`}
                     style={{width: '100%',marginTop:10,textDecoration:'none'}}>
                     <ButtonComponent label='View Profile '/>
                 </Link>

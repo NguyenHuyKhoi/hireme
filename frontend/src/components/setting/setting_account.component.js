@@ -23,7 +23,7 @@ export default class SettingAccountComponent extends Component {
                     paddingLeft:60,paddingRight:60,paddingBottom:30,paddingTop:30,
                     display:'flex',justifyContent:'center',flexDirection:'row',alignItems:'center'}}>
 
-                        <img src='https://randomuser.me/api/portraits/men/79.jpg'
+                        <img src={account.avatar_url}
                             style={{height:'60%',aspectRatio:1,borderRadius:10}}/>
 
                         <div style={{marginLeft:40,flex:1,display:'flex',flexDirection:'column',
@@ -31,13 +31,15 @@ export default class SettingAccountComponent extends Component {
                             <div style={{display:'flex',flexDirection:'row' }}>
                                 <div style={{flex:4}}>
                                     <LabeledInputComponent 
+                                         onChange={(value)=>this.props.updateInputs('first_name',value)}
                                         label='First Name'
                                         value={account.first_name}/>
                                 </div>
                                 <div style={{flex:2}}/>
                                 <div style={{flex:4}}>
                                     <LabeledInputComponent 
-                                         label='Last Name'
+                                         onChange={(value)=>this.props.updateInputs('last_name',value)}
+                                        label='Last Name'
                                         value={account.last_name}/>
                                 </div>
                                
@@ -45,7 +47,8 @@ export default class SettingAccountComponent extends Component {
 
                             <div style={{marginTop:15}}>
                                 <LabeledInputComponent 
-                                     label='Email'
+                                    onChange={(value)=>this.props.updateInputs('email',value)}
+                                    label='Email'
                                     value={account.email}/>
                             </div>
                          

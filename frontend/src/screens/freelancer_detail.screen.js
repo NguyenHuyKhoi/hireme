@@ -20,16 +20,40 @@ export default class FreelancerDetailScreen extends Component {
         super(props);
         this.state={
             freelancer:null,
-            reviews:[]
+            reviews:[],
+            freelancer_id:this.props.match.params.id
         }
     }
 
     componentDidMount=()=>{
+        // //Call_API_Here
+        // axios.get(BASE_URL+`/get_detail_freelancer`,{
+        //         data:{
+        //             freelancer_id:this.state.freelancer_id
+        // 
+        //         }
+        //     })
+        //     .then(res => {
+        //     })
+        //     .catch(error => console.log(error));
+
+        // //Call_API_Here
+        // axios.get(BASE_URL+`/get_reviews`,{
+        //         data:{
+        //             freelancer_id:this.state.freelancer_id
+        // 
+        //         }
+        //     })
+        //     .then(res => {
+        //     })
+        //     .catch(error => console.log(error));
+        alert('Call API get_detail_freelancer and get_reviews with freelancer_id= '+this.state.freelancer_id)
         this.setState({
             freelancer:api.get_detail_freelancer,
             reviews:api.get_reviews
         })
     }
+    
     render(){
         const freelancer=this.state.freelancer;
         const reviews=this.state.reviews
@@ -73,9 +97,9 @@ export default class FreelancerDetailScreen extends Component {
                         
                             {/* experience list */}
                             
-                            <div style={{marginTop:50}}>
+                            {/* <div style={{marginTop:50}}>
                                 <ExperienceListComponent experiences={freelancer.experiences}/>
-                            </div>
+                            </div> */}
                         
 
                             <div style={{marginTop:50}}>

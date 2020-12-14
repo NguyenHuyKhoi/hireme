@@ -11,9 +11,16 @@ import LabeledSelectedInputComponent from '../input/labeled_selected_input.compo
 
 export default class BalanceCardComponent extends Component {
    
+    findCreditCard=(value)=>{
+        const arr=this.props.credit_cards;
+        let credit_card=arr.filter(item=>item.number===value)[0];
+        this.props.updateInputs('credit_card_id',credit_card.id);
+        this.props.updateInputs('credit_card_list_id',credit_card.credit_card_list_id);
+    }
 
     render(){
         const balance=this.props.balance
+        const credit_cards=this.props.credit_cards;
         return (
             <div style={{backgroundColor:WHITE,
                 height:360,
@@ -36,19 +43,24 @@ export default class BalanceCardComponent extends Component {
                         </text>
 
                     
-                        <div style={{width:'70%',display:'flex',flexDirection:'row'}}>
-                            <div style={{flex:4}}>
+                        <div style={{width:'90%',display:'flex',flexDirection:'row'}}>
+                            <div style={{flex:3}}>
                                 <LabeledInputComponent 
+                                    onChange={(value)=>this.props.updateInputs('amount',value)}
                                     label='Amount'
                                   />
                             </div>
 
-                            <div style={{flex:1}}/>
+                            <div style={{flex:0.5}}/>
 
-                            <div style={{flex:4}}>
+                            <div style={{flex:7}}>
                                 {
-                                    1===0?
-                                    <LabeledSelectedInputComponent />
+                                    credit_cards.length>0?
+                                    <LabeledSelectedInputComponent
+                                        label='Choose cards:'
+                                        onChange={this.findCreditCard}
+                                        domain={credit_cards.map(item=>item.number)}
+                                        />
                                     :
                                     <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
                                         You have no credit card, please insert one.
@@ -56,16 +68,25 @@ export default class BalanceCardComponent extends Component {
                                 }
                              
                             </div>
+                            
+                            <div style={{flex:0.5}}/>
+
+                            <div style={{flex:5}}>
+                                    <LabeledSelectedInputComponent
+                                        label='Type:'
+                                        onChange={(value)=>this.props.updateInputs('type',value)}
+                                        domain={['withdraw','recharge']}
+                                        />
+                            </div>
                           
                         </div>
 
-                        <div style={{width:'90%',marginTop: 20,display:'flex',flexDirection:'row',justifyContent: 'space-between'}}>
+                        <div style={{width:'90%',marginTop: 20,display:'flex',flexDirection:'row',
+                                justifyContent: 'flex-end'}}>
                             <div style={{width: '20%'}}>
-                                <ButtonComponent label='Withdraw' color={YELLOW_1}/>
-                            </div>
-
-                            <div style={{width: '20%'}}>
-                                <ButtonComponent label='Recharge' color={GREEN_1}/>
+                                <ButtonComponent 
+                                    onClick={this.props.transaction}
+                                    label='Transaction' color={GREEN_1}/>
                             </div>
 
                         </div>

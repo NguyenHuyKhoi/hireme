@@ -34,11 +34,17 @@ export default class PostTaskProfileComponent extends Component {
                             <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
 
                                 <div style={{width:'70%'}}>
-                                    <LabeledInputComponent label='Task Name'/>
+                                    <LabeledInputComponent 
+                                        onChange={(value)=>this.props.updateInputs('name',value)}
+                                        label='Task Name'/>
                                 </div>
 
                                 <div style={{width:'80%',marginTop:30}}>
                                     <RangeInputComponent 
+                                        onChange={(value)=>{
+                                            this.props.updateInputs('min_suggested_price',value[0]);
+                                            this.props.updateInputs('max_suggested_price',value[1])
+                                        }}
                                         label='What is your estimated budget?' 
                                         domain={FIXED_PRICE_DOMAIN}
                                         value={[1000,5000]}/>
@@ -46,6 +52,7 @@ export default class PostTaskProfileComponent extends Component {
 
                                 <div style={{width:'100%',marginTop:30}}>
                                     <SkillPickerComponent  
+                                        onChange={(value)=>this.props.updateInputs('skills',value)}
                                         label='Required Skills'
                                         category_name={CATEGORIES_DOMAIN[0].name} />
                                 </div>
@@ -59,6 +66,7 @@ export default class PostTaskProfileComponent extends Component {
 
                                 <div style={{width:'70%'}}>
                                     <LabeledSelectedInputComponent  
+                                         onChange={(value)=>this.props.updateInputs('category',value)}
                                         label='Category'
                                         domain={CATEGORIES_DOMAIN.map(item=>item.name)}
                                         value={CATEGORIES_DOMAIN[0].name}/>
@@ -66,14 +74,18 @@ export default class PostTaskProfileComponent extends Component {
 
                                 <div style={{width:'70%',marginTop:30}}>
                                     <LabeledSelectedInputComponent
+                                        onChange={(value)=>this.props.updateInputs('price_type',value)}
                                         label='Type'
                                         domain={TASKS_TYPE_DOMAIN}
                                         value={TASKS_TYPE_DOMAIN[0]} />
                                 </div>
 
-                                <div style={{width:'70%',marginTop:30}}>
-                                    <AttachmentsComponent is_edit={true} />
-                                </div>
+                                {/* <div style={{width:'70%',marginTop:30}}>
+                                    <AttachmentsComponent
+                                        label='Attachments'
+                                        onChange={(value)=>this.props.updateInputs('attachments',value)}
+                                        is_edit={true} />
+                                </div> */}
                             </div>
 
                         
@@ -83,6 +95,7 @@ export default class PostTaskProfileComponent extends Component {
 
                        <div style={{marginTop:30}}>
                            <TextareaInputComponent 
+                              onChange={(value)=>this.props.updateInputs('description',value)}
                             label='Descrition'/>
                        </div>
                     

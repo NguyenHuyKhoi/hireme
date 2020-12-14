@@ -7,7 +7,7 @@ import TopCategoriesComponent from '../components/category/category_top_list.com
 import TopFreelancersComponent from '../components/freelancer/freelancer_top_list';
 import AuthModal from '../components/common/auth.modal';
 import { BLACK, BLUE_1, WHITE } from '../utils/palette';
-
+import axios from 'axios'
 import api from '../sample_db/fake_api_responses.json'
 
 export default class HomeScreen extends Component {
@@ -26,6 +26,37 @@ export default class HomeScreen extends Component {
             popular_freelancers:api.get_popular_freelancers
         })
     }
+
+    // componentDidMount() {
+    //     //Call_API_Here
+    //     axios.get(BASE_URL+`/get_popular_categories`,{
+    //             params:{
+    //                 count:8
+    //             }
+    //         })
+    //         .then(res => {
+    //             const data=res.data;
+    //             const categories=data.categories
+    //             this.setState({
+    //                 popular_categories:categories
+    //             })
+    //             })
+    //             .catch(error => console.log(error));
+
+    //     axios.get(BASE_URL+`/get_popular_freelancers`,{
+    //             params:{
+    //                 count:8
+    //             }
+    //         })
+    //         .then(res => {
+    //             const data=res.data;
+    //             const freelancers=data.freelancers
+    //             this.setState({
+    //                 popular_freelancers:freelancers
+    //             })
+    //             })
+    //             .catch(error => console.log(error));
+    // }
 
     render(){
         return (

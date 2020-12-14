@@ -17,9 +17,22 @@ const card_logo=[
 ]
 
 export default class CardCompanyPickerComponent extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            value:this.props.value
+        };
+
+        //initial value :s
+        if (!this.props.disabled){
+            this.props.onChange(this.props.value)
+        }
+    }
 
     render(){
-        const value=this.props.value;
+        const value=this.state.value;
+
+        const disabled=this.props.disabled;
         return (
             <div style={{width:'100%',display: 'flex', flexDirection: 'row',justifyContent: 'space-between'}}>
                 {
@@ -28,6 +41,10 @@ export default class CardCompanyPickerComponent extends Component {
                             key={''+index}
                             src={card_logo[index]} 
                             onClick={()=>{
+                                if (disabled) return;
+                                this.setState({
+                                    value:item.code
+                                })
                                 this.props.onChange(item.code)
                             }}
                             style={{width:60,height:40,

@@ -6,12 +6,18 @@ import { BLACK, BLUE_1,GRAY_2, WHITE } from '../../utils/palette';
 import logo from '../../assets//images/logo.png'
 import * as Icons from "react-icons/fa"
 import {IconContext} from 'react-icons'
-
+import {connect }from 'react-redux'
+import * as action from '../../redux/action/user.action'
 import Modal from 'react-modal';
 import AuthModal from './auth.modal';
+
+
 Modal.setAppElement('#root');
 const logo123='FaTwitter'
-export default class HeaderBarComponent extends Component {
+
+
+
+class HeaderBarComponent extends Component {
     constructor(props){
         super(props);
         this.state={
@@ -31,8 +37,9 @@ export default class HeaderBarComponent extends Component {
         })
     }
     render(){
-        const is_login=true;
+        const is_login=false;
         const IconName=`Icons.FaHome`;
+        const user_infor=this.props.user_infor;
         return (
             <div style={{width:'100vw',height: 80,backgroundColor:WHITE,
                 boxShadow:'0px 5px 5px #707070',
@@ -50,7 +57,7 @@ export default class HeaderBarComponent extends Component {
                             transform             : 'translate(-50%, -50%)'
                           } }}>
                     <AuthModal 
-                        onClickBtn={this.closeAuthModal}
+                        onCloseModal={this.closeAuthModal}
                         onClickClose={this.closeAuthModal}/>
                 </Modal>
                 
@@ -90,9 +97,13 @@ export default class HeaderBarComponent extends Component {
                 <div style={{flex:2,height:'100%',display:'flex',flexDirection:'column',
                     alignItems: 'center',justifyContent: 'center'}}>
                     {
-                    is_login?
+                    user_infor!=={} && user_infor.session_id!==undefined?
                         <Link 
-                            to ={routePaths.DASHBOARD_TASK_LIST}
+                            to ={user_infor.user_type==='admin'?
+                                routePaths.ADMIN_USER_LIST
+                                :
+                                routePaths.DASHBOARD_TASK_LIST
+                            }
                             style={{display: 'flex',flexDirection: 'row',alignItems:'center',textDecoration:'none'}}>
                             <img src='https://randomuser.me/api/portraits/women/25.jpg' 
                                 style={{width:50,height:50,borderRadius:25}}/>
@@ -116,3 +127,9 @@ export default class HeaderBarComponent extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+	user_infor: state.user_infor,
+});
+
+export default connect(mapStateToProps,action)(HeaderBarComponent)

@@ -1,4 +1,8 @@
-import {FaHome,FaAdd,FaAdobe, FaMobile,FaWikipediaW,FaAccessibleIcon,FaBitcoin, FaHubspot, FaPaypal, FaBroom} from "react-icons/fa"
+
+import {FaHome,FaAdd,FaAdobe, FaMobile,FaWikipediaW,
+    FaAccessibleIcon,FaBitcoin, FaHubspot, 
+    FaPaypal, FaBroom,FaUser,FaTasks,FaFacebookMessenger,FaStreetView,FaSignOutAlt} from "react-icons/fa"
+export const BASE_URL='https://localhost:3000'
 export const bullshitIcons={
     home :<FaHome/>,
     cat_design:<FaAdobe/>,
@@ -9,6 +13,15 @@ export const bullshitIcons={
     cat_engineer:<FaHubspot/>,
     cat_sale:<FaPaypal/>,
     cat_writing:<FaBroom/>,
+
+    //sidebar_icons :
+    user:<FaUser/>,
+    task:<FaTasks/>,
+    chat:<FaFacebookMessenger/>,
+    setting:<FaStreetView/>,
+    payment:<FaPaypal/>,
+    logout:<FaSignOutAlt/>
+
     
     
 }

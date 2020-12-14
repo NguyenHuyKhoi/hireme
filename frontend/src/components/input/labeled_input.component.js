@@ -6,8 +6,24 @@ import { BLACK } from '../../utils/palette'
 import { convertFullDateToOnlyDay } from '../../utils/helper'
 
 export default class LabeledInputComponent extends Component {
+    constructor(props){
+        super(props);
+
+        let value=this.props.value!==undefined?this.props.value:''
+        this.state={
+            value:value
+        };
+       // this.props.onChange(value)
+    }
+
+    // componentDidMount=()=>{
+    //     this.props.onChange(this.state.value)
+    // }
+    
+    
     render(){
-        const value=this.props.value!==undefined?this.props.value:'';
+        const value=this.state.value;
+
         const type=this.props.type!==undefined?this.props.type:'text';
         const hide_label=this.props.hide_label!==undefined?this.props.hide_label:false;
         const size=this.props.size!==undefined?this.props.size:TEXT_SIZES.NORMAL;
@@ -15,6 +31,7 @@ export default class LabeledInputComponent extends Component {
         const inline=this.props.inline!==undefined?this.props.inline:false;
         const label=this.props.label!==undefined?this.props.label:''
         const placeholder=this.props.placeholder!==undefined?this.props.placeholder:''
+      
         return (
 
             <div style={{display:'flex',width: '100%',
@@ -44,7 +61,10 @@ export default class LabeledInputComponent extends Component {
                     disabled={disabled}
                     type={type}
                     placeholder={placeholder}
-                    onChange={e=>this.props.onChange(e.target.value)}
+                    onChange={e=>{
+                        this.setState({value:e.target.value})
+                        this.props.onChange(e.target.value)
+                    }}
                     style={{
                         width:'100%',height: size===TEXT_SIZES.NORMAL?30:25,
                         fontSize:size,
