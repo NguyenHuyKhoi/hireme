@@ -32,6 +32,7 @@ export default class UserItemAdminComponent extends Component {
         this.closeBanModal();
     }
     render(){
+        const user=this.props.user;
         const index=this.props.index;
         return (
             
@@ -49,15 +50,9 @@ export default class UserItemAdminComponent extends Component {
 
                     <div style={{display:'flex',flexDirection:'row'}}>
                         <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK }}>
-                            Username 1
+                            {user.name}
                         </text>
 
-                        <div style={{marginLeft:30}}>
-                            <SmallFieldComponent 
-                                background_color={YELLOW_1} 
-                                label_color={WHITE} 
-                                label={'123'}/>
-                        </div>
                      
                     </div>
 
@@ -66,13 +61,13 @@ export default class UserItemAdminComponent extends Component {
 
                         <div style={{display:'flex',flex:1}}>
                             <text style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
-                                Type : Freelancer
+                                {'Type : '+user.user_type}
                             </text>
                         </div>
 
                         <div style={{display:'flex',flex:1}}    >
                             <text style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
-                                Email : uesr@gmail.com
+                                {'Email : '+user.email}
                             </text>
                         </div>
                     </div>
@@ -82,7 +77,11 @@ export default class UserItemAdminComponent extends Component {
 
                 <div style={{flex:4,display:'flex',justifyContent: 'center',alignItems: 'center'}}>
                     <Link 
-                        to={routePaths.FREELANCER_DETAIL}
+                        to={user.user_type==='freelancer'?
+                            routePaths.FREELANCER_DETAIL+`/${user.id}`
+                            :
+                            routePaths.COMPANY_DETAIL+`/${user.id}`
+                        }
                         style={{textDecoration:'none',width:'80%',marginRight: 25}}>
                         <ButtonComponent label='Detail' color={BLUE_1}/>
                     </Link>

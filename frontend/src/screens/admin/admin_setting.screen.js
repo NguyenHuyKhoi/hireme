@@ -17,20 +17,89 @@ import ButtonComponent from '../../components/common/button.component'
 import { Link } from 'react-router-dom'
 
 import api from '../../sample_db/fake_api_responses.json'
-export default class AdminSettingScreen extends Component {
+
+import {connect }from 'react-redux'
+import * as action from '../../redux/action/user.action'
+
+const FIELDS=[
+    'first_name','last_name','email',
+    'password','repeat_new_password','new_password']
+
+class AdminSettingScreen extends Component {
     constructor(props){
         super(props);
         this.state={
-            tasks:[]
+            setting:null,
+            admin_id:this.props.user_infor.user_id
         }
     }
 
     componentDidMount=()=>{
+          //Call_API_Here
+        // axios.get(BASE_URL+`/get_setting_admin`,{
+        //         data:{
+        //         }
+        //     })
+        //     .then(res => {
+        //     })
+        //     .catch(error => console.log(error));
+
+    
+       // alert('Call API get_setting_user with admin_id '+this.state.admin_id)
         this.setState({
-            tasks:api.get_task_list
+            setting:api.get_setting_admin
         })
     }
+
+
+    updateInputs=async (field,value)=>{
+        console.log('update_inputs :',field,value)
+        await this.setState({
+            [field]:value
+        })
+
+     //console.log('filter_now:',JSON.stringify(this.state)) 
+    };
+
+    groupInputs=(fields)=>{
+        let inputs={};
+        let state=this.state;
+        let has_field_null=false
+        fields.map(item=>{
+            if (state[item]===undefined || state[item]==='') has_field_null=true // user haven't yet enter this fields;
+            else  inputs[item]=state[item];
+        });
+
+        console.log('group_inputs:',inputs);
+
+    //    if (has_field_null) return null
+        return inputs;
+    }
+
+
+    updateSetting=()=>{
+        const inputs=this.groupInputs(FIELDS);
+        if (inputs===null){
+            alert('Please enter all fields ...')
+        }
+        else {
+            const body_req={
+                admin_id:this.state.admin_id,
+                ...inputs
+            }
+            alert('Call API update_setting_admin  with body = '+JSON.stringify(body_req))
+            //Call_API_Here
+                // axios.get(BASE_URL+`/update_setting_admin `,{
+                //         data:{
+                //         }
+                //     })
+                //     .then(res => {
+                //         })
+                //         .catch(error => console.log(error));
+        }
+    }
     render(){
+        const setting=this.state.setting;
         return (
 
             <div style={{width:'100vw',backgroundColor:GRAY_6,
@@ -42,37 +111,53 @@ export default class AdminSettingScreen extends Component {
                 <div style={{display:'flex',flex:SIDEBAR_RATIO,
                     padding:PADDING_BODY_DASHBOARD}}>
 
-                    <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
+                    {
+                        setting===null?
+                        null
+                        :
+                        <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
 
-                        {/* header */}
-                        <HeaderListComponent title='Setting'/>
+                            {/* header */}
+                            <HeaderListComponent title='Setting'/>
 
-                        <div style={{marginTop:30}}>
-                            <SettingAccountComponent/>
+                            <div style={{marginTop:30}}>
+                                <SettingAccountComponent    
+                                    updateInputs={this.updateInputs}
+                                    account={setting.account}/>
+                            </div>
+                        
+                            <div style={{marginTop:60}}>
+                                <SettingPasswordComponent
+                                    updateInputs={this.updateInputs}
+                                    />
+                            </div>
+                            {/* submit button */}
+
+
+                            <Link 
+                                to={routePaths.ADMIN_TASK_LIST}
+                                style={{marginTop:50,width:'25%',textDecoration:'none'}}>
+                                <ButtonComponent label='Save Your Changes' height={60}/>
+                            </Link>
+
+
+
                         </div>
-                    
-                        <div style={{marginTop:60}}>
-                            <SettingPasswordComponent/>
-                        </div>
-                        {/* submit button */}
+                
+                
+                
+                    }
 
-
-                        <Link 
-                             to={routePaths.DASHBOARD_HOME}
-                            style={{marginTop:50,width:'25%',textDecoration:'none'}}>
-                            <ButtonComponent label='Save Your Changes' height={60}/>
-                        </Link>
-
-
-
-                    </div>
                 </div>
-
-     
-
-               
             </div>
             
         )
     }
 }
+
+
+const mapStateToProps = state => ({
+	user_infor: state.user_infor,
+});
+
+export default connect(mapStateToProps,action)(AdminSettingScreen)

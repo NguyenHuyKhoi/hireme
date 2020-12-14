@@ -35,7 +35,7 @@ export default class TaskNoteItemComponent extends Component{
                     </div>
                     :
                     <text style={{fontSize:TEXT_SIZES.SMALL,color:WHITE,marginLeft:10,marginLeft:10}}>
-                        {note.is_me?'Me :':'Company : '}{note.content}
+                        {note.send_by_me?'Me :':'Partner : '}{note.content}
                     </text>
                 }
 

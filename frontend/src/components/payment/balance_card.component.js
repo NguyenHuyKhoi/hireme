@@ -12,6 +12,7 @@ import LabeledSelectedInputComponent from '../input/labeled_selected_input.compo
 export default class BalanceCardComponent extends Component {
    
     findCreditCard=(value)=>{
+        if (value===undefined) return ;
         const arr=this.props.credit_cards;
         let credit_card=arr.filter(item=>item.number===value)[0];
         this.props.updateInputs('credit_card_id',credit_card.id);
@@ -58,7 +59,7 @@ export default class BalanceCardComponent extends Component {
                                     credit_cards.length>0?
                                     <LabeledSelectedInputComponent
                                         label='Choose cards:'
-                                        onChange={this.findCreditCard}
+                                        onChange={()=>this.findCreditCard}
                                         domain={credit_cards.map(item=>item.number)}
                                         />
                                     :

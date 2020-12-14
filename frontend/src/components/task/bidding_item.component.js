@@ -43,7 +43,7 @@ export default class BiddingItemComponent extends Component {
     render(){
         const bidding = this.props.bidding;
         const freelancer= bidding.freelancer
-        const company_view=this.props.company_view;
+        const user_type=this.props.user_type;
         console.log('bidding_item',bidding.intended_time);
         return (
             <div style={{width:'100%',display:'flex',flexDirection:'column',
@@ -98,27 +98,26 @@ export default class BiddingItemComponent extends Component {
                 </div>
 
                 {
-                company_view!==undefined && company_view===true ?
-                <div style={{width:'100%',alignSelf:'baseline', paddingBottom:30,display: 'flex',
-                    justifyContent:'space-between',alignItems: 'center',
-                }}> 
-                    <div style={{flex:1.5}}/>
-                    <div style={{flex:1,marginRight:20}}>
-                        <ButtonComponent color={BLUE_1} label='Accept'/>
+                    user_type!==undefined && user_type==='company' ?
+                    <div style={{width:'100%',alignSelf:'baseline', paddingBottom:30,display: 'flex',
+                        justifyContent:'space-between',alignItems: 'center',
+                    }}> 
+                        <div style={{flex:1.5}}/>
+                        <div style={{flex:1,marginRight:20}}>
+                            <ButtonComponent color={BLUE_1} label='Accept'/>
+                        </div>
+                        <div style={{flex:0.3}}/>
+                        <div style={{flex:1,marginRight:20}}>
+                            <ButtonComponent color={YELLOW_1} label='Chat'/>
+                        </div>
+                        <div style={{flex:0.3}}/>
+                        <div style={{flex:1}}>
+                            <ButtonComponent color={GRAY_3} label='Remove'/>
+                        </div>
+                        <div style={{flex:1.5}}/>
                     </div>
-                    <div style={{flex:0.3}}/>
-                    <div style={{flex:1,marginRight:20}}>
-                        <ButtonComponent color={YELLOW_1} label='Chat'/>
-                    </div>
-                    <div style={{flex:0.3}}/>
-                    <div style={{flex:1}}>
-                        <ButtonComponent color={GRAY_3} label='Remove'/>
-                    </div>
-                    <div style={{flex:1.5}}/>
-                </div>
-
-                :
-                null
+                    :
+                    null
                 }
             </div>
                         

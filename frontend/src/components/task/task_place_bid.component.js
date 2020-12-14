@@ -27,6 +27,7 @@ export default class TaskPlaceBidComponent extends Component {
                         
                         <NumberInputComponent 
                             label='Enter bidding cost '
+                            onChange={value=>{}}
                             domain={FIXED_PRICE_DOMAIN}
                             value={[4000]}/>
                      
@@ -35,6 +36,7 @@ export default class TaskPlaceBidComponent extends Component {
                             <NumberInputComponent
                                 label='Enter bidding time (day) '
                                 domain={BIDDING_TIME_DOMAIN}
+                                onChange={value=>{}}
                                 unit=' days'
                                 value={[20]}/>
 

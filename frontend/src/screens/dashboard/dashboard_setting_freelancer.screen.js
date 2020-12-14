@@ -16,7 +16,8 @@ import * as action from '../../redux/action/user.action'
 
 const FIELDS=[
     'first_name','last_name','email',
-    'hourly_rate','tagline','category','description','skills','experiences','password','repeat_new_password','new_password']
+    'company_name','employee_size','location','business_area','website_link','description',
+    'password','repeat_new_password','new_password']
 
 class DashboardSettingFreelancerScreen extends Component {
     constructor(props){
@@ -48,7 +49,7 @@ class DashboardSettingFreelancerScreen extends Component {
 
 
     updateInputs=async (field,value)=>{
-       // console.log('update_inputs :',field,value)
+        console.log('update_inputs :',field,value)
         await this.setState({
             [field]:value
         })
@@ -67,7 +68,7 @@ class DashboardSettingFreelancerScreen extends Component {
 
         console.log('group_inputs:',inputs);
 
-        if (has_field_null) return null
+    //    if (has_field_null) return null
         return inputs;
     }
 
@@ -78,11 +79,12 @@ class DashboardSettingFreelancerScreen extends Component {
         if (inputs===null){
             alert('Please enter all fields ...')
         }
-        else if (inputs.type==='withdraw' && inputs.amount>this.state.payment.balance){
-            alert('Can\'t withdraw more than your balance .')
-        }
         else {
-            alert('Call API create_credit_card_transaction  with body = '+JSON.stringify(inputs))
+            const body_req={
+                freelancer_id:this.state.freelancer_id,
+                ...inputs
+            }
+            alert('Call API create_credit_card_transaction  with body = '+JSON.stringify(body_req))
             //Call_API_Here
                 // axios.get(BASE_URL+`/create_credit_card_transaction `,{
                 //         data:{

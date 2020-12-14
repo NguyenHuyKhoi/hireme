@@ -14,7 +14,11 @@ import { GRAY_6,BLACK } from '../../utils/palette';
 import TaskDetailScreen from '../task_detail.screen';
 import TaskSearchScreen from '../task_search.screen';
 import api from '../../sample_db/fake_api_responses.json'
-export default class DashBoardTaskManagementScreen extends Component {
+
+import {connect }from 'react-redux'
+import * as action from '../../redux/action/user.action'
+
+class DashBoardTaskManagementScreen extends Component {
     constructor(props){
         super(props);
         this.state={
@@ -36,6 +40,7 @@ export default class DashBoardTaskManagementScreen extends Component {
     }
 
     renderBody=()=>{
+        const user_type=this.props.user_infor.user_type
         switch (this.state.focus_tab_index){
             case 0:
                 if (this.state.task===null) return null;
@@ -48,18 +53,23 @@ export default class DashBoardTaskManagementScreen extends Component {
                 }
                 else {
                    return   <BiddingListComponent 
+                        user_type={user_type}
                         biddings={this.state.biddings}
                         task_id={this.state.task_id}/>
                 }
 
             case 2:
                 return  <div style={{display:'flex',width:'100%',height:'80vh'}}>
-                            <ChatComponent  task_id={this.state.task_id}/>
+                            <ChatComponent 
+                                user_type={user_type} 
+                                task_id={this.state.task_id}/>
                         </div>
              
             case 3:
                 return  <div style={{display:'flex',width:'74vw',height:'80vh'}}>
-                            <StageListComponent stages={this.state.stages} task_id={this.state.task_id}/>
+                            <StageListComponent
+                                user_type={user_type} 
+                                stages={this.state.stages} task_id={this.state.task_id}/>
                         </div>
             case 4:
                 return  <div style={{display:'flex',width:'100%',height:'80vh'}}>
@@ -97,3 +107,9 @@ export default class DashBoardTaskManagementScreen extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+	user_infor: state.user_infor,
+});
+
+export default connect(mapStateToProps,action)(DashBoardTaskManagementScreen)

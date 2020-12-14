@@ -3,11 +3,13 @@ import React, {Component} from 'react'
 import { TEXT_SIZES } from '../../utils/constants'
 import { BLACK, RED_1, WHITE } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
+import NewStageItemComponent from './new_stage_item.component'
 import StageItemComponent from './stage_item.component'
 
 export default class StageListComponent extends Component {
     render(){
-        const stages=this.props.stages!==undefined?this.props.stages:[]
+        const stages=this.props.stages!==undefined?this.props.stages:[];
+        console.log('stage_list:',stages);
         return (
             <div style={{ display:'flex',flexDirection: 'row',backgroundColor:WHITE, overflowX:'scroll',
                     paddingLeft:30,
@@ -26,8 +28,7 @@ export default class StageListComponent extends Component {
                     }
 
                     <div style={{width:'40vw'}}>
-                        <StageItemComponent 
-                            is_new={true}/>
+                        <NewStageItemComponent/>
                     </div>
                     <div style={{display:'flex',width:400,paddingTop:50,
                         flexDirection:'column',alignItems: 'center'}}>

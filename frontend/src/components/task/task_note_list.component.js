@@ -4,34 +4,13 @@ import React, {Component} from 'react'
 import { TEXT_SIZES } from '../../utils/constants'
 import { BLACK, BLUE_1, GREEN_1, WHITE, YELLOW_1 } from '../../utils/palette'
 import TaskNoteItemComponent from '../input/task_note_item.component'
-const notes=[
-    {
-        is_me:true,
-        content:'Please zoom in the picture, i can see...'
-    },
-    {
-        is_me:true,
-        content:'Ok, i will do it now, waiting!'
-    },
-    {
-        is_me:false,
-        content:'Hurry up if you don\'t want to over deadline,want to over deadline,want to over deadline, we don\'t have much time'
-    },
-    {
-        is_me:true,
-        content:'I\ll complete this task on tonight'
-    },
-    {
-        is_me:false,
-        content:'Thanks for working with me!!!'
-    },
-    
-]
 
 
 
 export default class TaskNoteListComponent extends Component {
     render(){
+        const notes=this.props.notes;
+        console.log('notes:',notes);
         return (
             <div style={{width:'100%',alignSelf: 'baseline',
                 display:'flex',flexDirection: 'column'}}>

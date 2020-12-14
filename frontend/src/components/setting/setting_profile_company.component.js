@@ -30,20 +30,20 @@ export default class SettingProfileCompanyComponent extends Component {
 
                                 <div style={{width:'70%'}}>
                                     <LabeledInputComponent  
-                                        onChange={value=>{}}
+                                        onChange={value=>this.props.updateInputs('company_name',value)}
                                         label='Company Name'
                                         value={profile.company_name}/>
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
                                     <LabeledInputComponent 
-                                         onChange={value=>{}}
+                                        onChange={value=>this.props.updateInputs('location',value)}
                                         label='Location' 
                                         value={profile.location}/>
                                 </div>
                                 <div style={{width:'70%',marginTop:30}}>
                                     <LabeledInputComponent 
-                                         onChange={value=>{}}
+                                         onChange={value=>this.props.updateInputs('tagline',value)}
                                          label='Tagline'
                                         value={profile.tagline}/>
                                 </div>
@@ -55,7 +55,7 @@ export default class SettingProfileCompanyComponent extends Component {
 
                                 <div style={{width:'70%'}}>
                                     <LabeledSelectedInputComponent
-                                         onChange={(value)=>{}} 
+                                         onChange={(value)=>this.props.updateInputs('employee_size',value)} 
                                         label='Employee Size'
                                         domain={COMPANY_SIZES_DOMAIN}
                                         value={profile.employee_size}/>
@@ -63,7 +63,7 @@ export default class SettingProfileCompanyComponent extends Component {
 
                                 <div style={{width:'70%',marginTop:30}}>
                                     <LabeledSelectedInputComponent 
-                                         onChange={(value)=>{}}
+                                        onChange={(value)=>this.props.updateInputs('business_area',value)} 
                                         label='Business Area'
                                         domain={BUSINESS_AREA_DOMAIN}
                                         value={profile.business_area} />
@@ -71,6 +71,7 @@ export default class SettingProfileCompanyComponent extends Component {
 
                                 <div style={{width:'70%',marginTop:30}}>
                                     <LabeledInputComponent
+                                        onChange={(value)=>this.props.updateInputs('website_link',value)}
                                         onChange={(value)=>{}}
                                         label='Website Link' 
                                         value={profile.website_link}/>
@@ -84,8 +85,9 @@ export default class SettingProfileCompanyComponent extends Component {
                         
                         <div style={{marginTop:40}}>
                             <TextareaInputComponent 
-                                onChange={value=>{}}
-                                label='Description' />
+                                 onChange={(value)=>this.props.updateInputs('description',value)}
+                                label='Description'
+                                value={profile.description} />
                         </div>
 
                 </div>

@@ -11,10 +11,12 @@ export default class LabeledSelectedInputComponent extends Component {
         this.state={
             value:value
         };
-     //   this.props.onChange(value)
+        this.props.onChange(value)
     }
 
     render(){
+
+        const value=this.state.value;
         const label=this.props.label!==undefined?this.props.label:'';
         const hide_label=this.props.hide_label!==undefined?this.props.hide_label:false;
 
@@ -22,6 +24,9 @@ export default class LabeledSelectedInputComponent extends Component {
         let domain=this.props.domain.map(item=>{
             return { value:item,label:item}
         });
+
+        let option={value:value,label:value}
+
 
         console.log('domain_select',domain)
 
@@ -42,7 +47,7 @@ export default class LabeledSelectedInputComponent extends Component {
                     marginTop:hide_label?0:15,fontSize:TEXT_SIZES.NORMAL}}>
                     <Select
                         style={{fontSize:TEXT_SIZES.SMALL}}
-                        value={this.state.value}
+                        value={option}
                         onChange={(option)=>{
                             this.setState({value:option});
                             console.log('selected_input',option.value)

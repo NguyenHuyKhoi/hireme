@@ -30,7 +30,7 @@ export default class BiddingListComponent extends Component {
 
     render(){
         const biddings=this.props.biddings;
-        const company_view=this.props.company_view;
+        const user_type=this.props.user_type!==undefined?this.props.user_type:'freelancer';
         const l=this.state.first_item_index;
         const r=this.state.last_item_index;
 
@@ -45,7 +45,11 @@ export default class BiddingListComponent extends Component {
                 <div style={{flex:1,display:'flex',flexDirection: 'column'}}>
                     {
                     biddings.slice(l,r+1).map((item,index)=>
-                        <BiddingItemComponent bidding={item} index={index} key ={''+index}/>
+                        <BiddingItemComponent 
+                            user_type={user_type}
+                            bidding={item} 
+                            index={index} 
+                            key ={''+index}/>
                     )
                     }
                 </div>

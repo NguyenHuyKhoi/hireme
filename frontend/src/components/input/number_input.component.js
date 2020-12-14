@@ -12,7 +12,7 @@ export default class NumberInputComponent extends Component {
         this.state={
             value:value
         };
-       // this.props.onChange(value)
+        this.props.onChange(value)
     }
     render(){
         const value=this.state.value;

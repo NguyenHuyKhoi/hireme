@@ -1,9 +1,11 @@
 import React ,{Component,Fragment} from 'react'
 import { BrowserRouter,Route, Link, NavLink, Switch } from "react-router-dom";
 import {Provider} from 'react-redux'
-import {store} from '../src/redux/store/index.store'
+import {store,persistor} from './redux/store/index.store'
 
 import './App.css';
+import { PersistGate } from 'redux-persist/integration/react'
+
 import {routePaths} from './utils/constants'
 import HomeScreen from './screens/home.screen';
 import FreelancerSearchScreen from './screens/freelancer_search.screen';
@@ -34,7 +36,10 @@ export default class  App extends Component {
 	render (){
 		return (
 			<Provider store={store}>
-				<BrowserRouter>	
+				 <PersistGate loading={null} persistor={persistor}>
+
+			
+						<BrowserRouter>	
 						{/* <nav >
 							<div style={{display: 'flex',flexDirection: 'column'}}>
 								<Link to={routePaths.HOME}>Home</Link>
@@ -84,7 +89,7 @@ export default class  App extends Component {
 
 						</Switch>
 				</BrowserRouter>
-				
+				</PersistGate>
 			</Provider>
 			
 		);

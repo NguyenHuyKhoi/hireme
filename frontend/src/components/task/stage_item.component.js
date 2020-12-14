@@ -7,6 +7,7 @@ import { TEXT_SIZES } from '../../utils/constants'
 import SmallFieldComponent from '../common/small_field.component'
 import TaskNoteListComponent from './task_note_list.component'
 import AttachmentsComponent from '../input/attachments.component'
+import { convertFullDateToOnlyDay } from '../../utils/helper'
 // * bidding [
 //     {
 //       * id
@@ -21,12 +22,11 @@ class TimeLine extends Component{
         const deadline=this.props.deadline
         const percentage=this.props.percentage;
         return (
-            <div style={{width: '100%',height: 50,display:'flex',flexDirection:'column'}}>
+            <div style={{width: '100%',height: 60,display:'flex',flexDirection:'column'}}>
 
                 <div style={{width:'100%',flex:1,display:'flex',justifyContent:'flex-end'}}>
                     <div style={{display:'flex',justifyContent:'center',alignItems:'center',
-                        flexDirection:'column',
-                        alignSelf:'baseline'}}>
+                        flexDirection:'column',marginBottom:10}}>
 
                         <input 
                             style={{fontSize:TEXT_SIZES.SMALL,color:BLACK,width:'6vw',
@@ -34,10 +34,10 @@ class TimeLine extends Component{
                             outline:'none',
                             borderColor:'rgba(0,0,0,0)'
                             }} 
-                            value='17/02/2020'>
+                            value={convertFullDateToOnlyDay(deadline)}>
                             
                         </input>
-                        <SmallFieldComponent  label={'20%'} label_color={WHITE}
+                        <SmallFieldComponent  label={[percentage+'%']} label_color={WHITE}
                             background_color={GREEN_1}/>
                     </div>
                 </div>
@@ -53,37 +53,26 @@ class TimeLine extends Component{
 export default class StageItemComponent extends Component {
     render(){
         const stage=this.props.stage;
-        const is_new =this.props.is_new!==undefined?this.props.is_new:false;
+        console.log('stage_item',stage);
         return (
             <div style={{width:420,height:525,
                 display:'flex',flexDirection: 'column'}}>   
-                <TimeLine />
+                <TimeLine deadline={stage.deadline}
+                    percentage={stage.percentage}/>
 
                 <div style={{marginTop: 5,width:'80%',height:45,backgroundColor: GREEN_1,
                     display:'flex',flexDirection:'row',alignItems:'center',paddingLeft:15}}>
 
-                    <input 
-                        disabled={!is_new}
+                    <text 
                         style={{
                             fontSize:TEXT_SIZES.NORMAL,color:WHITE,height: 35,
                             backgroundColor: 'rgba(0,0,0,0)',
                             outline:'none',
                             borderColor:'rgba(0,0,0,0)'}} 
-                        value='Requirement analytics'/>
+                    >
+                        {stage.title}
+                    </text>
 
-                    {
-                        is_new?
-                        <input 
-                            style={{
-                                fontSize:TEXT_SIZES.NORMAL,color:WHITE,height: 35,width: 40,
-                                backgroundColor: 'rgba(0,0,0,0)',
-                                outline:'none',
-                                borderColor:'rgba(0,0,0,0)'}} 
-                            value='20%'/>
-                        :
-                        null
-
-                    }
                    
                 </div> 
 
@@ -98,28 +87,18 @@ export default class StageItemComponent extends Component {
                             {/* <AttachmentsComponent is_edit={true}/> */}
 
                             <div style={{width:'80%',marginTop:15}}>
-                                <LabeledInputComponent  onChange={(value)=>{}}/>
+                                <LabeledInputComponent 
+                                    label='Link Resource' 
+                                    onChange={(value)=>{}}
+                                    value={stage.link}/>
                             </div>  
 
                             <div style={{width:'100%',marginTop:15,
-                                paddingBottom:!is_new?40:0}}>
-                                <TaskNoteListComponent />
+                                paddingBottom:40}}>
+                                <TaskNoteListComponent notes={stage.notes} />
                             </div>   
                            
-                       
-                            {
-                                is_new?
-                                <div style={{marginTop:20,width: '100%',paddingBottom:40,
-                                    display:'flex',justifyContent:'center',alignItems:'center'}}>
-                                    <ButtonComponent label='Add Stage'/>
-                                </div>
-                                :
-                                null
-                            }
-
-                           
-
-                           
+                          
                     </div>
                 </div>
 
