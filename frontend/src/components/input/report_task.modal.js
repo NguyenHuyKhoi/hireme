@@ -29,7 +29,9 @@ export default class ReportTaskModal extends Component {
                                 Why do you report this task ?
                             </text>
 
-                            <TextareaInputComponent hide_label={true}  />
+                            <TextareaInputComponent 
+                                onChange={value=>this.props.onChangeContent(value)}
+                                hide_label={true}  />
                         
 
                             <div style={{width: '100%',display: 'flex',flexDirection: 'row',

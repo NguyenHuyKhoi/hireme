@@ -29,7 +29,9 @@ export default class ReviewTaskModal extends Component {
                                 Review :
                             </text>
 
-                            <TextareaInputComponent hide_label={true}/>
+                            <TextareaInputComponent     
+                                onChange={value=>this.props.onChangeContent(value)}
+                                hide_label={true}/>
                         
 
                             <div style={{width: '100%',display: 'flex',flexDirection: 'row',

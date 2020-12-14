@@ -31,6 +31,7 @@ export default class GiveupTaskModal extends Component {
                             </text>
 
                             <TextareaInputComponent
+                                onChange={value=>this.props.onChangeContent(value)}
                                 hide_label={true}/>
                         
 

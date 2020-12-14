@@ -111,14 +111,16 @@ class ProjectDetail extends Component {
             </div>
         )
     }
-}
+};
+
 export default class PaymentTabComponent extends Component {
     constructor(props){
         super(props);
         this.state={
             open_giveup_modal:false,
             open_review_modal:false,
-            open_report_modal:false
+            open_report_modal:false,
+            modal_content:''
         }
     }
 
@@ -189,28 +191,31 @@ export default class PaymentTabComponent extends Component {
 
     render(){
         const company_view=false;
+        console.log('modal_content:',this.state.modal_content)
         return (
             <div  style={{flex:1,flexDirection:'column',display:'flex'} }> 
                 <GiveupTaskModal
+                    onChangeContent={value=>this.setState({modal_content:value})}
                     is_open={this.state.open_giveup_modal}
                     clickBack={this.closeGiveupModal}
                     clickGiveup={this.giveupTask}/>
 
-                <ReviewTaskModal 
+                <ReviewTaskModal
+                    onChangeContent={value=>this.setState({modal_content:value})} 
                     is_open={this.state.open_review_modal}
                     clickBack={this.closeReviewModal}
                     clickReview={this.reviewTask}/>
+
                 <ReportTaskModal
+                    onChangeContent={value=>this.setState({modal_content:value})}
                     is_open={this.state.open_report_modal}
                     clickBack={this.closeReportModal}
                     clickReport={this.reportTask}/>
+
                 <div style={{flex:1}}/>
                 <div style={{flex:5,width:'100%',display:'flex',flexDirection: 'row',
                     alignItems: 'center',justifyContent: 'space-between'}}>
                     
-                
-                 
-
                     <div style={{flex:1}}>
                         <ProjectDetail/>
                     </div>
