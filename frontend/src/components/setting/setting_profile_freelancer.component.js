@@ -18,7 +18,8 @@ export default class   SettingProfileFreelancerComponent extends Component {
 
     render(){
         const profile=this.props.profile;
-        console.log('profile_freelancer :',profile.description);
+        const category=this.props.category;
+        const picked_skills=this.props.picked_skills
         return (
             <div style={{
                 flex:1,display: 'flex',flexDirection:'column',backgroundColor:WHITE,
@@ -69,7 +70,8 @@ export default class   SettingProfileFreelancerComponent extends Component {
                                     <SkillPickerComponent 
                                         onChange={value=>this.props.updateInputs('skills',value)}
                                         label='Skills'
-                                        category_name={profile.category}/>
+                                        picked_skills={picked_skills}
+                                        category={category}/>
                                 </div>
 
                                 {/* <div style={{width:'70%',marginTop:30}}>

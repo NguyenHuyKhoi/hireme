@@ -82,6 +82,7 @@ export default class TaskSearchScreen extends Component {
                     {/* filters */}
                     <div style={{flex:2}}>
                         <FilterComponent  
+                            category={this.state.category}
                             clickSearch={this.search}
                             updateInputs={this.updateInputs} />
                     </div>

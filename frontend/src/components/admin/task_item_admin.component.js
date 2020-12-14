@@ -2,13 +2,13 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import { routePaths, TEXT_SIZES } from '../../utils/constants'
-import { WHITE,GRAY_4, BLACK, YELLOW_1, GRAY_2, GRAY_3, RED_1, RED_2, BLUE_1 } from '../../utils/palette';
+import { WHITE,GRAY_4, BLACK, YELLOW_1, GRAY_2, GRAY_3, RED_1, RED_2, BLUE_1, GREEN_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
 import RateScoreComponent from '../common/rate_score.component'
 import SmallFieldComponent from '../common/small_field.component';
 import BanTaskModal from './ban_task.modal';
 import ViewReportsModal from './view_reports.modal';
-
+import {collapseText, convertFullDateToOnlyDay} from '../../utils/helper'
 export default class TaskItemBriefAdminComponent extends Component {
     constructor(props){
         super(props);
@@ -57,7 +57,8 @@ export default class TaskItemBriefAdminComponent extends Component {
     }
     render(){
         const index=this.props.index;
-        const is_admin=this.props.is_admin;
+        const task=this.props.task;
+        const company=task.company
 
         return (
             
@@ -80,14 +81,20 @@ export default class TaskItemBriefAdminComponent extends Component {
 
                     <div style={{display:'flex',flexDirection:'row'}}>
                         <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK }}>
-                            Task name1
+                            {collapseText(task.name,30)}
                         </text>
 
                         <div style={{marginLeft:30}}>
                             <SmallFieldComponent 
-                                background_color={YELLOW_1} 
+                                background_color={
+                                    task.status==='bidding'?YELLOW_1
+                                        :task.status==='doing'?BLUE_1
+                                            :task.status==='done'?GREEN_1
+                                                :task.status==='canceled' 
+                                                    || task.status==='reported'?RED_1:GRAY_2
+                                } 
                                 label_color={WHITE} 
-                                label={'123'}/>
+                                label={task.status}/>
                         </div>
                      
                     </div>
@@ -97,13 +104,14 @@ export default class TaskItemBriefAdminComponent extends Component {
 
                         <div style={{display:'flex',flex:1}}>
                             <text style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
-                                Posted :Facebook
+                                {'Posted :'+company.name}
+                                
                             </text>
                         </div>
 
                         <div style={{display:'flex',flex:1}}    >
                             <text style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
-                                On : 12/12/2020
+                                {'On : '+convertFullDateToOnlyDay(task.post_time)}
                             </text>
                         </div>
                     </div>
@@ -111,22 +119,22 @@ export default class TaskItemBriefAdminComponent extends Component {
         
                 </div>
 
-                <div style={{flex:5,display:'flex',justifyContent: 'center',alignItems: 'center'}}>
+                <div style={{flex:4,display:'flex',justifyContent: 'center',alignItems: 'center'}}>
                     <Link 
                         to={routePaths.TASK_DETAIL}
-                        style={{textDecoration:'none',width:'80%',marginRight: 25}}>
+                        style={{textDecoration:'none',width:'80%',marginRight: 15}}>
                         <ButtonComponent label='Detail' color={BLUE_1}/>
                     </Link>
 
                     <div 
                         onClick={this.openBanModal}  
-                        style={{textDecoration:'none',width:'80%',marginRight: 25}}>
+                        style={{textDecoration:'none',width:'80%',marginRight: 15}}>
                         <ButtonComponent label='Ban' color={RED_1}/>
                     </div>
 
                     <div 
                         onClick={this.openViewReportsModal}  
-                        style={{textDecoration:'none',width:'100%',marginRight: 25}}>
+                        style={{textDecoration:'none',width:'100%',marginRight: 15}}>
                         <ButtonComponent label='View Reports' color={YELLOW_1}/>
                     </div>
                 </div>

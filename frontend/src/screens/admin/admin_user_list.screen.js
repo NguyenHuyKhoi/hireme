@@ -24,7 +24,7 @@ export default class AdminUserListScreen extends Component {
         //     .catch(error => console.log(error));
         alert('Call API get_user_list ')
         this.setState({
-            users:api.get_user_list
+            users:api.get_user_list_admin
         })
     }
 

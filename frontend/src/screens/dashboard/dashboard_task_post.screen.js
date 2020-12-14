@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import SidebarComponent from '../../components/common/side_bar.component'
 import PostTaskProfileComponent from '../../components/task/post_task_profile.component'
-import { routePaths, SIDEBAR_RATIO, TEXT_SIZES,PADDING_BODY_DASHBOARD } from '../../utils/constants'
+import { routePaths, SIDEBAR_RATIO, TEXT_SIZES,PADDING_BODY_DASHBOARD, CATEGORIES_DOMAIN } from '../../utils/constants'
 import {GRAY_6 } from '../../utils/palette'
 import ButtonComponent from '../../components/common/button.component'
 import HeaderListComponent from '../../components/common/header_list.component'
@@ -66,7 +66,13 @@ export default class DashBoardTaskPostScreen extends Component {
                         {/* form  */}
 
                         <div style={{flex:1,marginTop:30}}>
-                            <PostTaskProfileComponent updateInputs={this.updateInputs}/>
+                            <PostTaskProfileComponent 
+                                category={this.state!==null && this.state.category!==undefined
+                                    ?
+                                    this.state.category
+                                    :
+                                    CATEGORIES_DOMAIN[0].name}
+                                updateInputs={this.updateInputs}/>
                         </div>
                       
                         {/* submit button */}

@@ -27,10 +27,13 @@ class Item extends Component{
 export default class SkillPickerComponent extends Component {
     constructor(props){
         super(props);
+     
+        const arr=this.props.picked_skills
         this.state={
-            picked_skills:[]
+            picked_skills:arr!==undefined?arr:[],
+            category:this.props.category
         };
-        this.props.onChange(this.state.value)
+        this.props.onChange(this.state.picked_skills)
     }   
 
     getPredefinedSkills=(name)=>{
@@ -68,13 +71,24 @@ export default class SkillPickerComponent extends Component {
 
     }
 
+    refresh=(category)=>{
+        console.log('refresh :',category)
+        this.setState({
+            picked_skills:[],
+            category:category
+        });
+
+        this.props.onChange([]);
+    }
+
 
     render(){
         const label=this.props.label!==undefined?this.props.label:'';
-        const category_name=this.props.category_name;
+        const category=this.props.category;
+        if (category!==this.state.category) this.refresh(category)
+        const domain=this.getPredefinedSkills(category);
 
-        console.log('category_name on skills :',category_name)
-        const domain=this.getPredefinedSkills(category_name);
+        console.log('picked_skills_render :',this.props.picked_skills);
         return (
             <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
                     <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>

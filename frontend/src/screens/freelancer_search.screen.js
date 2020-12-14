@@ -10,6 +10,9 @@ import { TEXT_SIZES } from '../utils/constants';
 import { BLACK } from '../utils/palette';
 import {BASE_URL} from '../utils/constants'
 import axios from 'axios'
+
+let FIELDS=['category','keyword','hourly_rate','fixed_price','skills'];
+
 export default class FreelancerSearchScreen extends Component {
 
     constructor(props){
@@ -25,10 +28,9 @@ export default class FreelancerSearchScreen extends Component {
     //     })
     // }
 
-    groupInputs=()=>{
+    groupInputs=(fields)=>{
         let filter={};
         let state=this.state;
-        let fields=['category','keyword','hourly_rate','fixed_price','skills'];
         fields.map(item=>{
             if (state[item]!==undefined) filter[item]=state[item]
         });
@@ -38,9 +40,10 @@ export default class FreelancerSearchScreen extends Component {
     updateInputs=async (field,value)=>{
         await this.setState({
             [field]:value
-        })
+        });
 
-      //  console.log('filter_now:',JSON.stringify(this.state)) 
+
+        console.log('update_inputs:',field,value) 
     };
 
     componentDidMount() {
@@ -48,7 +51,7 @@ export default class FreelancerSearchScreen extends Component {
     };
 
     search=()=>{
-        alert('Call API search_freelancers with filter= :'+JSON.stringify(this.groupInputs()))
+        alert('Call API search_freelancers with filter= :'+JSON.stringify(this.groupInputs(FIELDS)))
         //Call_API_Here
                 // axios.get(BASE_URL+`/search_freelancers`,{
                 //         data:{
@@ -86,6 +89,7 @@ export default class FreelancerSearchScreen extends Component {
                     {/* filters */}
                     <div style={{flex:2}}>
                         <FilterComponent
+                            category={this.state.category}
                             clickSearch={this.search}
                             updateInputs={this.updateInputs}/>
                     </div>

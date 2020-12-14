@@ -31,7 +31,7 @@ export default class UserListAdminComponent extends Component {
 
                 boxShadow:'3px 5px 3px 3px #707070'}}>
                 {/* header list */}
-                <HeaderListComponent   title='Tasks'/>
+                <HeaderListComponent   title='Users'/>
                 
                 {/* body list */}
 

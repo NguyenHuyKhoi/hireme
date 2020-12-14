@@ -37,8 +37,7 @@ export default class DashBoardTaskListScreen extends Component {
                         </text>
                         :
                         <TaskListBriefComponent tasks={tasks}/>
-                    }
-                   
+                    } 
                 </div>
 
                 

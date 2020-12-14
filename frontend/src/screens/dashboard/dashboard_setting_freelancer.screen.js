@@ -4,7 +4,7 @@ import SidebarComponent from '../../components/common/side_bar.component'
 import SettingAccountComponent from '../../components/setting/setting_account.component'
 import SettingPasswordComponent from '../../components/setting/setting_password.component'
 import SettingProfileFreelancerComponent from '../../components/setting/setting_profile_freelancer.component'
-import { routePaths, SIDEBAR_RATIO ,PADDING_BODY_DASHBOARD} from '../../utils/constants'
+import { routePaths, SIDEBAR_RATIO ,PADDING_BODY_DASHBOARD, CATEGORIES_DOMAIN} from '../../utils/constants'
 import { GRAY_6 } from '../../utils/palette'
 import HeaderListComponent from '../../components/common/header_list.component'
 import ButtonComponent from '../../components/common/button.component'
@@ -132,6 +132,17 @@ class DashboardSettingFreelancerScreen extends Component {
 
                             <div style={{marginTop:60}}>
                                 <SettingProfileFreelancerComponent 
+                                    category={
+                                        this.state!==null && this.state.category!==undefined?
+                                            this.state.category
+                                            :
+                                            setting.profile.category
+                                    }
+                                    picked_skills={setting.profile.skills!==undefined?
+                                            setting.profile.skills.map(item=>item.name)
+                                            :
+                                            []
+                                    }
                                     updateInputs={this.updateInputs}
                                     profile={setting.profile}/>
                             </div>

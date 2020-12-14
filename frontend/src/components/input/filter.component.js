@@ -13,6 +13,9 @@ export default class FilterComponent extends Component {
 
 
     render(){
+        const category=this.props.category!==undefined?this.props.category:CATEGORIES_DOMAIN[0].name;
+
+        console.log('category_filter:',category)
         return (
             <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
 
@@ -26,6 +29,12 @@ export default class FilterComponent extends Component {
                     value={CATEGORIES_DOMAIN[0].name}
                     domain={CATEGORIES_DOMAIN.map(item=>item.name)}/>
 
+                <div style={{marginTop:20}}>
+                    <SkillPickerComponent 
+                        onChange={value=>this.props.updateInputs('skills',value)}
+                        label="Skills"
+                        category={category}/>
+                </div>
                 
                 <div style={{marginTop:20}}>
                     <LabeledInputComponent
@@ -51,12 +60,7 @@ export default class FilterComponent extends Component {
                         value={[1000,5000]}/>
                 </div>
 
-                <div style={{marginTop:20}}>
-                    <SkillPickerComponent 
-                        onChange={value=>this.props.updateInputs('skills',value)}
-                        label="Skills"
-                        category_name={CATEGORIES_DOMAIN[0].name}/>
-                </div>
+                
 
             </div>
        

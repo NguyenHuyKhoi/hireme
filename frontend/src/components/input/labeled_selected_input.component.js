@@ -49,7 +49,7 @@ export default class LabeledSelectedInputComponent extends Component {
                         style={{fontSize:TEXT_SIZES.SMALL}}
                         value={option}
                         onChange={(option)=>{
-                            this.setState({value:option});
+                            this.setState({value:option.value});
                             console.log('selected_input',option.value)
                             this.props.onChange(option.value)
                         }}

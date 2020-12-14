@@ -16,6 +16,7 @@ import HeaderListComponent from '../common/header_list.component'
 export default class PostTaskProfileComponent extends Component {
 
     render(){
+        const category=this.props.category;
         return (
 
             <div style={{
@@ -39,6 +40,14 @@ export default class PostTaskProfileComponent extends Component {
                                         label='Task Name'/>
                                 </div>
 
+                                <div style={{width:'70%',marginTop:30}}>
+                                    <LabeledSelectedInputComponent
+                                        onChange={(value)=>this.props.updateInputs('price_type',value)}
+                                        label='Type'
+                                        domain={TASKS_TYPE_DOMAIN}
+                                        value={TASKS_TYPE_DOMAIN[0]} />
+                                </div>
+
                                 <div style={{width:'80%',marginTop:30}}>
                                     <RangeInputComponent 
                                         onChange={(value)=>{
@@ -50,12 +59,7 @@ export default class PostTaskProfileComponent extends Component {
                                         value={[1000,5000]}/>
                                 </div>
 
-                                <div style={{width:'100%',marginTop:30}}>
-                                    <SkillPickerComponent  
-                                        onChange={(value)=>this.props.updateInputs('skills',value)}
-                                        label='Required Skills'
-                                        category_name={CATEGORIES_DOMAIN[0].name} />
-                                </div>
+                              
 
 
                             </div>
@@ -73,12 +77,13 @@ export default class PostTaskProfileComponent extends Component {
                                 </div>
 
                                 <div style={{width:'70%',marginTop:30}}>
-                                    <LabeledSelectedInputComponent
-                                        onChange={(value)=>this.props.updateInputs('price_type',value)}
-                                        label='Type'
-                                        domain={TASKS_TYPE_DOMAIN}
-                                        value={TASKS_TYPE_DOMAIN[0]} />
+                                    <SkillPickerComponent  
+                                        onChange={(value)=>this.props.updateInputs('skills',value)}
+                                        label='Required Skills'
+                                        category={category} />
                                 </div>
+
+                               
 
                                 {/* <div style={{width:'70%',marginTop:30}}>
                                     <AttachmentsComponent
