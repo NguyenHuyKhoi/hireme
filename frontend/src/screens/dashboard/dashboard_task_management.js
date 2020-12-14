@@ -22,7 +22,7 @@ class DashBoardTaskManagementScreen extends Component {
     constructor(props){
         super(props);
         this.state={
-            task_id:1,//receiver from screen task_list ;
+            task_id:this.props.match.params.id,//receiver from screen task_list ;
             task:null,
             biddings:[],
             stages:[],
@@ -31,12 +31,70 @@ class DashBoardTaskManagementScreen extends Component {
         }
     }
 
-    componentDidMount=()=>{
-        this.setState({
-            task:api.get_detail_task,
+    getDetailTask=async ()=>{
+        let body_req={
+            task_id:this.state.task_id
+        };
+        alert('Call API get_detail_task with body = '+JSON.stringify(body_req))
+        // //Call_API_Here
+        // axios.get(BASE_URL+`/get_detail_task`,{
+        //         data:{
+        //         }
+        //     })
+        //     .then(res => {
+  
+        //         })
+        //         .catch(error => console.log(error));
+
+        await this.setState({
+            task:api.get_detail_task
+        })
+    }
+
+    getBiddingList=async ()=>{
+        let body_req={
+            task_id:this.state.task_id
+        };
+        alert('Call API get_bidding_list with body = '+JSON.stringify(body_req))
+        // //Call_API_Here
+        // axios.get(BASE_URL+`/get_bidding_list`,{
+        //         data:{
+        //         }
+        //     })
+        //     .then(res => {
+  
+        //         })
+        //         .catch(error => console.log(error));
+
+        await this.setState({
             biddings:api.get_bidding_list,
+        })
+    }
+
+    getStageList=async ()=>{
+        let body_req={
+            task_id:this.state.task_id
+        };
+        alert('Call API get_stage_list with body = '+JSON.stringify(body_req))
+        // //Call_API_Here
+        // axios.get(BASE_URL+`/get_stage_list`,{
+        //         data:{
+        //         }
+        //     })
+        //     .then(res => {
+  
+        //         })
+        //         .catch(error => console.log(error));
+
+        await this.setState({
             stages:api.get_stage_list,
         })
+    }
+
+    componentDidMount=async()=>{
+        this.getDetailTask();
+        this.getBiddingList();
+        this.getStageList();
     }
 
     renderBody=()=>{
@@ -73,10 +131,14 @@ class DashBoardTaskManagementScreen extends Component {
                         </div>
             case 4:
                 return  <div style={{display:'flex',width:'100%',height:'80vh'}}>
-                            <PaymentTabComponent  task_id={this.state.task_id}/>
+                            <PaymentTabComponent
+                                task_id={this.state.task_id}/>
                         </div>
         }
-    }
+    };
+
+
+
     render(){
         return (
             <div style={{width:'100vw',backgroundColor: GRAY_6,

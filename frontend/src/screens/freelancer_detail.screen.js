@@ -50,7 +50,7 @@ export default class FreelancerDetailScreen extends Component {
         alert('Call API get_detail_freelancer and get_reviews with freelancer_id= '+this.state.freelancer_id)
         this.setState({
             freelancer:api.get_detail_freelancer,
-            reviews:api.get_reviews
+            reviews:api.get_reviews_freelancer
         })
     }
     
@@ -91,7 +91,7 @@ export default class FreelancerDetailScreen extends Component {
                             {/* description */}
                             <div style={{marginTop:30}}>
                                 <DescriptionComponent 
-                                    title='About me'
+                                    title='About Freelancer'
                                     content={freelancer.description}/>
                             </div>
                         

@@ -18,16 +18,68 @@ export default class ChatComponent extends Component {
             user_id:this.props.user_id,// chat is conversations of normal user ;
             user_type:this.props.user_type,
             chat_list:null,
-            conversation:null
+            chat_id:null,
+            conversation:null,
+            message:''
         }
     }
 
-    componentDidMount=()=>{
-        this.setState({
-            chat_list:api.get_chat_list,
-            conversation:api.get_conversation
+    getChatList=async()=>{
+        let body_req={
+            task_id:this.props.task_id,
+            user_id:this.props.user_id
+        }
+        alert('Call API get_chat_list with body= :'+JSON.stringify(body_req))
+        //Call_API_Here
+                // axios.get(BASE_URL+`/get_chat_list`,{
+                //         data:{
+                //         }
+                //     })
+                //     .then(res => {
+                //         })
+                //         .catch(error => console.log(error));
+        await this.setState({
+            chat_list:api.get_chat_list
+        });
+    }
+
+    getConversation=async (chat_id)=>{
+        let body_req={
+            chat_id:chat_id
+        }
+        alert('Call API get_conversation with body= :'+JSON.stringify(body_req))
+        //Call_API_Here
+                // axios.get(BASE_URL+`/get_conversation`,{
+                //         data:{
+                //         }
+                //     })
+                //     .then(res => {
+                //         })
+                //         .catch(error => console.log(error));
+        await this.setState({
+            conversation:api.get_conversation,
+            chat_id:chat_id
         })
     }
+
+    componentDidMount=async ()=>{
+        await this.getChatList();
+        await this.getConversation(this.state.chat_list[0].id)
+    };
+
+
+    sendMessage=()=>{
+        if (this.state.message===undefined || this.state.message===''){
+            alert('Please enter some thing before send ....')
+        }
+        else {
+            alert('Using socket send message = '+this.state.message)
+        }
+        this.setState({
+            message:''
+        })
+    }
+
     render(){
         const chat_list=this.state.chat_list;
         const conversation=this.state.conversation;
@@ -42,7 +94,9 @@ export default class ChatComponent extends Component {
                     null
                     :
                     <div style={{display:'flex',flex:5 }}>
-                        <ChatListComponent chat_list={this.state.chat_list}/>
+                        <ChatListComponent
+                            getConversation={this.getConversation} 
+                            chat_list={this.state.chat_list}/>
                     </div>
                 }
                 {
@@ -50,7 +104,10 @@ export default class ChatComponent extends Component {
                     null
                     :
                     <div style={{display:'flex',flex:9}}>
-                        <ConversationComponent conversation={this.state.conversation}/>
+                        <ConversationComponent 
+                            typeMessage={value=>this.setState({message:value})}
+                            sendMessage={this.sendMessage}
+                            conversation={this.state.conversation}/>
                     </div>
                 }
             

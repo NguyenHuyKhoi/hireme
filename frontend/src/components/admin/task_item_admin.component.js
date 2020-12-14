@@ -121,7 +121,7 @@ export default class TaskItemBriefAdminComponent extends Component {
 
                 <div style={{flex:4,display:'flex',justifyContent: 'center',alignItems: 'center'}}>
                     <Link 
-                        to={routePaths.TASK_DETAIL}
+                        to={routePaths.TASK_DETAIL+`/${task.id}`}
                         style={{textDecoration:'none',width:'80%',marginRight: 15}}>
                         <ButtonComponent label='Detail' color={BLUE_1}/>
                     </Link>

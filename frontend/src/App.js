@@ -64,7 +64,7 @@ export default class  App extends Component {
 							<Route path={routePaths.DASHBOARD_HOME} component={DashBoardHomeScreen}/>
 							<Route path={routePaths.DASHBOARD_TASK_POST} component={DashBoardTaskPostScreen}/>
 							<Route path={routePaths.DASHBOARD_TASK_LIST} component={DashBoardTaskListScreen}/>
-							<Route path={routePaths.DASHBOARD_TASK_MANAMENT} component={DashBoardTaskManagementScreen}/>
+							<Route path={routePaths.DASHBOARD_TASK_MANAMENT+'/:id'} component={DashBoardTaskManagementScreen}/>
 							<Route path={routePaths.DASHBOARD_CHAT} component={DashBoardChatScreen}/>
 							<Route path={routePaths.DASHBOARD_PAYMENT} component={DashBoardPaymentScreen}/>
 							<Route path={routePaths.DASHBOARD_SETTING_FREELANCER} component={DashboardSettingFreelancerScreen}/>

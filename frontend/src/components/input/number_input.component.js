@@ -20,6 +20,7 @@ export default class NumberInputComponent extends Component {
         const domain=this.props.domain;
         const unit=this.props.unit!==undefined?this.props.unit:'$';
         const label=this.props.label;
+        const step=this.props.step!==undefined?this.props.step:1
         return (
             <div style={{display:'flex',width: '100%',flexDirection: 'column'}}>
                 <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,marginBottom:10}}>
@@ -39,7 +40,7 @@ export default class NumberInputComponent extends Component {
                 </div>
                 {/* <div style={{marginTop:15,width:'80%',height:5,backgroundColor: '#392583'}}> */}
                     <Range
-                        step={1}   
+                        step={step}   
                         min={domain[0]}      
                         max={domain[1]}
                         values={value}

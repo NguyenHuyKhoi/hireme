@@ -4,6 +4,7 @@ import Modal from 'react-modal';
 import { TEXT_SIZES } from '../../utils/constants';
 import { BLACK, GRAY_3, GREEN_1, RED_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
+import NumberInputComponent from './number_input.component';
 import TextareaInputComponent from './textarea_input.component'
 export default class ReviewTaskModal extends Component {
 
@@ -30,8 +31,15 @@ export default class ReviewTaskModal extends Component {
                             </text>
 
                             <TextareaInputComponent     
-                                onChange={value=>this.props.onChangeContent(value)}
+                                onChange={value=>this.props.updateInputs('modal_content',value)}
                                 hide_label={true}/>
+
+                            {/* <NumberInputComponent 
+                                label='Rate'
+                                domain={[1,5]}
+                                step={0.1}
+                                value={[2.5]}
+                                onChange={value=>this.props.updateInputs('rate_score',value[0])} /> */}
                         
 
                             <div style={{width: '100%',display: 'flex',flexDirection: 'row',

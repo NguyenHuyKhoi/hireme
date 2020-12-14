@@ -40,11 +40,6 @@ export default class TaskDetailScreen extends Component {
         })
     }
 
-    reportTask=()=>{
-        alert('report task  ');
-        this.closeReportModal();
-    }
-
     componentDidMount=()=>{
         // //Call_API_Here
         // axios.get(BASE_URL+`/get_detail_task`,{
@@ -74,6 +69,62 @@ export default class TaskDetailScreen extends Component {
         })
     }
 
+    updateInputs=(field,value)=>{
+        console.log('update_input:',field,value)
+        this.setState({
+            [field]:value
+        })
+    }
+
+    placeBidding=()=>{
+      
+        if (this.state.bidding_time===undefined){
+            alert('Please enter estimated time .')
+        }
+        else  if (this.state.bidding_cost===undefined){
+            alert('Please enter estimated cost .')
+        }
+        else {
+            let body_req={
+                task_id:this.state.task.id,
+                bidding_time:this.state.bidding_time,
+                bidding_cost:this.state.bidding_cost
+            }
+            alert('Call API place_bidding with body =  '+JSON.stringify(body_req))
+            //Call_API_Here
+            // axios.get(BASE_URL+`/place_bidding`,{
+            //         data:{
+            //         }
+            //     })
+            //     .then(res => {
+            //     })
+            //     .catch(error => console.log(error));
+
+        } 
+    }
+
+    reportTask=()=>{
+        if (this.state.modal_content===undefined || this.state.modal_content===''){
+            alert('Please enter the reason why you report this task !')
+        }
+        else {
+            let body_req={
+                task_id:this.state.task.id,
+                content:this.state.modal_content,
+            }
+            //Call_API_Here
+            // axios.get(BASE_URL+`/report_task`,{
+            //         data:{
+            //         }
+            //     })
+            //     .then(res => {
+            //     })
+            //     .catch(error => console.log(error));
+            alert('Call API report_task with body =  '+JSON.stringify(body_req));
+            this.closeReportModal();
+        }
+    }
+
     render(){
         const task=this.state.task;
         const biddings=this.state.biddings;
@@ -86,6 +137,7 @@ export default class TaskDetailScreen extends Component {
                 <HeaderBarComponent/>
 
                 <ReportTaskModal
+                    updateInputs={this.updateInputs}
                     is_open={this.state.open_report_modal} 
                     clickBack={this.closeReportModal}
                     clickReport={this.reportTask}
@@ -168,7 +220,9 @@ export default class TaskDetailScreen extends Component {
                                 {/* place bid */}
 
                                 <div style={{marginTop:50}}>
-                                    <TaskPlaceBidComponent/>
+                                    <TaskPlaceBidComponent
+                                        placeBidding={this.placeBidding}
+                                        updateInputs={this.updateInputs}/>
                                 </div>
 
                                 <div style={{width: '100%',marginTop:50}}>

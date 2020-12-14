@@ -78,7 +78,8 @@ export default class ConversationComponent extends Component {
                 </div>
 
                 <ButtonInputComponent 
-                    onChange={value=>{}}
+                    onChange={this.props.typeMessage}
+                    onClick={this.props.sendMessage}
                     btn_label='Send'  />
             </div>
         )

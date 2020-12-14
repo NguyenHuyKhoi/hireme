@@ -99,15 +99,18 @@ export default class ChatListComponent extends Component {
                 <div style={{  display: 'flex',flex:1,flexDirection: 'column',
                     overflowY: 'scroll'}}>
                     {
-                        chat_list.map((chat,index)=>(
+                        chat_list.map((item,index)=>(
                             <ChatItem 
                                 key={''+index}
-                                chat={chat} 
+                                chat={item} 
                                 index={index} 
                                 is_current_chat={index===this.state.current_chat_index}
-                                onClick={()=>this.setState({
-                                    current_chat_index:index
-                                })}
+                                onClick={()=>{
+                                    this.props.getConversation(item.id)
+                                    this.setState({
+                                        current_chat_index:index
+                                    })
+                                }}
                             />
                         ))
                     }

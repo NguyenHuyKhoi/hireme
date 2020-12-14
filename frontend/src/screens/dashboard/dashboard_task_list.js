@@ -5,7 +5,10 @@ import TaskListBriefComponent from '../../components/task/task_list_brief.compon
 import { SIDEBAR_RATIO,PADDING_BODY_DASHBOARD, TEXT_SIZES } from '../../utils/constants'
 import { BLACK, GRAY_6 } from '../../utils/palette'
 import api from '../../sample_db/fake_api_responses.json'
-export default class DashBoardTaskListScreen extends Component {
+import {connect }from 'react-redux'
+import * as action from '../../redux/action/user.action'
+
+class DashBoardTaskListScreen extends Component {
     constructor(props){
         super(props);
         this.state={
@@ -14,6 +17,21 @@ export default class DashBoardTaskListScreen extends Component {
     }
 
     componentDidMount=()=>{
+        let body_req={
+            user_id:this.props.user_infor.user_id,
+            user_type:this.props.user_infor.user_type
+        }
+        alert('Call API get_task_list with body= :'+JSON.stringify(body_req))
+        //Call_API_Here
+                // axios.get(BASE_URL+`/search_freelancers`,{
+                //         data:{
+                //             count:20,
+                //             filter:this.groupInputs()
+                //         }
+                //     })
+                //     .then(res => {
+                //         })
+                //         .catch(error => console.log(error));
         this.setState({
             tasks:api.get_task_list
         })
@@ -46,3 +64,10 @@ export default class DashBoardTaskListScreen extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+	user_infor: state.user_infor,
+});
+
+export default connect(mapStateToProps,action)(DashBoardTaskListScreen)
+

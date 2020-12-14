@@ -27,7 +27,7 @@ export default class TaskPlaceBidComponent extends Component {
                         
                         <NumberInputComponent 
                             label='Enter bidding cost '
-                            onChange={value=>{}}
+                            onChange={value=>this.props.updateInputs('bidding_cost',value)}
                             domain={FIXED_PRICE_DOMAIN}
                             value={[4000]}/>
                      
@@ -35,8 +35,8 @@ export default class TaskPlaceBidComponent extends Component {
                         <div style={{width: '100%',marginTop:20}}>
                             <NumberInputComponent
                                 label='Enter bidding time (day) '
+                                onChange={value=>this.props.updateInputs('bidding_time',value)}
                                 domain={BIDDING_TIME_DOMAIN}
-                                onChange={value=>{}}
                                 unit=' days'
                                 value={[20]}/>
 
@@ -44,7 +44,9 @@ export default class TaskPlaceBidComponent extends Component {
                       
 
                         <div style={{marginTop: 40,width: '100%'}}>
-                            <ButtonComponent  label='Place A Bid'/>
+                            <ButtonComponent  
+                                onClick={this.props.placeBidding}
+                                label='Place A Bid'/>
                         </div>
                     
                 </div>

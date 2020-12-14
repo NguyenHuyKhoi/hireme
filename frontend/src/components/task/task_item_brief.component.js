@@ -89,7 +89,7 @@ export default class TaskItemBriefComponent extends Component {
 
                 <div style={{flex:1,display:'flex',justifyContent: 'center',alignItems: 'center'}}>
                     <Link 
-                        to={routePaths.DASHBOARD_TASK_MANAMENT}
+                        to={routePaths.DASHBOARD_TASK_MANAMENT+`/${task.id}`}
                         style={{textDecoration:'none',width:'80%'}}>
                         <ButtonComponent label='Detail'/>
                     </Link>

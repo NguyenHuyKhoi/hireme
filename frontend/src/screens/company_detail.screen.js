@@ -47,7 +47,7 @@ export default class CompanyDetailScreen extends Component {
         alert('Call API get_detail_company and get_reviews with company_id= '+this.state.company_id)
         this.setState({
             company:api.get_detail_company,
-            reviews:api.get_reviews
+            reviews:api.get_reviews_company
         })
     }
     

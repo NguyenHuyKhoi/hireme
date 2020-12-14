@@ -117,10 +117,12 @@ export default class PaymentTabComponent extends Component {
     constructor(props){
         super(props);
         this.state={
+            task_id:this.props.task_id,
             open_giveup_modal:false,
             open_review_modal:false,
             open_report_modal:false,
-            modal_content:''
+            modal_content:'',
+            rate_score:2.5
         }
     }
 
@@ -175,18 +177,62 @@ export default class PaymentTabComponent extends Component {
     }
 
     giveupTask=()=>{
-        alert('give up task')
+        let body_req={
+            task_id:this.state.task_id,
+            content:this.state.modal_content
+        };
+        alert('Call API give_up_task with body = '+JSON.stringify(body_req))
+        // //Call_API_Here
+        // axios.get(BASE_URL+`/give_up_task`,{
+        //         data:{
+        //         }
+        //     })
+        //     .then(res => {
+  
+        //         })
+        //         .catch(error => console.log(error));
         this.closeGiveupModal();
     }
 
     reviewTask=()=>{
-        alert('review task');
+        let body_req={
+            task_id:this.state.task_id,
+            content:this.state.modal_content
+        };
+        alert('Call API review_task with body = '+JSON.stringify(body_req))
+        // //Call_API_Here
+        // axios.get(BASE_URL+`/review_task`,{
+        //         data:{
+        //         }
+        //     })
+        //     .then(res => {
+        //         })
+        //         .catch(error => console.log(error));
         this.closeReviewModal();
     }
 
     reportTask=()=>{
-        alert('report task');
+        let body_req={
+            task_id:this.state.task_id,
+            content:this.state.modal_content
+        };
+        alert('Call API report_task with body = '+JSON.stringify(body_req))
+        // //Call_API_Here
+        // axios.get(BASE_URL+`/report_task`,{
+        //         data:{
+        //         }
+        //     })
+        //     .then(res => {
+  
+        //         })
+        //         .catch(error => console.log(error));
         this.closeReportModal();
+    }
+
+    updateInputs=(field,value)=>{
+        this.setState({
+            [field]:value
+        })
     }
 
     render(){
@@ -195,22 +241,23 @@ export default class PaymentTabComponent extends Component {
         return (
             <div  style={{flex:1,flexDirection:'column',display:'flex'} }> 
                 <GiveupTaskModal
-                    onChangeContent={value=>this.setState({modal_content:value})}
+                    updateInputs={this.updateInputs}
                     is_open={this.state.open_giveup_modal}
                     clickBack={this.closeGiveupModal}
                     clickGiveup={this.giveupTask}/>
 
                 <ReviewTaskModal
-                    onChangeContent={value=>this.setState({modal_content:value})} 
+                    updateInputs={this.updateInputs} 
+                    onChangeRate={value=>this.setState({rate_score:value[0]})}
                     is_open={this.state.open_review_modal}
                     clickBack={this.closeReviewModal}
-                    clickReview={this.reviewTask}/>
+                    clickReview={this.props.reviewTask}/>
 
                 <ReportTaskModal
-                    onChangeContent={value=>this.setState({modal_content:value})}
+                    updateInputs={this.updateInputs}
                     is_open={this.state.open_report_modal}
                     clickBack={this.closeReportModal}
-                    clickReport={this.reportTask}/>
+                    clickReport={this.props.reportTask}/>
 
                 <div style={{flex:1}}/>
                 <div style={{flex:5,width:'100%',display:'flex',flexDirection: 'row',

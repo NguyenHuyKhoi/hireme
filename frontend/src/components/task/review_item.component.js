@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
 import { routePaths, TEXT_SIZES } from '../../utils/constants';
-import { collapseText } from '../../utils/helper';
+import { collapseText, convertFullDateToHour } from '../../utils/helper';
 import { BLACK, BLUE_2, WHITE, YELLOW_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component'
 import RateScoreComponent from '../common/rate_score.component'
@@ -40,7 +40,7 @@ export default class ReviewItemComponent extends Component {
                     flexDirection: 'column'}}>
 
                     <Link
-                        to={routePaths.TASK_DETAIL}
+                        to={routePaths.TASK_DETAIL+`/${task.id}`}
                         style={{fontSize:TEXT_SIZES.BIG,color:BLACK,textDecoration:'none'}}>
                         {'On task : '+collapseText(task.name,30)} 
                     </Link>
@@ -48,13 +48,16 @@ export default class ReviewItemComponent extends Component {
                     <div style={{display:'flex',width:'100%',flexDirection: 'row',
                         justifyContent: 'space-between',alignItems: 'center',marginTop:10}}>
                         <Link
-                            to={review.is_company?routePaths.COMPANY_DETAIL:routePaths.FREELANCER_DETAIL}
+                            to={review.is_company?
+                                routePaths.COMPANY_DETAIL+`/${reviewer.id}`
+                                :
+                                routePaths.FREELANCER_DETAIL+`/${reviewer.id}`}
                             style={{fontSize:TEXT_SIZES.SMALL,color:BLACK,textDecoration:'none'}}>
                                     {reviewer.name}
                         </Link>
                     
                         <text style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
-                            {review.time}
+                            {convertFullDateToHour(review.time)}
                         </text>
 
                         <SmallFieldComponent 
