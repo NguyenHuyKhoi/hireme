@@ -12,13 +12,12 @@ export default class TaskNoteListComponent extends Component {
         const notes=this.props.notes;
         console.log('notes:',notes);
         return (
-            <div style={{width:'100%',alignSelf: 'baseline',
-                display:'flex',flexDirection: 'column'}}>
-                <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>
+            <div style={styles.container}>
+                <text style={styles.title}>
                     Notes:
                 </text>
 
-                <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
+                <div style={styles.body}>
                     <TaskNoteItemComponent />
                     {
                         notes.map((item,index)=>
@@ -33,5 +32,23 @@ export default class TaskNoteListComponent extends Component {
         
     
         )
+    }
+}
+
+const styles={
+    container:{
+        width:'100%',
+        alignSelf: 'baseline',
+        display:'flex',
+        flexDirection: 'column'
+    },
+    title:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK
+    },
+    body:{
+        width:'100%',
+        display:'flex',
+        flexDirection: 'column'
     }
 }

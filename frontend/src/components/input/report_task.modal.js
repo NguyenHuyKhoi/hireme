@@ -12,44 +12,70 @@ export default class ReportTaskModal extends Component {
         return (
             <Modal
                 isOpen={is_open}
-                style={{ 
-                    content : {
-                        top                   : '50%',
-                        left                  : '50%',
-                        right                 : 'auto',
-                        bottom                : 'auto',
-                        marginRight           : '-50%',
-                        transform             : 'translate(-50%, -50%)'
-                        } }}>
-                        <div style={{display: 'flex',flexDirection: 'column',
-                            alignItems:'center',justifyContent:'center',
-                            width: '30vw',height: '40wh',borderRadius:6,
-                            padding:15}}>
-                            <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
-                                Why do you report this task ?
-                            </text>
+                style={styles.modal}>
 
-                            <TextareaInputComponent 
-                                onChange={value=>this.props.updateInputs('modal_content',value)}
-                                hide_label={true}  />
-                        
+                <div style={styles.container}>
+                    <text style={styles.title}>
+                        Why do you report this task ?
+                    </text>
 
-                            <div style={{width: '100%',display: 'flex',flexDirection: 'row',
-                                marginTop:25,
-                                justifyContent:'space-between'}}>
-                                <div style={{flex:1,marginRight: 50}}>
-                                    <ButtonComponent label='Back' 
-                                        onClick={this.props.clickBack}/>
-                                </div>
-                                <div style={{flex:1}}>
-                                    <ButtonComponent label='Report' color={RED_1}
-                                        onClick={this.props.clickReport}/>
-                                </div>
-                            </div>
+                    <TextareaInputComponent 
+                        onChange={value=>this.props.updateInputs('modal_content',value)}
+                        hide_label={true}  />
+                
+
+                    <div style={styles.footer}>
+                        <div style={{...styles.btn_container,marginRight: 50}}>
+                            <ButtonComponent label='Back' 
+                                onClick={this.props.clickBack}/>
                         </div>
-                </Modal>
-                    
+                        <div style={styles.btn_container}>
+                            <ButtonComponent label='Report' color={RED_1}
+                                onClick={this.props.clickReport}/>
+                        </div>
+                    </div>
+                </div>
+            </Modal>
+            
     
         )
+    }
+}
+
+
+const styles={
+    modal:{ 
+        content : {
+            top                   : '50%',
+            left                  : '50%',
+            right                 : 'auto',
+            bottom                : 'auto',
+            marginRight           : '-50%',
+            transform             : 'translate(-50%, -50%)'
+            }
+    },
+    container:{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems:'center',
+        justifyContent:'center',
+        width: '30vw',
+        height: '40wh',
+        borderRadius:6,
+        padding:15
+    },
+    title:{
+        fontSize: TEXT_SIZES.NORMAL,
+        color:BLACK
+    },
+    footer:{
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop:25,
+        justifyContent:'space-between'
+    },
+    btn_container:{
+        flex:1
     }
 }

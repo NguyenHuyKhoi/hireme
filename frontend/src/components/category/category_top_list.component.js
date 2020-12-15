@@ -8,19 +8,13 @@ export default class CategoryTopListComponent extends Component {
     render(){
         const categories=this.props.categories;
         return (
-            <div style={{
-                width:'100vw',display:'flex',
-                alignSelf: 'baseline',
-                flexDirection: 'column',alignItems: 'center'}}>
+            <div style={styles.container}>
 
-            <text style={{fontSize:TEXT_SIZES.HEADER,color:BLACK,marginTop:50}}>
+            <text style={styles.title}>
                 Popular Task Categories 
             </text>
 
-            <div style={{
-                marginTop:20,width:'80vw',
-                display:'flex',flexDirection: 'row',flexWrap: 'wrap',
-                alignItems: 'flex-start'}}>
+            <div style={styles.body}>
                 {
                     categories.map((item,index)=>
                         <CategoryItemComponent key={''+index} category={item} index={index}/>
@@ -31,5 +25,29 @@ export default class CategoryTopListComponent extends Component {
         </div>
     
         )
+    }
+}
+
+
+const styles={
+    container :{
+        width:'100vw',
+        display:'flex',
+        alignSelf: 'baseline',
+        flexDirection: 'column',
+        alignItems: 'center'
+    },
+    title:{
+        fontSize:TEXT_SIZES.HEADER,
+        color:BLACK,
+        marginTop:50
+    },
+    body:{
+        marginTop:20,
+        width:'80vw',
+        display:'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignItems: 'flex-start'
     }
 }

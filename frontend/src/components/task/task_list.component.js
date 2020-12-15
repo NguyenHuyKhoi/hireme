@@ -27,13 +27,14 @@ export default class TaskListComponent extends Component {
         const r=this.state.last_item_index;
         console.log('freelancer_list',l,r)
         return (
-            <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
-                {/* header list */}
+
+            <div style={styles.container}>
+              
                 <HeaderListComponent title='Tasks' is_sort={true}/>
                 
-                {/* body list */}
+        
 
-                <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
+                <div style={styles.body}>
                 {
                     tasks.slice(l,r+1).map((item,index)=>
                         <TaskItemComponent task={item} key={''+index}/>
@@ -49,5 +50,19 @@ export default class TaskListComponent extends Component {
                     
     
         )
+    }
+}
+
+
+const styles={
+    container:{
+        width:'100%',
+        display:'flex',
+        flexDirection: 'column'
+    },
+    body:{
+        width:'100%',
+        display:'flex',
+        flexDirection: 'column'
     }
 }

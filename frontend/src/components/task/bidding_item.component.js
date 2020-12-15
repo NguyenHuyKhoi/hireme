@@ -46,29 +46,27 @@ export default class BiddingItemComponent extends Component {
         const user_type=this.props.user_type;
         console.log('bidding_item',bidding.intended_time);
         return (
-            <div style={{width:'100%',display:'flex',flexDirection:'column',
+            <div style={{
+                ...styles.container,
                 backgroundColor:this.props.index%2==0?WHITE:BLUE_2}}>
-                <div  style={{width:'100%',height:160,flexDirection:'row', display:'flex',
-                    alignItems: 'center',
+
+                <div  style={{
+                    ...styles.row1,
                     backgroundColor:this.props.index%2==0?WHITE:BLUE_2}}>   
 
                         <div style={{flex:1}}/>
                     
-                        <div style={{flex:1.5,height:'100%',
-                            display:'flex',justifyContent:'center',alignItems:'center'}}>
+                        <div style={styles.row1_col1}>
                             <img 
                                 src={freelancer.avatar} 
-                                style={{height: '50%',aspectRatio:1,borderRadius:'50%'}}/>
+                                style={styles.avatar}/>
                         </div>
                             
-                        <div style={{display:'flex',flex:7,marginLeft:15,
-                                justifyContent: 'center',
-                                flexDirection: 'column'}}>
+                        <div style={styles.row1_col2}>
 
                             <Link
                                 to={routePaths.FREELANCER_DETAIL}
-                                style={{ textDecoration:'none',fontSize: TEXT_SIZES.BIG,  
-                                color: BLACK,marginBottom: 5}}>
+                                style={styles.freelancer_name}>
                                 {freelancer.name}
                             </Link>
 
@@ -84,7 +82,7 @@ export default class BiddingItemComponent extends Component {
                             
                         </div> 
 
-                        <div style={{flex:1.5,height:'100%',display: 'flex',justifyContent: 'center',alignItems: 'center',}}>
+                        <div style={styles.row1_col3}>
                             <BiddingBudget 
                                 intended_time={bidding.intended_time}
                                 intended_cost={bidding.intended_cost}/>
@@ -99,21 +97,26 @@ export default class BiddingItemComponent extends Component {
 
                 {
                     user_type!==undefined && user_type==='company' ?
-                    <div style={{width:'100%',alignSelf:'baseline', paddingBottom:30,display: 'flex',
-                        justifyContent:'space-between',alignItems: 'center',
-                    }}> 
+                    <div style={styles.row2}> 
+
                         <div style={{flex:1.5}}/>
-                        <div style={{flex:1,marginRight:20}}>
+
+                        <div style={styles.btn_container}>
                             <ButtonComponent color={BLUE_1} label='Accept'/>
                         </div>
+
                         <div style={{flex:0.3}}/>
-                        <div style={{flex:1,marginRight:20}}>
+
+                        <div style={styles.btn_container}>
                             <ButtonComponent color={YELLOW_1} label='Chat'/>
                         </div>
+
                         <div style={{flex:0.3}}/>
-                        <div style={{flex:1}}>
+
+                        <div style={styles.btn_container}>
                             <ButtonComponent color={GRAY_3} label='Remove'/>
                         </div>
+
                         <div style={{flex:1.5}}/>
                     </div>
                     :
@@ -127,38 +130,62 @@ export default class BiddingItemComponent extends Component {
 
 
 const styles={
-    
-    company_actions:{
-        width:'100%', marginTop:20,display: 'flex',justifyContent:'space-between',alignItems: 'center',
-    },
-    avatar:{ 
-        width:70,
-        height:70,
-        borderRadius: 35
-    },
-    center:{
-        marginLeft:15,
-        flexDirection: 'column',
+    container:{
+        width:'100%',
         display:'flex',
-        flex:1,
+        flexDirection:'column'
     },
-    freelancer_name :{ fontSize: 25,  color: '#000000',marginBottom: 5},
-    bidder_infor:{
-        borderRadius: 5,
-        width:100,
-        height:60,
-        flexDirection: 'column',
-        justifyContent: 'center',
+    row1:{
+        width:'100%',
+        height:160,
+        flexDirection:'row', 
+        display:'flex',
         alignItems: 'center',
-        backgroundColor: '#3F50CD',
+    },
+
+    row1_col1:{
+        flex:1.5,
+        height:'100%',
         display:'flex',
-        alignSelf: 'baseline'
+        justifyContent:'center',
+        alignItems:'center'
     },
-    intended_cost :{
-        fontSize: 20,color:'#ffffff'
+    avatar:{
+        height: '50%',
+        aspectRatio:1,
+        borderRadius:'50%'
     },
-    intended_time :{
-        fontSize: 15,color:'#ffffff'
+    row1_col1:{
+        display:'flex',
+        flex:7,
+        marginLeft:15,
+        justifyContent: 'center',
+        flexDirection: 'column'
+    },
+    freelancer_name:{ 
+        textDecoration:'none',
+        fontSize: TEXT_SIZES.BIG,  
+        color: BLACK,
+        marginBottom: 5
+    },
+    row1_col3:{
+        flex:1.5,
+        height:'100%',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    row2:{
+        width:'100%',
+        alignSelf:'baseline', 
+        paddingBottom:30,
+        display: 'flex',
+        justifyContent:'space-between',
+        alignItems: 'center',
+    },
+    btn_container:{
+        flex:1,
+        marginRight:20
     }
 }
 

@@ -9,21 +9,15 @@ export default class TaskPlaceBidComponent extends Component {
     render(){
         return (
             
-            <div style={{width:'100%',borderRadius:10,height: 400,
-            boxShadow:'5px 5px 5px #707070',
-            display:'flex',flexDirection: 'column',alignSelf: 'baseline'}}>
+            <div style={styles.container}>
 
-                <div style={{flex:1,
-                    display:'flex',justifyContent: 'center',alignItems: 'center',backgroundColor:GRAY_4}}>
-                    <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>
+                <div style={styles.header}>
+                    <text style={styles.header_text}>
                             Bidding on task
                     </text>
                 </div>
-                <div style={{flex:5,
-                        padding:20,
-                        display:'flex',flexDirection: 'column',
-                        justifyContent: 'center',alignItems: 'center',
-                        backgroundColor: GRAY_5}}>
+
+                <div style={styles.body}>
                         
                         <NumberInputComponent 
                             label='Enter bidding cost '
@@ -43,7 +37,7 @@ export default class TaskPlaceBidComponent extends Component {
                         </div>
                       
 
-                        <div style={{marginTop: 40,width: '100%'}}>
+                        <div style={styles.btn_container}>
                             <ButtonComponent  
                                 onClick={this.props.placeBidding}
                                 label='Place A Bid'/>
@@ -51,10 +45,8 @@ export default class TaskPlaceBidComponent extends Component {
                     
                 </div>
 
-                <div style={{flex:1,
-                    display:'flex',justifyContent: 'center',alignItems: 'center',
-                        backgroundColor: GRAY_2}}>
-                    <text style={{fontSize:TEXT_SIZES.SMALL,color:WHITE}}>
+                <div style={styles.footer}>
+                    <text style={styles.footer_text}>
                         More feasible cost, more chances.
                     </text>
                 </div>
@@ -63,5 +55,52 @@ export default class TaskPlaceBidComponent extends Component {
         
     
         )
+    }
+}
+
+const styles={
+    container:{
+        width:'100%',
+        borderRadius:10,
+        height: 400,
+        boxShadow:'5px 5px 5px #707070',
+        display:'flex',
+        flexDirection: 'column',
+        alignSelf: 'baseline'
+    },
+    header:{
+        flex:1,
+        display:'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor:GRAY_4
+    },
+    header_text:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK
+    },
+    body:{
+        flex:5,
+        padding:20,
+        display:'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: GRAY_5
+    },
+    btn_container:{
+        marginTop: 40,
+        width: '100%'
+    },
+    footer:{
+        flex:1,
+        display:'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: GRAY_2
+    },
+    footer_text:{
+        fontSize:TEXT_SIZES.SMALL,
+        color:WHITE
     }
 }

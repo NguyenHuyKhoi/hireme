@@ -11,12 +11,10 @@ class Item extends Component{
         return (
             <div
                 onClick={this.props.onClick} 
-                style={{display:'flex',marginRight:10,marginTop:7,
-                    justifyContent: 'center',alignItems: 'center',
-                    borderRadius:3,padding: 7,
+                style={{...styles.item_container,
                     backgroundColor: is_picked?BLUE_1:GRAY_3}}>
-            <text style={{fontSize:TEXT_SIZES.SMALL,
-                    color: is_picked?WHITE:GRAY_1}}>
+            <text style={{...styles.item_name,
+                        color: is_picked?WHITE:GRAY_1}}>
                 {item.name} 
             </text>
         </div>
@@ -89,14 +87,15 @@ export default class SkillPickerComponent extends Component {
         const domain=this.getPredefinedSkills(category);
 
         console.log('picked_skills_render :',this.props.picked_skills);
+
         return (
-            <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
-                    <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>
+
+            <div style={styles.container}>
+                    <text style={styles.label}>
                         {label}
                     </text>
                     
-                    <div style={{marginTop:5,width:'100%',alignSelf: 'baseline',display:'flex',
-                        flexDirection: 'row',flexWrap:'wrap',alignItems: 'flex-start'}}>
+                    <div style={styles.body}>
                         {
                             domain.map((item,index)=>{
                            //     console.log('Item in SkillPicker :',item)
@@ -117,5 +116,38 @@ export default class SkillPickerComponent extends Component {
                 </div>
 
         )
+    }
+}
+
+const styles={
+    container:{
+        display:'flex',
+        flex:1,
+        flexDirection: 'column'
+    },
+    label:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK
+    },
+    body:{
+        marginTop:5,
+        width:'100%',
+        alignSelf: 'baseline',
+        display:'flex',
+        lexDirection: 'row',
+        flexWrap:'wrap',
+        alignItems: 'flex-start'
+    },
+    item_container:{
+        display:'flex',
+        marginRight:10,
+        marginTop:7,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius:3,
+        padding: 7
+    },
+    item_name:{
+        fontSize:TEXT_SIZES.SMALL
     }
 }

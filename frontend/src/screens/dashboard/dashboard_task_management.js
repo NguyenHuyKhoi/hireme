@@ -141,13 +141,12 @@ class DashBoardTaskManagementScreen extends Component {
 
     render(){
         return (
-            <div style={{width:'100vw',backgroundColor: GRAY_6,
-                display:'flex',flexDirection: 'row'}}>
+            <div style={styles.container}>
 
-                {/* sidebar */}
                 <SidebarComponent/>
-                {/* body */}
-                <div style={{display:'flex',flex:SIDEBAR_RATIO,flexDirection: 'column',padding:PADDING_BODY_DASHBOARD}}>
+
+
+                <div style={styles.body}>
                     <TaskTabsBarComponent 
                         focus_tab_index={this.state.focus_tab_index}
                         onClickTab={(index)=>
@@ -159,14 +158,28 @@ class DashBoardTaskManagementScreen extends Component {
                         {
                             this.renderBody()
                         }
-                    </div>
-                    
+                    </div>    
         
                 </div>
 
             </div>
             
         )
+    }
+}
+
+const styles={
+    container:{
+        width:'100vw',
+        backgroundColor: GRAY_6,
+        display:'flex',
+        flexDirection: 'row'
+    },
+    body:{
+        display:'flex',
+        flex:SIDEBAR_RATIO,
+        flexDirection: 'column',
+        padding:PADDING_BODY_DASHBOARD
     }
 }
 

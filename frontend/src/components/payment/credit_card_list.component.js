@@ -15,18 +15,17 @@ export default class CreditCardListComponent extends Component {
         const credit_cards=this.props.credit_cards;
         console.log('credit_cards:',credit_cards);
         return (
-            <div style={{
-                backgroundColor:WHITE,
-                boxShadow:'3px 5px 3px 3px #707070',
-                display:'flex',flex:1,flexDirection: 'column'}}>
-                {/* header list */}
+            <div style={styles.container}>
+              
                 <HeaderListComponent title='Credit Cards' height={40}/>
                 
-                {/* body list */}
+   
 
-                <div style={{display:'flex',flex:1,flexDirection:'row'}}>
+                <div style={styles.body}>
+
                     {/* <div style={{flex:1}}/> */}
-                    <div style={{flex:8,display:'flex',flexDirection: 'column'}}>
+
+                    <div style={styles.inner_body}>
                     <CreditCardItemComponent 
                         updateInputs={this.props.updateInputs}
                         onClick={this.props.createCard}
@@ -50,13 +49,22 @@ export default class CreditCardListComponent extends Component {
 }
 
 const styles={
-    container :{
-        flexDirection:'column',
+    container:{
+        backgroundColor:WHITE,
+        boxShadow:'3px 5px 3px 3px #707070',
         display:'flex',
-
+        flex:1,
+        flexDirection: 'column'
     },
-    
-    
-    
+    body:{
+        display:'flex',
+        flex:1,
+        flexDirection:'row'
+    },
+    inner_body:{
+        flex:8,
+        display:'flex',
+        flexDirection: 'column'
+    }
 }
 

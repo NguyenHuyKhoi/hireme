@@ -12,20 +12,15 @@ export default class HeaderListComponent extends Component {
 
         console.log('filter :',filter)
         return (
-            <div style={{
-                width:'100%',
-                height:height,
-                display:'flex',flexDirection: 'row',
-                alignItems:'center',
-                backgroundColor: BLUE_1,justifyContent: 'space-between'}}>
+            <div style={{...styles.container,height:height}}>
 
-                <text style={{fontSize:TEXT_SIZES.BIG,color:WHITE,marginLeft:20}}>
+                <text style={styles.title}>
                     {this.props.title}
                 </text>
 
                 {
                     filter!==null?
-                    <div style={{width:'20%',height:'100%',marginRight: 30}}>
+                    <div style={styles.body}>
                         <LabeledSelectedInputComponent 
                             hide_label={true}/>
                     </div>
@@ -38,5 +33,26 @@ export default class HeaderListComponent extends Component {
                      
     
         )
+    }
+}
+
+const styles={
+    container:{
+        width:'100%',
+        display:'flex',
+        flexDirection: 'row',
+        alignItems:'center',
+        backgroundColor: BLUE_1,
+        justifyContent: 'space-between'
+    },
+    title:{
+        fontSize:TEXT_SIZES.BIG,
+        color:WHITE,
+        marginLeft:20
+    },
+    body:{
+        width:'20%',
+        height:'100%',
+        marginRight: 30
     }
 }

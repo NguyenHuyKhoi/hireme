@@ -20,7 +20,7 @@ export default class CreditCardItemComponent extends Component {
 
         console.log('credit_card_item',credit_card,is_new)
         return (
-            <div  style={{padding:20,display:'flex',flex:1,flexDirection:'column',
+            <div  style={{...styles.container,
                 backgroundColor:index%2==1?WHITE:GRAY_4}}>    
 
                     <div style={styles.row}>
@@ -58,14 +58,14 @@ export default class CreditCardItemComponent extends Component {
 
                     <div style={{marginTop:10}}>
                         <div style={{width:'50%'}}>
-                        <LabelInputComponent 
-                            label='Number :'
-                            type='number'
-                            onChange={value=>this.props.updateInputs('number',value)}
-                            size={TEXT_SIZES.NORMAL}
-                            inline={true}
-                            value={is_new?'':credit_card.number}
-                            disabled={disabled} />
+                            <LabelInputComponent 
+                                label='Number :'
+                                type='number'
+                                onChange={value=>this.props.updateInputs('number',value)}
+                                size={TEXT_SIZES.NORMAL}
+                                inline={true}
+                                value={is_new?'':credit_card.number}
+                                disabled={disabled} />
                         </div>
                     </div>
                    
@@ -84,19 +84,20 @@ export default class CreditCardItemComponent extends Component {
                       
                             />
                         </div>
-                        <div style={{width:'5%'}}/>
-                        <div style={{width:'5%'}}/>
+
+                        <div style={{width:'10%'}}/>
+
                         <div style={{width:'30%'}}>
-                        <LabelInputComponent 
-                            label='Expired :'
-                            onChange={value=>this.props.updateInputs('expired_date',value)}
-                            size={TEXT_SIZES.SMALL}
-                            disabled={disabled}
-                            inline={true}
-                            type='date'
-                            value={is_new?new Date():credit_card.expired_date}
-                      
-                            />
+                            <LabelInputComponent 
+                                label='Expired :'
+                                onChange={value=>this.props.updateInputs('expired_date',value)}
+                                size={TEXT_SIZES.SMALL}
+                                disabled={disabled}
+                                inline={true}
+                                type='date'
+                                value={is_new?new Date():credit_card.expired_date}
+                        
+                                />
                         </div>
 
                         <div style={{width:'5%'}}/>
@@ -106,18 +107,19 @@ export default class CreditCardItemComponent extends Component {
                     <div style={styles.row}>
 
                         <div style={{width:'30%'}}>
-                        <LabelInputComponent 
-                            label='Email :'
-                            onChange={value=>this.props.updateInputs('email',value)}
-                            size={TEXT_SIZES.SMALL}
-                            disabled={disabled}
-                            inline={true}
-                            value={is_new?'':credit_card.email}
-                      
-                        />
+                            <LabelInputComponent 
+                                label='Email :'
+                                onChange={value=>this.props.updateInputs('email',value)}
+                                size={TEXT_SIZES.SMALL}
+                                disabled={disabled}
+                                inline={true}
+                                value={is_new?'':credit_card.email}
+                        
+                            />
                         </div>
-                        <div style={{width:'5%'}}/>
-                        <div style={{width:'5%'}}/>
+
+                        <div style={{width:'10%'}}/>
+
                         <div style={{width:'30%'}}>
                             <LabelInputComponent 
                                 label='Ccv :'
@@ -143,8 +145,10 @@ export default class CreditCardItemComponent extends Component {
 
 const styles={
     container :{
-      
-
+        padding:20,
+        display:'flex',
+        flex:1,
+        flexDirection:'column'
     },
     row  :{
         width:'100%',

@@ -32,32 +32,32 @@ export default class TaskDetailHeaderComponent extends Component {
         console.log('task_header :',task)
         const company=task.company
         return (
-            <div style={{width:'100%',height:150,
-                backgroundImage:`url(${banner})`,
-                backgroundRepeat:  'no-repeat',
-                backgroundSize:'cover',
-                display:'flex',flexDirection: 'row'}}>
+            <div style={styles.container}>
 
             <div style={{flex:1}}/>
-            <div style={{flex:5,display:'flex',flexDirection: 'row',alignItems: 'center'}}>
+
+            <div style={styles.col1}>
                 <img src={company.avatar}
-                    style={{height: '60%',aspectRatio:1,borderRadius:'50%'}}/>
+                    style={styles.avatar}/>
                 
-                <div style={{marginLeft:15,display:'flex',flex:1,flexDirection: 'column'}}>
-                    <text style={{fontSize:TEXT_SIZES.BIG,color:BLACK}}>
+                <div style={styles.infor}>
+
+                    <text style={styles.task_name}>
                         {task.task_name}
                     </text>
 
                     <Link 
                         to={routePaths.COMPANY_DETAIL+`/${company.id}`}
-                        style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,marginBottom:5,textDecoration:'none'}}>
+                        style={styles.company_name}>
                         {company.name}
                     </Link>
+
                 </div>
             </div>
+            
             <div style={{flex:1}}/>
 
-            <div style={{flex:2,display: 'flex',justifyContent: 'center',alignItems: 'center'}}>
+            <div style={styles.col2}>
                 <ProjectBudget budget={[task.min_suggested_price,task.max_suggested_price]}
                     type_price={task.type_price}/>
 
@@ -76,3 +76,48 @@ export default class TaskDetailHeaderComponent extends Component {
 }
 
 
+const styles={
+    container:{
+        width:'100%',
+        height:150,
+        backgroundImage:`url(${banner})`,
+        backgroundRepeat:  'no-repeat',
+        backgroundSize:'cover',
+        display:'flex',
+        flexDirection: 'row'
+    },
+    col1:{
+        flex:5,
+        display:'flex',
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    col2:{
+        flex:2,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    avatar:{
+        height: '60%',
+        aspectRatio:1,
+        borderRadius:'50%'
+    },
+    infor:{
+        marginLeft:15,
+        display:'flex',
+        flex:1,
+        flexDirection: 'column'
+    },
+    task_name:{
+        fontSize:TEXT_SIZES.BIG,
+        color:BLACK
+    },
+    company_name:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK,
+        marginBottom:5,
+        textDecoration:'none'
+    }
+    
+}

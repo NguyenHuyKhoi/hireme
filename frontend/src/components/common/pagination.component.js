@@ -81,9 +81,9 @@ export default class PaginationComponent extends Component {
 
         console.log('Array_length:',arr)
         return (
-            <div style={{marginTop:10,display:'flex',paddingBottom:40,flexDirection: 'row',alignSelf : 'center'}}>
-                <Button label='<'  index={1000}  is_highlight={true}
-                    onClick={this.onClickPre}/>
+            <div style={styles.container}>
+
+                <Button label='<'  index={1000}  is_highlight={true} onClick={this.onClickPre}/>
                 {
                 arr.map((item,index)=>
                     <Button 
@@ -98,5 +98,16 @@ export default class PaginationComponent extends Component {
                     onClick={this.onClickNext}/>
         </div>
         )
+    }
+}
+
+
+const styles={
+    container:{
+        marginTop:10,
+        display:'flex',
+        paddingBottom:40,
+        flexDirection: 'row',
+        alignSelf : 'center'
     }
 }

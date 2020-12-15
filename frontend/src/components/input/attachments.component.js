@@ -12,15 +12,12 @@ class NewFile extends Component{
 
     render(){
         return(
-            <div style={{marginRight:10,marginTop: 7,width:'9vw',height:70,borderRadius:8,
-                backgroundColor: BLUE_1,
-                flexDirection: 'column',alignItems:'center',
-                display:'flex',justifyContent: 'center'}}>
-            <text style={{fontSize:TEXT_SIZES.SMALL,color:WHITE}}>
+            <div style={styles.item_container}>
+            <text style={styles.item_upload_label}>
                 Upload
             </text>
 
-            <div style={{width:'60%',marginTop:5}}>
+            <div style={styles.item_upload_btn}>
                 {/* <input type="file" onChange={this.onFileChange} multiple /> */}
                 <ButtonComponent height={30} label='Choose' color={WHITE} text_color={BLUE_1}/>
             </div>
@@ -35,26 +32,20 @@ class NormalFile extends Component{
         const attachment=this.props.attachment;
         const is_edit=this.props.is_edit
         return(
-            <div style={{marginRight:10,marginTop: 7,width:'9vw',height:70,borderRadius:8,
-                backgroundColor: GRAY_4,
-                flexDirection: 'column',
-                display:'flex',justifyContent: 'center'}}>
-                <text style={{marginLeft:15,fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
+            <div style={styles.item_container}>
+
+                <text style={styles.item_name}>
                     {attachment.name}
                 </text>
 
-                <div style={{display:'flex',width:'75%',marginLeft:15,
-                    alignSelf:'baseline',
-                    flexDirection:'row',justifyContent:'space-between'}}>
-                    <text style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_2}}>
+                <div style={styles.item_row}>
+                    <text style={styles.item_type}>
                         {attachment.type}
                     </text>
                     {
                         is_edit!==undefined && is_edit===true?
-                        <div style={{width: 25,height:25,borderRadius:3,  
-                            display:'flex',justifyContent:'center',alignItems:'center',
-                            backgroundColor:RED_1}}>
-                            <text style={{fontSize: TEXT_SIZES.SMALL,color:WHITE}}>
+                        <div style={styles.item_del_btn}>
+                            <text style={styles.item_del_label}>
                                 x
                             </text>
                         </div>
@@ -77,14 +68,13 @@ export default class AttachmentsComponent extends Component {
         const is_edit=this.props.is_edit!==undefined?this.props.is_edit:false
         const label=this.props.label!==undefined?this.props.label:''
         return (
-            <div style={{width:'100%',alignSelf: 'baseline',
-                display:'flex',flexDirection: 'column'}}>
-                <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>
+            <div style={styles.container}>
+
+                <text style={styles.title}>
                     {label}
                 </text>
 
-                <div style={{width:'100%',display:'flex',flexDirection: 'row',
-                    flexWrap:'wrap',alignItems: 'flex-start'}}>
+                <div style={styles.body}>
                     {
                         is_edit?
                         <NewFile/>
@@ -106,5 +96,74 @@ export default class AttachmentsComponent extends Component {
         
     
         )
+    }
+}
+
+const styles={
+    container:{
+        width:'100%',
+        alignSelf: 'baseline',
+        display:'flex',
+        flexDirection: 'column'
+    },
+    title:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK
+    },
+    body:{
+        width:'100%',
+        display:'flex',
+        flexDirection: 'row',
+        flexWrap:'wrap',
+        alignItems: 'flex-start'
+    },
+    item_container:{
+        marginRight:10,
+        marginTop: 7,
+        width:'9vw',
+        height:70,
+        borderRadius:8,
+        backgroundColor: GRAY_4,
+        flexDirection: 'column',
+        display:'flex',
+        justifyContent: 'center'
+    },
+    item_upload_label:{
+        fontSize:TEXT_SIZES.SMALL,
+        color:WHITE
+    },
+    item_upload_btn:{
+        width:'60%',
+        marginTop:5
+    },
+    item_name:{
+        marginLeft:15,
+        fontSize:TEXT_SIZES.SMALL,
+        color:BLACK
+    },
+    item_row:{
+        display:'flex',
+        width:'75%',
+        marginLeft:15,
+        alignSelf:'baseline',
+        flexDirection:'row',
+        justifyContent:'space-between'
+    },
+    item_type:{
+        fontSize:TEXT_SIZES.SMALL,
+        color:GRAY_2
+    },
+    item_del_btn:{
+        width: 25,
+        height:25,
+        borderRadius:3,  
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        backgroundColor:RED_1
+    },
+    item_del_label:{
+        fontSize: TEXT_SIZES.SMALL,
+        color:WHITE
     }
 }

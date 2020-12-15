@@ -9,12 +9,22 @@ export default class CustomIconComponent extends Component {
         const color=this.props.color;
         return (
             <IconContext.Provider
-                value={{ color: this.props.color, 
-                style:{width: 25,height: 25,borderRadius:2}} }>
+                value={{ 
+                    color: this.props.color, 
+                    style:styles.container
+                }}>
                 <div>
                     {bullshitIcons[this.props.name]}
                 </div>
             </IconContext.Provider>
         )
+    }
+}
+
+const styles={
+    container : {
+        width: 25,
+        height: 25,
+        borderRadius:2
     }
 }

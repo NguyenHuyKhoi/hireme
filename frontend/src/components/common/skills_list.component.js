@@ -8,27 +8,24 @@ export default class SkillsListComponent extends Component {
         const skills=this.props.skills
         const hide_title=this.props.hide_title!==undefined?this.props.hide_title:false
         return (
-            <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
+            <div style={styles.container}>
 
                 {
                     this.props.hide_title!==undefined?
                     null
                     :
-                    <text style={{fontSize:TEXT_SIZES.BIG,color:BLACK}}>
+                    <text style={styles.title}>
                         Skills 
                     </text>
                 }
              
-                <div style={{marginTop:hide_title?0:7,width:'100%',alignSelf: 'baseline',display:'flex',
-                flexDirection: 'row',flexWrap:'wrap',alignItems: 'flex-start'}}>
+                <div style={{...styles.body,marginTop:hide_title?0:7}}>
                 {
                     skills.slice(0,7).map((item,index)=>
                         <div 
                             key={''+index}
-                            style={{display:'flex',marginRight:6,marginBottom:5,
-                            justifyContent: 'center',alignItems: 'center',
-                            borderRadius:3,backgroundColor: BLUE_2,padding: 5}}>
-                            <text style={{fontSize:TEXT_SIZES,color:BLUE_1}}>
+                            style={styles.item_container}>
+                            <text style={styles.item_name}>
                                 {item.name} 
                             </text>
                         </div>
@@ -38,5 +35,39 @@ export default class SkillsListComponent extends Component {
 
             </div>
         )
+    }
+}
+
+const styles={
+    container:{
+        width:'100%',
+        display:'flex',
+        flexDirection: 'column'
+    },
+    title:{
+        fontSize:TEXT_SIZES.BIG,
+        color:BLACK
+    },
+    body:{
+        width:'100%',
+        alignSelf: 'baseline',
+        display:'flex',
+        flexDirection: 'row',
+        flexWrap:'wrap',
+        alignItems: 'flex-start'
+    },
+    item_container:{
+        display:'flex',
+        marginRight:6,
+        marginBottom:5,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius:3,
+        backgroundColor: BLUE_2,
+        padding: 5
+    },
+    item_name:{
+        fontSize:TEXT_SIZES,
+        color:BLUE_1
     }
 }

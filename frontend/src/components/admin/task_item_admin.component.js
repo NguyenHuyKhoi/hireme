@@ -62,9 +62,9 @@ export default class TaskItemBriefAdminComponent extends Component {
 
         return (
             
-            <div style={{display:'flex',width:'100%',height:80,alignSelf:'baseline',
-                backgroundColor:index%2===0?WHITE:GRAY_3,
-                flexDirection: 'row'}}>
+            <div style={{
+                ...styles.container,
+                backgroundColor:index%2===0?WHITE:GRAY_3}}>
 
                 <BanTaskModal is_open={this.state.open_ban_modal}
                     clickBack={this.closeBanModal}
@@ -77,10 +77,11 @@ export default class TaskItemBriefAdminComponent extends Component {
                     clickBanTask={(review)=>this.banTaskFromReport(review)}/>
     
                 <div style={{flex:0.5}}/>
-                <div style={{display:'flex',flex:6,flexDirection: 'column',justifyContent:'center'}}>
 
-                    <div style={{display:'flex',flexDirection:'row'}}>
-                        <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK }}>
+                <div style={styles.col1}>
+
+                    <div style={styles.col1_row1}>
+                        <text style={styles.normal_text}>
                             {collapseText(task.name,30)}
                         </text>
 
@@ -99,18 +100,17 @@ export default class TaskItemBriefAdminComponent extends Component {
                      
                     </div>
 
-                    <div style={{width:'100%',display:'flex',flexDirection:'row',
-                        justifyContent: 'space-between'}}>
+                    <div style={styles.col1_row2}>
 
-                        <div style={{display:'flex',flex:1}}>
-                            <text style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
+                        <div style={styles.field_container}>
+                            <text style={styles.small_text}>
                                 {'Posted :'+company.name}
                                 
                             </text>
                         </div>
 
-                        <div style={{display:'flex',flex:1}}    >
-                            <text style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
+                        <div style={styles.field_container}    >
+                            <text style={styles.small_text}>
                                 {'On : '+convertFullDateToOnlyDay(task.post_time)}
                             </text>
                         </div>
@@ -119,22 +119,22 @@ export default class TaskItemBriefAdminComponent extends Component {
         
                 </div>
 
-                <div style={{flex:4,display:'flex',justifyContent: 'center',alignItems: 'center'}}>
+                <div style={styles.col2}>
                     <Link 
                         to={routePaths.TASK_DETAIL+`/${task.id}`}
-                        style={{textDecoration:'none',width:'80%',marginRight: 15}}>
+                        style={styles.btn_container}>
                         <ButtonComponent label='Detail' color={BLUE_1}/>
                     </Link>
 
                     <div 
                         onClick={this.openBanModal}  
-                        style={{textDecoration:'none',width:'80%',marginRight: 15}}>
+                        style={styles.btn_container}>
                         <ButtonComponent label='Ban' color={RED_1}/>
                     </div>
 
                     <div 
                         onClick={this.openViewReportsModal}  
-                        style={{textDecoration:'none',width:'100%',marginRight: 15}}>
+                        style={styles.btn_container}>
                         <ButtonComponent label='View Reports' color={YELLOW_1}/>
                     </div>
                 </div>
@@ -147,5 +147,55 @@ export default class TaskItemBriefAdminComponent extends Component {
 
     
         )
+    }
+}
+
+
+const styles={
+    container:{
+        display:'flex',
+        width:'100%',
+        height:80,
+        alignSelf:'baseline',
+        flexDirection: 'row'
+    },
+    col1:{
+        display:'flex',
+        flex:6,
+        flexDirection: 'column',
+        justifyContent:'center'
+    },
+    col1_row1:{
+        display:'flex',
+        flexDirection:'row'
+    },
+    normal_text:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK 
+    },
+    col1_row2:{
+        width:'100%',
+        display:'flex',
+        flexDirection:'row',
+        justifyContent: 'space-between'
+    },
+    field_container:{
+        display:'flex',
+        flex:1
+    },
+    small_text:{
+        fontSize:TEXT_SIZES.SMALL,
+        color:BLACK
+    },
+    col2:{
+        flex:4,
+        display:'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    btn_container:{
+        textDecoration:'none',
+        width:'80%',
+        marginRight: 15
     }
 }

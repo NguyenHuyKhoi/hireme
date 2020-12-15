@@ -23,36 +23,31 @@ export default class ReviewItemComponent extends Component {
         const reviewer =review.reviewer;
         const task=review.task;
         return (
-            <div  style={{width:'100%',height:150, 
-                flexDirection:'row', display:'flex',
-                alignItems: 'center',
+            <div  style={{
+                ...styles.container,
                 backgroundColor:this.props.index%2==0?WHITE:BLUE_2}}>    
 
                 <div style={{flex:1}}/>
+
                 <div style={{flex:2}}>
-                    <img 
-                    src={reviewer.avatar} 
-                        style={{width: '80%',aspectRatio:1,borderRadius:'50%'}}/>
+                    <img src={reviewer.avatar} style={styles.avatar}/>
                 </div>
                     
-                <div style={{display:'flex',flex:8,marginLeft:20,
-                    justifyContent: 'center',
-                    flexDirection: 'column'}}>
+                <div style={styles.body}>
 
                     <Link
                         to={routePaths.TASK_DETAIL+`/${task.id}`}
-                        style={{fontSize:TEXT_SIZES.BIG,color:BLACK,textDecoration:'none'}}>
+                        style={styles.task_name}>
                         {'On task : '+collapseText(task.name,30)} 
                     </Link>
 
-                    <div style={{display:'flex',width:'100%',flexDirection: 'row',
-                        justifyContent: 'space-between',alignItems: 'center',marginTop:10}}>
+                    <div style={styles.row}>
                         <Link
                             to={review.is_company?
                                 routePaths.COMPANY_DETAIL+`/${reviewer.id}`
                                 :
                                 routePaths.FREELANCER_DETAIL+`/${reviewer.id}`}
-                            style={{fontSize:TEXT_SIZES.SMALL,color:BLACK,textDecoration:'none'}}>
+                            style={styles.reviewer_name}>
                                     {reviewer.name}
                         </Link>
                     
@@ -67,7 +62,7 @@ export default class ReviewItemComponent extends Component {
                 
                     </div>
 
-                    <text style={{marginTop:5,fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
+                    <text style={styles.review_content}>
                         {collapseText(review.content,100)}
                     </text>
                 </div> 
@@ -78,5 +73,52 @@ export default class ReviewItemComponent extends Component {
             </div>
         )
     }
+}
+
+
+const styles={
+    container:{
+        width:'100%',
+        height:150, 
+        flexDirection:'row', 
+        display:'flex',
+        alignItems: 'center',
+    },
+    avatar:{
+        width: '80%',
+        aspectRatio:1,
+        borderRadius:'50%'
+    },
+    body:{
+        display:'flex',
+        flex:8,
+        marginLeft:20,
+        justifyContent: 'center',
+        flexDirection: 'column'
+    },
+    task_name:{
+        fontSize:TEXT_SIZES.BIG,
+        color:BLACK,
+        textDecoration:'none'
+    },
+    row:{
+        display:'flex',
+        width:'100%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        marginTop:10
+    },
+    reviewer_name:{
+        fontSize:TEXT_SIZES.SMALL,
+        color:BLACK,
+        textDecoration:'none'
+    },
+    review_content:{
+        marginTop:5,
+        fontSize:TEXT_SIZES.SMALL,
+        color:BLACK
+    }
+
 }
 

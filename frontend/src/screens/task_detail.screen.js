@@ -130,8 +130,7 @@ export default class TaskDetailScreen extends Component {
         const biddings=this.state.biddings;
         return (
 
-            <div style={{width:'100vw',backgroundColor: WHITE,
-                display:'flex',flexDirection: 'column'}}>
+            <div style={styles.container}>
 
                 {/* header */}
                 <HeaderBarComponent/>
@@ -143,49 +142,27 @@ export default class TaskDetailScreen extends Component {
                     clickReport={this.reportTask}
                 />
 
-                {/* body */}
-                <div style={{width:'100vw',display:'flex',flexDirection: 'column',
-                    paddingBottom:60,
-                    overflowX:'hidden',
-                    alignSelf: 'baseline'}}>
-
-                    
-                    {/* header task detail */}
-                    {
-                        task===null?
-                        null
-                        :
+                {
+                    task===null?
+                    null
+                    :
+                    <div style={styles.body}>
                         <TaskDetailHeaderComponent task={task}/>
-                    }
-                   
-                    {/* body task detail  */}
- 
-                    {
-                        task===null?
-                        null
-                        :
-                        <div style={{width:'100%',display:'flex',flexDirection:'row'}}>
-                            <div style={{flex:1}}/>
-                        
-                            {/* column1 */}
-                            <div style={{flex:5,display:'flex',flexDirection: 'column',
-                                alignSelf:'baseline'}}>
 
-                                {/* description */}
+                        <div style={styles.task_body}/>
+                            <div style={{flex:1}}>
+                                
+                            <div style={styles.task_body_col1}>
+
                                 <div style={{marginTop:30}}>
                                     <DescriptionComponent 
                                         title='About task:'
                                         content={task.description}/>
                                 </div>
 
-                                {/* attachments */}
-{/* 
                                 <div style={{marginTop:50}}>
-                                    <AttachmentsComponent 
-                                        attachments={task.attachments}/>
-                                </div> */}
-                                
-                                {/* biddings */}
+                                    <AttachmentsComponent  attachments={task.attachments}/>
+                                </div>
 
                                 <div style={{marginTop:50}}>
                                     {
@@ -199,25 +176,20 @@ export default class TaskDetailScreen extends Component {
                                             company_view={false}/>
 
                                     }
-                                   
+                                    
                                 </div>
                             </div>
 
                             <div style={{flex:0.5}}/>
 
-                            {/* column2 */}
-                            <div style={{flex:2,display:'flex',flexDirection: 'column',
-                                marginLeft:50,  alignSelf:'baseline'}}>
+                            <div style={styles.task_body_col2}>
 
-                                {/* skills */}
                                 <SkillsListComponent skills={task.skills}/>
 
-                                {/* times */}
                                 <div style={{width: '100%',marginTop:50}}>
                                     <ButtonComponent color={GREEN_2} text_color={GREEN_1}
                                         label={convertFullDateToOnlyDay(task.post_time)}/>
                                 </div>
-                                {/* place bid */}
 
                                 <div style={{marginTop:50}}>
                                     <TaskPlaceBidComponent
@@ -235,11 +207,13 @@ export default class TaskDetailScreen extends Component {
                             <div style={{flex:1}}/>
 
                         </div>
+                
                
-                    }
-                    
                 </div>
 
+
+                }
+               
 
                 {/* footer */}
                 <FooterBarComponent/>
@@ -247,4 +221,41 @@ export default class TaskDetailScreen extends Component {
             
         )
     }
+}
+
+
+const styles={
+    container:{
+        width:'100vw',
+        backgroundColor: WHITE,
+        display:'flex',
+        flexDirection: 'column'
+    },
+    body:{
+        width:'100vw',
+        display:'flex',
+        flexDirection: 'column',
+        paddingBottom:60,
+        overflowX:'hidden',
+        alignSelf: 'baseline'
+    },
+    task_body:{
+        width:'100%',
+        display:'flex',
+        flexDirection:'row'
+    },
+    task_body_col1:{
+        flex:5,
+        display:'flex',
+        flexDirection: 'column',
+        alignSelf:'baseline'
+    },
+    task_body_col2:{
+        flex:2,
+        display:'flex',
+        flexDirection: 'column',
+        marginLeft:50,  
+        alignSelf:'baseline'
+    }
+   
 }

@@ -8,82 +8,79 @@ import ButtonComponent from './button.component'
 export default class FooterBarComponent extends Component {
     render(){
         return (
-            <div style={{width:'100vw',height:250,backgroundColor: GRAY_1,
-            flexDirection:'row', display:'flex'}}>
+            <div style={styles.container}>
 
             <div style={{flex:1}}/>
-            <div style={{flex:8,flexDirection:'column'}}>
-                <div style={{width:'100%',display:'flex',alignSelf:'baseline',flexDirection:'column',
-                    paddingTop:25,
-                    alignItems:'center'}}>
-                    <text style={{fontSize:TEXT_SIZES.BIG, color:WHITE}}>
+
+            <div style={styles.body}>
+
+                <div style={styles.row1}>
+                    <text style={styles.big_text}>
                         About us
                     </text>
-                    <text style={{fontSize:TEXT_SIZES.NORMAL, color:GRAY_2}}>
+                    <text style={styles.normal_text}>
                         The best platform for freelancers and companies ,and more....
                     </text>
                 </div>
-                <div style={{width:'100%',flex:1,flexDirection:'row',display:'flex',
-                    paddingTop:15}}>
-                    <div style={{flex:2 ,display:'flex',
-                        flexDirection:'column'}}>
-                        <text style={{fontSize:TEXT_SIZES.NORMAL, color:WHITE}}>
+
+                <div style={styles.row2}>
+                    
+                    <div style={styles.row2_col1}>
+                        <text style={styles.normal_text}>
                             HIREME
                         </text>
-                        <text style={{marginTop:10,fontSize:TEXT_SIZES.SMALL, color:GRAY_2}}>
+                        <text style={styles.small_text}>
                             Contact us: 
                         </text>
-                        <text style={{fontSize:TEXT_SIZES.SMALL, color:GRAY_2}}>
+                        <text style={styles.small_text}>
                             hireme.contact@gmail.com
                         </text>
                     </div>
 
-                    <div style={{flex:2, display:'flex',flexDirection:'column',alignItems:'center'}}>
-                        <text style={{fontSize:TEXT_SIZES.NORMAL, color:WHITE}}>
+                    <div style={styles.row2_col2}>
+
+                        <text style={styles.normal_text}>
                             Usefull links
                         </text>
-                        <div style={{marginTop:10,width:'100%',flex:1,flexDirection:'row',display:'flex'}}>
-                            <div style={{flex:1,flexDirection:'column',display:'flex',alignItems:'center'}}>
+
+                        <div style={styles.link_container}>
+                            <div style={styles.link_sub_container}>
                                 <Link
                                     to={routePaths.TASK_SEARCH}
-                                    style={{fontSize:TEXT_SIZES.SMALL, color:GRAY_2,textDecoration:'none'}}>
+                                    style={styles.small_text}>
                                     Find Tasks 
                                 </Link>
                                 <Link
                                     to={routePaths.FREELANCER_SEARCH}
-                                    style={{fontSize:TEXT_SIZES.SMALL, color:GRAY_2,textDecoration:'none'}}>
+                                    style={styles.small_text}>
                                     Find Freelancers 
                                 </Link>
                             </div>
 
-                            <div style={{flex:1,flexDirection:'column',display:'flex',alignItems:'center'}}>
+                            <div style={styles.link_sub_container}>
                                 <Link
                                     to={routePaths.HOME}
-                                    style={{fontSize:TEXT_SIZES.SMALL, color:GRAY_2,textDecoration:'none'}}>
+                                    style={styles.small_text}>
                                     Guides
                                 </Link>
                                 <Link
                                     to={routePaths.HOME}
-                                    style={{fontSize:TEXT_SIZES.SMALL, color:GRAY_2,textDecoration:'none'}}>
+                                    style={styles.small_text}>
                                     About us 
                                 </Link>
                             </div>
                         </div>
                     </div>
 
-                    <div style={{flex:2,display:'flex',
-                        alignItems:'flex-end',
-                        flexDirection:'column'}}>
-                        <text style={{marginTop:10,fontSize:TEXT_SIZES.NORMAL, color:WHITE}}>
+                    <div style={styles.row2_col3}>
+                        <text style={{...styles.normal_text,marginTop:10}}>
                             Register news from us :
                         </text>
 
-                        <div style={{marginTop:10,display:'flex',flexDirection:'row'}}>
-                            <input style={{height:30,backgroundColor:'#262626',color:GRAY_2,borderRadius:6,
+                        <div style={styles.email_register}>
+                            <input style={styles.email_input} placeholder='Enter your email ...'/>
 
-                                    fontSize:TEXT_SIZES.SMALL}} placeholder='Enter your email ...'/>
-
-                            <div style={{width:35,marginLeft:10}}>
+                            <div style={styles.btn_container}>
                                 <ButtonComponent label={'->'} height={35}/>
                             </div>
                           
@@ -101,5 +98,93 @@ export default class FooterBarComponent extends Component {
         </div>
           
         )
+    }
+}
+
+const styles={
+    container:{
+        width:'100vw',
+        height:250,
+        backgroundColor: GRAY_1,
+        flexDirection:'row', 
+        display:'flex'
+    },
+    body:{
+        flex:8,
+        flexDirection:'column'
+    },
+    row1:{
+        width:'100%',
+        display:'flex',
+        alignSelf:'baseline',
+        flexDirection:'column',
+        paddingTop:25,
+        alignItems:'center'
+    },
+    big_text:{
+        fontSize:TEXT_SIZES.BIG, 
+        color:WHITE
+    },
+    normal_text:{
+        fontSize:TEXT_SIZES.NORMAL, 
+        color:GRAY_2
+    },
+    row2:{
+        width:'100%',
+        flex:1,
+        flexDirection:'row',
+        display:'flex',
+        paddingTop:15
+    },
+    row2_col1:{
+        flex:2 ,
+        display:'flex',
+        flexDirection:'column'
+    },
+    small_text:{
+        marginTop:10,
+        fontSize:TEXT_SIZES.SMALL,
+        color:GRAY_2
+    },
+    row2_col2:{
+        flex:2, 
+        display:'flex',
+        flexDirection:'column',
+        alignItems:'center'
+    },
+    row2_col3:{
+        flex:2,
+        display:'flex',
+        alignItems:'flex-end',
+        flexDirection:'column'
+    },
+    link_container:{
+        marginTop:10,
+        width:'100%',
+        flex:1,
+        flexDirection:'row',
+        display:'flex'
+    },
+    link_sub_container:{
+        flex:1,
+        flexDirection:'column',
+        display:'flex',
+        alignItems:'center'
+    },
+    email_register:{
+        marginTop:10,
+        display:'flex',
+        flexDirection:'row'
+    },
+    email_input:{
+        height:30,
+        backgroundColor:'#262626',
+        color:GRAY_2,
+        borderRadius:6,
+        fontSize:TEXT_SIZES.SMALL
+    },
+    btn_container:{
+        width:35,
+        marginLeft:10
     }
 }

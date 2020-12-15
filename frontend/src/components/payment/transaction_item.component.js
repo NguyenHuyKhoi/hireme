@@ -33,29 +33,25 @@ export default class TransactionItemComponent extends Component {
         if (credit_card!==undefined)
         console.log('card_company :',credit_card.card_company)
         return (
-            <div style={{marginBottom:15,borderRadius:5,display: 'flex',flexDirection: 'row',flex:1,height:95,
-            backgroundColor:GRAY_3}}>
+            <div style={styles.container}>
     
-                <div style={{width:5,height:'100%',
-                    borderRadius:5,
+                <div style={{...styles.col1,
                     backgroundColor: this.props.index%2==0?GREEN_1:RED_1}}/>
 
 
-                <div style={{flex:1,display:'flex',justifyContent:'center',alignItems:'center'}}>
-                    <div style={{width:'50%',aspectRatio:1,borderRadius:5, 
-                        backgroundColor: WHITE,
-                        display:'flex',justifyContent: 'center',alignItems:'center',flexDirection:'column'}}>
-                        <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>
+                <div style={styles.col2}>
+                    <div style={styles.time_container}>
+                        <text style={styles.time_day}>
                             {date.getDay()}
                         </text>
-                        <text style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_2}}>
+                        <text style={styles.time_month}>
                             {monthNames[date.getMonth()]}
                         </text>
                     </div>
                 </div>
 
-                <div style={{display:'flex',flex:3,flexDirection:'column',justifyContent:'center'}}>
-                    <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,fontWeight:'bold'}}>
+                <div style={styles.col3}>
+                    <text style={styles.title}>
                         {
                             transaction.type+' '
                         }
@@ -67,8 +63,8 @@ export default class TransactionItemComponent extends Component {
                         }
                     </text>
 
-                    <div style={{display:'flex',flexDirection:'row',marginTop:10,alignItems:'center'}}>
-                        <text style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_2}}>
+                    <div style={styles.address}>
+                        <text style={styles.from_text}>
                             {
                                 transaction.amount>0?
                                 'From : '
@@ -78,21 +74,19 @@ export default class TransactionItemComponent extends Component {
                         </text>
                         {
                             credit_card!==undefined?
-                            <div style={{marginLeft:15,flex:1,flexDirection:'row',display:'flex',
-                            alignItems:'center'}}>
-                                <img style={{width:40,height:30}} src={card_logo[credit_card.card_company]}/>
+                            <div style={styles.address_infor}>
+                                <img style={styles.card_logo} src={card_logo[credit_card.card_company]}/>
 
-                                <text style={{fontSize:TEXT_SIZES.NORMAL,color:GRAY_2,marginLeft:10}}>
+                                <text style={styles.address_text}>
                                     {credit_card.number}
                                 </text>
                                
                             </div>
                             :
-                            <div style={{marginLeft:15,flex:1,flexDirection:'row',display:'flex',
-                                alignItems:'center'}}>
-                                <img style={{width:30,height:30,borderRadius:15}} src={partner.avatar}/>
+                            <div style={styles.address_infor}>
+                                <img style={styles.avatar} src={partner.avatar}/>
 
-                                <text style={{fontSize:TEXT_SIZES.NORMAL,color:GRAY_2,marginLeft:10}}>
+                                <text style={styles.address_text}>
                                     {partner.name}
                                 </text>
                             
@@ -104,8 +98,9 @@ export default class TransactionItemComponent extends Component {
                   
                 </div>
 
-                <div style={{display:'flex',flex:1,justifyContent:'center',alignItems:'center'}}>
-                    <text style={{fontSize:TEXT_SIZES.BIG,color:amount>0?GREEN_1:RED_1}}>
+                <div style={col4}>
+                    <text style={{...styles.amount_text,
+                                color:amount>0?GREEN_1:RED_1}}>
                         {
                             amount>0?
                             '+'
@@ -123,5 +118,97 @@ export default class TransactionItemComponent extends Component {
      
     
         )
+    }
+}
+
+const styles={
+    container:{
+        marginBottom:15,
+        borderRadius:5,
+        display: 'flex',
+        flexDirection: 'row',
+        flex:1,
+        height:95,
+        backgroundColor:GRAY_3
+    },
+    col1:{
+        width:5,
+        height:'100%',
+        borderRadius:5
+    },
+    col2:{
+        flex:1,
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    time_container:{
+        width:'50%',
+        aspectRatio:1,
+        borderRadius:5, 
+        backgroundColor: WHITE,
+        display:'flex',
+        justifyContent: 'center',
+        alignItems:'center',
+        flexDirection:'column'
+    },
+    time_day:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK
+    },
+    time_month:{
+        fontSize:TEXT_SIZES.SMALL,
+        color:GRAY_2
+    },
+    col3:{
+        display:'flex',
+        flex:3,
+        flexDirection:'column',
+        justifyContent:'center'
+    },
+    title:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK,
+        fontWeight:'bold'
+    },
+    address:{
+        display:'flex',
+        flexDirection:'row',
+        marginTop:10,
+        alignItems:'center'
+    },
+    from_text:{
+        fontSize:TEXT_SIZES.SMALL,
+        color:GRAY_2
+    },
+    address_infor:{
+        marginLeft:15,
+        flex:1,
+        flexDirection:'row',
+        display:'flex',
+        alignItems:'center'
+    },
+    card_logo:{
+        width:40,
+        height:30
+    },
+    address_text:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:GRAY_2,
+        marginLeft:10
+    },
+    avatar:{
+        width:30,
+        height:30,
+        borderRadius:15
+    },
+    col4:{
+        display:'flex',
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    amount_text:{
+        fontSize:TEXT_SIZES.BIG
     }
 }

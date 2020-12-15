@@ -26,15 +26,12 @@ export default class FreelancerListComponent extends Component {
         const r=this.state.last_item_index;
         console.log('freelancer_list',l,r)
         return (
-            <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
-                {/* header list */}
+            <div style={styles.container}>
+                
                 <HeaderListComponent title='Freelancers' is_sort={true}/>
                 
-                {/* body list */}
 
-                <div style={{width:'100%',display:'flex',
-                    marginTop:20,
-                    flexDirection: 'row',justifyContent:'space-between',flexWrap: 'wrap',alignItems: 'flex-start'}}>
+                <div style={styles.body}>
                 {
                     freelancers.slice(l,r+1).map((item,index)=>
                         <FreelancerItemComponent freelancer={item} key={''+index}/>
@@ -51,5 +48,22 @@ export default class FreelancerListComponent extends Component {
                     
     
         )
+    }
+}
+
+const styles={
+    container:{
+        width:'100%',
+        display:'flex',
+        flexDirection: 'column'
+    },
+    body:{
+        width:'100%',
+        display:'flex',
+        marginTop:20,
+        flexDirection: 'row',
+        justifyContent:'space-between',
+        flexWrap: 'wrap',
+        alignItems: 'flex-start'
     }
 }

@@ -16,19 +16,34 @@ export default class DashBoardChatScreen extends Component {
     render(){
         return (
 
-            <div style={{width:'100vw',height:'100vh',backgroundColor: GRAY_6,
-                display:'flex',flexDirection: 'row'}}>
+            <div style={styles.container}>
 
-                {/* sidebar */}
+             
                 <SidebarComponent/>
-                {/* body */}
-                <div style={{display:'flex',flex:SIDEBAR_RATIO,padding:PADDING_BODY_DASHBOARD}}>
-
+            
+                <div style={styles.body}>
                     <ChatComponent user_id={this.state.user_id} />
                 </div>
 
             </div>
             
         )
+    }
+
+    
+}
+
+const styles={
+    container:{
+        width:'100vw',
+        height:'100vh',
+        backgroundColor: GRAY_6,
+        display:'flex',
+        flexDirection: 'row'
+    },
+    body:{
+        display:'flex',
+        flex:SIDEBAR_RATIO,
+        padding:PADDING_BODY_DASHBOARD
     }
 }

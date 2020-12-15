@@ -26,11 +26,9 @@ class TabBar extends Component{
         return (
             <div 
                 onClick={this.props.onClick}
-                style={{display:'flex',flex:1,alignItems: 'center',
-                justifyContent: 'center',
+                style={{...styles.item_container,
                 backgroundColor: is_focused?WHITE:GRAY_4}}>
-                <text style={{fontSize:TEXT_SIZES.NORMAL,
-                        color:is_focused?BLUE_1:BLACK}}>
+                <text style={{...styles.item_label, color:is_focused?BLUE_1:BLACK}}>
                     {item.label}
                 </text>
             </div>
@@ -41,7 +39,7 @@ export default class TaskTabsBarComponent extends Component {
     render(){
         const focus_tab_index=this.props.focus_tab_index;
         return (
-            <div style={{width:'100%',height:30,display:'flex',flexDirection: 'row'}}>
+            <div style={styles.container}>
                 {
                     taskTabItems.map((item,index)=>
                         <TabBar
@@ -54,5 +52,23 @@ export default class TaskTabsBarComponent extends Component {
         </div>
 
         )
+    }
+}
+
+const styles={
+    item_container:{
+        display:'flex',
+        flex:1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    item_label:{
+        fontSize:TEXT_SIZES.NORMAL
+    },
+    container:{
+        width:'100%',
+        height:30,
+        display:'flex',
+        flexDirection: 'row'
     }
 }

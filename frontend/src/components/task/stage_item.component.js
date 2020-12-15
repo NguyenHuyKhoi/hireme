@@ -55,46 +55,32 @@ export default class StageItemComponent extends Component {
         const stage=this.props.stage;
         console.log('stage_item',stage);
         return (
-            <div style={{width:420,height:525,
-                display:'flex',flexDirection: 'column'}}>   
-                <TimeLine deadline={stage.deadline}
-                    percentage={stage.percentage}/>
+            <div style={styles.container}>   
 
-                <div style={{marginTop: 5,width:'80%',height:45,backgroundColor: GREEN_1,
-                    display:'flex',flexDirection:'row',alignItems:'center',paddingLeft:15}}>
+                <TimeLine deadline={stage.deadline} percentage={stage.percentage}/>
 
-                    <text 
-                        style={{
-                            fontSize:TEXT_SIZES.NORMAL,color:WHITE,height: 35,
-                            backgroundColor: 'rgba(0,0,0,0)',
-                            outline:'none',
-                            borderColor:'rgba(0,0,0,0)'}} 
-                    >
+                <div style={styles.header}>
+
+                    <text style={styles.stage_title} >
                         {stage.title}
                     </text>
 
-                   
                 </div> 
 
-                <div style={{display:'flex',flex:1,width:'80%',
-                    backgroundColor: WHITE,overflowY:'scroll',
+                <div style={styles.body}>
 
-                    boxShadow:'0px 0px 30px 5px  #707070'}}>
-
-                    <div style={{display:'flex',flex:1,flexDirection:'column',padding: 20}}>
-                            
+                    <div style={styles.inner_body}>
                             
                             {/* <AttachmentsComponent is_edit={true}/> */}
 
-                            <div style={{width:'80%',marginTop:15}}>
+                            <div style={styles.res_container}>
                                 <LabeledInputComponent 
                                     label='Link Resource' 
                                     onChange={(value)=>{}}
                                     value={stage.link}/>
                             </div>  
 
-                            <div style={{width:'100%',marginTop:15,
-                                paddingBottom:40}}>
+                            <div style={styles.notes_container}>
                                 <TaskNoteListComponent notes={stage.notes} />
                             </div>   
                            
@@ -106,6 +92,57 @@ export default class StageItemComponent extends Component {
 
 
         )
+    }
+}
+
+
+const styles={
+    container:{
+        width:420,
+        height:525,
+        display:'flex',
+        flexDirection: 'column'
+    },
+    header:{
+        marginTop: 5,
+        width:'80%',
+        height:45,
+        backgroundColor: GREEN_1,
+        display:'flex',
+        flexDirection:'row',
+        alignItems:'center',
+        paddingLeft:15
+    },
+    stage_title:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:WHITE,
+        height: 35,
+        backgroundColor: 'rgba(0,0,0,0)',
+        outline:'none',
+        borderColor:'rgba(0,0,0,0)'
+    },
+    body:{
+        display:'flex',
+        flex:1,
+        width:'80%',
+        backgroundColor: WHITE,
+        overflowY:'scroll',
+        boxShadow:'0px 0px 30px 5px  #707070'
+    },
+    inner_body:{
+        display:'flex',
+        flex:1,
+        flexDirection:'column',
+        padding: 20
+    },
+    res_container:{
+        width:'80%',
+        marginTop:15
+    },
+    notes_container:{
+        width:'100%',
+        marginTop:15,
+        paddingBottom:40
     }
 }
 

@@ -7,7 +7,6 @@ import TextareaInputComponent from '../input/textarea_input.component'
 import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
 import RangeInputComponent from '../input/range_input.component'
 import SkillPickerComponent from '../input/skill_picker.component'
-import UploadFilesComponent from '../common/upload_files.component'
 import ExperienceListComponent from '../freelancer/experience_list.component'
 import AttachmentsComponent from '../input/attachments.component'
 import { CATEGORIES_DOMAIN, FIXED_PRICE_DOMAIN, TASKS_TYPE_DOMAIN, TEXT_SIZES } from '../../utils/constants'
@@ -19,20 +18,16 @@ export default class PostTaskProfileComponent extends Component {
         const category=this.props.category;
         return (
 
-            <div style={{
-                flex:1,display: 'flex',flexDirection:'column',backgroundColor:WHITE,
-                borderRadius:8,
-                boxShadow:'3px 5px 3px 3px #707070',}}>
+            <div style={styles.container}>
+
                 <HeaderListComponent title='Complete This Form' height={40}/>
 
-                <div style={{flex:1,
-                    padding:50,
-                    display:'flex',justifyContent:'center',flexDirection:'column'}}>
+                <div style={styles.body}>
                 
-                        {/* row1 */}
-                        <div style={{display:'flex',flexDirection: 'row'}}>
-                            {/* col1_1 */}
-                            <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
+                  
+                        <div style={styles.row1}>
+                        
+                            <div style={styles.row1_col1}>
 
                                 <div style={{width:'70%'}}>
                                     <LabeledInputComponent 
@@ -64,9 +59,8 @@ export default class PostTaskProfileComponent extends Component {
 
                             </div>
 
-                                {/* col1_2 */}
-                            <div style={{display:'flex',flexDirection: 'column',flex:1,
-                                alignItems:'center'}}>
+
+                            <div style={styles.row1_col2}>
 
                                 <div style={{width:'70%'}}>
                                     <LabeledSelectedInputComponent  
@@ -96,17 +90,12 @@ export default class PostTaskProfileComponent extends Component {
                         
                         </div>
 
-                        {/* row2 */}
-
-                       <div style={{marginTop:30}}>
+                       <div style={styles.row2}>
                            <TextareaInputComponent 
                               onChange={(value)=>this.props.updateInputs('description',value)}
                             label='Descrition'/>
                        </div>
-                    
                 
-                        
-        
                     
                 </div>
               
@@ -114,6 +103,43 @@ export default class PostTaskProfileComponent extends Component {
                   
            
     )
+    }
+}
+
+
+const styles={
+    container:{
+        flex:1,
+        display: 'flex',
+        flexDirection:'column',
+        backgroundColor:WHITE,
+        borderRadius:8,
+        boxShadow:'3px 5px 3px 3px #707070'
+    },
+    body:{
+        flex:1,
+        padding:50,
+        display:'flex',
+        justifyContent:'center',
+        flexDirection:'column'
+    },
+    row1:{
+        display:'flex',
+        flexDirection: 'row'
+    },
+    row1_col1:{
+        display:'flex',
+        flex:1,
+        flexDirection: 'column'
+    },
+    row1_col2:{
+        display:'flex',
+        flexDirection: 'column',
+        flex:1,
+        alignItems:'center'
+    },
+    row2:{
+        marginTop:30
     }
 }
 

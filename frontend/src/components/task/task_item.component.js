@@ -12,65 +12,109 @@ export default class TaskItemComponent extends Component {
         const task=this.props.task;
         return (
             
-            <div style={{width:'55vw',height:250,backgroundColor: WHITE,
-                boxShadow:'3px 3px 3px 3px #707070',
-                marginTop:40,            
-                display:'flex',flexDirection: 'row'}}>
+            <div style={styles.container}>
     
-                <div style={{flex:8,display:'flex',flexDirection: 'column',padding: 20}}>
+                <div style={styles.col1}>
 
                     <div style={{flex:3,display:'flex',flexDirection:'column'}}>
-                        <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>
+                        <text style={styles.task_name}>
                             {task.task_name}
                         </text>
 
-                        <text style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_2}}>
+                        <text style={styles.task_time}>
                             {task.post_time}
                         </text>
 
-                        <text style={{marginTop:10,fontSize:TEXT_SIZES.SMALL,color:GRAY_2  }}>
+                        <text style={styles.task_description}>
                             {collapseText(task.description,180)}
                         </text>
                     </div>
 
-                    <div style={{display:'flex',flex:1  }}>
+                    <div style={styles.skills_container}>
                         <SkillsListComponent skills={task.skills} hide_title={true}/>
                     </div>
                     
                 
                 </div>
 
-                <div style={{flex:4,display:'flex',justifyContent: 'center',
-                    flexDirection: 'column',
-                    alignItems: 'center',backgroundColor: GRAY_5}}>
-                    <text style={{fontSize:18,color:BLACK}}>
+                <div style={styles.col2}>
+                    <text style={styles.task_budget}>
                         {'$'+task.min_suggested_price+' - '+'$'+task.max_suggested_price}
                     </text>
 
-                    <text style={{fontSize:16,color:GRAY_2}}>
+                    <text style={styles.task_price}>
                         {task.price_type}
                     </text>
 
                     <Link  
                         to={routePaths.TASK_DETAIL+`/${task.id}`}
-                        style={{marginTop:15,width:'60%',textDecoration:'none'}}>
+                        style={styles.btn_container}>
                         <ButtonComponent label='Bid Now'/>
                     </Link>
                         
                 </div>
-
-                
-
-                    
-
-
-              
-                                                
 
             </div>
 
 
     
         )
+    }
+}
+
+
+const styles={
+    container:{
+        width:'55vw',
+        height:250,
+        backgroundColor: WHITE,
+        boxShadow:'3px 3px 3px 3px #707070',
+        marginTop:40,            
+        display:'flex',
+        flexDirection: 'row'
+    },
+    col1:{
+        flex:8,
+        display:'flex',
+        flexDirection: 'column',
+        padding: 20
+    },
+    task_name:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK
+    },
+    task_time:{
+        fontSize:TEXT_SIZES.SMALL,
+        color:GRAY_2
+    },
+    task_description:{
+        marginTop:10,
+        fontSize:TEXT_SIZES.SMALL,
+        color:GRAY_2  
+    },
+    skills_container:{
+        display:'flex',
+        flex:1  
+    },
+    col2:{
+        flex:4,
+        display:'flex',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        alignItems: 'center',
+        backgroundColor: GRAY_5
+    },
+    task_budget:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK
+    },
+    task_price:{
+        fontSize:TEXT_SIZES.SMALL,
+        color:GRAY_2
+    },
+    btn_container:{
+        marginTop:15,
+        width:'60%',
+        textDecoration:'none'
     }
 }

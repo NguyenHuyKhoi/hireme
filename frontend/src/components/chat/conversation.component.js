@@ -13,12 +13,12 @@ class MyMessage extends Component {
         const message = this.props.message
         const sender =message.sender
         return (
-            <div style={{...styles.message,
+            <div style={{...styles.message_container,
                 flexDirection: 'row-reverse'}}>
-                <img src={sender.avatar} style={{height:50,width:50, borderRadius: 25}}/>
+                <img src={sender.avatar} style={styles.avatar}/>
                 <div style={{...styles.content_container,
                     backgroundColor: BLUE_1,marginRight:20}}>
-                    <text style={{ fontSize: TEXT_SIZES.SMALL, color:WHITE }}>
+                    <text style={{ ...styles.message_content, color:WHITE }}>
                         {message.content}
                     </text>
                 </div>
@@ -38,7 +38,7 @@ class PartnerMessage extends Component {
 
                 <Link to={routePaths.FREELANCER_DETAIL}
                     style={{textDecoration:'none'}}>
-                    <img src={sender.avatar} style={{height:50,width:50, borderRadius: 25}}/>
+                    <img src={sender.avatar} style={styles.avatar}/>
                 </Link>
               
 
@@ -46,7 +46,7 @@ class PartnerMessage extends Component {
                     alignSelf:'baseline',
                     backgroundColor: GRAY_4,marginLeft:20}}>
 
-                    <text style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_2}}>
+                    <text style={{...styles.message_content,color:GRAY_2}}>
                         {message.content}
                     </text>
 
@@ -64,9 +64,11 @@ export default class ConversationComponent extends Component {
 
         console.log('messages:',messages)
         return (
-            <div  style={{flexDirection:'column', display:'flex',flex:1}}>    
+            <div  style={styles.container}>    
+
                 <HeaderListComponent title={users[1].name}/>
-                <div style={{flex:1,display: 'flex',flexDirection: 'column',overflowY: 'scroll'}}>
+
+                <div style={styles.body}>
                     {
                         messages.map((item,index)=>(
                             item.sender.id===users[0].id?
@@ -87,11 +89,22 @@ export default class ConversationComponent extends Component {
 }
 
 const styles={
+    container:{
+        flexDirection:'column', 
+        display:'flex',
+        flex:1
+    },
+    body:{
+        flex:1,
+        display: 'flex',
+        flexDirection: 'column',
+        overflowY: 'scroll'
+    },
     partner_name:{
         fontSize: 25,
         color:'#ffffff'
     },
-    message:{
+    message_container:{
         display: 'flex',
         paddingRight: 20,
         paddingLeft: 20,
@@ -103,6 +116,14 @@ const styles={
         padding:7,
         maxWidth: '70%',
     
+    },
+    avatar:{
+        height:50,
+        width:50, 
+        borderRadius: 25
+    },
+    message_content:{
+        fontSize: TEXT_SIZES.SMALL
     }
 
     

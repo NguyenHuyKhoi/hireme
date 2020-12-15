@@ -11,10 +11,8 @@ export default class StageListComponent extends Component {
         const stages=this.props.stages!==undefined?this.props.stages:[];
         console.log('stage_list:',stages);
         return (
-            <div style={{ display:'flex',flexDirection: 'row',backgroundColor:WHITE, overflowX:'scroll',
-                    paddingLeft:30,
-                    boxShadow:'5px 5px 25px 3px #707070'}}>
-                
+            <div style={styles.container}>
+
                     {
                         stages.map((item,index)=>
                             <div style={{width:'40vw'}}>
@@ -30,33 +28,31 @@ export default class StageListComponent extends Component {
                     <div style={{width:'40vw'}}>
                         <NewStageItemComponent/>
                     </div>
-                    <div style={{display:'flex',width:400,paddingTop:50,
-                        flexDirection:'column',alignItems: 'center'}}>
+
+                    <div style={styles.last_col}>
 
 
-                        <div style={{display:'flex',justifyContent:'center',alignItems:'center',padding:15,
-                            flexDirection:'column',borderRadius:4,backgroundColor: RED_1}}>
-                            <text style={{fontSize:TEXT_SIZES.NORMAL,color:WHITE}}>
+                        <div style={styles.deadline_container}>
+
+                            <text style={styles.deadline_header}>
                                 DEADLINE
                             </text>
-                            <text style={{fontSize:TEXT_SIZES.SMALL,color:WHITE}}>
+                            <text style={styles.deadline_time}>
                                 08:00
                             </text>
-                            <text style={{fontSize:TEXT_SIZES.SMALL,color:WHITE}}>
+                            <text style={styles.deadline_time}>
                                 02/12/2020
                             </text>
                         </div>
 
                         
 
-                        <text style={{marginTop:20,fontSize:TEXT_SIZES.NORMAL,
-                                width: 360,
-                                color:BLACK,textAlign:'center'}}>
+                        <text style={styles.confirm_notif}>
                                 If task reaches 100%, press to confirm it be completed.
                                 After that, budget will transfer to freelancer.
                         </text>
 
-                        <div style={{marginTop:20,width:200}}>
+                        <div style={styles.btn_container}>
                             <ButtonComponent label='Confirm'/>
                         </div>
                     </div>
@@ -68,5 +64,52 @@ export default class StageListComponent extends Component {
                     
     
         )
+    }
+}
+
+
+const styles={
+    container:{ 
+        display:'flex',
+        flexDirection: 'row',
+        backgroundColor:WHITE, 
+        overflowX:'scroll',
+        paddingLeft:30,
+        boxShadow:'5px 5px 25px 3px #707070'
+    },
+    last_col:{
+        display:'flex',
+        width:400,
+        paddingTop:50,
+        flexDirection:'column',
+        alignItems: 'center'
+    },
+    deadline_container:{
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        padding:15,
+        flexDirection:'column',
+        borderRadius:4,
+        backgroundColor: RED_1
+    },
+    deadline_header:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:WHITE
+    },
+    deadline_time:{
+        fontSize:TEXT_SIZES.SMALL,
+        color:WHITE
+    },
+    confirm_notif:{
+        marginTop:20,
+        fontSize:TEXT_SIZES.NORMAL,
+        width: 360,
+        color:BLACK,
+        textAlign:'center'
+    },
+    btn_container:{
+        marginTop:20,
+        width:200
     }
 }

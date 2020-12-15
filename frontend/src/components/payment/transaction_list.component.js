@@ -44,17 +44,13 @@ export default class TransactionListComponent extends Component {
     
         console.log('Tasks :',this.props.tasks,l,r)
         return (
-            <div style={{ display:'flex',flex:1,flexDirection: 'column',backgroundColor: WHITE,
+            <div style={styles.container}>
 
-            boxShadow:'3px 5px 3px 3px #707070'}}>
-                {/* header list */}
                 <HeaderListComponent title='Transaction History' height={40} is_sort={true}/>
                 
-                {/* body list */}
-                <div style={{flex:1,display: 'flex',flexDirection:'row'}}>
-                    {/* <div style={{flex:1}}/> */}
+                <div style={styles.body}>
 
-                    <div style={{display:'flex',flex:8,flexDirection: 'column'}}>
+                    <div style={styles.inner_body}>
             
                         {
                             transaction_history.slice(l,r+1).map((item,index)=>(
@@ -79,13 +75,22 @@ export default class TransactionListComponent extends Component {
 }
 
 const styles={
-    container :{
-        flexDirection:'column',
+
+    container:{ 
         display:'flex',
-
+        flex:1,
+        flexDirection: 'column',
+        backgroundColor: WHITE,
+        boxShadow:'3px 5px 3px 3px #707070'
     },
-    
-    
-    
+    body:{
+        flex:1,
+        display: 'flex',
+        flexDirection:'row'
+    },
+    inner_body:{
+        display:'flex',
+        flex:8,
+        flexDirection: 'column'
+    }
 }
-

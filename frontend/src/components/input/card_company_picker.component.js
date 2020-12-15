@@ -34,7 +34,7 @@ export default class CardCompanyPickerComponent extends Component {
 
         const disabled=this.props.disabled;
         return (
-            <div style={{width:'100%',display: 'flex', flexDirection: 'row',justifyContent: 'space-between'}}>
+            <div style={styles.container}>
                 {
                     CARD_COMPANIES_DOMAIN.map((item,index)=>
                         <img 
@@ -47,12 +47,26 @@ export default class CardCompanyPickerComponent extends Component {
                                 })
                                 this.props.onChange(item.code)
                             }}
-                            style={{width:60,height:40,
-                            opacity:item.code!==value?0.1:1
-                        }}/>    
+                            style={{...styles.logo,
+                                opacity:item.code!==value?0.1:1
+                                }}/>    
                             )
                         }
                 </div>
         )
     }
 }
+
+const styles={
+    container:{
+        width:'100%',
+        display: 'flex', 
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    logo:{
+        width:60,
+        height:40,
+    }
+}
+

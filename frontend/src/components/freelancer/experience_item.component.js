@@ -38,14 +38,11 @@ export default class ExperienceItemComponent extends Component {
         return (
             <div  
                 style={{
-                    display:'flex',width:'100%',height:150,
-                    flexDirection: 'column',
-                    justifyContent:'center',
+                    ...styles.container,
                     backgroundColor:index%2==0?WHITE:GRAY_4}}>    
 
-                    <div style={{width:'100%',display:'flex',flexDirection:'row',
-                        alignItems:'center',
-                        justifyContent:'space-between'}}>
+                    <div style={styles.ro1}>
+
                         <div style={{width:'45%'}}>
                             <LabelInputComponent 
                                 label='Role'
@@ -59,10 +56,8 @@ export default class ExperienceItemComponent extends Component {
                         {
                             btn_add_visible?
                             <div 
-                            style={{...styles.action_btn,
-                                marginRight:20,
-                                backgroundColor:GREEN_1}}>
-                                <text style={{fontSize: TEXT_SIZES.NORMAL,color:WHITE}}>
+                            style={{...styles.action_btn,backgroundColor:GREEN_1}}>
+                                <text style={styles.action_btn_label}>
                                     +
                                 </text>
                             </div>
@@ -74,10 +69,8 @@ export default class ExperienceItemComponent extends Component {
                         {
                             btn_remove_visible?
                             <div 
-                            style={{...styles.action_btn,
-                                marginRight:20,
-                                backgroundColor: RED_1}}>
-                                <text style={{fontSize: TEXT_SIZES.NORMAL,color:WHITE}}>
+                            style={{...styles.action_btn,backgroundColor: RED_1}}>
+                                <text style={styles.action_btn_label}>
                                     -
                                 </text>
                             </div>
@@ -90,10 +83,8 @@ export default class ExperienceItemComponent extends Component {
                     
                     
 
-                    <div style={{display:'flex',width:'100%',flexDirection: 'row',
-                        marginTop:10,
-                        justifyContent: 'space-between',alignItems: 'center'}}>
-                        <div style={{width:'30%',marginRight:40}}>
+                    <div style={styles.row2}>
+                        <div style={styles.row2_col1}>
                             <LabelInputComponent 
                                 label='Company'
                                 placeholder='Enter company name...'
@@ -105,19 +96,19 @@ export default class ExperienceItemComponent extends Component {
                                 />
                         </div>
                         
-                        <div style={{width:'5%'}}/>
-                        <div style={{width:'5%'}}/>
-                        <div style={{display:'flex',flex:1,flexDirection:'row'}}>
+                        <div style={{width:'10%'}}/>
+
+                        <div style={styles.row2_col2}>
                             <div style={{display:'flex',flex:1,marginRight: 20}}>
-                            <LabelInputComponent
-                                label='From' 
-                                size={TEXT_SIZES.SMALL}
-                                disabled={!input_not_disabled}
-                                inline={true}
-                                hide_label={true}
-                                type='date'
-                                value={is_new?new Date():experience.start_time}
-                                />
+                                <LabelInputComponent
+                                    label='From' 
+                                    size={TEXT_SIZES.SMALL}
+                                    disabled={!input_not_disabled}
+                                    inline={true}
+                                    hide_label={true}
+                                    type='date'
+                                    value={is_new?new Date():experience.start_time}
+                                    />
                             </div>
 
                 
@@ -139,7 +130,7 @@ export default class ExperienceItemComponent extends Component {
                         
                     </div>
 
-                    <div style={{width:'90%',marginTop:3}}>
+                    <div style={styles.row3}>
                         <LabelInputComponent 
                             label='Description'
                             placeholder='Description your works...'
@@ -158,15 +149,46 @@ export default class ExperienceItemComponent extends Component {
 }
 
 const styles={
-
+    container:{
+        display:'flex',
+        width:'100%',
+        height:150,
+        flexDirection: 'column',
+        justifyContent:'center',
+    },
+    row1:{
+        width:'100%',
+        display:'flex',
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'space-between'
+    },
     action_btn:{
-        width: 40,
-        height:40,
-        marginLeft: 20,
-        borderRadius: 5,
-        justifyContent: 'center',
-        display: 'flex',
-        alignItems: 'center',
+        marginRight:20
+    },
+    action_btn_label:{
+        fontSize: TEXT_SIZES.NORMAL,
+        color:WHITE
+    },
+    row2:{
+        display:'flex',
+        width:'100%',
+        flexDirection: 'row',
+        marginTop:10,
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    row2_col1:{
+        width:'30%',
+        marginRight:40
+    },
+    row2_col2:{
+        display:'flex',
+        flex:1,
+        flexDirection:'row'
+    },
+    row3:{
+        width:'90%',
+        marginTop:3
     }
-    
 }

@@ -32,21 +32,20 @@ export default class LabeledSelectedInputComponent extends Component {
 
         return (
 
-            <div style={{display:'flex',width: '100%',flexDirection: 'column'}}>
+            <div style={styles.container}>
                 {
                     hide_label?
                     null
                     :
-                    <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>
+                    <text style={styles.label}>
                         {label}
                     </text>
 
                 }
                 
-                <div style={{width:'100%',height:30,
-                    marginTop:hide_label?0:15,fontSize:TEXT_SIZES.NORMAL}}>
+                <div style={{...styles.body,marginTop:hide_label?0:15}}>
                     <Select
-                        style={{fontSize:TEXT_SIZES.SMALL}}
+                        style={styles.select}
                         value={option}
                         onChange={(option)=>{
                             this.setState({value:option.value});
@@ -64,5 +63,26 @@ export default class LabeledSelectedInputComponent extends Component {
         )
     }
 }
+
+const styles={
+    container:{
+        display:'flex',
+        width: '100%',
+        flexDirection: 'column'
+    },
+    label:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK
+    },
+    body:{
+        width:'100%',
+        height:30,
+        fontSize:TEXT_SIZES.NORMAL
+    },
+    select:{
+        fontSize:TEXT_SIZES.SMALL
+    }
+}
+
 
 

@@ -7,22 +7,20 @@ export default class SingleFieldComponent extends Component {
     render(){
         const field=this.props.field;
         return (
-            <div style={{width:'100%',display:'flex',
-                flexDirection: 'column',alignSelf: 'baseline'}}>
+            <div style={styles.container}>
 
-            <text style={{fontSize:TEXT_SIZES.BIG,color:BLACK}}>
+            <text style={styles.title}>
                 {field.key} 
             </text>
 
-            <div style={{marginTop:3,width: '100%',display: 'flex',flexDirection:'row', 
-                alignItems: 'center'}}>
+            <div style={styles.body}>
                 {/* <IconContext.Provider value={{color:BLACK,style:{width: 30,height: 30}}}>
                     <div>
                         {bullshitIcons.home}
                     </div>
                 </IconContext.Provider> */}
 
-                <text style={{marginLeft:5,fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>
+                <text style={styles.value}>
                         {field.value} 
                 </text>
                 
@@ -34,3 +32,29 @@ export default class SingleFieldComponent extends Component {
         )
     }
 }
+
+const styles={
+    container:{
+        width:'100%',
+        display:'flex',
+        flexDirection: 'column',
+        alignSelf: 'baseline'
+    },
+    title:{
+        fontSize:TEXT_SIZES.BIG,
+        color:BLACK
+    },
+    body:{
+        marginTop:3,
+        width: '100%',
+        display: 'flex',
+        flexDirection:'row', 
+        alignItems: 'center'
+    },
+    value:{
+        marginLeft:5,
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK
+    }
+}
+

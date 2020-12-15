@@ -23,28 +23,23 @@ export default class BalanceCardComponent extends Component {
         const balance=this.props.balance
         const credit_cards=this.props.credit_cards;
         return (
-            <div style={{backgroundColor:WHITE,
-                height:360,
-                boxShadow:'3px 5px 3px 3px #707070',
-                display:'flex',flex:1,flexDirection: 'column'}}>
+            <div style={styles.container}>
 
                 <HeaderListComponent title='Balance' height={40}/>
-                <div style={{flex:1,display:'flex',justifyContent: 'center',alignItems:'center'}}>
 
-                    <div style={{height:'80%',width:'70%',borderRadius:8,
-                        backgroundColor:GRAY_4,
-                        borderWidth:5,borderColor:BLACK,
-                        display:'flex',flexDirection:'column',alignItems:'center',justifyContent: 'center'}}>
+                <div style={styles.body}>
 
-                        <text style={{fontSize:TEXT_SIZES.HEADER,color:GRAY_2}}>
+                    <div style={styles.balance_card}>
+
+                        <text style={styles.title}>
                             Current Account
                         </text>
-                        <text style={{fontSize:TEXT_SIZES.HUGE,color:BLACK,fontWeight:'bold'}}>
+                        <text style={styles.balance}>
                             {'$'+balance}
                         </text>
 
                     
-                        <div style={{width:'90%',display:'flex',flexDirection:'row'}}>
+                        <div style={styles.field_container}>
                             <div style={{flex:3}}>
                                 <LabeledInputComponent 
                                     onChange={(value)=>this.props.updateInputs('amount',value)}
@@ -82,8 +77,7 @@ export default class BalanceCardComponent extends Component {
                           
                         </div>
 
-                        <div style={{width:'90%',marginTop: 20,display:'flex',flexDirection:'row',
-                                justifyContent: 'flex-end'}}>
+                        <div style={styles.btn_container}>
                             <div style={{width: '20%'}}>
                                 <ButtonComponent 
                                     onClick={this.props.transaction}
@@ -99,4 +93,54 @@ export default class BalanceCardComponent extends Component {
     )
     }
 }
+
+const styles={
+    container:{
+        backgroundColor:WHITE,
+        height:360,
+        boxShadow:'3px 5px 3px 3px #707070',
+        display:'flex',
+        flex:1,
+        flexDirection: 'column'
+    },
+    body:{
+        flex:1,
+        display:'flex',
+        justifyContent: 'center',
+        alignItems:'center'
+    },
+    balance_card:{
+        height:'80%',
+        width:'70%',
+        borderRadius:8,
+        backgroundColor:GRAY_4,
+        borderWidth:5,borderColor:BLACK,
+        display:'flex',
+        flexDirection:'column',
+        alignItems:'center',
+        justifyContent: 'center'
+    },
+    title:{
+        fontSize:TEXT_SIZES.HEADER,
+        color:GRAY_2
+    },
+    balance:{
+        fontSize:TEXT_SIZES.HUGE,
+        color:BLACK,
+        fontWeight:'bold'
+    },
+    field_container:{
+        width:'90%',
+        display:'flex',
+        flexDirection:'row'
+    },
+    btn_container:{
+        width:'90%',
+        marginTop: 20,
+        display:'flex',
+        flexDirection:'row',
+        justifyContent: 'flex-end'
+    }
+}
+
 

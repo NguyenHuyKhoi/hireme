@@ -11,36 +11,22 @@ export default class BanUserModal extends Component {
         return (
             <Modal
                 isOpen={is_open}
-                style={{ 
-                    content : {
-                        top                   : '50%',
-                        left                  : '50%',
-                        right                 : 'auto',
-                        bottom                : 'auto',
-                        marginRight           : '-50%',
-                        transform             : 'translate(-50%, -50%)'
-                        } }}>
-                        <div style={{display: 'flex',flexDirection: 'column',
-                            alignItems:'center',justifyContent:'center',
-                            width: '25vw',height: '25vh',borderRadius:6,
-                            padding:15}}>
-                            <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
+                style={styles.modal}>
+                        <div style={styles.container}>
+                            <text style={styles.normal_text}>
                                 Ban this user?
                             </text>
 
-                            <text style={{marginTop:5,fontSize: TEXT_SIZES.SMALL,color:BLACK,
-                                textAlign:'center'}}>
+                            <text style={styles.small_text}>
                                 When user is banner ,she/he can't log in anymore.
                                 You can unban any time.
                             </text>
 
-                            <div style={{width: '100%',display: 'flex',flexDirection: 'row',
-                                marginTop:25,
-                                justifyContent:'space-between'}}>
-                                <div style={{flex:1,marginRight: 50}}>
+                            <div style={styles.footer}>
+                                <div style={{...styles.btn_container,marginRight: 50}}>
                                     <ButtonComponent label='Back' onClick={this.props.clickBack}/>
                                 </div>
-                                <div style={{flex:1}}>
+                                <div style={styles.btn_container}>
                                     <ButtonComponent label='Ban' color={RED_1}
                                         onClick={this.props.clickBan}/>
                                 </div>
@@ -50,5 +36,52 @@ export default class BanUserModal extends Component {
                     
     
         )
+    }
+}
+
+const styles={
+    footer:{
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop:25,
+        justifyContent:'space-between'
+    },
+    btn_container:{
+        flex:1
+    },
+    modal:{ 
+        content : {
+            top                   : '50%',
+            left                  : '50%',
+            right                 : 'auto',
+            bottom                : 'auto',
+            marginRight           : '-50%',
+            transform             : 'translate(-50%, -50%)'
+        } 
+    },
+    container:{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems:'center',
+        justifyContent:'center',
+        width: '25vw',
+        height: '25vh',
+        borderRadius:6,
+        padding:15
+    },
+    normal_text:{
+        fontSize: TEXT_SIZES.NORMAL,
+        color:BLACK
+    },
+    small_text:{
+        marginTop:5,
+        fontSize: TEXT_SIZES.SMALL,
+        color:BLACK,
+        textAlign:'center'
+    },
+    btn_close:{
+        fontSize: TEXT_SIZES.SMALL,
+        color:RED_1
     }
 }

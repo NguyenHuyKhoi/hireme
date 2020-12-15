@@ -92,11 +92,9 @@ class Item extends Component{
                             :
                             routePaths.DASHBOARD_SETTING_FREELANCER
                 }
-                style={{display:'flex',width:'100%',
-                alignSelf:'center',textDecoration:'none',
-                flexDirection: 'row',alignItems: 'center'}}>
+                style={styles.item_container}>
                 <CustomIconComponent name={item.icon} color={this.state.hover?BLUE_1: GRAY_2}/>
-                <text style={{marginLeft:20,fontSize:TEXT_SIZES.NORMAL,
+                <text style={{...styles.item_label,
                     color:this.state.hover?BLUE_1: GRAY_2}}
                    >
                     {item.label}
@@ -118,23 +116,22 @@ class SidebarComponent extends Component {
      
         const items=user_type==='admin'?sidebarAdminItems:sidebarItems;
         return (
-            <div style={{flex:1,height:'100vh',display:'flex',flexDirection: 'column',backgroundColor: WHITE,
-                boxShadow:'3px 0px 10px 3px #707070'
-            }}>
+            <div style={styles.container}>
             
                 <div 
-                    style={{flex:3,display:'flex',justifyContent:'center',alignItems:'center'}}>
+                    style={styles.header}>
 
                     <Link to={routePaths.HOME}
-                        style={{textDecoration:'none',display:'flex',justifyContent:'center',alignItems:'center'}}>
-                        <img src={logo} style={{width: '60%',aspectRatio:1.5}}/>
+                        style={styles.logo_container}>
+                        <img src={logo} style={styles.logo}/>
                     </Link>
                 </div>
 
-                <div style={{flex:5,display:'flex',flexDirection:'row'}}>
+                <div style={styles.body}>
+
                         <div style={{flex:1}}/>
-                        <div style={{flex:3,display:'flex',flexDirection:'column',
-                        justifyContent:'space-between'}}>
+
+                        <div style={styles.content}>
                         {
                             items.map((item,index)=>
                                 <Item 
@@ -145,18 +142,19 @@ class SidebarComponent extends Component {
                             )
                         }
                         </div>
+
                         <div style={{flex:1}}/>
                         
             
                 
                 </div>
                
-                <div style={{flex:3,display:'flex',justifyContent:'center',alignItems:'center'}}>
+                <div style={styles.footer}>
                     {
                         user_type==='company'?
                         <Link 
                             to={routePaths.DASHBOARD_TASK_POST}
-                            style={{width:'60%',textDecoration:'none'}}>
+                            style={styles.btn_container}>
                             <ButtonComponent label='Post A Task'/>
                         </Link>
                         :
@@ -170,6 +168,67 @@ class SidebarComponent extends Component {
         )
     }
 }
+
+const styles={
+    item_container:{
+        display:'flex',
+        width:'100%',
+        alignSelf:'center',
+        textDecoration:'none',
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    item_label:{
+        marginLeft:20,
+        fontSize:TEXT_SIZES.NORMAL,
+    },
+    container:{
+        flex:1,
+        height:'100vh',
+        display:'flex',
+        flexDirection: 'column',
+        backgroundColor: WHITE,
+        boxShadow:'3px 0px 10px 3px #707070'
+    },
+    header:{
+        flex:3,
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    logo_container:{
+        textDecoration:'none',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    logo:{
+        width: '60%',
+        aspectRatio:1.5
+    },
+    body:{
+        flex:5,
+        display:'flex',
+        flexDirection:'row'
+    },
+    content:{
+        flex:3,
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'space-between'
+    },
+    footer:{
+        flex:3,
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    btn_container:{
+        width:'60%',
+        textDecoration:'none'
+    }
+}
+
 
 const mapStateToProps = state => ({
 	user_infor: state.user_infor,

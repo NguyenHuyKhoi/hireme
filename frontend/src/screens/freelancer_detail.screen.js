@@ -60,9 +60,7 @@ export default class FreelancerDetailScreen extends Component {
         console.log('freelancer_detail screen:',freelancer);
         return (
 
-            <div style={{width:'100vw',
-                backgroundColor:WHITE,
-                display:'flex',flexDirection: 'column'}}>
+            <div style={styles.container}>
 
                 {/* header */}
                 <HeaderBarComponent/>
@@ -71,31 +69,24 @@ export default class FreelancerDetailScreen extends Component {
                 freelancer===null?
                 null
                 :
-                <div style={{width:'100vw',display:'flex',flexDirection: 'column',
-                    paddingBottom:60,
-                    overflowX:'hidden',
-                    alignSelf: 'baseline'}}>
+                <div style={styles.body}>
 
-                    
-                    {/* header task detail */}
                     
                     <FreelancerDetailHeaderComponent freelancer={freelancer}/>
-                    {/* body task detail  */}
 
-                    <div style={{width:'100%',display:'flex',flexDirection:'row'}}>
+                    <div style={styles.freelancer_body}>
+
                         <div style={{flex:1}}/>
-                        {/* column1 */}
-                        <div style={{flex:5,display:'flex',flexDirection: 'column',
-                            alignSelf:'baseline'}}>
 
-                            {/* description */}
+                
+                        <div style={styles.freelancer_body_col1}>
+
                             <div style={{marginTop:30}}>
                                 <DescriptionComponent 
                                     title='About Freelancer'
                                     content={freelancer.description}/>
                             </div>
                         
-                            {/* experience list */}
                             
                             {/* <div style={{marginTop:50}}>
                                 <ExperienceListComponent experiences={freelancer.experiences}/>
@@ -103,7 +94,6 @@ export default class FreelancerDetailScreen extends Component {
                         
 
                             <div style={{marginTop:50}}>
-                                {/* reviews list */}
                                 <ReviewListComponent reviews={reviews}/>
                             </div>
                         
@@ -111,15 +101,10 @@ export default class FreelancerDetailScreen extends Component {
 
                         <div style={{flex:0.5}}/>
 
-                        {/* column2 */}
-                        <div style={{flex:2,display:'flex',flexDirection: 'column',
-                            marginLeft:50,  alignSelf:'baseline'}}>
-
-                            {/* skills */}
+                        <div style={styles.freelancer_body_col2}>
+ 
                             <SkillsListComponent skills={freelancer.skills}/>
-
-
-                            {/* infor bar  */}
+                
                             <div style={{marginTop:50}}>
                                 <InforsBarComponent fields={[
                                     {
@@ -140,7 +125,9 @@ export default class FreelancerDetailScreen extends Component {
                         
                         
                         </div>
+
                         <div style={{flex:1}}/>
+                    
                     </div>
             
             
@@ -148,12 +135,48 @@ export default class FreelancerDetailScreen extends Component {
 
 
                 }
-                {/* body */}
+
                 
-                {/* footer */}
                 <FooterBarComponent/>
             </div>
             
         )
     }
+}
+
+
+const styles={
+    container:{
+        width:'100vw',
+        backgroundColor:WHITE,
+        display:'flex',
+        flexDirection: 'column'
+    },
+    body:{
+        width:'100vw',
+        display:'flex',
+        flexDirection: 'column',
+        paddingBottom:60,
+        overflowX:'hidden',
+        alignSelf: 'baseline'
+    },
+    freelancer_body:{
+        width:'100%',
+        display:'flex',
+        flexDirection:'row'
+    },
+    freelancer_body_col1:{
+        flex:5,
+        display:'flex',
+        flexDirection: 'column',
+        alignSelf:'baseline'
+    },
+    freelancer_body_col2:{
+        flex:2,
+        display:'flex',
+        flexDirection: 'column',
+        marginLeft:50,  
+        alignSelf:'baseline'
+    }
+
 }

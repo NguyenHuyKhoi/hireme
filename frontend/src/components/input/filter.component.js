@@ -17,9 +17,9 @@ export default class FilterComponent extends Component {
 
         console.log('category_filter:',category)
         return (
-            <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
+            <div style={styles.container}>
 
-                <div style={{width:'100%',marginBottom:10}}>
+                <div style={styles.btn_container}>
                     <ButtonComponent label='Search' height={45} onClick={this.props.clickSearch}/>
                 </div>
                 
@@ -29,21 +29,21 @@ export default class FilterComponent extends Component {
                     value={CATEGORIES_DOMAIN[0].name}
                     domain={CATEGORIES_DOMAIN.map(item=>item.name)}/>
 
-                <div style={{marginTop:20}}>
+                <div style={styles.field_container}>
                     <SkillPickerComponent 
                         onChange={value=>this.props.updateInputs('skills',value)}
                         label="Skills"
                         category={category}/>
                 </div>
                 
-                <div style={{marginTop:20}}>
+                <div style={styles.field_container}>
                     <LabeledInputComponent
                         onChange={(value)=>this.props.updateInputs('keyword',value)}
                         label='Keyword'
                         />
                 </div>
 
-                <div style={{marginTop:20}}>
+                <div style={styles.field_container}>
                     <RangeInputComponent
                         label='Hourly Rate' 
                         onChange={(value)=>this.props.updateInputs('hourly_rate',value)}
@@ -52,7 +52,7 @@ export default class FilterComponent extends Component {
                          />
                 </div>
 
-                <div style={{marginTop:20}}>
+                <div style={styles.field_container}>
                     <RangeInputComponent 
                         label='Fixed Price' 
                         onChange={(value)=>this.props.updateInputs('fixed_price',value)}
@@ -68,3 +68,19 @@ export default class FilterComponent extends Component {
         )
     }
 }
+
+const styles={
+    container:{
+        width:'100%',
+        display:'flex',
+        flexDirection: 'column'
+    },
+    btn_container:{
+        width:'100%',
+        marginBottom:10
+    },
+    field_container:{
+        marginTop:20
+    }
+}
+

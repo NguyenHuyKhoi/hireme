@@ -23,14 +23,12 @@ export default class CategoryItemComponent extends Component {
                 onMouseEnter={()=>this.setState({hover:true})}
 
                 to={routePaths.TASK_SEARCH}
-                style={{width:'20vw',height:200,
-                backgroundColor: this.state.hover?BLUE_1:WHITE,
-                textDecoration:'none',
-                display:'flex',flexDirection: 'column',justifyContent: 'center',alignItems: 'center'}}>
+                style={{...styles.container,
+                    backgroundColor: this.state.hover?BLUE_1:WHITE,}}>
             
 
-                <text style={{fontSize:TEXT_SIZES.NORMAL,marginLeft:20,marginRight:20,
-                    marginBottom:10,
+                <text style={{
+                        ...styles.category_name,
                         color: this.state.hover?WHITE:BLACK}}>
                     {category.name}
                 </text>
@@ -43,14 +41,37 @@ export default class CategoryItemComponent extends Component {
                */}
 
             
-                <text style={{fontSize:TEXT_SIZES.SMALL,
-                    color: this.state.hover?GRAY_3:GRAY_1,marginTop:2,
-                    marginLeft:5,marginRight:5,
-                    textAlign:'center'}}>
+                <text style={{...styles.category_description,
+                            color: this.state.hover?GRAY_3:GRAY_1}}>
                     {category.description}
                 </text>
             </Link>
         )
+    }
+}
+
+const styles={
+    container:{
+        width:'20vw',
+        height:200,
+        textDecoration:'none',
+        display:'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    category_name:{
+        fontSize:TEXT_SIZES.NORMAL,
+        marginLeft:20,
+        marginRight:20,
+        marginBottom:10,
+    },
+    category_description:{
+        fontSize:TEXT_SIZES.SMALL,
+        marginTop:2,
+        marginLeft:5,
+        marginRight:5,
+        textAlign:'center',
     }
 }
 

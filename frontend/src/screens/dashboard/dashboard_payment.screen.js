@@ -5,7 +5,6 @@ import LabeledSelectedInputComponent from '../../components/input/labeled_select
 import RangeInputComponent from '../../components/input/range_input.component'
 import SidebarComponent from '../../components/common/side_bar.component'
 import SkillPickerComponent from '../../components/input/skill_picker.component'
-import UploadFilesComponent from '../../components/common/upload_files.component'
 import BalanceCardComponent from '../../components/payment/balance_card.component'
 import CreditCardListComponent from '../../components/payment/credit_card_list.component'
 import TransactionListComponent from '../../components/payment/transaction_list.component'
@@ -140,54 +139,44 @@ class DashBoardPaymentScreen extends Component {
         const payment=this.state.payment
         return (
 
-            <div style={{width:'100vw',backgroundColor:GRAY_6,
-            display:'flex',flexDirection: 'row'}}>
+            <div style={styles.container}>
 
-                {/* sidebar */}
                 <SidebarComponent/>
-                {/* body */}
 
-                <div style={{display:'flex',flex:SIDEBAR_RATIO,
-                    padding:PADDING_BODY_DASHBOARD}}>
+                {
 
-                    {
-                        payment===null?
-                        null
-                        :
-                        <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
+                payment===null?
+                null
+                :
+                <div style={styles.body}>
 
-                        {/* header */}
-                            <HeaderListComponent title='Payment'/>
-    
-                            <div style={{marginTop:30}}>
-                                <CreditCardListComponent 
-                                    createCard={this.createCreditCard}
-                                    deleteCard={this.deleteCreditCard}
-                                    updateInputs={this.updateInputs}
-                                    credit_cards={payment.credit_cards}/>
-                            </div>
-                          
-                            <div style={{marginTop:60}}>
-                                <BalanceCardComponent 
-                                    updateInputs={this.updateInputs}
-                                    transaction={this.transaction}
-                                    balance={payment.balance}  
-                                    credit_cards={payment.credit_cards}/>
-                            </div>
-    
-                            <div style={{marginTop:60}}>
-                                <TransactionListComponent transaction_history={payment.transaction_history}/>
-                            </div>
-    
-                         
-    
-         
-    
-                        </div>
+
+                    <HeaderListComponent title='Payment'/>
+
+                    <div style={{marginTop:30}}>
+                        <CreditCardListComponent 
+                            createCard={this.createCreditCard}
+                            deleteCard={this.deleteCreditCard}
+                            updateInputs={this.updateInputs}
+                            credit_cards={payment.credit_cards}/>
+                    </div>
                     
-                    }
-                  
+                    <div style={{marginTop:60}}>
+                        <BalanceCardComponent 
+                            updateInputs={this.updateInputs}
+                            transaction={this.transaction}
+                            balance={payment.balance}  
+                            credit_cards={payment.credit_cards}/>
+                    </div>
+
+                    <div style={{marginTop:60}}>
+                        <TransactionListComponent transaction_history={payment.transaction_history}/>
+                    </div>
+                
                 </div>
+
+                }
+               
 
      
 
@@ -195,6 +184,20 @@ class DashBoardPaymentScreen extends Component {
             </div>
             
         )
+    }
+}
+
+const styles={
+    container:{
+        width:'100vw',
+        backgroundColor:GRAY_6,
+        display:'flex',
+        flexDirection: 'row'
+    },
+    body:{
+        display:'flex',
+        flex:SIDEBAR_RATIO,
+        padding:PADDING_BODY_DASHBOARD
     }
 }
 

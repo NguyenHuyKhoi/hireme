@@ -41,48 +41,33 @@ class HeaderBarComponent extends Component {
         const IconName=`Icons.FaHome`;
         const user_infor=this.props.user_infor;
         return (
-            <div style={{width:'100vw',height: 80,backgroundColor:WHITE,
-                boxShadow:'0px 5px 5px #707070',
-                display:'flex',flexDirection: 'row',alignItems: 'center',justifyContent: 'space-between'}} >
+            <div style={styles.container} >
 
                 <Modal
                     isOpen={this.state.auth_modal_open}
-                    style={{ 
-                        content : {
-                            top                   : '50%',
-                            left                  : '50%',
-                            right                 : 'auto',
-                            bottom                : 'auto',
-                            marginRight           : '-50%',
-                            transform             : 'translate(-50%, -50%)'
-                          } }}>
+                    style={styles.modal}>
                     <AuthModal 
                         onCloseModal={this.closeAuthModal}
                         onClickClose={this.closeAuthModal}/>
                 </Modal>
                 
-                <div style={{flex:2,height:'100%',display: 'flex',
-                    alignItems: 'center',justifyContent: 'center'
-                    }}>
-                    <img src={logo} style={{width:'60%',height:'60%'}}/>
+                <div style={styles.col1}>
+                    <img src={logo} style={styles.logo}/>
                 </div>
 
-                <div style={{flex:7,height:'100%',display:'flex',flexDirection:'row',alignItems: 'center',
-                    justifyContent:'space-around'
-                    }}>
-                    
+                <div style={styles.col2}>
 
                     <Link to ={routePaths.HOME}
-                        style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,textDecoration:'none'}}>
+                        style={styles.item}>
                             Home
                     </Link>
                     <Link to ={routePaths.FREELANCER_SEARCH}
-                        style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,textDecoration:'none'}}>
+                        style={styles.item}>
                             Find Freelancers
                     </Link>
 
                     <Link to ={routePaths.TASK_SEARCH}
-                        style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,textDecoration:'none'}}>
+                        style={styles.item}>
                             Find Tasks
                     </Link>
 
@@ -94,8 +79,7 @@ class HeaderBarComponent extends Component {
 
     
                 
-                <div style={{flex:2,height:'100%',display:'flex',flexDirection:'column',
-                    alignItems: 'center',justifyContent: 'center'}}>
+                <div style={styles.col3}>
                     {
                     user_infor!=={} && user_infor.session_id!==undefined?
                         <Link 
@@ -104,18 +88,18 @@ class HeaderBarComponent extends Component {
                                 :
                                 routePaths.DASHBOARD_TASK_LIST
                             }
-                            style={{display: 'flex',flexDirection: 'row',alignItems:'center',textDecoration:'none'}}>
+                            style={styles.my_account_container}>
                             <img src='https://randomuser.me/api/portraits/women/25.jpg' 
-                                style={{width:50,height:50,borderRadius:25}}/>
+                                style={styles.avatar}/>
                             <text 
-                                style={{marginLeft:10,fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
+                                style={styles.my_account}>
                                     My Account
                             </text>
                         </Link>
                     :
                         <text 
                             onClick={this.openAuthModal}
-                            style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
+                            style={styles.login}>
                             Login/Register  
                         </text>
                     }   
@@ -126,6 +110,82 @@ class HeaderBarComponent extends Component {
             
         )
     }
+}
+
+const styles={
+    container:{
+        width:'100vw',
+        height: 80,
+        backgroundColor:WHITE,
+        boxShadow:'0px 5px 5px #707070',
+        display:'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    modal:{ 
+        content : {
+            top                   : '50%',
+            left                  : '50%',
+            right                 : 'auto',
+            bottom                : 'auto',
+            marginRight           : '-50%',
+            transform             : 'translate(-50%, -50%)'
+        } 
+    },
+    col1:{
+        flex:2,
+        height:'100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    logo:{
+        width:'60%',
+        height:'60%'
+    },
+    col2:{
+        flex:7,
+        height:'100%',
+        display:'flex',
+        flexDirection:'row',
+        alignItems: 'center',
+        justifyContent:'space-around'
+    },
+    item:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK,
+        textDecoration:'none'
+    },
+    col3:{
+        flex:2,
+        height:'100%',
+        display:'flex',
+        flexDirection:'column',
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    my_account_container:{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems:'center',
+        textDecoration:'none'
+    },
+    avatar:{
+        width:50,
+        height:50,
+        borderRadius:25
+    },
+    my_account:{
+        marginLeft:10,
+        fontSize:TEXT_SIZES.SMALL,
+        color:BLACK
+    },
+    login:{
+        fontSize:TEXT_SIZES.SMALL,
+        color:BLACK
+    }
+
 }
 
 const mapStateToProps = state => ({

@@ -36,37 +36,36 @@ export default class UserItemAdminComponent extends Component {
         const index=this.props.index;
         return (
             
-            <div style={{display:'flex',width:'100%',height:80,alignSelf:'baseline',
-                backgroundColor:index%2===0?WHITE:GRAY_3,
-                flexDirection: 'row'}}>
+            <div style={{...styles.container,backgroundColor:index%2===0?WHITE:GRAY_3}}>
 
-                <BanUserModal is_open={this.state.open_ban_modal}
+                <BanUserModal 
+                    is_open={this.state.open_ban_modal}
                     clickBack={this.closeBanModal}
                     clickBan={this.banUser} />
 
     
                 <div style={{flex:0.5}}/>
-                <div style={{display:'flex',flex:6,flexDirection: 'column',justifyContent:'center'}}>
 
-                    <div style={{display:'flex',flexDirection:'row'}}>
-                        <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK }}>
+                <div style={styles.col1}>
+
+                    <div style={styles.col1_row1}>
+                        <text style={styles.normal_text}>
                             {user.name}
                         </text>
 
                      
                     </div>
 
-                    <div style={{width:'100%',display:'flex',flexDirection:'row',
-                        justifyContent: 'space-between'}}>
+                    <div style={styles.col1_row2}>
 
-                        <div style={{display:'flex',flex:1}}>
-                            <text style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
+                        <div style={styles.field_container}>
+                            <text style={styles.small_text}>
                                 {'Type : '+user.user_type}
                             </text>
                         </div>
 
                         <div style={{display:'flex',flex:1}}    >
-                            <text style={{fontSize:TEXT_SIZES.SMALL,color:BLACK}}>
+                            <text style={styles.small_text}>
                                 {'Email : '+user.email}
                             </text>
                         </div>
@@ -75,14 +74,14 @@ export default class UserItemAdminComponent extends Component {
         
                 </div>
 
-                <div style={{flex:4,display:'flex',justifyContent: 'center',alignItems: 'center'}}>
+                <div style={styles.col2}>
                     <Link 
                         to={user.user_type==='freelancer'?
                             routePaths.FREELANCER_DETAIL+`/${user.id}`
                             :
                             routePaths.COMPANY_DETAIL+`/${user.id}`
                         }
-                        style={{textDecoration:'none',width:'80%',marginRight: 25}}>
+                        style={styles.btn_container}>
                         <ButtonComponent label='Detail' color={BLUE_1}/>
                     </Link>
 
@@ -99,5 +98,54 @@ export default class UserItemAdminComponent extends Component {
 
     
         )
+    }
+}
+
+const styles={
+    container:{
+        display:'flex',
+        width:'100%',
+        height:80,
+        alignSelf:'baseline',
+        flexDirection: 'row'
+    },
+    col1:{
+        display:'flex',
+        flex:6,
+        flexDirection: 'column',
+        justifyContent:'center'
+    },
+    col1_row1:{
+        display:'flex',
+        flexDirection:'row'
+    },
+    normal_text:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK 
+    },
+    col1_row2:{
+        width:'100%',
+        display:'flex',
+        flexDirection:'row',
+        justifyContent: 'space-between'
+    },
+    field_container:{
+        display:'flex',
+        flex:1
+    },
+    small_text:{
+        fontSize:TEXT_SIZES.SMALL,
+        color:BLACK
+    },
+    col2:{
+        flex:4,
+        display:'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    btn_container:{
+        textDecoration:'none',
+        width:'80%',
+        marginRight: 25
     }
 }

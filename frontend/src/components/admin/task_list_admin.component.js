@@ -25,15 +25,13 @@ export default class TaskListAdminComponent extends Component {
         const l=this.state.first_item_index;
         const r=this.state.last_item_index;
         return (
-            <div style={{ display:'flex',flex:1,flexDirection: 'column',backgroundColor: WHITE,
-
-                boxShadow:'3px 5px 3px 3px #707070'}}>
-                {/* header list */}
+            <div style={styles.container}>
+               
                 <HeaderListComponent   title='Tasks'/>
                 
-                {/* body list */}
+           
 
-                <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
+                <div style={styles.body}>
                 {
                     tasks.slice(l,r+1).map((item,index)=>
                         <TaskItemAdminComponent  
@@ -54,5 +52,21 @@ export default class TaskListAdminComponent extends Component {
                     
     
         )
+    }
+}
+
+
+const styles={
+    container:{ 
+        display:'flex',
+        flex:1,
+        flexDirection: 'column',
+        backgroundColor: WHITE,
+        boxShadow:'3px 5px 3px 3px #707070'
+    },
+    body:{
+        display:'flex',
+        flex:1,
+        flexDirection: 'column'
     }
 }

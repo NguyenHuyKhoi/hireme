@@ -12,17 +12,16 @@ export default class TaskDetailTabComponent extends Component {
     render(){
         const task=this.props.task;
         return (
-            <div style={{display:'flex',flex:1,flexDirection: 'column',backgroundColor: WHITE,
+            <div style={styles.container}>
 
-            boxShadow:'3px 5px 3px 3px #707070'}}>
-
-                    
-            {/* header task detail */}
-            
                 <TaskDetailHeaderComponent task={task}/>
-                <div style={{flex:1,display:'flex',flexDirection:'row'}}>
+
+                <div style={styles.body}>
+
                     <div style={{flex:1}}/>
-                    <div style={{flex:7.5,display:'flex',flexDirection:'column',paddingBottom:50}}>
+
+                    <div style={styles.col1}>
+                        
                         <div style={{marginTop:30}}>
                             <DescriptionComponent 
                                 title='About This Task:'
@@ -38,6 +37,7 @@ export default class TaskDetailTabComponent extends Component {
                         </div>
         
                     </div>
+                    
                     <div style={{flex:1}}/>
                 </div>
               
@@ -46,5 +46,27 @@ export default class TaskDetailTabComponent extends Component {
                       
             
         )
+    }
+}
+
+
+const styles={
+    container:{
+        display:'flex',
+        flex:1,
+        flexDirection: 'column',
+        backgroundColor: WHITE,
+        boxShadow:'3px 5px 3px 3px #707070'
+    },
+    body:{
+        flex:1,
+        display:'flex',
+        flexDirection:'row'
+    },
+    col1:{
+        flex:7.5,
+        display:'flex',
+        flexDirection:'column',
+        paddingBottom:50
     }
 }

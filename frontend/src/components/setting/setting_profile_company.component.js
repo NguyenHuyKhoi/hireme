@@ -14,34 +14,29 @@ export default class SettingProfileCompanyComponent extends Component {
     render(){
         const profile=this.props.profile;
         return (
-            <div style={{
-                flex:1,display: 'flex',flexDirection:'column',backgroundColor:WHITE,
-                borderRadius:8,
-                boxShadow:'3px 5px 3px 3px #707070',}}>
+            <div style={styles.container}>
+
                 <HeaderListComponent title='Profile' height={40}/>
 
-                <div style={{flex:1,
-                    padding:50,
-                    display:'flex',justifyContent:'center',flexDirection:'column'}}>
+                <div style={styles.body}>
 
-                        <div style={{display:'flex',flexDirection: 'row'}}>
-                            {/* col1_1 */}
-                            <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
+                        <div style={styles.row1}>
+                            <div style={styles.row1_col1}>
 
-                                <div style={{width:'70%'}}>
+                                <div style={styles.field_container}>
                                     <LabeledInputComponent  
                                         onChange={value=>this.props.updateInputs('company_name',value)}
                                         label='Company Name'
                                         value={profile.company_name}/>
                                 </div>
 
-                                <div style={{width:'70%',marginTop:30}}>
+                                <div style={styles.field_container}>
                                     <LabeledInputComponent 
                                         onChange={value=>this.props.updateInputs('location',value)}
                                         label='Location' 
                                         value={profile.location}/>
                                 </div>
-                                <div style={{width:'70%',marginTop:30}}>
+                                <div style={styles.field_container}>
                                     <LabeledInputComponent 
                                          onChange={value=>this.props.updateInputs('tagline',value)}
                                          label='Tagline'
@@ -49,11 +44,9 @@ export default class SettingProfileCompanyComponent extends Component {
                                 </div>
                             </div>
 
-                            {/* col1_2 */}
-                            <div style={{display:'flex',flexDirection: 'column',flex:1,
-                                alignItems:'center'}}>
+                            <div style={styles.row1_col2}>
 
-                                <div style={{width:'70%'}}>
+                                <div style={styles.field_container}>
                                     <LabeledSelectedInputComponent
                                          onChange={(value)=>this.props.updateInputs('employee_size',value)} 
                                         label='Employee Size'
@@ -61,7 +54,7 @@ export default class SettingProfileCompanyComponent extends Component {
                                         value={profile.employee_size}/>
                                 </div>
 
-                                <div style={{width:'70%',marginTop:30}}>
+                                <div style={styles.field_container}>
                                     <LabeledSelectedInputComponent 
                                         onChange={(value)=>this.props.updateInputs('business_area',value)} 
                                         label='Business Area'
@@ -69,7 +62,7 @@ export default class SettingProfileCompanyComponent extends Component {
                                         value={profile.business_area} />
                                 </div>
 
-                                <div style={{width:'70%',marginTop:30}}>
+                                <div style={styles.field_container}>
                                     <LabeledInputComponent
                                         onChange={(value)=>this.props.updateInputs('website_link',value)}
                                         onChange={(value)=>{}}
@@ -83,7 +76,7 @@ export default class SettingProfileCompanyComponent extends Component {
 
                         </div>
                         
-                        <div style={{marginTop:40}}>
+                        <div style={styles.row2}>
                             <TextareaInputComponent 
                                  onChange={(value)=>this.props.updateInputs('description',value)}
                                 label='Description'
@@ -97,6 +90,46 @@ export default class SettingProfileCompanyComponent extends Component {
                     
            
     )
+    }
+}
+
+const styles={
+    container:{
+        flex:1,
+        display: 'flex',
+        flexDirection:'column',
+        backgroundColor:WHITE,
+        borderRadius:8,
+        boxShadow:'3px 5px 3px 3px #707070'
+    },
+    body:{
+        flex:1,
+        padding:50,
+        display:'flex',
+        justifyContent:'center',
+        flexDirection:'column'
+    },
+    row1:{
+        display:'flex',
+        flexDirection: 'row'
+    },
+    row1_col1:{
+        display:'flex',
+        flex:1,
+        flexDirection: 'column'
+    },
+    field_container:{
+        width:'70%',
+        marginTop:30
+    },
+    row1_col2:{
+        display:'flex',
+        flexDirection: 'column',
+        flex:1,
+        alignItems:'center'
+    },
+    row2:{
+        marginTop:40
     }
 }
 

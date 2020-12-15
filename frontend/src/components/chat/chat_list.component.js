@@ -18,7 +18,7 @@ class ChatItem extends Component {
         return (
             <div 
                 onClick={this.props.onClick}
-                style={{display: 'flex',flexDirection: 'row',flex:1,height:95,
+                style={{...styles.item_container,
                     backgroundColor:this.props.index%2==0?WHITE:GRAY_4}}>
 
 
@@ -32,35 +32,31 @@ class ChatItem extends Component {
 
                 </div>
 
-                <div style={{flex:1,display:'flex',justifyContent:'center',alignItems:'center'}}>
-                    <img style={{ width:'100%',aspectRatio:1,borderRadius: '50%'}} 
-                            src={partner.avatar}/>
+                <div style={styles.col1}>
+                    <img style={styles.avatar} src={partner.avatar}/>
                 </div>
 
                 
-                <div style={{display:'flex',flex:6,flexDirection:'column',paddingLeft:15,
-                    justifyContent:'center'}}>
+                <div style={styles.col2}>
 
                     
-                    <div style={{ display: 'flex',flexDirection: 'row',
-                        alignItems:'center',
-                        justifyContent: 'space-between'}}>
-                            <text style={{   fontSize: TEXT_SIZES.NORMAL,color:GRAY_1}}>
+                    <div style={styles.col2_row1}>
+                            <text style={styles.normal_text}>
                                 {collapseText(partner.name,12)}
                             </text>
-                            <text style={{ fontSize: TEXT_SIZES.SMALL,color:GRAY_2}}>
+                            <text style={styles.small_text}>
                                 {convertFullDateToOnlyDay(latest_message.time)}
                             </text>
                     </div>
 
-                    <text style={{ fontSize: TEXT_SIZES.SMALL,color:GRAY_2}}>
+                    <text style={styles.small_text}>
                         {collapseText(latest_message.content,30)}
                     </text>
                     {
                         task!==undefined  && task!==null?
                         <Link   
                             to={routePaths.DASHBOARD_TASK_MANAMENT} 
-                            style={{   fontSize: TEXT_SIZES.SMALL,color:BLUE_1,textDecoration:'none'}}>
+                            style={styles.task_link}>
                             {'On task :'+collapseText(task.name,20)}
                         </Link>
                         :
@@ -92,12 +88,11 @@ export default class ChatListComponent extends Component {
 
         console.log('chat_list :',chat_list);
         return (
-            <div  style={{display:'flex',flex:1, flexDirection:'column'}} >    
+            <div  style={styles.container} >    
 
                 <HeaderListComponent title='Chat list'/>
 
-                <div style={{  display: 'flex',flex:1,flexDirection: 'column',
-                    overflowY: 'scroll'}}>
+                <div style={styles.body}>
                     {
                         chat_list.map((item,index)=>(
                             <ChatItem 
@@ -118,6 +113,64 @@ export default class ChatListComponent extends Component {
             </div>
         )
     }
+}
+
+const styles={
+    item_container:{
+        display: 'flex',
+        flexDirection: 'row',
+        flex:1,
+        height:95,
+    },
+    col1:{
+        flex:1,
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    avatar:{ 
+        width:'100%',
+        aspectRatio:1,
+        borderRadius: '50%'
+    },
+    col2:{
+        display:'flex',
+        flex:6,
+        flexDirection:'column',
+        paddingLeft:15,
+        justifyContent:'center'
+    },
+    col2_row1:{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems:'center',
+        justifyContent: 'space-between'
+    },
+    normal_text:{   
+        fontSize: TEXT_SIZES.NORMAL,
+        color:GRAY_1
+    },
+    small_text:{ 
+        fontSize: TEXT_SIZES.SMALL,
+        color:GRAY_2
+    },
+    task_link:{   
+        fontSize: TEXT_SIZES.SMALL,
+        color:BLUE_1,
+        textDecoration:'none'
+    },
+    container:{
+        display:'flex',
+        flex:1, 
+        flexDirection:'column'
+    },
+    body:{  
+        display: 'flex',
+        flex:1,
+        flexDirection: 'column',
+        overflowY: 'scroll'
+    }
+
 }
 
 

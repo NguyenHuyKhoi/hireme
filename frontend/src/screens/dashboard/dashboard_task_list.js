@@ -41,16 +41,14 @@ class DashBoardTaskListScreen extends Component {
         const tasks=this.state.tasks
         return (
 
-            <div style={{width:'100vw',height:'100%',backgroundColor: GRAY_6,
-                display:'flex',flexDirection: 'row'}}>
+            <div style={styles.container}>
 
-                {/* sidebar */}
                 <SidebarComponent/>
-                {/* body */}
-                <div style={{display:'flex',flex:SIDEBAR_RATIO,padding:PADDING_BODY_DASHBOARD}}>
+
+                <div style={styles.body}>
                     {
                         tasks.length===0?
-                        <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
+                        <text style={styles.text}>
                             You have no any tasks
                         </text>
                         :
@@ -64,6 +62,27 @@ class DashBoardTaskListScreen extends Component {
         )
     }
 }
+
+
+const styles={
+    container:{
+        width:'100vw',
+        height:'100%',
+        backgroundColor: GRAY_6,
+        display:'flex',
+        flexDirection: 'row'
+    },
+    body:{
+        display:'flex',
+        flex:SIDEBAR_RATIO,
+        padding:PADDING_BODY_DASHBOARD
+    },
+    text:{
+        fontSize: TEXT_SIZES.NORMAL,
+        color:BLACK
+    }
+}
+
 
 const mapStateToProps = state => ({
 	user_infor: state.user_infor,

@@ -20,35 +20,26 @@ import { convertFullDateToOnlyDay } from '../../utils/helper'
 export default class NewStageItemComponent extends Component {
     render(){
         return (
-            <div style={{width:420,height:525,
-                display:'flex',flexDirection: 'column'}}>   
+            <div style={styles.container}>   
 
-                <div style={{width:'100%',height:60}}/>
-                <div style={{marginTop: 5,width:'80%',height:45,backgroundColor: GREEN_1,
-                    display:'flex',flexDirection:'row',alignItems:'center',paddingLeft:15}}>
+                <div style={styles.timeline}/>
+
+                <div style={styles.header}>
 
                     <input 
-                        style={{
-                            fontSize:TEXT_SIZES.NORMAL,color:WHITE,height: 35,
-                            backgroundColor: 'rgba(0,0,0,0)',
-                            outline:'none',
-                            borderColor:'rgba(0,0,0,0)'}}
+                        style={styles.header_title}
                         placeholder='Add Title'
                     />
                    
                 </div> 
 
-                <div style={{display:'flex',flex:1,width:'80%',
-                    backgroundColor: WHITE,overflowY:'scroll',
+                <div style={styles.body}>
 
-                    boxShadow:'0px 0px 30px 5px  #707070'}}>
-
-                    <div style={{display:'flex',flex:1,flexDirection:'column',padding: 20}}>
-                            
-                            
+                    <div style={styles.inner_body}>
+                        
                             {/* <AttachmentsComponent is_edit={true}/> */}
 
-                            <div style={{width:'80%',marginTop:15}}>
+                            <div style={styles.content}>
                                 <LabeledInputComponent 
                                     label='Deadline' 
                                     onChange={(value)=>{}}/>
@@ -59,14 +50,10 @@ export default class NewStageItemComponent extends Component {
                                     onChange={(value)=>{}}/>
                             </div>  
                        
-                            <div style={{marginTop:20,width: '100%',paddingBottom:40,
-                                display:'flex',justifyContent:'center',alignItems:'center'}}>
+                            <div style={styles.btn_container}>
                                 <ButtonComponent label='Add Stage'/>
                             </div>
-
-                           
-
-                           
+                            
                     </div>
                 </div>
 
@@ -77,5 +64,62 @@ export default class NewStageItemComponent extends Component {
     }
 }
 
+
+const styles={
+    container:{
+        width:420,
+        height:525,
+        display:'flex',
+        flexDirection: 'column'
+    },
+    timeline:{
+        width:'100%',
+        height:60
+    },
+    header:{
+        marginTop: 5,
+        width:'80%',
+        height:45,
+        backgroundColor: GREEN_1,
+        display:'flex',
+        flexDirection:'row',
+        alignItems:'center',
+        paddingLeft:15
+    },
+    header_title:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:WHITE,
+        height: 35,
+        backgroundColor: 'rgba(0,0,0,0)',
+        outline:'none',
+        borderColor:'rgba(0,0,0,0)'
+    },
+    body:{
+        display:'flex',
+        flex:1,
+        width:'80%',
+        backgroundColor: WHITE,
+        overflowY:'scroll', 
+        boxShadow:'0px 0px 30px 5px  #707070'
+    },
+    inner_body:{
+        display:'flex',
+        flex:1,
+        flexDirection:'column',
+        padding: 20
+    },
+    content: {
+        width:'80%',
+        marginTop:15
+    },
+    btn_container:{
+        marginTop:20,
+        width: '100%',
+        paddingBottom:40,
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
+    }
+}
 
 

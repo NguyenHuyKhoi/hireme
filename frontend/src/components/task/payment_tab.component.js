@@ -239,7 +239,7 @@ export default class PaymentTabComponent extends Component {
         const company_view=false;
         console.log('modal_content:',this.state.modal_content)
         return (
-            <div  style={{flex:1,flexDirection:'column',display:'flex'} }> 
+            <div  style={styles.container }> 
                 <GiveupTaskModal
                     updateInputs={this.updateInputs}
                     is_open={this.state.open_giveup_modal}
@@ -260,16 +260,14 @@ export default class PaymentTabComponent extends Component {
                     clickReport={this.props.reportTask}/>
 
                 <div style={{flex:1}}/>
-                <div style={{flex:5,width:'100%',display:'flex',flexDirection: 'row',
-                    alignItems: 'center',justifyContent: 'space-between'}}>
+
+                <div style={body}>
                     
-                    <div style={{flex:1}}>
+                    <div style={styles.col1}>
                         <ProjectDetail/>
                     </div>
                   
-                    <div style={{flex:1,marginLeft:60,height:'100%',
-                            display:'flex',flexDirection: 'column',
-                            alignItems: 'center',justifyContent: 'space-between'}}>
+                    <div style={styles.col2}>
                         {
                             action_buttons[company_view===true?0:1].map((item,index)=>
                                 
@@ -288,3 +286,32 @@ export default class PaymentTabComponent extends Component {
     }
 }
 
+
+
+const styles={
+    container:{
+        flex:1,
+        flexDirection:'column',
+        display:'flex'
+    },
+    body:{
+        flex:5,
+        width:'100%',
+        display:'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    },
+    col1:{
+        flex:1
+    },
+    col2:{
+        flex:1,
+        marginLeft:60,
+        height:'100%',
+        display:'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'space-between'
+    }
+}

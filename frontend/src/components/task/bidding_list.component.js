@@ -37,12 +37,11 @@ export default class BiddingListComponent extends Component {
         console.log('Tasks :',this.props.tasks,l,r)
     
         return (
-            <div style={{flex:1,
-            display:'flex',flexDirection: 'column'}}>
+            <div style={styles.container}>
                 <HeaderListComponent title='Biddings'/>
 
 
-                <div style={{flex:1,display:'flex',flexDirection: 'column'}}>
+                <div style={styles.body}>
                     {
                     biddings.slice(l,r+1).map((item,index)=>
                         <BiddingItemComponent 
@@ -62,5 +61,19 @@ export default class BiddingListComponent extends Component {
             </div>
             
         )
+    }
+}
+
+
+const styles={
+    container:{
+        flex:1,
+        display:'flex',
+        flexDirection: 'column'
+    },
+    body:{
+        flex:1,
+        display:'flex',
+        flexDirection: 'column'
     }
 }

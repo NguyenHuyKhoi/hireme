@@ -32,16 +32,15 @@ export default class AdminUserListScreen extends Component {
         const users=this.state.users;
         return (
 
-            <div style={{width:'100vw',height:'100vh',backgroundColor: GRAY_6,
-                display:'flex',flexDirection: 'row'}}>
+            <div style={styles.container}>
 
-                {/* sidebar */}
+             
                 <SidebarComponent is_admin={true} />
-                <div style={{display:'flex',flex:SIDEBAR_RATIO,padding:PADDING_BODY_DASHBOARD}}>
+                <div style={styles.body}>
 
                 {
                     users.length===0?
-                    <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
+                    <text style={styles.text}>
                         There is not any users, both companies and freelancers.
                     </text>
                     :
@@ -53,3 +52,23 @@ export default class AdminUserListScreen extends Component {
         )
     }
 }
+
+const styles={
+    container:{
+        width:'100vw',
+        height:'100vh',
+        backgroundColor: GRAY_6,
+        display:'flex',
+        flexDirection: 'row'
+    },
+    body:{
+        display:'flex',
+        flex:SIDEBAR_RATIO,
+        padding:PADDING_BODY_DASHBOARD
+    },
+    text:{
+        fontSize: TEXT_SIZES.NORMAL,
+        color:BLACK
+    }
+}
+

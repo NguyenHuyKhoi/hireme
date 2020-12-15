@@ -46,26 +46,22 @@ export default class DashBoardTaskPostScreen extends Component {
                 //         })
                 //         .catch(error => console.log(error));
     }
+
+
     render(){
         return (
 
-            <div style={{width:'100vw',backgroundColor:GRAY_6,
-                display:'flex',flexDirection: 'row'}}>
+            <div style={styles.container}>
 
-                {/* sidebar */}
                 <SidebarComponent/>
-                {/* body */}
-                <div style={{display:'flex',flex:SIDEBAR_RATIO,
-                    padding:PADDING_BODY_DASHBOARD}}>
+
+                <div style={styles.body}>
 
                     <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
 
-                        {/* header */}
                         <HeaderListComponent title='Post A Task'/>
 
-                        {/* form  */}
-
-                        <div style={{flex:1,marginTop:30}}>
+                        <div style={styles.form}>
                             <PostTaskProfileComponent 
                                 category={this.state!==null && this.state.category!==undefined
                                     ?
@@ -75,12 +71,11 @@ export default class DashBoardTaskPostScreen extends Component {
                                 updateInputs={this.updateInputs}/>
                         </div>
                       
-                        {/* submit button */}
 
                         <Link 
                             to={routePaths.DASHBOARD_TASK_LIST}
                             onClick={this.post}
-                            style={{marginTop:50,width:'25%',textDecoration:'none'}}>
+                            style={styles.btn_container}>
                             <ButtonComponent label='Post This Task' height={60}/>
                         </Link>
 
@@ -88,11 +83,31 @@ export default class DashBoardTaskPostScreen extends Component {
                
                 </div>
 
-     
-
-               
             </div>
             
         )
+    }
+}
+
+const style={
+    container:{
+        width:'100vw',
+        backgroundColor:GRAY_6,
+        display:'flex',
+        flexDirection: 'row'
+    },
+    body:{
+        display:'flex',
+        flex:SIDEBAR_RATIO,
+        padding:PADDING_BODY_DASHBOARD
+    },
+    form :{
+        flex:1,
+        marginTop:30
+    },
+    btn_container:{
+        marginTop:50,
+        width:'25%',
+        textDecoration:'none'
     }
 }

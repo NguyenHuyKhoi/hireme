@@ -31,17 +31,12 @@ export default class TaskListBriefComponent extends Component {
 
         console.log('Tasks :',this.props.tasks,l,r)
         return (
-            <div style={{ display:'flex',flex:1,flexDirection: 'column',backgroundColor: WHITE,
+            <div style={styles.container}>
 
-                marginBottom:60,
-                boxShadow:'3px 5px 3px 3px #707070'}}>
-                {/* header list */}
-                <HeaderListComponent   title='Tasks'
-                    height={50  }/>
+                <HeaderListComponent   title='Tasks' height={50  }/>
                 
-                {/* body list */}
 
-                <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
+                <div style={styles.body}>
                 {
                     tasks.slice(l,r+1).map((item,index)=>
                         <TaskItemBriefComponent  
@@ -52,18 +47,30 @@ export default class TaskListBriefComponent extends Component {
                 }
                 </div>
 
-                
-
                 <PaginationComponent    
                     onClickPage={(l,r)=>this.switchPage(l,r)}
                     items={tasks.length} items_per_page={5} />
-
-    
-
-
+                    
             </div>
                     
     
         )
+    }
+}
+
+
+const styles={
+    container:{ 
+        display:'flex',
+        flex:1,
+        flexDirection: 'column',
+        backgroundColor: WHITE,
+        marginBottom:60,
+        boxShadow:'3px 5px 3px 3px #707070'
+    },
+    body:{
+        display:'flex',
+        flex:1,
+        flexDirection: 'column'
     }
 }

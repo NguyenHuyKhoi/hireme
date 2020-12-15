@@ -5,7 +5,6 @@ import LabeledSelectedInputComponent from '../../components/input/labeled_select
 import RangeInputComponent from '../../components/input/range_input.component'
 import SidebarComponent from '../../components/common/side_bar.component'
 import SkillPickerComponent from '../../components/input/skill_picker.component'
-import UploadFilesComponent from '../../components/common/upload_files.component'
 import SettingAccountComponent from '../../components/setting/setting_account.component'
 import SettingPasswordComponent from '../../components/setting/setting_password.component'
 import SettingProfileCompanyComponent from '../../components/setting/setting_profile_company.component'
@@ -102,56 +101,61 @@ class AdminSettingScreen extends Component {
         const setting=this.state.setting;
         return (
 
-            <div style={{width:'100vw',backgroundColor:GRAY_6,
-            display:'flex',flexDirection: 'row'}}>
+            <div style={styles.container}>
 
-                {/* sidebar */}
+              
                 <SidebarComponent is_admin={true} />
-                {/* body */}
-                <div style={{display:'flex',flex:SIDEBAR_RATIO,
-                    padding:PADDING_BODY_DASHBOARD}}>
+           
+                {
+                setting===null?
+                null
+                :
+                <div style={styles.body}>
 
-                    {
-                        setting===null?
-                        null
-                        :
-                        <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
+                    <HeaderListComponent title='Setting'/>
 
-                            {/* header */}
-                            <HeaderListComponent title='Setting'/>
-
-                            <div style={{marginTop:30}}>
-                                <SettingAccountComponent    
-                                    updateInputs={this.updateInputs}
-                                    account={setting.account}/>
-                            </div>
-                        
-                            <div style={{marginTop:60}}>
-                                <SettingPasswordComponent
-                                    updateInputs={this.updateInputs}
-                                    />
-                            </div>
-                            {/* submit button */}
-
-
-                            <Link 
-                                to={routePaths.ADMIN_TASK_LIST}
-                                style={{marginTop:50,width:'25%',textDecoration:'none'}}>
-                                <ButtonComponent label='Save Your Changes' height={60}/>
-                            </Link>
-
-
-
-                        </div>
+                    <div style={{marginTop:30}}>
+                        <SettingAccountComponent    
+                            updateInputs={this.updateInputs}
+                            account={setting.account}/>
+                    </div>
                 
-                
-                
-                    }
+                    <div style={{marginTop:60}}>
+                        <SettingPasswordComponent
+                            updateInputs={this.updateInputs}
+                            />
+                    </div>
+
+
+                    <Link 
+                        to={routePaths.ADMIN_TASK_LIST}
+                        style={{marginTop:50,width:'25%',textDecoration:'none'}}>
+                        <ButtonComponent label='Save Your Changes' height={60}/>
+                    </Link>
 
                 </div>
+        
+
+                }
+               
+            
             </div>
             
         )
+    }
+}
+
+const styles={
+    container:{
+        width:'100vw',
+        backgroundColor:GRAY_6,
+        display:'flex',
+        flexDirection: 'row'
+    },
+    body:{
+        display:'flex',
+        flex:SIDEBAR_RATIO,
+        padding:PADDING_BODY_DASHBOARD
     }
 }
 

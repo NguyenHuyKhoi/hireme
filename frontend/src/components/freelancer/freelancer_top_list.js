@@ -8,17 +8,13 @@ export default class FreelancerTopListComponent extends Component {
     render(){
         let freelancers=this.props.freelancers;
         return (
-            <div style={{width:'100vw',
-                alignSelf: 'baseline',
-                display:'flex',flexDirection: 'column',alignItems: 'center'}}>
+            <div style={styles.container}>
 
-                <text style={{fontSize:TEXT_SIZES.HEADER,color:BLACK,marginTop:60}}>
+                <text style={styles.title}>
                     Top Freelancers
                 </text>
-                <div style={{marginTop:20,width:'80vw',display:'flex',
-                    justifyContent: 'space-between',
-                    flexDirection: 'row'
-                }}>
+
+                <div style={styles.body}>
                     {
                         freelancers.map((item,index)=>
                             <FreelancerItemComponent freelancer={item}  key={''+index}/>
@@ -29,5 +25,27 @@ export default class FreelancerTopListComponent extends Component {
             </div>
                 
         )
+    }
+}
+
+const styles={
+    container:{
+        width:'100vw',
+        alignSelf: 'baseline',
+        display:'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+    },
+    title:{
+        fontSize:TEXT_SIZES.HEADER,
+        color:BLACK,
+        marginTop:60
+    },
+    body:{
+        marginTop:20,
+        width:'80vw',
+        display:'flex',
+        justifyContent: 'space-between',
+        flexDirection: 'row'
     }
 }

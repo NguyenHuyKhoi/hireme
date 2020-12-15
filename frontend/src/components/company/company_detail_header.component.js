@@ -10,23 +10,19 @@ export default class CompanyDetailHeaderComponent extends Component {
         const company=this.props.company
         return (
             
-            <div style={{width:'100%',height:150,
-                backgroundImage:`url(${banner})`,
-                backgroundRepeat:  'no-repeat',
-                backgroundSize:'cover',
-                display:'flex',flexDirection: 'row'}}>
+            <div style={styles.container}>
 
                 <div style={{flex:1}}/>
-                <div style={{flex:5,display:'flex',flexDirection: 'row',alignItems: 'center'}}>
-                    <img src={company.avatar}
-                        style={{height: '60%',aspectRatio:1,borderRadius:'50%'}}/>
+
+                <div style={styles.body}>
+                    <img src={company.avatar}  style={styles.avatar}/>
                     
-                    <div style={{marginLeft:15,display:'flex',flex:1,flexDirection: 'column'}}>
-                        <text style={{fontSize:TEXT_SIZES.BIG,color:BLACK}}>
+                    <div style={styles.content}>
+                        <text style={styles.company_name}>
                             {company.company_name}
                         </text>
 
-                        <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,marginBottom:5}}>
+                        <text style={styles.company_tagline}>
                             {company.tagline}
                         </text>
 
@@ -46,5 +42,43 @@ export default class CompanyDetailHeaderComponent extends Component {
     
     
         )
+    }
+}
+
+const styles={
+    container:{
+        width:'100%',
+        height:150,
+        backgroundImage:`url(${banner})`,
+        backgroundRepeat:  'no-repeat',
+        backgroundSize:'cover',
+        display:'flex',
+        flexDirection: 'row'
+    },
+    body:{
+        flex:5,
+        display:'flex',
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    avatar:{
+        height: '60%',
+        aspectRatio:1,
+        borderRadius:'50%'
+    },
+    content:{
+        marginLeft:15,
+        display:'flex',
+        flex:1,
+        flexDirection: 'column'
+    },
+    company_name:{
+        fontSize:TEXT_SIZES.BIG,
+        color:BLACK
+    },
+    company_tagline:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK,
+        marginBottom:5
     }
 }

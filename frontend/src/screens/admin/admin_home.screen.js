@@ -20,14 +20,12 @@ export default class AdminHomeScreen extends Component {
     }
     render(){
         return (
-            <div style={{width:'100vw',backgroundColor:GRAY_6,
-            display:'flex',flexDirection: 'row'}}>
+            <div style={styles.container}>
 
-                {/* sidebar */}
+             
                 <SidebarComponent is_admin={true}/>
-                {/* body */}
-                <div style={{display:'flex',flex:SIDEBAR_RATIO,
-                    padding:PADDING_BODY_DASHBOARD}}>
+          
+                <div style={styles.body}>
                         hello
                 </div>
 
@@ -36,3 +34,17 @@ export default class AdminHomeScreen extends Component {
         )
     }
 }
+const styles={
+    container:{
+        width:'100vw',
+        backgroundColor:GRAY_6,
+        display:'flex',
+        flexDirection: 'row'
+    },
+    body:{
+        display:'flex',
+        flex:SIDEBAR_RATIO,
+        padding:PADDING_BODY_DASHBOARD
+    }
+}
+

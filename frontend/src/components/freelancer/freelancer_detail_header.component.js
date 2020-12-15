@@ -9,25 +9,22 @@ export default class FreelancerDetailHeaderComponent extends Component {
     render(){
         const freelancer=this.props.freelancer;
         return (
-            <div style={{width:'100%',height:150,
-                backgroundImage:`url(${banner})`,
-                backgroundRepeat:  'no-repeat',
-                backgroundSize:'cover',
-                display:'flex',flexDirection: 'row'}}>
+            <div style={styles.container}>
 
             <div style={{flex:1}}/>
-            <div style={{flex:5,display:'flex',flexDirection: 'row',alignItems: 'center'}}>
-                <img src={freelancer.avatar}
-                    style={{height: '60%',aspectRatio:1,borderRadius:'50%'}}/>
+
+            <div style={styles.body}>
+                <img src={freelancer.avatar}  style={styles.avatar}/>
                 
-                <div style={{marginLeft:15,display:'flex',flex:1,flexDirection: 'column'}}>
-                    <text style={{fontSize:TEXT_SIZES.BIG,color:BLACK}}>
+                <div style={styles.content}>
+                    <text style={styles.freelancer_name}>
                         {freelancer.name}
                     </text>
 
-                    <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,marginBottom:5}}>
+                    <text style={styles.freelancer_tagline}>
                         {freelancer.tagline}
                     </text>
+                    
                     <div style={{flex:1}}>
                         <SmallFieldComponent 
                             background_color={YELLOW_1} 
@@ -47,5 +44,44 @@ export default class FreelancerDetailHeaderComponent extends Component {
         
     
         )
+    }
+}
+
+
+const styles={
+    container:{
+        width:'100%',
+        height:150,
+        backgroundImage:`url(${banner})`,
+        backgroundRepeat:  'no-repeat',
+        backgroundSize:'cover',
+        display:'flex',
+        flexDirection: 'row'
+    },
+    body:{
+        flex:5,
+        display:'flex',
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    avatar:{
+        height: '60%',
+        aspectRatio:1,
+        borderRadius:'50%'
+    },
+    content:{
+        marginLeft:15,
+        display:'flex',
+        flex:1,
+        flexDirection: 'column'
+    },
+    freelancer_name:{
+        fontSize:TEXT_SIZES.BIG,
+        color:BLACK
+    },
+    freelancer_tagline:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK,
+        marginBottom:5
     }
 }

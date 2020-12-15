@@ -105,75 +105,79 @@ class DashboardSettingFreelancerScreen extends Component {
         console.log('setting_freelancer:',setting)
         return (
 
-            <div style={{width:'100vw',backgroundColor:GRAY_6,
-            display:'flex',flexDirection: 'row'}}>
+            <div style={styles.container}>
 
-                {/* sidebar */}
                 <SidebarComponent />
-                {/* body */}
-                <div style={{display:'flex',flex:SIDEBAR_RATIO,
-                    padding:PADDING_BODY_DASHBOARD}}>
 
-                    {
-                        this.state.setting===null?
-                        null:
-                        <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
+                {
+                this.state.setting===null?
+                null
+                :
+                <div style={styles.body}>
 
-                            {/* header */}
-                            <HeaderListComponent title='Setting'/>
+                    <HeaderListComponent title='Setting'/>
 
-                            {/* form  */}
+                    <div style={{marginTop:30}}>
+                        <SettingAccountComponent    
+                            updateInputs={this.updateInputs}
+                            account={setting.account}/>
+                    </div>
 
-                            <div style={{marginTop:30}}>
-                                <SettingAccountComponent    
-                                    updateInputs={this.updateInputs}
-                                    account={setting.account}/>
-                            </div>
+                    <div style={{marginTop:60}}>
+                        <SettingProfileFreelancerComponent 
+                            category={
+                                this.state!==null && this.state.category!==undefined?
+                                    this.state.category
+                                    :
+                                    setting.profile.category
+                            }
+                            picked_skills={setting.profile.skills!==undefined?
+                                    setting.profile.skills.map(item=>item.name)
+                                    :
+                                    []
+                            }
+                            updateInputs={this.updateInputs}
+                            profile={setting.profile}/>
+                    </div>
 
-                            <div style={{marginTop:60}}>
-                                <SettingProfileFreelancerComponent 
-                                    category={
-                                        this.state!==null && this.state.category!==undefined?
-                                            this.state.category
-                                            :
-                                            setting.profile.category
-                                    }
-                                    picked_skills={setting.profile.skills!==undefined?
-                                            setting.profile.skills.map(item=>item.name)
-                                            :
-                                            []
-                                    }
-                                    updateInputs={this.updateInputs}
-                                    profile={setting.profile}/>
-                            </div>
+                    <div style={{marginTop:60}}>
+                        <SettingPasswordComponent 
+                            updateInputs={this.updateInputs}    
+                        />
+                    </div>
 
-                            <div style={{marginTop:60}}>
-                                <SettingPasswordComponent 
-                                    updateInputs={this.updateInputs}    
-                                />
-                            </div>
-                            {/* submit button */}
+                    <Link 
+                        // to={routePaths.DASHBOARD_TASK_LIST}
+                        style={{marginTop:50,width:'25%',textDecoration:'none'}}>
+                        <ButtonComponent 
+                            onClick={this.updateSetting}
+                            label='Save Your Changes' height={60}/>
+                    </Link>
+        
 
-
-                            <Link 
-                               // to={routePaths.DASHBOARD_TASK_LIST}
-                                style={{marginTop:50,width:'25%',textDecoration:'none'}}>
-                                <ButtonComponent 
-                                    onClick={this.updateSetting}
-                                    label='Save Your Changes' height={60}/>
-                            </Link>
-                        </div>
-
-                    }
-                    
+                
                 </div>
 
-     
 
+                }
                
             </div>
             
         )
+    }
+}
+
+const styles={
+    container:{
+        width:'100vw',
+        backgroundColor:GRAY_6,
+        display:'flex',
+        flexDirection: 'row'
+    },
+    body:{
+        display:'flex',
+        flex:SIDEBAR_RATIO,
+        padding:PADDING_BODY_DASHBOARD
     }
 }
 

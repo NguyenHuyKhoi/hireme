@@ -10,14 +10,12 @@ export default class ReviewListComponent extends Component {
     render(){
         const reviews=this.props.reviews!==undefined?this.props.reviews:[];
         return (
-            <div style={{flex:1,marginTop: 20,
-            display:'flex',flexDirection: 'column'}}>
-                {/* header list */}
+            <div style={styles.container}>
+           
                 <HeaderListComponent title='Reviews'/>
 
-                {/* body list */}
 
-                <div style={{width:'100%',display:'flex',flexDirection: 'column'}}>
+                <div style={styles.body}>
                 {
                     reviews.map((item,index)=>
                         <ReviewItemComponent 
@@ -26,12 +24,26 @@ export default class ReviewListComponent extends Component {
                     )
                 }
                 </div>
-
-                {/* pagination  */}
            
 
             </div>
             
         )
+    }
+}
+
+
+
+const styles={
+    container:{
+        flex:1,
+        marginTop: 20,
+        display:'flex',
+        flexDirection: 'column'
+    },
+    body:{
+        width:'100%',
+        display:'flex',
+        flexDirection: 'column'
     }
 }

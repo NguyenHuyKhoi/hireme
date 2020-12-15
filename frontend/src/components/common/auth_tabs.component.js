@@ -19,11 +19,9 @@ class TabBar extends Component{
             <div 
                 onClick={this.props.onClick}
                 style={{
-                    display:'flex',flex:1,alignItems: 'center',
-                    justifyContent: 'center',
+                    ...styles.item_container,
                     backgroundColor: is_focused?WHITE:GRAY_4}}>
-                <text style={{fontSize:TEXT_SIZES.SMALL,
-                    color:is_focused?BLUE_1:GRAY_2}}>
+                <text style={{...styles.item_label, color:is_focused?BLUE_1:GRAY_2}}>
                     {tab.label}
                 </text>
             </div>
@@ -36,9 +34,7 @@ export default class AuthTabsComponent extends Component {
     render(){
         const idx=this.props.focus_tab_index
         return (
-            <div style={{
-                width:'100%',height:50,display:'flex',
-                flexDirection: 'row' }}>
+            <div style={styles.container}>
                 {
                     tabs.map((item,index)=>
                         <TabBar 
@@ -50,14 +46,44 @@ export default class AuthTabsComponent extends Component {
                 }    
                 <div    
                     onClick={this.props.onClickClose}
-                    style={{height:50,width:50,backgroundColor:GRAY_4,
-                        display:'flex',justifyContent:'center',alignItems:'center'}}>
-                    <text style={{fontSize:TEXT_SIZES.HUGE,color: GRAY_2}}>
+                    style={styles.btn_container}>
+                    <text style={styles.btn_label}>
                         x    
                     </text>        
                 </div>   
         </div>
 
         )
+    }
+}
+
+
+const styles={
+    item_container:{
+        display:'flex',
+        flex:1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    item_label:{
+        fontSize:TEXT_SIZES.SMALL
+    },
+    container:{
+        width:'100%',
+        height:50,
+        display:'flex',
+        flexDirection: 'row' 
+    },
+    btn_container:{
+        height:50,
+        width:50,
+        backgroundColor:GRAY_4,
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    btn_label:{
+        fontSize:TEXT_SIZES.HUGE,
+        color: GRAY_2
     }
 }

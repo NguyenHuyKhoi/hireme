@@ -39,12 +39,9 @@ class UserType extends Component{
         return (
             <div 
                 onClick={this.props.onClick}
-                style={{
-                    width:'45%',height:'100%',borderRadius:4,
-                    backgroundColor:is_picked?GREEN_1:GRAY_4,
-                    display:'flex',
-                    justifyContent:'center',alignItems:'center',flexDirection:'row'}}>
-                <text style={{fontSize:TEXT_SIZES.SMALL,
+                style={{...styles.user_type_container,
+                    backgroundColor:is_picked?GREEN_1:GRAY_4,}}>
+                <text style={{...styles.user_type_label,
                     color:is_picked?WHITE:GRAY_1}}>
                     {this.props.type}
                 </text>
@@ -65,11 +62,9 @@ class CommonTab extends Component{
         const idx=this.props.focus_tab_index;
         const fe=this.state.register_as_freelancer;
         return(
-            <div style={{
-                display:'flex',flex:1,backgroundColor:WHITE,
-                flexDirection:'column',alignItems:'center',
-                padding:30}}>
-                <text style={{fontSize:TEXT_SIZES.BIG,color:BLACK}}>
+            <div style={styles.common_tab_container}>
+
+                <text style={styles.title}>
                     {
                         idx===0?
                         'We are glad to see you again'
@@ -80,8 +75,7 @@ class CommonTab extends Component{
 
                 {
                     idx===1?
-                    <div style={{marginTop:20,width:'100%',flexDirection:'row',height:40,display:'flex',
-                        justifyContent:'space-between'}}>
+                    <div style={styles.types_container}>
 
                         <UserType type='Freelancer' is_picked={fe} 
                             onClick={()=>{
@@ -99,16 +93,16 @@ class CommonTab extends Component{
                     null
                 }
 
-                <div style={{width:'100%',marginTop:20}}>
+                <div style={styles.input_container}>
                     <IconInput onChange={(value)=>this.props.updateInputs('email',value)} placehoder="Email..."/>
                 </div>
 
-                <div style={{width:'100%',marginTop:20}}>
+                <div style={styles.input_container}>
                     <IconInput  onChange={(value)=>this.props.updateInputs('password',value)} placehoder="Password..."  is_secret={true}/>
                 </div>  
                 {
                     idx===1?
-                    <div style={{width:'100%',marginTop:20}}>
+                    <div style={styles.input_container}>
                         <IconInput onChange={(value)=>this.props.updateInputs('repeat_password',value)}  placehoder="Repeat password..."  is_secret={true}/>
                     </div>
                     :
@@ -116,7 +110,7 @@ class CommonTab extends Component{
                 }
 
                 <div 
-                    style={{width:'100%',marginTop:50}}>
+                    style={styles.btn_container}>
                     <ButtonComponent 
                         onClick={()=>{
                             if (idx===0) this.props.onSignin();
@@ -129,17 +123,16 @@ class CommonTab extends Component{
 
                 {
                     idx===0?
-                    <div style={{marginTop:10,width:'100%',display:'flex',
-                        flexDirection:'row',justifyContent:'space-between'}}>
+                    <div style={styles.footer}>
                         <text 
                             
-                            style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_2}}>
+                            style={styles.link}>
                            Forgot password
                         </text>
 
                         <text 
                             onClick={this.props.onClickRegister}
-                            style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_2}}>
+                            style={styles.link}>
                            Sign up
                         </text>
                     </div>
@@ -274,8 +267,7 @@ class AuthModal extends Component {
         console.log('this_state:',JSON.stringify(this.state))
         return (
 
-            <div style={{width:'30vw',height:'80vh',backgroundColor: WHITE,
-                display:'flex',flexDirection: 'column'}}>
+            <div style={styles.container}>
 
                 <AuthTabsComponent 
                     focus_tab_index={idx}
@@ -295,6 +287,67 @@ class AuthModal extends Component {
                     })}/>
             </div>
         )
+    }
+}
+
+const styles={
+    user_type_container:{
+        width:'45%',
+        height:'100%',
+        borderRadius:4,
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        flexDirection:'row'
+    },
+    user_type_label:{
+        fontSize:TEXT_SIZES.SMALL
+    },
+    common_tab_container:{
+        display:'flex',
+        flex:1,
+        backgroundColor:WHITE,
+        flexDirection:'column',
+        alignItems:'center',
+        padding:30
+    },
+    title:{
+        fontSize:TEXT_SIZES.BIG,
+        color:BLACK
+    },
+    types_container:{
+        marginTop:20,
+        width:'100%',
+        flexDirection:'row',
+        height:40,
+        display:'flex',
+        justifyContent:'space-between'
+    },
+    input_container:{
+        width:'100%',
+        marginTop:20
+    },
+    btn_container:{
+        width:'100%',
+        marginTop:50
+    },
+    footer:{
+        marginTop:10,
+        width:'100%',
+        display:'flex',
+        flexDirection:'row',
+        justifyContent:'space-between'
+    },
+    link:{
+        fontSize:TEXT_SIZES.SMALL,
+        color:GRAY_2
+    },
+    container:{
+        width:'30vw',
+        height:'80vh',
+        backgroundColor: WHITE,
+        display:'flex',
+        flexDirection: 'column'
     }
 }
 

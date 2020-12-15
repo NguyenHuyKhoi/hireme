@@ -13,43 +13,68 @@ export default class GiveupTaskModal extends Component {
         return (
             <Modal
                 isOpen={is_open}
-                style={{ 
-                    content : {
-                        top                   : '50%',
-                        left                  : '50%',
-                        right                 : 'auto',
-                        bottom                : 'auto',
-                        marginRight           : '-50%',
-                        transform             : 'translate(-50%, -50%)'
-                        } }}>
-                        <div style={{display: 'flex',flexDirection: 'column',
-                            alignItems:'center',justifyContent:'center',
-                            width: '30vw',height: '40wh',borderRadius:6,
-                            padding:15}}>
-                            <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
-                                Why do you give up this task ?
-                            </text>
+                style={styles.modal}>
+                <div style={styles.container}>
+                    <text style={styles.title}>
+                        Why do you give up this task ?
+                    </text>
 
-                            <TextareaInputComponent
-                                onChange={value=>this.props.updateInputs('modal_content',value)}
-                                hide_label={true}/>
-                        
+                    <TextareaInputComponent
+                        onChange={value=>this.props.updateInputs('modal_content',value)}
+                        hide_label={true}/>
+                
 
-                            <div style={{width: '100%',display: 'flex',flexDirection: 'row',
-                                marginTop:25,
-                                justifyContent:'space-between'}}>
-                                <div style={{flex:1,marginRight: 50}}>
-                                    <ButtonComponent label='Back' onClick={this.props.clickBack}/>
-                                </div>
-                                <div style={{flex:1}}>
-                                    <ButtonComponent label='Give up' color={YELLOW_1}
-                                        onClick={this.props.clickGiveup}/>
-                                </div>
-                            </div>
+                    <div style={styles.footer}>
+                        <div style={{...styles.btn_container,marginRight: 50}}>
+                            <ButtonComponent label='Back' onClick={this.props.clickBack}/>
                         </div>
-                </Modal>
+                        <div style={styles.btn_container}>
+                            <ButtonComponent label='Give up' color={YELLOW_1}
+                                onClick={this.props.clickGiveup}/>
+                        </div>
+                    </div>
+                </div>
+            </Modal>
                     
     
         )
+    }
+}
+
+
+const styles={
+    modal:{ 
+        content : {
+            top                   : '50%',
+            left                  : '50%',
+            right                 : 'auto',
+            bottom                : 'auto',
+            marginRight           : '-50%',
+            transform             : 'translate(-50%, -50%)'
+            }
+    },
+    container:{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems:'center',
+        justifyContent:'center',
+        width: '30vw',
+        height: '40wh',
+        borderRadius:6,
+        padding:15
+    },
+    title:{
+        fontSize: TEXT_SIZES.NORMAL,
+        color:BLACK
+    },
+    footer:{
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        marginTop:25,
+        justifyContent:'space-between'
+    },
+    btn_container:{
+        flex:1
     }
 }

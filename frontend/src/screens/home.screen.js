@@ -61,34 +61,41 @@ export default class HomeScreen extends Component {
     render(){
         return (
 
-            <div style={{width:'100vw',height:'100vh',
-                backgroundColor:WHITE,overflowX:'hidden',
-                display:'flex',flexDirection: 'column'}}>
-
-                {/* <AuthModal/> */}
-                {/* header */}
+            <div style={styles.container}>
                 
               
                 <HeaderBarComponent/>
 
-                {/* body */}
-                <div style={{width:'100vw',display:'flex',flexDirection: 'column',paddingBottom:100}}>
+                <div style={styles.body}>
 
-                    {/* banner */}
                     <HomeBannerComponent/>
-                    {/* top CATEGORIES_DOMAIN */}
+
                     <TopCategoriesComponent categories={this.state.popular_categories}/>
 
-                    {/* top freelancers */}
 
                     <TopFreelancersComponent freelancers={this.state.popular_freelancers}/>
                 </div>
 
-
-                {/* footer */}
                 <FooterBarComponent/>
             </div>
             
         )
+    }
+}
+
+const styles={
+    container:{
+        width:'100vw',
+        height:'100vh',
+        backgroundColor:WHITE,
+        overflowX:'hidden',
+        display:'flex',
+        flexDirection: 'column'
+    },
+    body:{
+        width:'100vw',
+        display:'flex',
+        flexDirection: 'column',
+        paddingBottom:100
     }
 }

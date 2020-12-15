@@ -85,15 +85,14 @@ export default class ChatComponent extends Component {
         const conversation=this.state.conversation;
         const {task_id,user_id,user_type}=this.state;
         return (
-            <div  style={{display:'flex',flex:1, flexDirection:'row',backgroundColor:WHITE,
-                boxShadow:'3px 5px 3px 3px #707070'}}>    
+            <div  style={styles.container}>    
                 {
                     chat_list===null
                     || (task_id!==undefined && user_type==='freelancer')?
                     //freelancer chat with company on a specify task  
                     null
                     :
-                    <div style={{display:'flex',flex:5 }}>
+                    <div style={styles.chat_list}>
                         <ChatListComponent
                             getConversation={this.getConversation} 
                             chat_list={this.state.chat_list}/>
@@ -103,7 +102,7 @@ export default class ChatComponent extends Component {
                     conversation===null?
                     null
                     :
-                    <div style={{display:'flex',flex:9}}>
+                    <div style={styles.conversation}>
                         <ConversationComponent 
                             typeMessage={value=>this.setState({message:value})}
                             sendMessage={this.sendMessage}
@@ -114,6 +113,24 @@ export default class ChatComponent extends Component {
                
             </div>
         )
+    }
+}
+
+const styles={
+    container:{
+        display:'flex',
+        flex:1, 
+        flexDirection:'row',
+        backgroundColor:WHITE,
+        boxShadow:'3px 5px 3px 3px #707070'
+    },
+    chat_list:{
+        display:'flex',
+        flex:5 
+    },
+    conversation:{
+        display:'flex',
+        flex:9
     }
 }
 

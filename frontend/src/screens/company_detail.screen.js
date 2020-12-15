@@ -56,104 +56,120 @@ export default class CompanyDetailScreen extends Component {
         const reviews=this.state.reviews;
         return (
 
-            <div style={{width:'100vw',backgroundColor: WHITE,
-                display:'flex',flexDirection: 'column'}}>
+            <div style={styles.container}>
 
-                {/* header */}
+                
                 <HeaderBarComponent/>
 
-                {/* body */}
-                <div style={{width:'100vw',display:'flex',flexDirection: 'column',
-                    paddingBottom:60,
-                    overflowX:'hidden',
-                    alignSelf: 'baseline'}}>
+                {
+                company===null?
+                null
+                :
+                <div style={styles.body}>
 
                     
-                    {/* header task detail */}
-                    {
-                        company===null?
-                        null
-                        :
-                        <CompanyDetailHeaderComponent company={company}/>
-                    }
-                    {
-                        company===null?
-                        null
-                        :
-                        <div style={{width:'100%',display:'flex',flexDirection:'row'}}>
-                            <div style={{flex:1}}/>
-                            
-                            {/* column1 */}
-                            <div style={{flex:5,display:'flex',flexDirection: 'column',
-                                alignSelf:'baseline'}}>
+                    <CompanyDetailHeaderComponent company={company}/>
 
-                                {/* description */}
-                                <div style={{marginTop:30}}>
-                                    <DescriptionComponent 
-                                        title='About Company'
-                                        content={company.description}/>
-                                </div>
-                            
+                    <div style={styles.company_body}>
+                                        
+                        <div style={{flex:1}}/>
 
-                                <div style={{marginTop:50}}>
-                                    {/* reviews list */}
-                                    <ReviewListComponent reviews={reviews}/>
-                                </div>
-                            
+                        <div style={styles.company_body_col1}>
+
+                            <div style={{marginTop:30}}>
+                                <DescriptionComponent 
+                                    title='About Company'
+                                    content={company.description}/>
                             </div>
+                        
 
-                            <div style={{flex:0.5}}/>
+                            <div style={{marginTop:50}}>
+                                <ReviewListComponent reviews={reviews}/>
+                            </div>
+                        
+                        </div>
 
-                            {/* column2 */}
-                            <div style={{flex:2,display:'flex',flexDirection: 'column',
-                                marginLeft:50,  alignSelf:'baseline'}}>
-                                {/* infor bar  */}
-                                <div style={{marginTop:30}}>
-                                    <SingleFieldComponent field={{
+                        <div style={{flex:0.5}}/>
+
+                        <div style={styles.company_body_col2}>
+
+                            <div style={{marginTop:30}}>
+                                <SingleFieldComponent field={{
                                         key:'Employee size :',
                                         value:company.employee_size
                                     }} />
-                                </div>
-
-                                <div style={{marginTop:40}}>
-                                    <SingleFieldComponent field={{
-                                        key:'Location :',
-                                        value:company.location
-                                    }}/>
-                                </div>
-
-                                <div style={{marginTop:40}}>
-                                    <SingleFieldComponent field={{
-                                        key:'Business Area :',
-                                        value:company.business_area
-                                    }}/>
-                                </div>
-
-                                <div style={{marginTop:40}}>
-                                    <SingleFieldComponent field={{
-                                        key:'Website link:',
-                                        value:company.website_link
-                                    }}/>
-                                </div>
-
-
-                            
                             </div>
-                            <div style={{flex:1}}/>
+
+                            <div style={{marginTop:40}}>
+                                <SingleFieldComponent field={{
+                                    key:'Location :',
+                                    value:company.location
+                                }}/>
+                            </div>
+
+                            <div style={{marginTop:40}}>
+                                <SingleFieldComponent field={{
+                                    key:'Business Area :',
+                                    value:company.business_area
+                                }}/>
+                            </div>
+
+                            <div style={{marginTop:40}}>
+                                <SingleFieldComponent field={{
+                                    key:'Website link:',
+                                    value:company.website_link
+                                }}/>
+                            </div>
+
+
+                        
                         </div>
-           
-                    }
-                   
-                    {/* body task detail  */}
- 
-                   
+
+                        <div style={{flex:1}}/>
+                    </div>
+     
                 </div>
+                }
 
-
-                {/* footer */}
                 <FooterBarComponent/>
             </div>
             
         )
+    }
+}
+
+
+const styles={
+    container:{
+        width:'100vw',
+        backgroundColor: WHITE,
+        display:'flex',
+        flexDirection: 'column'
+    },
+    body:{
+        width:'100vw',
+        display:'flex',
+        flexDirection: 'column',
+        paddingBottom:60,
+        overflowX:'hidden',
+        alignSelf: 'baseline'
+    },
+    company_body:{
+        width:'100%',
+        display:'flex',
+        flexDirection:'row'
+    },
+    company_body_col1:{
+        flex:5,
+        display:'flex',
+        flexDirection: 'column',
+        alignSelf:'baseline'
+    },
+    company_body_col2:{
+        flex:2,
+        display:'flex',
+        flexDirection: 'column',
+        marginLeft:50,  
+        alignSelf:'baseline'
     }
 }

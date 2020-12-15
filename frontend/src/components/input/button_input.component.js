@@ -16,9 +16,7 @@ export default  class ButtonInputComponent extends Component {
         const value=this.state.value
         const btn_label=this.props.btn_label;
         return (
-            <div style={{width:'100%',height:60,display:'flex',flexDirection:'row',
-                backgroundColor:GRAY_3,
-                justifyContent:'space-around',alignItems:'center'}}>
+            <div style={styles.container}>
 
                 <input 
                     onChange={e=>{
@@ -27,11 +25,9 @@ export default  class ButtonInputComponent extends Component {
                         this.props.onChange(e.target.value)}
                     }
                     value={value}
-                    style={{ width:'60%', height:40,backgroundColor: WHITE,
-                        paddingLeft:10,fontSize: TEXT_SIZES.NORMAL,
-                        borderColor:GRAY_3,borderWidth: 1}} />
+                    style={styles.input} />
 
-                <div style={{width: '20%'}}>
+                <div style={styles.btn_container}>
                     <ButtonComponent 
                         onClick={()=>{
                             this.setState({value:''})
@@ -46,3 +42,26 @@ export default  class ButtonInputComponent extends Component {
     }
 }
 
+const styles={
+    container:{
+        width:'100%',
+        height:60,
+        display:'flex',
+        flexDirection:'row',
+        backgroundColor:GRAY_3,
+        justifyContent:'space-around',
+        alignItems:'center'
+    },
+    input:{ 
+        width:'60%', 
+        height:40,
+        backgroundColor: WHITE,
+        paddingLeft:10,
+        fontSize: TEXT_SIZES.NORMAL,
+        borderColor:GRAY_3,
+        borderWidth: 1
+    },
+    btn_container:{
+        width: '20%'
+    }
+}

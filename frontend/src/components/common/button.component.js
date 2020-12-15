@@ -16,7 +16,7 @@ export default class ButtonComponent extends Component {
                     backgroundColor: color!==undefined?color:BLUE_1,
                     height: height!==undefined?height:45
                     }}>
-                <text style={{ fontSize: TEXT_SIZES.NORMAL,color:text_color!==undefined?text_color:WHITE}}>
+                <text style={{ ...styles.label,color:text_color!==undefined?text_color:WHITE}}>
                    {label}
                 </text>
             </div>
@@ -31,5 +31,8 @@ const styles= {
         justifyContent: 'center',
         alignItems:'center',
         borderRadius: 5
+    },
+    label:{
+        fontSize: TEXT_SIZES.NORMAL
     }
 }

@@ -11,19 +11,15 @@ export default class FreelancerItemComponent extends Component {
     render(){
         const freelancer=this.props.freelancer
         return (
-            <div style={{width:'20vw',height:450,backgroundColor: WHITE,  
-                boxShadow:'5px 5px 5px 5px #707070',
-                padding:20, marginBottom:50,           
-                display:'flex',flexDirection: 'column',justifyContent: 'center',alignItems: 'center'}}>
+            <div style={styles.container}>
             
-                <img src={freelancer.avatar} 
-                    style={{width:'40%',height:'25%',borderRadius:'50%'}}/>
+                <img src={freelancer.avatar}  style={styles.avatar}/>
 
-                <text style={{marginTop:20,fontSize:TEXT_SIZES.NORMAL,color:BLACK
-                    }}>
+                <text style={styles.freelancer_name}>
                     {freelancer.name}
                 </text>
-                <text style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_1,textAlign:'center',marginBottom:10}}>
+
+                <text style={styles.freelancer_tagline}>
                     {freelancer.tagline}
                 </text>
 
@@ -34,7 +30,7 @@ export default class FreelancerItemComponent extends Component {
 
 
 
-                <div style={{width: '100%',marginTop:60}}>
+                <div style={styles.fields}>
                     <InforsBarComponent fields={[
                         {
                             key:'Hourly Rate',value:freelancer.hourly_rate
@@ -49,7 +45,7 @@ export default class FreelancerItemComponent extends Component {
                 </div>
                 <Link 
                     to={routePaths.FREELANCER_DETAIL+`/${freelancer.id}`}
-                    style={{width: '100%',marginTop:10,textDecoration:'none'}}>
+                    style={styles.btn_container}>
                     <ButtonComponent label='View Profile '/>
                 </Link>
                
@@ -61,5 +57,46 @@ export default class FreelancerItemComponent extends Component {
 
     
         )
+    }
+}
+
+
+const styles={
+    container:{
+        width:'20vw',
+        height:450,
+        backgroundColor: WHITE,  
+        boxShadow:'5px 5px 5px 5px #707070',
+        padding:20, 
+        marginBottom:50,           
+        display:'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    avatar:{
+        width:'40%',
+        height:'25%',
+        borderRadius:'50%'
+    },
+    freelancer_name:{
+        marginTop:20,
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK
+    },
+    tagline:{
+        fontSize:TEXT_SIZES.SMALL,
+        color:GRAY_1,
+        textAlign:'center',
+        marginBottom:10
+    },
+    fields:{
+        width: '100%',
+        marginTop:60
+    },
+    btn_container:{
+        width: '100%',
+        marginTop:10,
+        textDecoration:'none'
     }
 }

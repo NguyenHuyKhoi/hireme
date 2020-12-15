@@ -7,17 +7,16 @@ export default class InforsBarComponent extends Component {
     render(){
         const fields=this.props.fields;
         return (
-            <div style={{width:'100%',display:'flex',flexDirection: 'row',
-                justifyContent: 'space-between',alignItems: 'center'}}>
+            <div style={styles.container}>
                 {
                    fields.map((item,index)=>
                    <div 
                         key={''+index}
-                        style={{display:'flex',flexDirection: 'column',alignItems: 'center'}}>
-                       <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK}}>
+                        style={styles.item_container}>
+                       <text style={styles.item_value}>
                            {item.value}
                        </text>
-                       <text style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_1,textAlign:'center'}}>
+                       <text style={styles.item_key}>
                            {item.key}
                        </text>
                    </div>
@@ -26,5 +25,29 @@ export default class InforsBarComponent extends Component {
             </div>
       
         )
+    }
+}
+
+const styles ={
+    container :{
+        width:'100%',
+        display:'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center'
+    },
+    item_container:{
+        display:'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+    },
+    item_value:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK
+    },
+    item_key:{
+        fontSize:TEXT_SIZES.SMALL,
+        color:GRAY_1,
+        textAlign:'center'
     }
 }

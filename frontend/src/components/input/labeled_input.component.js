@@ -34,16 +34,15 @@ export default class LabeledInputComponent extends Component {
       
         return (
 
-            <div style={{display:'flex',width: '100%',
-                flexDirection: inline?'row':'column'}}>
+            <div style={{...styles.container,
+                    flexDirection: inline?'row':'column'}}>
                 {
                     hide_label?
                     null
                     :
                     <div style={{flex:1}}>
                 
-                        <text style={{
-                            fontSize:size,color:BLACK}}>
+                        <text style={{...styles.label,ontSize:size}}>
                             {label}
                         </text>
                     </div>
@@ -66,8 +65,9 @@ export default class LabeledInputComponent extends Component {
                         this.props.onChange(e.target.value)
                     }}
                     style={{
-                        width:'100%',height: size===TEXT_SIZES.NORMAL?30:25,
-                        fontSize:size,
+                        ...styles.input,
+                        fontSize: size,
+                        height: size===TEXT_SIZES.NORMAL?30:25,
                         marginTop:inline?0:15,
                         marginLeft:inline?15:0,
                         border:disabled?'none':'default',
@@ -78,5 +78,18 @@ export default class LabeledInputComponent extends Component {
             
             </div>
         )
+    }
+}
+
+const styles={
+    container:{
+        display:'flex',
+        width: '100%'
+    },
+    label:{
+        color:BLACK
+    },
+    input:{
+        width:'100%',
     }
 }

@@ -22,15 +22,14 @@ export default class NumberInputComponent extends Component {
         const label=this.props.label;
         const step=this.props.step!==undefined?this.props.step:1
         return (
-            <div style={{display:'flex',width: '100%',flexDirection: 'column'}}>
-                <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,marginBottom:10}}>
+            <div style={styles.container}>
+                <text style={styles.label}>
                     {label}
                 </text>
                 
-                <div style={{width: '100%',display:'flex',flexDirection:'row',justifyContent:'center',marginBottom:20}}>
+                <div style={styles.value_container}>
                 
-                    <text style={{fontSize:TEXT_SIZES.SMALL,color:WHITE,padding: 7,
-                        backgroundColor:BLACK,borderRadius:5}}>
+                    <text style={styles.value}>
                             {
                                 value+ ' '+unit
                             }
@@ -52,7 +51,7 @@ export default class NumberInputComponent extends Component {
                                 <div
                                     {...props}
                                     style={{
-                                        ...props.style,height: 5, width: '100%',backgroundColor: BLUE_1 }}>
+                                        ...props.style,...styles.track }}>
                                     {children}
                                 </div>
                         )}
@@ -61,12 +60,50 @@ export default class NumberInputComponent extends Component {
                                     {...props}
                                     style={{
                                         ...props.style,
-                                        height: 24,width:24,borderRadius:12,
-                                        backgroundColor: BLUE_1 }}/>
+                                        ...styles.thumb}}/>
                         )}
                     />
                 {/* </div> */}
             </div>
         )
+    }
+}
+
+
+const styles={
+    container:{
+        display:'flex',
+        width: '100%',
+        flexDirection: 'column'
+    },
+    label:{
+        fontSize:TEXT_SIZES.NORMAL,
+        color:BLACK,
+        marginBottom:10
+    },
+    value_container:{
+        width: '100%',
+        display:'flex',
+        flexDirection:'row',
+        justifyContent:'center',
+        marginBottom:20
+    },
+    value:{
+        fontSize:TEXT_SIZES.SMALL,
+        color:WHITE,
+        padding: 7,
+        backgroundColor:BLACK,
+        borderRadius:5
+    },
+    track:{
+        height: 5, 
+        width: '100%',
+        backgroundColor: BLUE_1
+    },
+    thumb:{
+        height: 24,
+        width:24,
+        borderRadius:12,
+        backgroundColor: BLUE_1 
     }
 }

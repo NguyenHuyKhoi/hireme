@@ -21,28 +21,25 @@ export default class   SettingProfileFreelancerComponent extends Component {
         const category=this.props.category;
         const picked_skills=this.props.picked_skills
         return (
-            <div style={{
-                flex:1,display: 'flex',flexDirection:'column',backgroundColor:WHITE,
-                borderRadius:8,
-                boxShadow:'3px 5px 3px 3px #707070',}}>
+            <div style={styles.container}>
+
                 <HeaderListComponent title='Profile' height={40}/>
 
-                <div style={{flex:1,
-                    padding:50,
-                    display:'flex',justifyContent:'center',flexDirection:'column'}}>
+                <div style={styles.body}>
 
-                        <div style={{display:'flex',flexDirection: 'row'}}>
-                            {/* col1_1 */}
-                            <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
+                        <div style={styles.row1}>
+                            
 
-                                <div style={{width:'70%'}}>
+                            <div style={styles.row1_col1}>
+
+                                <div style={styles.field_container}>
                                     <LabeledInputComponent
                                         onChange={(value)=>this.props.updateInputs('tagline',value)}
                                         label='Tagline'
                                         value={profile.tagline} />
                                 </div>
 
-                                <div style={{width:'70%',marginTop:30}}>
+                                <div style={styles.field_container}>
                                     <NumberInputComponent 
                                         label='Hourly Rate'
                                         onChange={(value)=>this.props.updateInputs('hourly_rate',value[0])}
@@ -56,17 +53,17 @@ export default class   SettingProfileFreelancerComponent extends Component {
                             </div>
 
                             {/* col1_2 */}
-                            <div style={{display:'flex',flexDirection: 'column',flex:1,
-                                alignItems:'center'}}>
+                            <div style={styles.row1_col2}>
 
-                                <div style={{width:'70%'}}>
+                                <div style={styles.field_container}>
                                     <LabeledSelectedInputComponent 
                                         onChange={value=>this.props.updateInputs('category',value)}
                                         label='Category'
                                         domain={CATEGORIES_DOMAIN.map(item=>item.name)}
                                         value={profile.category}/>
-                                </div>    
-                                <div style={{width: '70%',marginTop:30}}>
+                                </div>  
+
+                                <div style={styles.field_container}>
                                     <SkillPickerComponent 
                                         onChange={value=>this.props.updateInputs('skills',value)}
                                         label='Skills'
@@ -93,7 +90,7 @@ export default class   SettingProfileFreelancerComponent extends Component {
                                 is_edit={true}/>
                         </div> */}
                         
-                        <div style={{marginTop:30}}>
+                        <div style={styles.row2}>
                            <TextareaInputComponent
                                 onChange={value=>this.props.updateInputs('description',value)} 
                                 label='Description'
@@ -112,3 +109,42 @@ export default class   SettingProfileFreelancerComponent extends Component {
     }
 }
 
+const styles={
+    container:{
+        flex:1,
+        display: 'flex',
+        flexDirection:'column',
+        backgroundColor:WHITE,
+        borderRadius:8,
+        boxShadow:'3px 5px 3px 3px #707070'
+    },
+    body:{
+        flex:1,
+        padding:50,
+        display:'flex',
+        justifyContent:'center',
+        flexDirection:'column'
+    },
+    row1:{
+        display:'flex',
+        flexDirection: 'row'
+    },
+    row1_col1:{
+        display:'flex',
+        flex:1,
+        flexDirection: 'column'
+    },
+    field_container:{
+        width:'70%',
+        marginTop:30
+    },
+    row1_col2:{
+        display:'flex',
+        flexDirection: 'column',
+        flex:1,
+        alignItems:'center'
+    },
+    row2:{
+        marginTop:30
+    }
+}

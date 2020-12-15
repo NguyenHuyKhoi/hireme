@@ -74,19 +74,15 @@ export default class FreelancerSearchScreen extends Component {
         const freelancers=this.state.freelancers;
         return (
 
-            <div style={{width:'100vw',height:'100vh',
-                display:'flex',flexDirection: 'column'}}>
+            <div style={styles.container}>
 
-                {/* header */}
                 <HeaderBarComponent/>
 
-                {/* body */}
-                <div style={{width:'100vw',display:'flex',flexDirection: 'row',
-                    paddingBottom:100,paddingTop:50,}}>
+                <div style={styles.body}>
 
                     
                     <div style={{flex:1}}/>
-                    {/* filters */}
+
                     <div style={{flex:2}}>
                         <FilterComponent
                             category={this.state.category}
@@ -111,11 +107,27 @@ export default class FreelancerSearchScreen extends Component {
                     <div style={{flex:1}}/>
                 </div>
 
-
-                {/* footer */}
+                
                 <FooterBarComponent/>
             </div>
             
         )
+    }
+}
+
+
+const styles={
+    container:{
+        width:'100vw',
+        height:'100vh',
+        display:'flex',
+        flexDirection: 'column'
+    },
+    body:{
+        width:'100vw',
+        display:'flex',
+        flexDirection: 'row',
+        paddingBottom:100,
+        paddingTop:50
     }
 }

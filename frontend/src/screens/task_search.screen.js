@@ -68,14 +68,12 @@ export default class TaskSearchScreen extends Component {
         const tasks=this.state.tasks;
         return (
 
-            <div style={{width:'100vw',height:'100vh',
-            display:'flex',flexDirection: 'column'}}>
+            <div style={styles.container}>
 
                 {/* header */}
                 <HeaderBarComponent/>
 
-                <div style={{width:'100vw',display:'flex',flexDirection: 'row',
-                    paddingBottom:100,paddingTop:50,}}>
+                <div style={styles.body}>
 
                     
                     <div style={{flex:1}}/>
@@ -109,5 +107,21 @@ export default class TaskSearchScreen extends Component {
             </div>
             
         )
+    }
+}
+
+const styles={
+    container:{
+        width:'100vw',
+        height:'100vh',
+        display:'flex',
+        flexDirection: 'column'
+    },
+    body:{
+        width:'100vw',
+        display:'flex',
+        flexDirection: 'row',
+        paddingBottom:100,
+        paddingTop:50
     }
 }

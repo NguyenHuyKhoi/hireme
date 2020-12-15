@@ -5,7 +5,6 @@ import LabeledSelectedInputComponent from '../../components/input/labeled_select
 import RangeInputComponent from '../../components/input/range_input.component'
 import SidebarComponent from '../../components/common/side_bar.component'
 import SkillPickerComponent from '../../components/input/skill_picker.component'
-import UploadFilesComponent from '../../components/common/upload_files.component'
 import SettingAccountComponent from '../../components/setting/setting_account.component'
 import SettingPasswordComponent from '../../components/setting/setting_password.component'
 import SettingProfileCompanyComponent from '../../components/setting/setting_profile_company.component'
@@ -106,61 +105,51 @@ class DashboardSettingCompanyScreen extends Component {
         const setting=this.state.setting;
         return (
 
-            <div style={{width:'100vw',backgroundColor:GRAY_6,
-            display:'flex',flexDirection: 'row'}}>
+            <div style={styles.container}>
 
-                {/* sidebar */}
+     
                 <SidebarComponent />
-                {/* body */}
-                <div style={{display:'flex',flex:SIDEBAR_RATIO,
-                    padding:PADDING_BODY_DASHBOARD}}>
-
-                    {
-                    setting===null?
-                    null
-                    :
-                    <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
-
-                        {/* header */}
-                        <HeaderListComponent title='Setting'/>
-
-                        <div style={{marginTop:30}}>
-                            <SettingAccountComponent 
-                                  updateInputs={this.updateInputs}
-                                account={setting.account}/>
-                        </div>
-                      
-                        <div style={{marginTop:60}}>
-                            <SettingProfileCompanyComponent 
-                                  updateInputs={this.updateInputs}
-                                profile={setting.profile}/>
-                        </div>
-
-                        <div style={{marginTop:60}}>
-                            <SettingPasswordComponent
-                                  updateInputs={this.updateInputs}
-                                />
-                        </div>
-                        {/* submit button */}
+           
+                {
+                setting===null?
+                null
+                :
+                <div style={styles.body}>
 
 
-                        <Link 
-                             to={routePaths.DASHBOARD_TASK_LIST}
-                            style={{marginTop:50,width:'25%',textDecoration:'none'}}>
-                            <ButtonComponent 
-                                onClick={this.updateSetting}
-                                label='Save Your Changes' height={60}/>
-                        </Link>
+                    <HeaderListComponent title='Setting'/>
 
-
-
+                    <div style={{marginTop:30}}>
+                        <SettingAccountComponent 
+                                updateInputs={this.updateInputs}
+                            account={setting.account}/>
                     </div>
-                
-                    }
+                    
+                    <div style={{marginTop:60}}>
+                        <SettingProfileCompanyComponent 
+                                updateInputs={this.updateInputs}
+                            profile={setting.profile}/>
+                    </div>
+
+                    <div style={{marginTop:60}}>
+                        <SettingPasswordComponent
+                                updateInputs={this.updateInputs}
+                            />
+                    </div>
+
+                    <Link 
+                            to={routePaths.DASHBOARD_TASK_LIST}
+                        style={{marginTop:50,width:'25%',textDecoration:'none'}}>
+                        <ButtonComponent 
+                            onClick={this.updateSetting}
+                            label='Save Your Changes' height={60}/>
+                    </Link>
                     
                 </div>
 
      
+                }
+                
 
                
             </div>
@@ -168,6 +157,21 @@ class DashboardSettingCompanyScreen extends Component {
         )
     }
 }
+
+const styles={
+    container:{
+        width:'100vw',
+        backgroundColor:GRAY_6,
+        display:'flex',
+        flexDirection: 'row'
+    },
+    body:{
+        display:'flex',
+        flex:SIDEBAR_RATIO,
+        padding:PADDING_BODY_DASHBOARD
+    }
+}
+
 
 const mapStateToProps = state => ({
 	user_infor: state.user_infor,
