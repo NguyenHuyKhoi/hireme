@@ -98,7 +98,7 @@ export default class TransactionItemComponent extends Component {
                   
                 </div>
 
-                <div style={col4}>
+                <div style={styles.col4}>
                     <text style={{...styles.amount_text,
                                 color:amount>0?GREEN_1:RED_1}}>
                         {

@@ -41,7 +41,7 @@ export default class ExperienceItemComponent extends Component {
                     ...styles.container,
                     backgroundColor:index%2==0?WHITE:GRAY_4}}>    
 
-                    <div style={styles.ro1}>
+                    <div style={styles.row1}>
 
                         <div style={{width:'45%'}}>
                             <LabelInputComponent 
@@ -56,7 +56,7 @@ export default class ExperienceItemComponent extends Component {
                         {
                             btn_add_visible?
                             <div 
-                            style={{...styles.action_btn,backgroundColor:GREEN_1}}>
+                            style={{...styles.action_btn,paddingRight:10,paddingLeft:10,paddingTop:5,paddingBottom:5,backgroundColor:GREEN_1}}>
                                 <text style={styles.action_btn_label}>
                                     +
                                 </text>
@@ -69,7 +69,7 @@ export default class ExperienceItemComponent extends Component {
                         {
                             btn_remove_visible?
                             <div 
-                            style={{...styles.action_btn,backgroundColor: RED_1}}>
+                            style={{...styles.action_btn,paddingRight:10,paddingLeft:10,paddingTop:5,paddingBottom:5,backgroundColor: RED_1}}>
                                 <text style={styles.action_btn_label}>
                                     -
                                 </text>

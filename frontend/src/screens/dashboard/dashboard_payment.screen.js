@@ -197,7 +197,8 @@ const styles={
     body:{
         display:'flex',
         flex:SIDEBAR_RATIO,
-        padding:PADDING_BODY_DASHBOARD
+        padding:PADDING_BODY_DASHBOARD,
+        flexDirection: 'column'
     }
 }
 

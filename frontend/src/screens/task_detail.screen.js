@@ -149,8 +149,8 @@ export default class TaskDetailScreen extends Component {
                     <div style={styles.body}>
                         <TaskDetailHeaderComponent task={task}/>
 
-                        <div style={styles.task_body}/>
-                            <div style={{flex:1}}>
+                        <div style={styles.task_body}>
+                            <div style={{flex:1}}/>
                                 
                             <div style={styles.task_body_col1}>
 

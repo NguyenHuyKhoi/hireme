@@ -88,9 +88,9 @@ export default class FreelancerDetailScreen extends Component {
                             </div>
                         
                             
-                            {/* <div style={{marginTop:50}}>
+                            <div style={{marginTop:50}}>
                                 <ExperienceListComponent experiences={freelancer.experiences}/>
-                            </div> */}
+                            </div>
                         
 
                             <div style={{marginTop:50}}>

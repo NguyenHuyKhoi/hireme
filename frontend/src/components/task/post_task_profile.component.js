@@ -79,12 +79,12 @@ export default class PostTaskProfileComponent extends Component {
 
                                
 
-                                {/* <div style={{width:'70%',marginTop:30}}>
+                                <div style={{width:'70%',marginTop:30}}>
                                     <AttachmentsComponent
                                         label='Attachments'
                                         onChange={(value)=>this.props.updateInputs('attachments',value)}
                                         is_edit={true} />
-                                </div> */}
+                                </div>
                             </div>
 
                         

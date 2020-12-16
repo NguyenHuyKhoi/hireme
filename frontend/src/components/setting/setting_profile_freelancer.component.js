@@ -47,6 +47,13 @@ export default class   SettingProfileFreelancerComponent extends Component {
                                         value={[profile.hourly_rate]}/>
                                 </div>
 
+                                <div style={{width:'100%',marginTop:30}}>
+                                    <AttachmentsComponent
+                                        label='Attachments'
+                                        is_edit={true}
+                                        attachments={profile.attachments}/>
+                                </div>       
+
                              
                               
 
@@ -71,24 +78,19 @@ export default class   SettingProfileFreelancerComponent extends Component {
                                         category={category}/>
                                 </div>
 
-                                {/* <div style={{width:'70%',marginTop:30}}>
-                                    <AttachmentsComponent
-                                        label='Attachments'
-                                        is_edit={true}
-                                        attachments={profile.attachments}/>
-                                </div>                           */}
+                                                 
                             </div>
 
                         </div>
 
                             
-                        {/* <div style={{width:'100%',marginTop:40}}>
+                        <div style={{width:'100%',marginTop:40}}>
                             <ExperienceListComponent
                                 onChange={value=>this.props.updateInputs('experiences',value)} 
                                 experiences={profile.experiences}
                                 header_height={40} 
                                 is_edit={true}/>
-                        </div> */}
+                        </div>
                         
                         <div style={styles.row2}>
                            <TextareaInputComponent

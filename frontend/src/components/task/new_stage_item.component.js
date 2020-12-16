@@ -37,7 +37,7 @@ export default class NewStageItemComponent extends Component {
 
                     <div style={styles.inner_body}>
                         
-                            {/* <AttachmentsComponent is_edit={true}/> */}
+                            <AttachmentsComponent is_edit={true} />
 
                             <div style={styles.content}>
                                 <LabeledInputComponent 

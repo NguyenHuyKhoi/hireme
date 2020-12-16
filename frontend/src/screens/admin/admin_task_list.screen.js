@@ -31,7 +31,7 @@ export default class AdminTaskListScreen extends Component {
         const tasks=this.state.tasks
         return (
 
-            <div style={styles.contaier}>
+            <div style={styles.container}>
 
               
                 <SidebarComponent is_admin={true} />

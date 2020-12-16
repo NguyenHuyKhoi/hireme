@@ -161,7 +161,7 @@ const styles={
     },
     col1:{
         display:'flex',
-        flex:6,
+        flex:5,
         flexDirection: 'column',
         justifyContent:'center'
     },

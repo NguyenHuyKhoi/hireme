@@ -59,7 +59,7 @@ export default class BiddingItemComponent extends Component {
                         <div style={styles.row1_col1}>
                             <img 
                                 src={freelancer.avatar} 
-                                style={styles.avatar}/>
+                                style={{width:80,height:80,borderRadius:40}}/>
                         </div>
                             
                         <div style={styles.row1_col2}>
@@ -155,7 +155,7 @@ const styles={
         aspectRatio:1,
         borderRadius:'50%'
     },
-    row1_col1:{
+    row1_col2:{
         display:'flex',
         flex:7,
         marginLeft:15,

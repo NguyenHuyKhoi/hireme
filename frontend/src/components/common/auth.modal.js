@@ -215,7 +215,7 @@ class AuthModal extends Component {
             //for freelancer : iamfreelancer@gmail.com 123qweASD
             //for admin : iamadmin@gmail.com  123qweASD
 
-            if (this.state.email==='iamcompany@gmail.com' && this.state.password==='123qweASD') {
+            if (this.state.email==='company@gmail.com' && this.state.password==='123456') {
                 alert('Sign in success')
                 this.props.loginSuccess({
                     session_id:'ur238r23t8328t238vt8t834t83t8g5y',
@@ -224,7 +224,7 @@ class AuthModal extends Component {
                     user_type:'company'
                 });
             }
-            else if (this.state.email==='iamfreelancer@gmail.com' && this.state.password==='123qweASD') {
+            else if (this.state.email==='freelancer@gmail.com' && this.state.password==='123456') {
                 alert('Sign in success')
                 this.props.loginSuccess({
                     session_id:'fa8fs8f8a68f678f67a6f7af278f828ng8',
@@ -233,7 +233,7 @@ class AuthModal extends Component {
                     user_type:'freelancer'
                 });
             }
-            else if (this.state.email==='iamadmin@gmail.com' && this.state.password==='123qweASD') {
+            else if (this.state.email==='admin@gmail.com' && this.state.password==='123456') {
                 alert('Sign in success')
                 this.props.loginSuccess({
                     session_id:'g84ng88394899c934tc82687t23t446',

@@ -89,7 +89,7 @@ export default class DashBoardTaskPostScreen extends Component {
     }
 }
 
-const style={
+const styles={
     container:{
         width:'100vw',
         backgroundColor:GRAY_6,
