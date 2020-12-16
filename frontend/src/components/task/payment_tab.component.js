@@ -261,7 +261,7 @@ export default class PaymentTabComponent extends Component {
 
                 <div style={{flex:1}}/>
 
-                <div style={body}>
+                <div style={styles.body}>
                     
                     <div style={styles.col1}>
                         <ProjectDetail/>
