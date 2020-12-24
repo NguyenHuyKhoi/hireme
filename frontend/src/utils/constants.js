@@ -1,8 +1,8 @@
-
+import {https} from 'axios'
 import {FaHome,FaAdd,FaAdobe, FaMobile,FaWikipediaW,
     FaAccessibleIcon,FaBitcoin, FaHubspot, 
     FaPaypal, FaBroom,FaUser,FaTasks,FaFacebookMessenger,FaStreetView,FaSignOutAlt} from "react-icons/fa"
-export const BASE_URL='https://localhost:3000'
+export const BASE_URL='https://192.168.43.15:3000'
 export const bullshitIcons={
     home :<FaHome/>,
     cat_design:<FaAdobe/>,
@@ -25,6 +25,10 @@ export const bullshitIcons={
     
     
 }
+
+export const httpsAgent = new https.Agent({
+    rejectUnauthorized: false, // (NOTE: this will disable client verification)
+})
 
 export const routePaths={
     HOME:'/',

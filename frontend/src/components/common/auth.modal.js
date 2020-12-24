@@ -1,6 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
-import { TEXT_SIZES } from '../../utils/constants';
+import { TEXT_SIZES ,BASE_URL} from '../../utils/constants';
 import { BLACK, GRAY_1, GRAY_2, GRAY_4, GREEN_1, WHITE } from '../../utils/palette';
 import AuthTabsComponent from './auth_tabs.component';
 import ButtonComponent from './button.component';
@@ -8,6 +8,10 @@ import TaskTabsBarComponent from './task_tabs.component';
 
 import {connect }from 'react-redux'
 import * as action from '../../redux/action/user.action'
+import axios from 'axios'
+
+import {https} from 'axios'
+
 
 class IconInput extends Component {
     render(){
@@ -94,7 +98,7 @@ class CommonTab extends Component{
                 }
 
                 <div style={styles.input_container}>
-                    <IconInput onChange={(value)=>this.props.updateInputs('email',value)} placehoder="Email..."/>
+                    <IconInput onChange={(value)=>this.props.updateInputs('username',value)} placehoder="Username..."/>
                 </div>
 
                 <div style={styles.input_container}>
@@ -150,7 +154,7 @@ class AuthModal extends Component {
         super(props);
         this.state={
             focus_tab_index:0,
-            email:'',
+            username:'',
             password:'',
             repeat_password:'',
             user_type:'freelancer'
@@ -164,15 +168,15 @@ class AuthModal extends Component {
     }
 
     validateInput=()=>{
-        const {email,password,repeat_password}=this.state;
-        if (email.length===0){
-            return 'Email is empty! '
+        const {username,password,repeat_password}=this.state;
+        if (username.length===0){
+            return 'username is empty! '
         }
-        if (email.length<10 || email.length>30){
-            return 'Email address is too short or too long (10 -> 30 chars)'
+        if (username.length<10 || username.length>30){
+            return 'username address is too short or too long (10 -> 30 chars)'
         };
-        if (!email.endsWith('@gmail.com')){
-            return 'Email address is invalid !'
+        if (!username.endsWith('@gmail.com')){
+            return 'username address is invalid !'
         };
         if (password.length===0){
             return 'Password is empty !'
@@ -203,14 +207,8 @@ class AuthModal extends Component {
         return '';
     }
 
-    onSignin=()=>{
-        var err_msg=this.validateInput();
-        if (err_msg==='') {
-             this.props.onCloseModal();
-           // this.props.onClose();
-            //call api : 
-
-            //fake account : 
+    testLogin=()=>{
+          //fake account : 
             //for company : iamcompany@gmail.com 123qweASD
             //for freelancer : iamfreelancer@gmail.com 123qweASD
             //for admin : iamadmin@gmail.com  123qweASD
@@ -245,7 +243,26 @@ class AuthModal extends Component {
             else {
                 alert('Sign in fail, please check again email and password .')
             }
-            //fake api responses 
+    }
+
+    onSignin=()=>{
+        var err_msg='';
+        //this.validateInput();
+        if (err_msg==='') {
+             this.props.onCloseModal();
+             //Call_API_Here
+            axios.get(BASE_URL+`/login?username=${this.state.username}&password=${this.state.password}`,
+                    {
+                        httpsAgent:new https.Agent({
+                            rejectUnauthorized: false
+                          })
+                    })
+                .then(res => {
+                        console.log('login :',res)
+                    })
+                    .catch(error => console.log(error));
+
+          
            
         }
         else alert(err_msg)
