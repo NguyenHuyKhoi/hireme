@@ -65,10 +65,11 @@ export default class BiddingItemComponent extends Component {
                         <div style={styles.row1_col2}>
 
                             <Link
-                                to={routePaths.FREELANCER_DETAIL}
+                                to={routePaths.FREELANCER_DETAIL+`/${freelancer.id}`}
                                 style={styles.freelancer_name}>
                                 {freelancer.name}
                             </Link>
+
 
                             <div style={{marginTop:3}}>
                                 <SmallFieldComponent 
