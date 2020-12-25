@@ -51,7 +51,8 @@ export const routePaths={
     ADMIN_SETTING:'/admin/setting',
 
     TEST_LIBS:'/test/libs',
-    UPLOAD_FILE_AXIOS:'/test/upload_file_axios'
+    UPLOAD_FILE_AXIOS:'/test/upload_file_axios',
+    TEST_FIREBASE:'/test/firebase'
 }
 
 
