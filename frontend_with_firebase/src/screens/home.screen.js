@@ -73,7 +73,7 @@ export default class HomeScreen extends Component {
                     <TopCategoriesComponent categories={this.state.popular_categories}/>
 
 
-                    <TopFreelancersComponent freelancers={this.state.popular_freelancers}/>
+                    {/* <TopFreelancersComponent freelancers={this.state.popular_freelancers}/> */}
                 </div>
 
                 <FooterBarComponent/>

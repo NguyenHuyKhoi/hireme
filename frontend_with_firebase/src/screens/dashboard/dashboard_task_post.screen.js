@@ -8,22 +8,14 @@ import {GRAY_6 } from '../../utils/palette'
 import ButtonComponent from '../../components/common/button.component'
 import HeaderListComponent from '../../components/common/header_list.component'
 import api from '../../sample_db/fake_api_responses.json'
-export default class DashBoardTaskPostScreen extends Component {
 
-    groupInputs=()=>{
-        let filter={};
-        let state=this.state;
+import {connect }from 'react-redux'
+import * as action from '../../redux/action/user.action'
 
+import firebase from '../../firebase/firebase'
 
-        //fields as post_task API request structure 
-        let fields=['name','category','min_suggested_price','max_suggested_price','price_type','skills',
-            'attachments','description'];
+class DashBoardTaskPostScreen extends Component {
 
-        fields.map(item=>{
-            if (state[item]!==undefined) filter[item]=state[item]
-        });
-        return filter
-    };
 
     updateInputs=async (field,value)=>{
         await this.setState({
@@ -34,17 +26,9 @@ export default class DashBoardTaskPostScreen extends Component {
     };
 
 
-    post=()=>{
-        alert('Call API post_task with body = :'+JSON.stringify(this.groupInputs()))
-        //Call_API_Here
-                // axios.get(BASE_URL+`/post_task`,{
-                //         data:{
-                //             this.groupInputs()
-                //         }
-                //     })
-                //     .then(res => {
-                //         })
-                //         .catch(error => console.log(error));
+    post=async ()=>{
+        await firebase.postTask(this.props.user_infor.id,this.state);
+        alert('Post task successfully');
     }
 
 
@@ -111,3 +95,9 @@ const styles={
         textDecoration:'none'
     }
 }
+
+const mapStateToProps = state => ({
+	user_infor: state.user_infor,
+});
+
+export default connect(mapStateToProps,action)(DashBoardTaskPostScreen)

@@ -3,12 +3,18 @@ import { HOURLY_RATE_DOMAIN } from '../utils/constants';
 
 class Firebase {
 
+    constructor(){
+        this.userRef=firebase.database().ref('/user/');
+        this.companyRef=firebase.database().ref('/company/');
+        this.freelancerRef=firebase.database().ref('/freelancer/');
+        this.taskRef=firebase.database().ref('/task/');
+    }
     //data :{email,password}
     checkUserExist=async (data) =>{
         let user_is_exist=false;
         console.log('checkUserExist begin :',data)
 
-        await firebase.database().ref('/user').once('value')
+        await this.userRef.once('value')
             .then(snapshot=>{
                 snapshot.forEach((childSnapshot) => {
                     var user_id=childSnapshot.key;
@@ -34,30 +40,30 @@ class Firebase {
             return false 
         };
     
-        let timestamp=''+ (new Date()).getTime();
-        console.log('firebase signup user_id :',timestamp)
 
-        await firebase.database().ref('/user/'+timestamp)
+
+        let key=await this.userRef.push().key
+        await this.userRef.child(key)
             .set({
-                id:timestamp,
+                id:key,
                 email:data.email,
                 password:data.password,
                 type:data.type,
-                username:'user'+timestamp.substring(0,5)
+                username:'user'+key.substring(0,5)
             });
 
         if (data.type==='freelancer') {
-            await this.setupFreelancerProfile(timestamp)
+            await this.setupFreelancerProfile(key)
         }
         else {
-            await this.setupCompanyProfile(timestamp);
+            await this.setupCompanyProfile(key);
         };
         return true;
     }
 
     //param : user_id 
     setupCompanyProfile=async (id)=>{
-        await firebase.database().ref('/company/'+id)
+        await this.companyRef.child(id)
             .set({
                 id:id,
                 company_name:'',
@@ -74,7 +80,7 @@ class Firebase {
 
     //param : user_id 
     setupFreelancerProfile=async (id)=>{
-        await firebase.database().ref('/freelancer/'+id)
+        await this.freelancerRef.child(id)
             .set({
                 id:id,
                 hourly_rate:HOURLY_RATE_DOMAIN[0],
@@ -88,7 +94,7 @@ class Firebase {
     signin=async (data)=>{
         let user_infor=null;
         console.log("firebase signin data_entry:",data);
-        await firebase.database().ref('/user').once('value')
+        await this.userRef.once('value')
             .then(snapshot=>{
                 snapshot.forEach((childSnapshot)=>{
                     const user=childSnapshot.val();
@@ -109,12 +115,14 @@ class Firebase {
 
         console.log('firebase getSettingUser begin  ',type,id)
         let output={};
-        await firebase.database().ref('/user/'+id).once('value')
+        await this.userRef.child(id).once('value')
             .then (snapshot=>{
                 output.account=snapshot.val();
-            });
+        });
 
-        await firebase.database().ref('/'+type+'/'+id).once('value')
+        let ref=type==='freelancer'?this.freelancerRef:this.companyRef
+
+        await ref.child(id).once('value')
             .then (snapshot=>{
                 output.profile=snapshot.val();
             });
@@ -126,9 +134,31 @@ class Firebase {
     updateSettingUser=async (type,id,data)=>{
         let output={};
         console.log('firebase updateSettingUser begin',type,id,data);
-        await firebase.database().ref('/user/'+id).update(data.account)
-        await firebase.database().ref('/'+type+'/'+id).update(data.profile)
+        await this.userRef.child(id).update(data.account)
+
+        let ref=type==='freelancer'?this.freelancerRef:this.companyRef
+        await ref.child(id).update(data.profile)
         return output;
+    }
+
+    
+    //input : data : information of task
+    postTask=async (company_id,data)=>{
+
+        console.log('firebase postTask begin :',data)
+
+
+        var key=await this.taskRef.push().key;
+
+        await this.taskRef.child(key).update({
+            ...data,
+            post_time:new Date(),
+            company_id,
+            state:'bidding'
+        });
+
+        console.log('firebase postTask exist  :')
+
     }
 }
 

@@ -31,23 +31,15 @@ export default class PostTaskProfileComponent extends Component {
 
                                 <div style={{width:'70%'}}>
                                     <LabeledInputComponent 
-                                        onChange={(value)=>this.props.updateInputs('name',value)}
+                                        onChange={(value)=>this.props.updateInputs('task_name',value)}
                                         label='Task Name'/>
-                                </div>
-
-                                <div style={{width:'70%',marginTop:30}}>
-                                    <LabeledSelectedInputComponent
-                                        onChange={(value)=>this.props.updateInputs('price_type',value)}
-                                        label='Type'
-                                        domain={TASKS_TYPE_DOMAIN}
-                                        value={TASKS_TYPE_DOMAIN[0]} />
                                 </div>
 
                                 <div style={{width:'80%',marginTop:30}}>
                                     <RangeInputComponent 
                                         onChange={(value)=>{
-                                            this.props.updateInputs('min_suggested_price',value[0]);
-                                            this.props.updateInputs('max_suggested_price',value[1])
+                                            this.props.updateInputs('min_budget',value[0]);
+                                            this.props.updateInputs('max_budget',value[1])
                                         }}
                                         label='What is your estimated budget?' 
                                         domain={FIXED_PRICE_DOMAIN}
@@ -64,7 +56,7 @@ export default class PostTaskProfileComponent extends Component {
 
                                 <div style={{width:'70%'}}>
                                     <LabeledSelectedInputComponent  
-                                         onChange={(value)=>this.props.updateInputs('category',value)}
+                                        onChange={(value)=>this.props.updateInputs('category',value)}
                                         label='Category'
                                         domain={CATEGORIES_DOMAIN.map(item=>item.name)}
                                         value={CATEGORIES_DOMAIN[0].name}/>
@@ -79,12 +71,12 @@ export default class PostTaskProfileComponent extends Component {
 
                                
 
-                                <div style={{width:'70%',marginTop:30}}>
+                                {/* <div style={{width:'70%',marginTop:30}}>
                                     <AttachmentsComponent
                                         label='Attachments'
                                         onChange={(value)=>this.props.updateInputs('attachments',value)}
                                         is_edit={true} />
-                                </div>
+                                </div> */}
                             </div>
 
                         
