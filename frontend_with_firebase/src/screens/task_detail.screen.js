@@ -92,6 +92,14 @@ class TaskDetailScreen extends Component {
         if (u.type==='company' || u.type==='admin'){
             alert('Only freelancer can place a bid !!! ');
             return ;
+        };
+
+        let myBidding=await firebase.get(this.path+'/biddings/'+u.id);
+
+        console.log('taskDetail myBidding',myBidding)
+        if (myBidding!==null && myBidding!==undefined){
+            alert('You bidded this task !!!');
+            return ;
         }
 
         let user={
@@ -116,7 +124,41 @@ class TaskDetailScreen extends Component {
         });
 
         await this.getTaskDetail();
+     
+        let company=await firebase.get(this.path+'/company/');
+
+        console.log('taskDetail placeBidding company:',company)
+        let chat_key=await firebase.push('/chat/',{
+            task_id:this.state.task_id,
+            users:[
+                {
+                    id:u.id,
+                    username:u.username,
+                    avatar:u.avatar!==undefined?u.avatar:''
+                },
+                {
+                    id:company.id,
+                    username:company.username,
+                    avatar:company.avatar!==undefined?company.avatar:''
+
+                },
+            ]
+        });
+
+        await firebase.push('/chat/'+chat_key+'/messages/',{
+            post_time:(new Date()).toDateString(),
+            content:' I want to bidding this task with budget :'+this.state.bidding.budget 
+                +' on duration :'+this.state.bidding.duration,
+            user: {
+                id:u.id,
+                username:u.username,
+                avatar:u.avatar!==undefined?u.avatar:''
+            }  
+        });
+
         alert('Place a bid successfully!');
+
+
     }
 
     reportTask=()=>{
@@ -169,8 +211,7 @@ class TaskDetailScreen extends Component {
                                         </text>
                                         :
                                         <BiddingListComponent 
-                                            biddings={task.biddings}
-                                            company_view={false}/>
+                                            task={task}/>
 
                                     }
                                     
@@ -188,11 +229,24 @@ class TaskDetailScreen extends Component {
                                         label={convertFullDateToOnlyDay(task.post_time)}/>
                                 </div>
 
+                                {/* {
+                                    task.state==='bidding'?
+                                    <div style={{marginTop:50}}>
+                                        <TaskPlaceBidComponent
+                                        placeBidding={this.placeBidding}
+                                        updateInputs={this.updateInputs}/>
+                                    </div>
+                                    :
+                                    null
+                                } */}
+
                                 <div style={{marginTop:50}}>
                                     <TaskPlaceBidComponent
                                         placeBidding={this.placeBidding}
                                         updateInputs={this.updateInputs}/>
                                 </div>
+
+                               
 
                                 <div style={{width: '100%',marginTop:50}}>
                                     <ButtonComponent 
