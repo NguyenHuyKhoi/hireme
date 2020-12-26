@@ -11,7 +11,7 @@ export default class LabeledSelectedInputComponent extends Component {
         this.state={
             value:value
         };
-        this.props.onChange(value)
+        //this.props.onChange(value)
     }
 
     render(){

@@ -10,24 +10,52 @@ class Firebase {
         this.freelancerRef=firebase.database().ref('/freelancer/');
         this.taskRef=firebase.database().ref('/task/');
     }
+
+    get=async (path)=>{
+        console.log('firebase get :',path)
+        let obj=null;
+
+        await this.rootRef.child(path).once('value')
+            .then(snapshot=>obj=snapshot.val());
+        return obj;
+    }
+
+    set=async (path,data)=>{
+        console.log('firebase set :',path,data)
+        await this.rootRef.child(path).set(data);
+    };
+
+    update=async (path,data)=>{
+        console.log('firebase update :',path,data)
+        await this.rootRef.child(path).update(data);
+    };
+
+    //path : parent dir :
+    push=async (path,data)=>{
+        console.log('firebase push :',path,data)
+        let key=(await this.rootRef.child(path).push()).key;
+
+        console.log('firebase push key:',key)
+        await this.rootRef.child(path+key).set({
+            ...data,
+            id:key
+        });
+
+        return key
+    };
+
+
     //data :{email,password}
     checkUserExist=async (data) =>{
         let user_is_exist=false;
         console.log('checkUserExist begin :',data)
 
-        await this.userRef.once('value')
-            .then(snapshot=>{
-                snapshot.forEach((childSnapshot) => {
-                    var user_id=childSnapshot.key;
-                    var user=childSnapshot.val();
+        let users=Object.values(await this.get('/user/'));
 
-                    if (user.email===data.email) user_is_exist=true;
-                   // console.log('checkUserExist user_info :',user);
-                });
-                console.log('checkUserExist finish :')
-            });
+        users.map((item)=>{
+            if (item.email===data.email) user_is_exist=true;
+        });
 
-        console.log('checkUserExist exist  :',user_is_exist)
         return user_is_exist;
     };
 
@@ -42,30 +70,29 @@ class Firebase {
         };
     
 
+        let username=data.email.substring(0,data.email.search('@'))
 
-        let key=await this.userRef.push().key
-        await this.userRef.child(key)
-            .set({
-                id:key,
+        let key=await this.push('/user/',{
                 email:data.email,
                 password:data.password,
                 type:data.type,
-                username:'user'+key.substring(0,5)
+                username
             });
 
         if (data.type==='freelancer') {
-            await this.setupFreelancerProfile(key,'user'+key.substring(0,5))
+            await this.setupFreelancerProfile(key,username)
         }
         else {
             await this.setupCompanyProfile(key);
         };
+
+        await this.setupPayment(key);
         return true;
     }
 
     //param : user_id 
     setupCompanyProfile=async (id)=>{
-        await this.companyRef.child(id)
-            .set({
+        await this.set('/company/'+id,({
                 id:id,
                 company_name:'',
                 tagline:'',
@@ -75,14 +102,13 @@ class Firebase {
                 website_link:'',
                 description:'',
                 avatar_url:''
-            })
+            }))
     }
 
 
     //param : user_id 
     setupFreelancerProfile=async (id,username)=>{
-        await this.freelancerRef.child(id)
-            .set({
+        await this.set('/freelancer/'+id,({
                 id:id,
                 hourly_rate:HOURLY_RATE_DOMAIN[0],
                 tagline:'',
@@ -90,37 +116,34 @@ class Firebase {
                 description:'',
                 category:'',
                 avatar_url:''
-            })
+            }))
+    }
+
+    setupPayment=async (id)=>{
+        await this.set('/payment/'+id,({
+            id,
+            credit_cards:[],
+            balance:0,
+            transactions:[]
+        }))
     }
 
     signin=async (data)=>{
         let user_infor=null;
         console.log("firebase signin data_entry:",data);
-        await this.userRef.once('value')
-            .then(snapshot=>{
-                snapshot.forEach((childSnapshot)=>{
-                    const user=childSnapshot.val();
-                    if (data.password===user.password && data.email===user.email){
-                        user_infor=user;
-                    };
-                });
 
-                console.log("firebase signin finish query :");
-            });
-        console.log("firebase signin exist:",user_infor);
+        let users=Object.values(await this.get('/user/'));
+
+        users.map((item)=>{
+            if (data.password===item.password && data.email===item.email){
+                user_infor=item;
+            };
+        });
         return user_infor;
         
     }
 
-    get=async (path,id)=>{
-        let obj=null;
-        let ref=this.rootRef.child(path);
-        if (id!=='') ref=ref.child(id)
 
-        await ref.once('value')
-            .then(snapshot=>obj=snapshot.val());
-        return obj;
-    }
 
     // output :{account ,profile}
     getSettingUser=async (type,id)=>{
@@ -138,10 +161,9 @@ class Firebase {
     updateSettingUser=async (type,id,data)=>{
         let output={};
         console.log('firebase updateSettingUser begin',type,id,data);
-        await this.userRef.child(id).update(data.account)
+        await this.update('/user/'+id,data.account);
 
-        let ref=type==='freelancer'?this.freelancerRef:this.companyRef
-        await ref.child(id).update(data.profile)
+        await this.update('/'+type+'/'+id,data.profile);
         return output;
     }
 
@@ -150,13 +172,10 @@ class Firebase {
     postTask=async (company_id,data)=>{
 
         console.log('firebase postTask begin :',data);
-        var key=await this.taskRef.push().key;
-
         var company=await this.get('company',company_id);
         
-        await this.taskRef.child(key).update({
+        await this.push('/company',{
             ...data,
-            id:key,
             post_time:new Date(),
             company:{
                 id:company.id,
@@ -183,6 +202,7 @@ class Firebase {
         console.log('firebase searchFreelancer get :',arr)
         return arr;
     }
+
 }
 
 const obj = new Firebase();

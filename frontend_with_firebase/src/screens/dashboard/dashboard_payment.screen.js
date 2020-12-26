@@ -6,7 +6,7 @@ import RangeInputComponent from '../../components/input/range_input.component'
 import SidebarComponent from '../../components/common/side_bar.component'
 import SkillPickerComponent from '../../components/input/skill_picker.component'
 import BalanceCardComponent from '../../components/payment/balance_card.component'
-import CreditCardListComponent from '../../components/payment/credit_card_list.component'
+import CardListComponent from '../../components/payment/card_list.component'
 import TransactionListComponent from '../../components/payment/transaction_list.component'
 import { PADDING_BODY_DASHBOARD, SIDEBAR_RATIO } from '../../utils/constants'
 import { GRAY_6 } from '../../utils/palette'
@@ -16,127 +16,91 @@ import api from '../../sample_db/fake_api_responses.json'
 import {connect }from 'react-redux'
 import * as action from '../../redux/action/user.action'
 
-
-const TRANSACTION_FIELDS=['credit_card_id','credit_card_list_id','type','amount'];
-const CREATE_CREDIT_CARD_FIELDS=['card_company','number','owner_name','email','expired_date','ccv'];
+import firebase from '../../firebase/firebase'
 
 class DashBoardPaymentScreen extends Component {
     constructor(props){
         super(props);
         this.state={
-            payment:null
-        }
+            user_id:this.props.user_infor.id
+        };
+        this.path='/payment/'+this.state.user_id;
     }
 
-    componentDidMount=()=>{
+
+    getPaymentDetail=async ()=>{
+        let res=await firebase.get(this.path);
+        console.log('getPayment :',res)
         this.setState({
-            payment:api.get_detail_payment
+            payment:{
+                ...res,
+                cards:res.cards===undefined?[]:Object.values(res.cards),
+                transactions:res.transactions===undefined?[]:Object.values(res.transactions)
+            }
         })
-    }
-
-
-    updateInputs=async (field,value)=>{
-        console.log('update_inputs :',field,value)
-        await this.setState({
-            [field]:value
-        })
-
-     //console.log('filter_now:',JSON.stringify(this.state)) 
     };
 
-    groupInputs=(fields)=>{
-        let inputs={};
-        let state=this.state;
-        let has_field_null=false
-        fields.map(item=>{
-            if (state[item]===undefined || state[item]==='') has_field_null=true // user haven't yet enter this fields;
-            else  inputs[item]=state[item];
-        });
-
-        if (has_field_null) return null
-        return inputs;
+    componentDidMount=async()=>{
+        await this.getPaymentDetail();
+     
     }
 
 
-
-    transaction=()=>{
-        const inputs=this.groupInputs(TRANSACTION_FIELDS);
-        if (inputs===null){
-            alert('Please enter all fields ...')
-        }
-        else if (inputs.type==='withdraw' && inputs.amount>this.state.payment.balance){
-            alert('Can\'t withdraw more than your balance .')
-        }
-        else {
-            alert('Call API create_credit_card_transaction  with body = '+JSON.stringify(inputs))
-            //Call_API_Here
-                // axios.get(BASE_URL+`/create_credit_card_transaction `,{
-                //         data:{
-                //             count:20,
-                //             filter:this.groupInputs()
-                //         }
-                //     })
-                //     .then(res => {
-                //         })
-                //         .catch(error => console.log(error));
-        }
-    }
-
-    createCreditCard=()=>{
-        const inputs=this.groupInputs(CREATE_CREDIT_CARD_FIELDS);
-        if (inputs===null){
-            alert('Please enter all fields ...')
-        }
-        else if (inputs.number.length!==12){
-            alert('Card Number must contain 12 digits...')
-        }
-        else if ((/^\d+$/.test(inputs.owner_name))){
-            alert('Owner Name must not contain any digits ...')
-        }
-
-        else if (new Date(inputs.expired_date)<new Date()){
-            alert('Expired Date must be in future ...')
-        }
-        else if (inputs.ccv.length!==3){
-            alert('Card Ccv must contain 3 digits....')
-        }
-
-        else {
-            const body_req={
-                user_id:this.props.user_infor.user_id,
-                credit_card :inputs
+    updateInputs=async (part,field,value)=>{
+        console.log('update_inputs :',field,value)
+        await this.setState({
+            [part]:{
+                ...this.state[part],
+                [field]:value
             }
-            alert('Call API add_credit_card   with body_request = '+JSON.stringify(body_req))
-            //Call_API_Here
-                // axios.get(BASE_URL+`/add_credit_card `,{
-                //         data:{
-                //         }
-                //     })
-                //     .then(res => {
-                //         })
-                //         .catch(error => console.log(error));
+         
+        })
+    };
+
+    transaction=async ()=>{
+        let t=this.state.transaction
+        let p=this.state.payment;
+
+        let factor=t.type==='withdraw'?-1:1;
+        let aftBalance=p.balance+t.amount*factor;
+        if (aftBalance<0){
+            alert('Can\'n withdraw ');
+            return ;
         }
+
+
+        await firebase.push(this.path+'/transactions/',
+            {
+                ...this.state.transaction,
+                time:(new Date()).toDateString()
+            });
+            
+       
+        await firebase.set(this.path+'/balance/',aftBalance);
+        await this.getPaymentDetail();
+
+        alert(' Transact Successfully!')
     }
 
-    deleteCreditCard=(fields)=>{
-        const body_req={
-            user_id:this.props.user_infor.user_id,
-            credit_card_id :fields.credit_card_id,
-            credit_card_list_id :fields.credit_card_list_id
-        }
-        alert('Call API delete_credit_card  with body_request = '+JSON.stringify(body_req))
-        //Call_API_Here
-            // axios.get(BASE_URL+`/delete_credit_card `,{
-            //         data:{
-            //         }
-            //     })
-            //     .then(res => {
-            //         })
-            //         .catch(error => console.log(error));
+    createCard=async()=>{
+        console.log('dashboard payment createCards:',this.state.card)
+        await firebase.push(this.path+'/cards/',this.state.card);
+        await this.getPaymentDetail();
+
+        alert('Add  Card Successfully!')
+    }
+
+    deleteCard=async(id)=>{
+        console.log('dashboard payment deleteCard:',id)
+        await firebase.set(this.path+'/cards/'+id, null )
+        await this.getPaymentDetail();
+        alert('Delete  Card Successfully!')
     }
 
     render(){
         const payment=this.state.payment
+
+        if (payment!==undefined) console.log('cards:',payment.cards)
         return (
 
             <div style={styles.container}>
@@ -145,7 +109,7 @@ class DashBoardPaymentScreen extends Component {
 
                 {
 
-                payment===null?
+                payment===undefined?
                 null
                 :
                 <div style={styles.body}>
@@ -154,11 +118,11 @@ class DashBoardPaymentScreen extends Component {
                     <HeaderListComponent title='Payment'/>
 
                     <div style={{marginTop:30}}>
-                        <CreditCardListComponent 
-                            createCard={this.createCreditCard}
-                            deleteCard={this.deleteCreditCard}
+                        <CardListComponent 
+                            createCard={this.createCard}
+                            deleteCard={this.deleteCard}
                             updateInputs={this.updateInputs}
-                            credit_cards={payment.credit_cards}/>
+                            cards={payment.cards}/>
                     </div>
                     
                     <div style={{marginTop:60}}>
@@ -166,11 +130,12 @@ class DashBoardPaymentScreen extends Component {
                             updateInputs={this.updateInputs}
                             transaction={this.transaction}
                             balance={payment.balance}  
-                            credit_cards={payment.credit_cards}/>
+                            cards={payment.cards}/>
                     </div>
 
                     <div style={{marginTop:60}}>
-                        <TransactionListComponent transaction_history={payment.transaction_history}/>
+                        <TransactionListComponent 
+                            transactions={payment.transactions}/>
                     </div>
                 
                 </div>

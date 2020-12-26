@@ -5,28 +5,15 @@ import ButtonComponent from '../common/button.component'
 import sample_db from '../../sample_db/fake_api_responses.json'
 import HeaderListComponent from '../common/header_list.component'
 import PaginationComponent from '../common/pagination.component'
-import CreditCardItemComponent from './credit_card_item.component'
 import TransactionItemComponent from './transaction_item.component'
 import { WHITE } from '../../utils/palette'
 
-let cards=sample_db.get_detail_payment.credit_cards
-let new_card={
-    number :'',
-    owner_name   :'',
-    email :'',
-    expired_date:'',
-    ccv:'',
-    card_company:'',
-    is_new_card:true
-}
-
-cards=[new_card,...cards];
 export default class TransactionListComponent extends Component {
     constructor(props){
         super(props);
         this.state={
             first_item_index:0,
-            last_item_index:Math.min(4,this.props.transaction_history.length-1)
+            last_item_index:Math.min(4,this.props.transactions.length-1)
         }
     }
 
@@ -38,7 +25,7 @@ export default class TransactionListComponent extends Component {
     }
 
     render(){
-        const transaction_history=this.props.transaction_history;
+        const transactions=this.props.transactions;
         const l=this.state.first_item_index;
         const r=this.state.last_item_index;
     
@@ -53,7 +40,7 @@ export default class TransactionListComponent extends Component {
                     <div style={styles.inner_body}>
             
                         {
-                            transaction_history.slice(l,r+1).map((item,index)=>(
+                            transactions.slice(l,r+1).map((item,index)=>(
                                 <TransactionItemComponent 
                                     transaction={item} index={index} key={''+index}/>
                             ))
@@ -66,7 +53,7 @@ export default class TransactionListComponent extends Component {
                 
                 <PaginationComponent    
                     onClickPage={(l,r)=>this.switchPage(l,r)}
-                    items={transaction_history.length} items_per_page={5} />
+                    items={transactions.length} items_per_page={5} />
                 
 
             </div>

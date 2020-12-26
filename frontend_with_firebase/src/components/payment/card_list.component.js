@@ -5,15 +5,14 @@ import ButtonComponent from '../common/button.component'
 import sample_db from '../../sample_db/fake_api_responses.json'
 import HeaderListComponent from '../common/header_list.component'
 import PaginationComponent from '../common/pagination.component'
-import CreditCardItemComponent from './credit_card_item.component'
+import CardItemComponent from './card_item.component'
 import { WHITE } from '../../utils/palette'
 
-let cards=sample_db.get_detail_payment.credit_cards
 
-export default class CreditCardListComponent extends Component {
+export default class CardListComponent extends Component {
     render(){
-        const credit_cards=this.props.credit_cards;
-        console.log('credit_cards:',credit_cards);
+        const cards=this.props.cards;
+        console.log('cards:',cards);
         return (
             <div style={styles.container}>
               
@@ -26,16 +25,18 @@ export default class CreditCardListComponent extends Component {
                     {/* <div style={{flex:1}}/> */}
 
                     <div style={styles.inner_body}>
-                    <CreditCardItemComponent 
+                    <CardItemComponent 
                         updateInputs={this.props.updateInputs}
                         onClick={this.props.createCard}
                         is_new={true} index={0}  key={''+0}/>
                     {
-                        credit_cards.map((item,index)=>(
-                            <CreditCardItemComponent 
+                        cards.map((item,index)=>(
+                            <CardItemComponent 
                                 onClick={this.props.deleteCard}
                                 updateInputs={this.props.updateInputs}
-                                credit_card={item} index={index+1} key={''+(index+1)}/>
+                                card={item} 
+                                index={index+1} 
+                                key={''+(index+1)}/>
                         ))
                     }
                     </div>

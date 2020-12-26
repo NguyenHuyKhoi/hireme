@@ -10,15 +10,15 @@ import { TEXT_SIZES } from '../../utils/constants'
 import { CARD_COMPANIES_DOMAIN } from '../../utils/constants'
 
 
-export default class CreditCardItemComponent extends Component {
+export default class CardItemComponent extends Component {
     
     render(){
         const is_new=this.props.is_new!==undefined?this.props.is_new:false;
-        const credit_card=this.props.credit_card;
+        const card=this.props.card;
         const index=this.props.index;
         const disabled=is_new?false:true
 
-        console.log('credit_card_item',credit_card,is_new)
+        console.log('card_item',card,is_new)
         return (
             <div  style={{...styles.container,
                 backgroundColor:index%2==1?WHITE:GRAY_4}}>    
@@ -26,21 +26,18 @@ export default class CreditCardItemComponent extends Component {
                     <div style={styles.row}>
                         <CardCompanyPickerComponent 
                             disabled={disabled}
-                            onChange={value=>this.props.updateInputs('card_company',value)}
+                            onChange={value=>this.props.updateInputs('card','company',value)}
                             value={is_new
                                 ?
                                 CARD_COMPANIES_DOMAIN[0].code
                                 : 
-                                credit_card.card_company
+                                card.card_company
                             }/>
 
                         <div 
                             onClick={()=>{
                                 if (disabled) //click to delete :
-                                    this.props.onClick({
-                                        credit_card_id:credit_card.id,
-                                        credit_card_list_id: credit_card.credit_card_list_id
-                                    })
+                                    this.props.onClick(card.id)
                                 else  this.props.onClick({})}
                             }
                             style={{...styles.action_btn,
@@ -61,10 +58,10 @@ export default class CreditCardItemComponent extends Component {
                             <LabelInputComponent 
                                 label='Number :'
                                 type='number'
-                                onChange={value=>this.props.updateInputs('number',value)}
+                                onChange={value=>this.props.updateInputs('card','number',value)}
                                 size={TEXT_SIZES.NORMAL}
                                 inline={true}
-                                value={is_new?'':credit_card.number}
+                                value={is_new?'':card.number}
                                 disabled={disabled} />
                         </div>
                     </div>
@@ -76,10 +73,10 @@ export default class CreditCardItemComponent extends Component {
                         <div style={{width:'30%'}}>
                         <LabelInputComponent 
                             label='Owner :'
-                            onChange={value=>this.props.updateInputs('owner_name',value)}
+                            onChange={value=>this.props.updateInputs('card','owner_name',value)}
                             size={TEXT_SIZES.SMALL}
                             disabled={disabled}
-                            value={is_new?'':credit_card.owner_name}
+                            value={is_new?'':card.owner_name}
                             inline={true}
                       
                             />
@@ -90,12 +87,12 @@ export default class CreditCardItemComponent extends Component {
                         <div style={{width:'30%'}}>
                             <LabelInputComponent 
                                 label='Expired :'
-                                onChange={value=>this.props.updateInputs('expired_date',value)}
+                                onChange={value=>this.props.updateInputs('card','expired_date',value)}
                                 size={TEXT_SIZES.SMALL}
                                 disabled={disabled}
                                 inline={true}
                                 type='date'
-                                value={is_new?new Date():credit_card.expired_date}
+                                value={is_new?new Date():card.expired_date}
                         
                                 />
                         </div>
@@ -109,11 +106,11 @@ export default class CreditCardItemComponent extends Component {
                         <div style={{width:'30%'}}>
                             <LabelInputComponent 
                                 label='Email :'
-                                onChange={value=>this.props.updateInputs('email',value)}
+                                onChange={value=>this.props.updateInputs('card','email',value)}
                                 size={TEXT_SIZES.SMALL}
                                 disabled={disabled}
                                 inline={true}
-                                value={is_new?'':credit_card.email}
+                                value={is_new?'':card.email}
                         
                             />
                         </div>
@@ -124,11 +121,11 @@ export default class CreditCardItemComponent extends Component {
                             <LabelInputComponent 
                                 label='Ccv :'
                                 type='number'
-                                onChange={value=>this.props.updateInputs('ccv',value)}
+                                onChange={value=>this.props.updateInputs('card','ccv',value)}
                                 size={TEXT_SIZES.SMALL}
                                 disabled={disabled}
                                 inline={true}
-                                value={is_new?'':credit_card.ccv}
+                                value={is_new?'':card.ccv}
                       
                                 />
                         </div>

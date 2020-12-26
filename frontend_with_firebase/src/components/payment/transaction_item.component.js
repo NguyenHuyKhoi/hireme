@@ -24,14 +24,14 @@ const card_logo={
 export default class TransactionItemComponent extends Component {
     render(){
         const transaction=this.props.transaction
-        const date=new Date(transaction.date)
+        const time=new Date(transaction.time)
         const amount=transaction.amount;
         const task=transaction.task;
         const partner=transaction.partner
-        const credit_card=transaction.credit_card
+        const card=transaction.card
 
-        if (credit_card!==undefined)
-        console.log('card_company :',credit_card.card_company)
+        if (card!==undefined)
+        console.log('card_company :',card.card_company)
         return (
             <div style={styles.container}>
     
@@ -42,10 +42,10 @@ export default class TransactionItemComponent extends Component {
                 <div style={styles.col2}>
                     <div style={styles.time_container}>
                         <text style={styles.time_day}>
-                            {date.getDay()}
+                            {time.getDay()}
                         </text>
                         <text style={styles.time_month}>
-                            {monthNames[date.getMonth()]}
+                            {monthNames[time.getMonth()]}
                         </text>
                     </div>
                 </div>
@@ -73,18 +73,18 @@ export default class TransactionItemComponent extends Component {
                             }
                         </text>
                         {
-                            credit_card!==undefined?
+                            card!==undefined?
                             <div style={styles.address_infor}>
-                                <img style={styles.card_logo} src={card_logo[credit_card.card_company]}/>
+                                {/* <img style={styles.card_logo} src={card_logo[card.card_company]}/> */}
 
                                 <text style={styles.address_text}>
-                                    {credit_card.number}
+                                    {card.number}
                                 </text>
                                
                             </div>
                             :
                             <div style={styles.address_infor}>
-                                <img style={styles.avatar} src={partner.avatar}/>
+                                {/* <img style={styles.avatar} src={partner.avatar}/> */}
 
                                 <text style={styles.address_text}>
                                     {partner.name}
