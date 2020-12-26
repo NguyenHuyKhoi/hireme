@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import { BLACK, GRAY_6, WHITE } from '../utils/palette';
 
 
-import firebase from '../firebase/fireabase'
+import firebase from '../firebase/config'
 import ButtonComponent from '../components/common/button.component';
 
   

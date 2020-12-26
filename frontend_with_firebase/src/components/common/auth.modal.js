@@ -1,6 +1,6 @@
 //import from library 
 import React, {Component} from 'react'
-import { TEXT_SIZES } from '../../utils/constants';
+import { INPUT_TYPE, TEXT_SIZES } from '../../utils/constants';
 import { BLACK, GRAY_1, GRAY_2, GRAY_4, GREEN_1, WHITE } from '../../utils/palette';
 import AuthTabsComponent from './auth_tabs.component';
 import ButtonComponent from './button.component';
@@ -8,6 +8,8 @@ import TaskTabsBarComponent from './task_tabs.component';
 
 import {connect }from 'react-redux'
 import * as action from '../../redux/action/user.action'
+import Firebase from '../../firebase/firebase';
+import Validate  from '../../utils/validate';
 
 class IconInput extends Component {
     render(){
@@ -79,12 +81,12 @@ class CommonTab extends Component{
 
                         <UserType type='Freelancer' is_picked={fe} 
                             onClick={()=>{
-                                this.props.updateInputs('user_type','freelancer')
+                                this.props.updateInputs('type','freelancer')
                                 this.setState({register_as_freelancer:true})
                             }}/>
                         <UserType type='Company' is_picked={!fe} 
                             onClick={()=>{
-                                this.props.updateInputs('user_type','company')
+                                this.props.updateInputs('type','company')
                                 this.setState({register_as_freelancer:false})
                             }}/>
                        
@@ -100,14 +102,14 @@ class CommonTab extends Component{
                 <div style={styles.input_container}>
                     <IconInput  onChange={(value)=>this.props.updateInputs('password',value)} placehoder="Password..."  is_secret={true}/>
                 </div>  
-                {
+                {/* {
                     idx===1?
                     <div style={styles.input_container}>
                         <IconInput onChange={(value)=>this.props.updateInputs('repeat_password',value)}  placehoder="Repeat password..."  is_secret={true}/>
                     </div>
                     :
                     null
-                }
+                } */}
 
                 <div 
                     style={styles.btn_container}>
@@ -153,7 +155,7 @@ class AuthModal extends Component {
             email:'',
             password:'',
             repeat_password:'',
-            user_type:'freelancer'
+            type:'freelancer'
         }
     }
 
@@ -163,108 +165,71 @@ class AuthModal extends Component {
         });
     }
 
-    validateInput=()=>{
-        const {email,password,repeat_password}=this.state;
-        if (email.length===0){
-            return 'Email is empty! '
+
+    onSignin=async ()=>{
+
+
+        var err_msg=Validate.validate({
+            [INPUT_TYPE.EMAIL]:this.state.email,
+            [INPUT_TYPE.PASSWORD]:this.state.password
+        });
+
+        if (err_msg!==''){
+            alert(err_msg);
+            return;
+        };
+
+        let user=await Firebase.signin({
+            email:this.state.email,
+            password:this.state.password
+        });
+
+        if (user) {
+            alert('SignIn successfully');
+            this.props.loginSuccess(user)
+            this.props.onClickClose();
         }
-        if (email.length<10 || email.length>30){
-            return 'Email address is too short or too long (10 -> 30 chars)'
-        };
-        if (!email.endsWith('@gmail.com')){
-            return 'Email address is invalid !'
-        };
-        if (password.length===0){
-            return 'Password is empty !'
-        };
+        else {
+            alert('SignIn failed ');
+        }
 
 
-        if (password.length<6 || password.length>20){
-            return 'Password is too short or too long (6->20 chars)'
-        };
 
-        if (this.state.focus_tab_index===0) return '';
+    }
+
+    onSignup=async ()=>{
         
-        //sign up : 
+        var err_msg=Validate.validate({
+            [INPUT_TYPE.EMAIL]:this.state.email,
+            [INPUT_TYPE.PASSWORD]:this.state.password
+        });
 
-        if (repeat_password.length===0){
-            return 'Repeat Password is empty !'
+        if (err_msg!==''){
+            alert(err_msg);
+            return;
         };
 
+        let ok =await Firebase.signup({
+            email:this.state.email,
+            password:this.state.password,
+            type:this.state.type
+        });
 
-        if (repeat_password.length<6 || repeat_password.length>20){
-            return 'Repeat Password is too short or too long (6->20 chars)'
-        };
-    
-        if (password!==repeat_password){
-            return 'Password and repeat password don\'t same '
-        };
-
-        return '';
-    }
-
-    onSignin=()=>{
-        var err_msg=this.validateInput();
-        if (err_msg==='') {
-             this.props.onCloseModal();
-           // this.props.onClose();
-            //call api : 
-
-            //fake account : 
-            //for company : iamcompany@gmail.com 123qweASD
-            //for freelancer : iamfreelancer@gmail.com 123qweASD
-            //for admin : iamadmin@gmail.com  123qweASD
-
-            if (this.state.email==='company@gmail.com' && this.state.password==='123456') {
-                alert('Sign in success')
-                this.props.loginSuccess({
-                    session_id:'ur238r23t8328t238vt8t834t83t8g5y',
-                    user_id:'12',
-                    user_name:'Johnson',
-                    user_type:'company'
-                });
-            }
-            else if (this.state.email==='freelancer@gmail.com' && this.state.password==='123456') {
-                alert('Sign in success')
-                this.props.loginSuccess({
-                    session_id:'fa8fs8f8a68f678f67a6f7af278f828ng8',
-                    user_id:'12',
-                    user_name:'Johnson',
-                    user_type:'freelancer'
-                });
-            }
-            else if (this.state.email==='admin@gmail.com' && this.state.password==='123456') {
-                alert('Sign in success')
-                this.props.loginSuccess({
-                    session_id:'g84ng88394899c934tc82687t23t446',
-                    user_id:'12',
-                    user_name:'Johnson',
-                    user_type:'admin'
-                });
-            }
-            else {
-                alert('Sign in fail, please check again email and password .')
-            }
-            //fake api responses 
-           
+        if (ok) {
+            alert('Signup successfully');
+            this.props.onClickClose();
         }
-        else alert(err_msg)
-    }
-
-    onSignup=()=>{
-        var err_msg=this.validateInput();
-        if (err_msg==='') {
-            //call api : 
-            alert('Sign up success');
-           // this.props.onClose();
+        else {
+            alert('Signup failed ');
         }
-        else alert(err_msg)
+
+
     }
 
     render(){
         const idx=this.state.focus_tab_index
 
-        console.log('this_state:',JSON.stringify(this.state))
+      //  console.log('this_state:',JSON.stringify(this.state))
         return (
 
             <div style={styles.container}>

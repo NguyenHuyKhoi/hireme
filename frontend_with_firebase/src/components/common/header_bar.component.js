@@ -81,7 +81,7 @@ class HeaderBarComponent extends Component {
                 
                 <div style={styles.col3}>
                     {
-                    user_infor!=={} && user_infor.session_id!==undefined?
+                    user_infor!=={} && user_infor.id!==undefined?
                         <Link 
                             to ={user_infor.user_type==='admin'?
                                 routePaths.ADMIN_USER_LIST

@@ -56,6 +56,12 @@ export const routePaths={
 }
 
 
+export const INPUT_TYPE={
+    EMAIL:'EMAIL',
+    PASSWORD:'PASSWORD',
+    USERNAME:'USERNAME'
+}
+
 // sidebar : flex=1,  body : flex=3
 export const SIDEBAR_RATIO=4
 

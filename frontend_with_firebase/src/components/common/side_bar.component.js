@@ -76,7 +76,7 @@ class Item extends Component{
 
     render(){
         const item=this.props.item;
-        const user_type=this.props.user_type;
+        const type=this.props.type;
 
         return (
             <Link 
@@ -85,9 +85,9 @@ class Item extends Component{
                 onClick={()=>{
                     if (item.label==='Logout') this.props.clickLogout();
                 }}
-                to={item.label!=='Setting' || user_type==='admin'?
+                to={item.label!=='Setting' || type==='admin'?
                     item.screen
-                        : user_type==='company'?
+                        : type==='company'?
                             routePaths.DASHBOARD_SETTING_COMPANY
                             :
                             routePaths.DASHBOARD_SETTING_FREELANCER
@@ -112,9 +112,9 @@ class SidebarComponent extends Component {
     }
 
     render(){
-        const user_type=this.props.user_infor.user_type;
+        const type=this.props.user_infor.type;
      
-        const items=user_type==='admin'?sidebarAdminItems:sidebarItems;
+        const items=type==='admin'?sidebarAdminItems:sidebarItems;
         return (
             <div style={styles.container}>
             
@@ -135,7 +135,7 @@ class SidebarComponent extends Component {
                         {
                             items.map((item,index)=>
                                 <Item 
-                                    user_type={user_type}
+                                    type={type}
                                     clickLogout={this.logout}
                                     key={''+index}
                                     item={item} />
@@ -151,7 +151,7 @@ class SidebarComponent extends Component {
                
                 <div style={styles.footer}>
                     {
-                        user_type==='company'?
+                        type==='company'?
                         <Link 
                             to={routePaths.DASHBOARD_TASK_POST}
                             style={styles.btn_container}>

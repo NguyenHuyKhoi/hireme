@@ -26,9 +26,9 @@ export const bullshitIcons={
     
 }
 
-export const httpsAgent = new https.Agent({
-    rejectUnauthorized: false, // (NOTE: this will disable client verification)
-})
+// export const httpsAgent = new https.Agent({
+//     rejectUnauthorized: false, // (NOTE: this will disable client verification)
+// })
 
 export const routePaths={
     HOME:'/',

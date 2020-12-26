@@ -1,5 +1,7 @@
 import { USER_ACTIONS } from "../constant/index.constant"
 
+
+//payload :{id,username,type,email}
 export const loginSuccess=(payload)=>{
     console.log('receice_payload:',payload)
     return {
