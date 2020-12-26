@@ -26,7 +26,7 @@ export default class SkillsListComponent extends Component {
                             key={''+index}
                             style={styles.item_container}>
                             <text style={styles.item_name}>
-                                {item.name} 
+                                {item} 
                             </text>
                         </div>
                         )

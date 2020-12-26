@@ -5,6 +5,8 @@ import { TEXT_SIZES } from '../../utils/constants'
 import { BLACK, WHITE, YELLOW_1 } from '../../utils/palette'
 import SmallFieldComponent from '../common/small_field.component'
 
+import logo from '../../assets/images/logo.png'
+
 export default class CompanyDetailHeaderComponent extends Component {
     render(){
         const company=this.props.company
@@ -15,7 +17,8 @@ export default class CompanyDetailHeaderComponent extends Component {
                 <div style={{flex:1}}/>
 
                 <div style={styles.body}>
-                    <img src={company.avatar}  style={styles.avatar}/>
+                    <img src={company.avatar_url!==''?company.avatar_url:logo}
+                        style={{width:100,height:100,borderRadius:50}}/>
                     
                     <div style={styles.content}>
                         <text style={styles.company_name}>

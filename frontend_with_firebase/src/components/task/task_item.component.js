@@ -39,7 +39,7 @@ export default class TaskItemComponent extends Component {
 
                 <div style={styles.col2}>
                     <text style={styles.task_budget}>
-                        {'$'+task.min_suggested_price+' - '+'$'+task.max_suggested_price}
+                        {'$'+task.min_budget+' - '+'$'+task.max_budget}
                     </text>
 
                     <text style={styles.task_price}>

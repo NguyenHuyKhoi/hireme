@@ -5,6 +5,8 @@ import banner from '../../assets/images/banner.jpg'
 import { BLACK, WHITE, YELLOW_1 } from '../../utils/palette'
 import SmallFieldComponent from '../common/small_field.component'
 import { TEXT_SIZES } from '../../utils/constants'
+
+import logo from '../../assets/images/logo.png'
 export default class FreelancerDetailHeaderComponent extends Component {
     render(){
         const freelancer=this.props.freelancer;
@@ -14,7 +16,8 @@ export default class FreelancerDetailHeaderComponent extends Component {
             <div style={{flex:1}}/>
 
             <div style={styles.body}>
-                <img src={freelancer.avatar}  style={styles.avatar}/>
+                <img src={freelancer.avatar_url!==''?freelancer.avatar_url:logo}  
+                    style={{width:100,height:100,borderRadius:50}}/>
                 
                 <div style={styles.content}>
                     <text style={styles.freelancer_name}>

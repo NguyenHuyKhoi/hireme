@@ -7,16 +7,17 @@ import ButtonComponent from '../common/button.component'
 import InforsBarComponent from '../common/infors_bar.component'
 import SmallFieldComponent from '../common/small_field.component'
 
+import logo from '../../assets/images/logo.png'
 export default class FreelancerItemComponent extends Component {
     render(){
         const freelancer=this.props.freelancer
         return (
             <div style={styles.container}>
             
-                <img src={freelancer.avatar}  style={styles.avatar}/>
+                <img src={freelancer.avatar_url!==''?freelancer.avatar_url:logo}  style={styles.avatar}/>
 
                 <text style={styles.freelancer_name}>
-                    {freelancer.name}
+                    {freelancer.username}
                 </text>
 
                 <text style={styles.freelancer_tagline}>
@@ -36,10 +37,10 @@ export default class FreelancerItemComponent extends Component {
                             key:'Hourly Rate',value:freelancer.hourly_rate
                         },
                         {
-                            key:'Done Tasks',value:freelancer.done_tasks
+                            key:'Done Tasks',value:freelancer.done_tasks!==undefined?freelancer.done_tasks:0
                         },
                         {
-                            key:'Income($)',value:freelancer.income
+                            key:'Income($)',value:freelancer.income!==undefined?freelancer.income:0
                         }
                     ]}/>
                 </div>
@@ -96,7 +97,7 @@ const styles={
     },
     btn_container:{
         width: '100%',
-        marginTop:10,
+        marginTop:40,
         textDecoration:'none'
     }
 }

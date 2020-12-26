@@ -4,6 +4,7 @@ import { HOURLY_RATE_DOMAIN } from '../utils/constants';
 class Firebase {
 
     constructor(){
+        this.rootRef=firebase.database().ref();
         this.userRef=firebase.database().ref('/user/');
         this.companyRef=firebase.database().ref('/company/');
         this.freelancerRef=firebase.database().ref('/freelancer/');
@@ -53,7 +54,7 @@ class Firebase {
             });
 
         if (data.type==='freelancer') {
-            await this.setupFreelancerProfile(key)
+            await this.setupFreelancerProfile(key,'user'+key.substring(0,5))
         }
         else {
             await this.setupCompanyProfile(key);
@@ -79,12 +80,13 @@ class Firebase {
 
 
     //param : user_id 
-    setupFreelancerProfile=async (id)=>{
+    setupFreelancerProfile=async (id,username)=>{
         await this.freelancerRef.child(id)
             .set({
                 id:id,
                 hourly_rate:HOURLY_RATE_DOMAIN[0],
                 tagline:'',
+                username,
                 description:'',
                 category:'',
                 avatar_url:''
@@ -110,22 +112,24 @@ class Firebase {
         
     }
 
+    get=async (path,id)=>{
+        let obj=null;
+        let ref=this.rootRef.child(path);
+        if (id!=='') ref=ref.child(id)
+
+        await ref.once('value')
+            .then(snapshot=>obj=snapshot.val());
+        return obj;
+    }
+
     // output :{account ,profile}
     getSettingUser=async (type,id)=>{
 
         console.log('firebase getSettingUser begin  ',type,id)
-        let output={};
-        await this.userRef.child(id).once('value')
-            .then (snapshot=>{
-                output.account=snapshot.val();
-        });
-
-        let ref=type==='freelancer'?this.freelancerRef:this.companyRef
-
-        await ref.child(id).once('value')
-            .then (snapshot=>{
-                output.profile=snapshot.val();
-            });
+        let output={
+            account:await this.get('user',id),
+            profile:await this.get(type,id)
+        };
         console.log('firebase getSettingUser output',output);
         return output;
     }
@@ -145,20 +149,39 @@ class Firebase {
     //input : data : information of task
     postTask=async (company_id,data)=>{
 
-        console.log('firebase postTask begin :',data)
-
-
+        console.log('firebase postTask begin :',data);
         var key=await this.taskRef.push().key;
 
+        var company=await this.get('company',company_id);
+        
         await this.taskRef.child(key).update({
             ...data,
+            id:key,
             post_time:new Date(),
-            company_id,
+            company:{
+                id:company.id,
+                company_name:company.company_name,
+                avatar_url:company.avatar_url
+            },
             state:'bidding'
         });
 
         console.log('firebase postTask exist  :')
+    };
 
+    searchTask=async (filter)=>{
+        console.log('firebase searchTask begin :',filter)
+        let arr=Object.values(await this.get('task','') );
+
+        console.log('firebase searchTask get :',arr)
+        return arr;
+    }
+
+    searchFreelancer=async (filter)=>{
+        console.log('firebase searchFreelancer begin :',filter)
+        let arr=Object.values(await this.get('freelancer',''));
+        console.log('firebase searchFreelancer get :',arr)
+        return arr;
     }
 }
 

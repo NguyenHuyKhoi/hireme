@@ -10,6 +10,7 @@ import api from '../sample_db/fake_api_responses.json'
 import { TEXT_SIZES } from '../utils/constants';
 import { BLACK } from '../utils/palette';
 
+import firebase from '../firebase/firebase'
 
 export default class TaskSearchScreen extends Component {
 
@@ -18,12 +19,6 @@ export default class TaskSearchScreen extends Component {
         this.state={
             tasks:[]
         }
-    }
-
-    componentDidMount=()=>{
-        // this.setState({
-        //     tasks:api.search_tasks
-        // });
     }
 
 
@@ -36,33 +31,13 @@ export default class TaskSearchScreen extends Component {
         console.log('filter_now:',this.state) 
     };
 
-    groupInputs=()=>{
-        let filter={};
-        let state=this.state;
-        let fields=['category','keyword','hourly_rate','fixed_price','skills'];
-        fields.map(item=>{
-            if (state[item]!==undefined) filter[item]=state[item]
-        });
-        return filter
-    };
-
-    search=()=> {
-        alert('Call API search_freelancers with filter=  :'+JSON.stringify(this.groupInputs()))
-        // //Call_API_Here
-        // axios.get(BASE_URL+`/search_tasks`,{
-        //         data:{
-        //             count:20,
-        //             filter:this.groupInputs()
-        //         }
-        //     })
-        //     .then(res => {
-  
-        //         })
-        //         .catch(error => console.log(error));
+    search=async ()=>{
+        let arr=await firebase.searchTask(this.state)
         this.setState({
-            tasks:api.search_tasks
+            tasks:arr
         })
-    };
+    }
+
 
     render(){
         const tasks=this.state.tasks;

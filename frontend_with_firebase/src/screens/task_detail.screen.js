@@ -16,6 +16,10 @@ import ReportTaskModal from '../components/input/report_task.modal';
 import api from '../sample_db/fake_api_responses.json'
 import { TEXT_SIZES } from '../utils/constants';
 import { convertFullDateToOnlyDay,convertFullDateToHour } from '../utils/helper';
+
+import firebase from '../firebase/firebase'
+
+
 export default class TaskDetailScreen extends Component {
     constructor(props){
         super(props);
@@ -40,34 +44,15 @@ export default class TaskDetailScreen extends Component {
         })
     }
 
-    componentDidMount=()=>{
-        // //Call_API_Here
-        // axios.get(BASE_URL+`/get_detail_task`,{
-        //         data:{
-        //             task_id:this.state.task_id
-        // 
-        //         }
-        //     })
-        //     .then(res => {
-        //     })
-        //     .catch(error => console.log(error));
+    componentDidMount=async ()=>{
+        let res=await firebase.get('task',this.state.task_id)
 
-        // //Call_API_Here
-        // axios.get(BASE_URL+`/get_bidding_list`,{
-        //         data:{
-        //             task_id:this.state.task_id
-        // 
-        //         }
-        //     })
-        //     .then(res => {
-        //     })
-        //     .catch(error => console.log(error));
-        alert('Call API get_detail_task and get_bidding_list with task_id= '+this.state.task_id)
         this.setState({
-            task:api.get_detail_task,
-            biddings:api.get_bidding_list
+            task:res,
+          //  reviews:api.get_reviews_freelancer
         })
     }
+    
 
     updateInputs=(field,value)=>{
         console.log('update_input:',field,value)

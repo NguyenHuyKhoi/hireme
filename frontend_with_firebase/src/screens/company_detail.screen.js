@@ -11,6 +11,8 @@ import CompanyDetailHeaderComponent from '../components/company/company_detail_h
 import ReviewListComponent from '../components/task/review_list.component';
 import { WHITE } from '../utils/palette';
 
+import firebase from '../firebase/firebase'
+
 import api from '../sample_db/fake_api_responses.json'
 export default class CompanyDetailScreen extends Component {
     constructor(props){
@@ -22,32 +24,12 @@ export default class CompanyDetailScreen extends Component {
         }
     }
 
-    componentDidMount=()=>{
-         // //Call_API_Here
-        // axios.get(BASE_URL+`/get_detail_company`,{
-        //         data:{
-        //             company_id:this.state.company_id
-        // 
-        //         }
-        //     })
-        //     .then(res => {
-        //     })
-        //     .catch(error => console.log(error));
+    componentDidMount=async ()=>{
+        let res=await firebase.get('company',this.state.company_id)
 
-        // //Call_API_Here
-        // axios.get(BASE_URL+`/get_reviews`,{
-        //         data:{
-        //             company_id:this.state.company_id
-        // 
-        //         }
-        //     })
-        //     .then(res => {
-        //     })
-        //     .catch(error => console.log(error));
-        alert('Call API get_detail_company and get_reviews with company_id= '+this.state.company_id)
         this.setState({
-            company:api.get_detail_company,
-            reviews:api.get_reviews_company
+            company:res,
+          //  reviews:api.get_reviews_freelancer
         })
     }
     

@@ -14,6 +14,8 @@ import { WHITE } from '../utils/palette';
 import SkillsListComponent from '../components/common/skills_list.component';
 
 import api from '../sample_db/fake_api_responses.json'
+
+import firebase from '../firebase/firebase'
 export default class FreelancerDetailScreen extends Component {
 
     constructor(props){
@@ -25,32 +27,12 @@ export default class FreelancerDetailScreen extends Component {
         }
     }
 
-    componentDidMount=()=>{
-        // //Call_API_Here
-        // axios.get(BASE_URL+`/get_detail_freelancer`,{
-        //         data:{
-        //             freelancer_id:this.state.freelancer_id
-        // 
-        //         }
-        //     })
-        //     .then(res => {
-        //     })
-        //     .catch(error => console.log(error));
+    componentDidMount=async ()=>{
+        let res=await firebase.get('freelancer',this.state.freelancer_id)
 
-        // //Call_API_Here
-        // axios.get(BASE_URL+`/get_reviews`,{
-        //         data:{
-        //             freelancer_id:this.state.freelancer_id
-        // 
-        //         }
-        //     })
-        //     .then(res => {
-        //     })
-        //     .catch(error => console.log(error));
-        alert('Call API get_detail_freelancer and get_reviews with freelancer_id= '+this.state.freelancer_id)
         this.setState({
-            freelancer:api.get_detail_freelancer,
-            reviews:api.get_reviews_freelancer
+            freelancer:res,
+          //  reviews:api.get_reviews_freelancer
         })
     }
     
@@ -88,14 +70,14 @@ export default class FreelancerDetailScreen extends Component {
                             </div>
                         
                             
-                            <div style={{marginTop:50}}>
+                            {/* <div style={{marginTop:50}}>
                                 <ExperienceListComponent experiences={freelancer.experiences}/>
                             </div>
                         
 
                             <div style={{marginTop:50}}>
                                 <ReviewListComponent reviews={reviews}/>
-                            </div>
+                            </div> */}
                         
                         </div>
 
@@ -103,7 +85,7 @@ export default class FreelancerDetailScreen extends Component {
 
                         <div style={styles.freelancer_body_col2}>
  
-                            <SkillsListComponent skills={freelancer.skills}/>
+                            {/* <SkillsListComponent skills={freelancer.skills}/> */}
                 
                             <div style={{marginTop:50}}>
                                 <InforsBarComponent fields={[
@@ -111,10 +93,10 @@ export default class FreelancerDetailScreen extends Component {
                                         key:'Hourly Rate',value:freelancer.hourly_rate
                                     },
                                     {
-                                        key:'Done Tasks',value:freelancer.done_tasks
+                                        key:'Done Tasks',value:freelancer.done_tasks!==undefined?freelancer.done_tasks:0
                                     },
                                     {
-                                        key:'Income($)',value:freelancer.income
+                                        key:'Income($)',value:freelancer.income!==undefined?freelancer.done_tasks:0
                                     }
                                 ]}/>
                             </div>

@@ -6,6 +6,7 @@ import { BLACK, BLUE_1, BLUE_2, GRAY_2, GRAY_3, WHITE } from '../../utils/palett
 import SmallFieldComponent from '../common/small_field.component'
 import banner from '../../assets/images/banner.jpg'
 
+import logo from '../../assets/images/logo.png'
 class ProjectBudget extends Component {
     render(){
         const budget=this.props.budget;
@@ -37,8 +38,8 @@ export default class TaskDetailHeaderComponent extends Component {
             <div style={{flex:1}}/>
 
             <div style={styles.col1}>
-                <img src={company.avatar}
-                    style={styles.avatar}/>
+                <img src={company.avatar_url!==''?company.avatar_url:logo}
+                    style={{width:100,height:100,borderRadius:50}}/>
                 
                 <div style={styles.infor}>
 
@@ -49,7 +50,7 @@ export default class TaskDetailHeaderComponent extends Component {
                     <Link 
                         to={routePaths.COMPANY_DETAIL+`/${company.id}`}
                         style={styles.company_name}>
-                        {company.name}
+                        {company.company_name}
                     </Link>
 
                 </div>
@@ -58,8 +59,8 @@ export default class TaskDetailHeaderComponent extends Component {
             <div style={{flex:1}}/>
 
             <div style={styles.col2}>
-                <ProjectBudget budget={[task.min_suggested_price,task.max_suggested_price]}
-                    type_price={task.type_price}/>
+                <ProjectBudget budget={[task.min_budget,task.max_budget]}
+                    type_price={'Budget'}/>
 
             </div>
 

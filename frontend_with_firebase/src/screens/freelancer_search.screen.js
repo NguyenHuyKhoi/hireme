@@ -11,7 +11,7 @@ import { BLACK } from '../utils/palette';
 import {BASE_URL} from '../utils/constants'
 import axios from 'axios'
 
-let FIELDS=['category','keyword','hourly_rate','fixed_price','skills'];
+import firebase from '../firebase/firebase'
 
 export default class FreelancerSearchScreen extends Component {
 
@@ -22,52 +22,19 @@ export default class FreelancerSearchScreen extends Component {
         }
     }
 
-    // componentDidMount=()=>{
-    //     this.setState({
-    //         freelancers:api.search_freelancers
-    //     })
-    // }
-
-    groupInputs=(fields)=>{
-        let filter={};
-        let state=this.state;
-        fields.map(item=>{
-            if (state[item]!==undefined) filter[item]=state[item]
-        });
-        return filter
-    };
-
     updateInputs=async (field,value)=>{
         await this.setState({
             [field]:value
         });
-
-
         console.log('update_inputs:',field,value) 
     };
 
-    componentDidMount() {
-       
-    };
-
-    search=()=>{
-        alert('Call API search_freelancers with filter= :'+JSON.stringify(this.groupInputs(FIELDS)))
-        //Call_API_Here
-                // axios.get(BASE_URL+`/search_freelancers`,{
-                //         data:{
-                //             count:20,
-                //             filter:this.groupInputs()
-                //         }
-                //     })
-                //     .then(res => {
-                //         })
-                //         .catch(error => console.log(error));
+    search=async ()=>{
+        let arr=await firebase.searchFreelancer(this.state)
         this.setState({
-            freelancers:api.search_freelancers
+            freelancers:arr
         })
     }
-
-
 
     render(){
 
