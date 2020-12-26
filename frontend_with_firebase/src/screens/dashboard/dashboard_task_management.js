@@ -18,116 +18,70 @@ import api from '../../sample_db/fake_api_responses.json'
 import {connect }from 'react-redux'
 import * as action from '../../redux/action/user.action'
 
+import firebase from '../../firebase/firebase'
 class DashBoardTaskManagementScreen extends Component {
     constructor(props){
         super(props);
         this.state={
             task_id:this.props.match.params.id,//receiver from screen task_list ;
             task:null,
-            biddings:[],
-            stages:[],
             focus_tab_index:0
 
         }
     }
 
     getDetailTask=async ()=>{
-        let body_req={
-            task_id:this.state.task_id
-        };
-        alert('Call API get_detail_task with body = '+JSON.stringify(body_req))
-        // //Call_API_Here
-        // axios.get(BASE_URL+`/get_detail_task`,{
-        //         data:{
-        //         }
-        //     })
-        //     .then(res => {
-  
-        //         })
-        //         .catch(error => console.log(error));
+        let res=await firebase.get('/task/'+this.state.task_id);
 
-        await this.setState({
-            task:api.get_detail_task
+        console.log('taskManagement detail:',res);
+        this.setState({
+            task:{
+                ...res,
+                biddings:res.biddings===undefined?[]:Object.values(res.biddings),
+                stages:res.stages===undefined?[]:Object.values(res.stages)
+            }
         })
     }
 
-    getBiddingList=async ()=>{
-        let body_req={
-            task_id:this.state.task_id
-        };
-        alert('Call API get_bidding_list with body = '+JSON.stringify(body_req))
-        // //Call_API_Here
-        // axios.get(BASE_URL+`/get_bidding_list`,{
-        //         data:{
-        //         }
-        //     })
-        //     .then(res => {
-  
-        //         })
-        //         .catch(error => console.log(error));
-
-        await this.setState({
-            biddings:api.get_bidding_list,
-        })
-    }
-
-    getStageList=async ()=>{
-        let body_req={
-            task_id:this.state.task_id
-        };
-        alert('Call API get_stage_list with body = '+JSON.stringify(body_req))
-        // //Call_API_Here
-        // axios.get(BASE_URL+`/get_stage_list`,{
-        //         data:{
-        //         }
-        //     })
-        //     .then(res => {
-  
-        //         })
-        //         .catch(error => console.log(error));
-
-        await this.setState({
-            stages:api.get_stage_list,
-        })
-    }
 
     componentDidMount=async()=>{
-        this.getDetailTask();
-        this.getBiddingList();
-        this.getStageList();
+        await this.getDetailTask();
     }
 
     renderBody=()=>{
-        const user_type=this.props.user_infor.user_type
+        const type=this.props.user_infor.type
+        const st=this.state.task;
+        const stb=st.biddings;
+        const sts=st.stages
         switch (this.state.focus_tab_index){
             case 0:
-                if (this.state.task===null) return null;
-                return  <TaskDetailTabComponent task={this.state.task} />
+                if (st===null) return null;
+                return  <TaskDetailTabComponent task={st} />
+
             case 1:
-                if (this.state.biddings.length===0){
+                if (stb.length===0){
                     return  <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
                         There is not any biddings.Be the first !
                     </text>
                 }
                 else {
                    return   <BiddingListComponent 
-                        user_type={user_type}
-                        biddings={this.state.biddings}
-                        task_id={this.state.task_id}/>
+                        type={type}
+                        task={st}/>
                 }
 
             case 2:
                 return  <div style={{display:'flex',width:'100%',height:'80vh'}}>
                             <ChatComponent 
-                                user_type={user_type} 
+                                type={type} 
                                 task_id={this.state.task_id}/>
                         </div>
              
             case 3:
                 return  <div style={{display:'flex',width:'74vw',height:'80vh'}}>
                             <StageListComponent
-                                user_type={user_type} 
-                                stages={this.state.stages} task_id={this.state.task_id}/>
+                                type={type} 
+                                stages={sts} task_id={this.state.task_id}/>
                         </div>
             case 4:
                 return  <div style={{display:'flex',width:'100%',height:'80vh'}}>
@@ -154,9 +108,13 @@ class DashBoardTaskManagementScreen extends Component {
                                 focus_tab_index:index
                             })}/>
 
+
                     <div style={{marginTop:20}}>
                         {
+                            this.state.task!==null?
                             this.renderBody()
+                            :
+                            null
                         }
                     </div>    
         

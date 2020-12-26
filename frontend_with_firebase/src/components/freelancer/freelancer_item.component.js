@@ -14,7 +14,7 @@ export default class FreelancerItemComponent extends Component {
         return (
             <div style={styles.container}>
             
-                <img src={freelancer.avatar_url!==''?freelancer.avatar_url:logo}  style={styles.avatar}/>
+                <img src={freelancer.avatar!==''?freelancer.avatar:logo}  style={styles.avatar}/>
 
                 <text style={styles.freelancer_name}>
                     {freelancer.username}

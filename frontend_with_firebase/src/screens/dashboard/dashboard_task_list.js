@@ -8,33 +8,33 @@ import api from '../../sample_db/fake_api_responses.json'
 import {connect }from 'react-redux'
 import * as action from '../../redux/action/user.action'
 
+
+import firebase from '../../firebase/firebase'
+
+
 class DashBoardTaskListScreen extends Component {
     constructor(props){
         super(props);
         this.state={
-            tasks:[]
+            tasks:[],
+            id:this.props.user_infor.id,
+            type:this.props.user_infor.type
         }
     }
 
-    componentDidMount=()=>{
-        let body_req={
-            user_id:this.props.user_infor.user_id,
-            user_type:this.props.user_infor.user_type
+    componentDidMount=async ()=>{
+        let tasks=[];
+        if (this.state.type==='freelancer'){
+            tasks=await firebase.findTaskForFreelancer(this.state.id);
         }
-        alert('Call API get_task_list with body= :'+JSON.stringify(body_req))
-        //Call_API_Here
-                // axios.get(BASE_URL+`/search_freelancers`,{
-                //         data:{
-                //             count:20,
-                //             filter:this.groupInputs()
-                //         }
-                //     })
-                //     .then(res => {
-                //         })
-                //         .catch(error => console.log(error));
-        this.setState({
-            tasks:api.get_task_list
-        })
+        else {
+            tasks=await firebase.findTaskForCompany(this.state.id)
+        };
+
+        console.log('taskList :',tasks)
+        await this.setState({
+            tasks
+        });
     }
 
     render(){

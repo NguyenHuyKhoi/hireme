@@ -16,7 +16,7 @@ export default class FreelancerDetailHeaderComponent extends Component {
             <div style={{flex:1}}/>
 
             <div style={styles.body}>
-                <img src={freelancer.avatar_url!==''?freelancer.avatar_url:logo}  
+                <img src={freelancer.avatar!==''?freelancer.avatar:logo}  
                     style={{width:100,height:100,borderRadius:50}}/>
                 
                 <div style={styles.content}>

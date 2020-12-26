@@ -20,7 +20,7 @@ export default class ReportTaskModal extends Component {
                     </text>
 
                     <TextareaInputComponent 
-                        onChange={value=>this.props.updateInputs('modal_content',value)}
+                        onChange={value=>this.props.updateInputs('report','content',value)}
                         hide_label={true}  />
                 
 

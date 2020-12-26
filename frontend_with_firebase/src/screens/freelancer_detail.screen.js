@@ -28,7 +28,7 @@ export default class FreelancerDetailScreen extends Component {
     }
 
     componentDidMount=async ()=>{
-        let res=await firebase.get('freelancer',this.state.freelancer_id)
+        let res=await firebase.get('/freelancer/'+this.state.freelancer_id)
 
         this.setState({
             freelancer:res,

@@ -30,7 +30,7 @@ class DashboardSettingCompanyScreen extends Component {
     }
 
     componentDidMount=async ()=>{
-        let res=await firebase.getSettingUser('company',this.state.company_id);
+        let res=await firebase.getSettingUser('/company/'+this.state.company_id);
         await this.setState(res);
     }
 

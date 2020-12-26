@@ -20,10 +20,10 @@ export default class SettingAccountComponent extends Component {
                 <div style={styles.body}>
 
                         <img src={
-                            account.avatar_url==='' || account.avatar_url===undefined?
+                            account.avatar==='' || account.avatar===undefined?
                                 default_avatar
                                 :
-                                account.avatar_url
+                                account.avatar
                             } 
                             style={{width:100,height:100,borderRadius:50}}/>
 

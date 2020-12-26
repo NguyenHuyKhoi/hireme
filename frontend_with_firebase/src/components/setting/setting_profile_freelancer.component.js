@@ -42,7 +42,7 @@ export default class   SettingProfileFreelancerComponent extends Component {
                                 <div style={styles.field_container}>
                                     <NumberInputComponent 
                                         label='Hourly Rate'
-                                        onChange={(value)=>this.props.updateInputs('profile','hourly_rate',value[0])}
+                                        onChange={(value)=>this.props.updateInputs('profile','hourly_rate',value)}
                                         domain={HOURLY_RATE_DOMAIN}
                                         value={[profile.hourly_rate]}/>
                                 </div>

@@ -13,7 +13,7 @@ export default class TaskItemBriefComponent extends Component {
         const task=this.props.task
         const index=this.props.index;
 
-        console.log('task_status',task.status);
+        console.log('task_state',task.state);
         return (
             
             <div style={{...styles.container,
@@ -25,21 +25,21 @@ export default class TaskItemBriefComponent extends Component {
 
                     <div style={styles.col1_row1}>
                         <text style={styles.task_name}>
-                           {collapseText(task.name,30)}
+                           {collapseText(task.task_name,30)}
                         </text>
 
                         <div style={{marginLeft:30}}>
                         
                             <SmallFieldComponent 
                                 background_color={
-                                    task.status==='bidding'?YELLOW_1
-                                        :task.status==='doing'?BLUE_1
-                                            :task.status==='done'?GREEN_1
-                                                :task.status==='canceled' 
-                                                    || task.status==='reported'?RED_1:GRAY_2
+                                    task.state==='bidding'?YELLOW_1
+                                        :task.state==='doing'?BLUE_1
+                                            :task.state==='done'?GREEN_1
+                                                :task.state==='canceled' 
+                                                    || task.state==='reported'?RED_1:GRAY_2
                                 } 
                                 label_color={WHITE} 
-                                label={task.status}/>
+                                label={task.state}/>
                         </div>
                      
                     </div>

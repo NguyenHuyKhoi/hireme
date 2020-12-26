@@ -1826,7 +1826,7 @@
             "first_name": "dolor",
             "last_name": "cupidatat",
             "email": "magna@gmail.com",
-            "avatar_url": "https://randomuser.me/api/portraits/women/2.jpg"
+            "avatar": "https://randomuser.me/api/portraits/women/2.jpg"
         },
         "profile": {
             "user_id": "64",
@@ -1939,7 +1939,7 @@
             "first_name": "veniam",
             "last_name": "est",
             "email": "labore@gmail.com",
-            "avatar_url": "https://randomuser.me/api/portraits/men/52.jpg"
+            "avatar": "https://randomuser.me/api/portraits/men/52.jpg"
         },
         "profile": {
             "user_id": "33",
@@ -2584,7 +2584,7 @@
             "first_name": "officia",
             "last_name": "Lorem",
             "email": "cillum@gmail.com",
-            "avatar_url": "https://randomuser.me/api/portraits/women/67.jpg"
+            "avatar": "https://randomuser.me/api/portraits/women/67.jpg"
         }
     },
     "get_user_list_admin": [

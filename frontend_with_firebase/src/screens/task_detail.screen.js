@@ -19,8 +19,10 @@ import { convertFullDateToOnlyDay,convertFullDateToHour } from '../utils/helper'
 
 import firebase from '../firebase/firebase'
 
+import {connect }from 'react-redux'
+import * as action from '../redux/action/user.action'
 
-export default class TaskDetailScreen extends Component {
+class TaskDetailScreen extends Component {
     constructor(props){
         super(props);
 
@@ -29,7 +31,8 @@ export default class TaskDetailScreen extends Component {
             task:null,
             biddings:[],
             task_id:this.props.match.params.id
-        }
+        };
+        this.path='/task/'+this.state.task_id
     }
 
     openReportModal=()=>{
@@ -42,77 +45,86 @@ export default class TaskDetailScreen extends Component {
         this.setState({
             open_report_modal:false
         })
-    }
+    };
 
-    componentDidMount=async ()=>{
-        let res=await firebase.get('task',this.state.task_id)
-
-        this.setState({
-            task:res,
+    getTaskDetail=async ()=>{
+        let res=await firebase.get(this.path)
+        console.log('task_detail:',res);
+        await this.setState({
+            task:{
+                ...res,
+                biddings:res.biddings===undefined?[]:Object.values(res.biddings)
+            },
           //  reviews:api.get_reviews_freelancer
         })
     }
+
+    componentDidMount=async ()=>{
+
+        await this.getTaskDetail();
+      
+    }
     
 
-    updateInputs=(field,value)=>{
-        console.log('update_input:',field,value)
+    updateInputs=(part,field,value)=>{
+        console.log('update_input:',part,field,value)
+
         this.setState({
-            [field]:value
+            [part]:{
+                ...this.state[part],
+                [field]:value
+            }
+          
         })
     }
 
-    placeBidding=()=>{
-      
-        if (this.state.bidding_time===undefined){
-            alert('Please enter estimated time .')
-        }
-        else  if (this.state.bidding_cost===undefined){
-            alert('Please enter estimated cost .')
-        }
-        else {
-            let body_req={
-                task_id:this.state.task.id,
-                bidding_time:this.state.bidding_time,
-                bidding_cost:this.state.bidding_cost
-            }
-            alert('Call API place_bidding with body =  '+JSON.stringify(body_req))
-            //Call_API_Here
-            // axios.get(BASE_URL+`/place_bidding`,{
-            //         data:{
-            //         }
-            //     })
-            //     .then(res => {
-            //     })
-            //     .catch(error => console.log(error));
+    placeBidding=async ()=>{  
 
-        } 
+        
+        let u=this.props.user_infor;
+
+        console.log('userInfor :',u);
+        if (u.id===undefined){
+            alert('Please sigin  in to place a bid !');
+            return ;
+        };
+
+        if (u.type==='company' || u.type==='admin'){
+            alert('Only freelancer can place a bid !!! ');
+            return ;
+        }
+
+        let user={
+            id:u.id,
+            username:u.username,
+            avatar:u.avatar===undefined?'':u.avatar
+        };
+
+        console.log('placeBidding:',this.state.bidding)
+
+        console.log('placeBidding:',{
+                ...this.state.bidding,
+                poster:user,
+                post_time:(new Date()).toDateString()
+            })
+
+        await firebase.set(this.path+'/biddings/'+u.id,{
+            ...this.state.bidding,
+            id:u.id,
+            freelancer:user,
+            post_time:(new Date()).toDateString()
+        });
+
+        await this.getTaskDetail();
+        alert('Place a bid successfully!');
     }
 
     reportTask=()=>{
-        if (this.state.modal_content===undefined || this.state.modal_content===''){
-            alert('Please enter the reason why you report this task !')
-        }
-        else {
-            let body_req={
-                task_id:this.state.task.id,
-                content:this.state.modal_content,
-            }
-            //Call_API_Here
-            // axios.get(BASE_URL+`/report_task`,{
-            //         data:{
-            //         }
-            //     })
-            //     .then(res => {
-            //     })
-            //     .catch(error => console.log(error));
-            alert('Call API report_task with body =  '+JSON.stringify(body_req));
-            this.closeReportModal();
-        }
+      
     }
 
     render(){
         const task=this.state.task;
-        const biddings=this.state.biddings;
         return (
 
             <div style={styles.container}>
@@ -151,13 +163,13 @@ export default class TaskDetailScreen extends Component {
 
                                 <div style={{marginTop:50}}>
                                     {
-                                        biddings.length===0?
+                                        task.biddings.length===0?
                                         <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
                                             There is not any biddings.Be the first !
                                         </text>
                                         :
                                         <BiddingListComponent 
-                                            biddings={biddings}
+                                            biddings={task.biddings}
                                             company_view={false}/>
 
                                     }
@@ -244,3 +256,9 @@ const styles={
     }
    
 }
+
+const mapStateToProps = state => ({
+	user_infor: state.user_infor,
+});
+
+export default connect(mapStateToProps,action)(TaskDetailScreen)

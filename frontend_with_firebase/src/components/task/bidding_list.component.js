@@ -4,20 +4,13 @@ import HeaderListComponent from '../common/header_list.component';
 import PaginationComponent from '../common/pagination.component';
 import BiddingItemComponent from './bidding_item.component';
 
-// * bidding [
-//     {
-//       * id
-//       * freelancer : {id ,name ,avatar ,rate_score}
-//       * intended_time , intended_cost
-//       * post_time
-//     }
-//   ]
+import firebase from '../../firebase/firebase'
 export default class BiddingListComponent extends Component {
     constructor(props){
         super(props);
         this.state={
             first_item_index:0,
-            last_item_index:Math.min(4,this.props.biddings.length-1)
+            last_item_index:Math.min(4,this.props.task.biddings.length-1)
         }
     }
 
@@ -28,13 +21,26 @@ export default class BiddingListComponent extends Component {
         })
     }
 
+    removeBidding=async (b)=>{
+        console.log('taskManagement removeBidding',b.id)
+        await firebase.set('/task/'+this.props.task.id+'/biddings/'+b.id,null);
+        alert('Remove Bidding Successfully')
+    }
+
+    acceptBidding=async (b)=>{
+        console.log('taskManagement acceptBiding',b.id)
+        await firebase.set('/task/'+this.props.task.id+'/accepted_bidding/',b);
+        await firebase.set('/task/'+this.props.task.id+'/state/','doing');
+        alert('Accept Bidding Successfully')
+    }
+
     render(){
-        const biddings=this.props.biddings;
-        const user_type=this.props.user_type!==undefined?this.props.user_type:'freelancer';
+        const task=this.props.task;
+        const biddings=task.biddings;
+        const type=this.props.type!==undefined?this.props.type:'freelancer';
         const l=this.state.first_item_index;
         const r=this.state.last_item_index;
 
-        console.log('Tasks :',this.props.tasks,l,r)
     
         return (
             <div style={styles.container}>
@@ -45,10 +51,14 @@ export default class BiddingListComponent extends Component {
                     {
                     biddings.slice(l,r+1).map((item,index)=>
                         <BiddingItemComponent 
-                            user_type={user_type}
+                            type={type}
+                            state={task.state}
                             bidding={item} 
                             index={index} 
-                            key ={''+index}/>
+                            key ={''+index}
+                            acceptBidding={()=>this.acceptBidding(item)}
+                            removeBidding={()=>this.removeBidding(item)}
+                            />
                     )
                     }
                 </div>

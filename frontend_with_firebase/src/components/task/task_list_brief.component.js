@@ -47,9 +47,16 @@ export default class TaskListBriefComponent extends Component {
                 }
                 </div>
 
-                <PaginationComponent    
-                    onClickPage={(l,r)=>this.switchPage(l,r)}
-                    items={tasks.length} items_per_page={5} />
+                {
+                    tasks.length<5?
+                    null
+                    :
+                    <PaginationComponent    
+                        onClickPage={(l,r)=>this.switchPage(l,r)}
+                        items={tasks.length} items_per_page={5} />
+
+                }
+
                     
             </div>
                     

@@ -25,7 +25,7 @@ export default class CompanyDetailScreen extends Component {
     }
 
     componentDidMount=async ()=>{
-        let res=await firebase.get('company',this.state.company_id)
+        let res=await firebase.get('/company/'+this.state.company_id)
 
         this.setState({
             company:res,

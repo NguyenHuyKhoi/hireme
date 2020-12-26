@@ -12,7 +12,7 @@ export default class NumberInputComponent extends Component {
         this.state={
             value:value
         };
-        this.props.onChange(value)
+        this.props.onChange(value[0])
     }
     render(){
         const value=this.state.value;
@@ -45,7 +45,7 @@ export default class NumberInputComponent extends Component {
                         values={value}
                         onChange={(values) => {
                             this.setState({value:values});
-                            this.props.onChange(values)
+                            this.props.onChange(values[0])
                         }}
                         renderTrack={({ props, children }) => (
                                 <div

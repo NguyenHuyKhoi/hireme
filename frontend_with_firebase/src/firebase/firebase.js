@@ -101,7 +101,7 @@ class Firebase {
                 business_area:'',
                 website_link:'',
                 description:'',
-                avatar_url:''
+                avatar:''
             }))
     }
 
@@ -115,7 +115,7 @@ class Firebase {
                 username,
                 description:'',
                 category:'',
-                avatar_url:''
+                avatar:''
             }))
     }
 
@@ -180,7 +180,7 @@ class Firebase {
             company:{
                 id:company.id,
                 company_name:company.company_name,
-                avatar_url:company.avatar_url
+                avatar:company.avatar
             },
             state:'bidding'
         });
@@ -201,6 +201,46 @@ class Firebase {
         let arr=Object.values(await this.get('freelancer',''));
         console.log('firebase searchFreelancer get :',arr)
         return arr;
+    }
+
+    findTaskForFreelancer=async (id)=>{
+        console.log('firebase findTaskForFreelancer begin :',id);
+
+        let tasks=Object.values(await this.get('/task/'));
+        let res=[];
+
+        tasks.map((item)=>{
+            if (item.biddings!==undefined) 
+                if (item.biddings[id]!==undefined) res.push({
+                    id:item.id,
+                    task_name:item.task_name,
+                    post_time:item.post_time,
+                    state:item.state
+                })
+        });
+
+        console.log('firebase findTaskForFreelancer finish :',res);
+        return res;
+    }
+
+    findTaskForCompany=async (id)=>{
+        console.log('firebase findTaskForCompany begin :',id);
+
+        let tasks=Object.values(await this.get('/task/'));
+        let res=[];
+
+        tasks.map((item)=>{
+            if (item.company!==undefined) 
+                if (item.company.id===id) res.push({
+                    id:item.id,
+                    task_name:item.task_name,
+                    post_time:item.post_time,
+                    state:item.state
+                })
+        });
+
+        console.log('firebase findTaskForCompany finish :',res);
+        return res;
     }
 
 }

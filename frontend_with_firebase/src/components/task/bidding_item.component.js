@@ -6,19 +6,13 @@ import { BLACK, BLUE_1, BLUE_2, GRAY_3, WHITE, YELLOW_1 } from '../../utils/pale
 import ButtonComponent from '../common/button.component'
 import RateScoreComponent from '../common/rate_score.component'
 import SmallFieldComponent from '../common/small_field.component'
-// * bidding [
-//     {
-//       * id
-//       * freelancer : {id ,name ,avatar ,rate_score}
-//       * intended_time , intended_cost
-//       * post_time
-//     }
-//   ]
+
+
+import logo from '../../assets/images/logo.png'
 
 class BiddingBudget extends Component {
     render(){
-        const intended_time=this.props.intended_time!==undefined?this.props.intended_time:10
-        const intended_cost=this.props.intended_cost!==undefined?this.props.intended_cost:200
+        const {duration,budget}=this.props;
 
         return (
             <div style={{width: '100%',height:80,borderRadius:6,
@@ -27,10 +21,10 @@ class BiddingBudget extends Component {
                 flexDirection:'column',
                 alignItems: 'center'}}>
                 <text style={{fontSize:TEXT_SIZES.NORMAL,color:WHITE}}>
-                    {'$'+intended_cost}
+                    {'$'+budget}
                 </text>
                 <text style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_3}}>
-                    in {intended_time} days
+                    in {duration} days
                 </text>
 
                 
@@ -42,8 +36,9 @@ class BiddingBudget extends Component {
 export default class BiddingItemComponent extends Component {
     render(){
         const bidding = this.props.bidding;
+        const state=this.props.state;
         const freelancer= bidding.freelancer
-        const user_type=this.props.user_type;
+        const type=this.props.type;
         console.log('bidding_item',bidding.intended_time);
         return (
             <div style={{
@@ -58,7 +53,7 @@ export default class BiddingItemComponent extends Component {
                     
                         <div style={styles.row1_col1}>
                             <img 
-                                src={freelancer.avatar} 
+                                src={freelancer.avatar===''?logo:freelancer.avatar} 
                                 style={{width:80,height:80,borderRadius:40}}/>
                         </div>
                             
@@ -67,15 +62,15 @@ export default class BiddingItemComponent extends Component {
                             <Link
                                 to={routePaths.FREELANCER_DETAIL+`/${freelancer.id}`}
                                 style={styles.freelancer_name}>
-                                {freelancer.name}
+                                {freelancer.username}
                             </Link>
 
-                            <div style={{marginTop:3}}>
+                            {/* <div style={{marginTop:3}}>
                                 <SmallFieldComponent 
                                     background_color={YELLOW_1} 
                                     label_color={WHITE} 
                                     label={freelancer.rate_score}/>
-                            </div>
+                            </div> */}
                         
 
 
@@ -84,8 +79,8 @@ export default class BiddingItemComponent extends Component {
 
                         <div style={styles.row1_col3}>
                             <BiddingBudget 
-                                intended_time={bidding.intended_time}
-                                intended_cost={bidding.intended_cost}/>
+                                budget={bidding.budget}
+                                duration={bidding.duration}/>
 
                         </div>
                 
@@ -96,13 +91,17 @@ export default class BiddingItemComponent extends Component {
                 </div>
 
                 {
-                    user_type!==undefined && user_type==='company' ?
+                    type!==undefined 
+                    && type==='company'
+                    &&  state==='bidding'?
                     <div style={styles.row2}> 
 
                         <div style={{flex:1.5}}/>
 
                         <div style={styles.btn_container}>
-                            <ButtonComponent color={BLUE_1} label='Accept'/>
+                            <ButtonComponent 
+                                onClick={this.props.acceptBidding}
+                                color={BLUE_1} label='Accept'/>
                         </div>
 
                         <div style={{flex:0.3}}/>
@@ -114,7 +113,9 @@ export default class BiddingItemComponent extends Component {
                         <div style={{flex:0.3}}/>
 
                         <div style={styles.btn_container}>
-                            <ButtonComponent color={GRAY_3} label='Remove'/>
+                            <ButtonComponent 
+                                onClick={this.props.removeBidding}
+                                color={GRAY_3} label='Remove'/>
                         </div>
 
                         <div style={{flex:1.5}}/>

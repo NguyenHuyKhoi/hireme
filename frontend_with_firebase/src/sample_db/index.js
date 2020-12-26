@@ -488,7 +488,7 @@ const get_setting_freelancer={
     first_name:lorem.generateWords(1),
     last_name:lorem.generateWords(1),
     email:lorem.generateWords(1)+'@gmail.com',
-    avatar_url:create_image_url()
+    avatar:create_image_url()
   },
   profile:{
     user_id:user_id,
@@ -509,7 +509,7 @@ const get_setting_company={
     first_name:lorem.generateWords(1),
     last_name:lorem.generateWords(1),
     email:lorem.generateWords(1)+'@gmail.com',
-    avatar_url:create_image_url()
+    avatar:create_image_url()
   },
   profile:{
     user_id:user_id,

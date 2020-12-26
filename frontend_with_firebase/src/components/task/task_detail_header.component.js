@@ -38,7 +38,7 @@ export default class TaskDetailHeaderComponent extends Component {
             <div style={{flex:1}}/>
 
             <div style={styles.col1}>
-                <img src={company.avatar_url!==''?company.avatar_url:logo}
+                <img src={company.avatar!==''?company.avatar:logo}
                     style={{width:100,height:100,borderRadius:50}}/>
                 
                 <div style={styles.infor}>
