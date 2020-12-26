@@ -6,7 +6,7 @@ import HeaderListComponent from '../common/header_list.component'
 import LabeledInputComponent from '../input/labeled_input.component'
 import LabeledSelectedInputComponent from '../input/labeled_selected_input.component'
 
-
+import default_avatar from '../../assets/images/logo.png'
 export default class SettingAccountComponent extends Component {
    
 
@@ -19,7 +19,13 @@ export default class SettingAccountComponent extends Component {
 
                 <div style={styles.body}>
 
-                        <img src={account.avatar_url} style={styles.avatar}/>
+                        <img src={
+                            account.avatar_url==='' || account.avatar_url===undefined?
+                                default_avatar
+                                :
+                                account.avatar_url
+                            } 
+                            style={{width:100,height:100,borderRadius:50}}/>
 
                         <div style={styles.content}>
 
@@ -27,28 +33,25 @@ export default class SettingAccountComponent extends Component {
 
                                 <div style={{flex:4}}>
                                     <LabeledInputComponent 
-                                         onChange={(value)=>this.props.updateInputs('first_name',value)}
-                                        label='First Name'
-                                        value={account.first_name}/>
+                                        onChange={(value)=>this.props.updateInputs('account','username',value)}
+                                        label='User Name'
+                                        value={account.username}/>
                                 </div>
 
-                                <div style={{flex:2}}/>
+                                <div style={{flex:1}}/>
 
+                                
                                 <div style={{flex:4}}>
-                                    <LabeledInputComponent 
-                                        onChange={(value)=>this.props.updateInputs('last_name',value)}
-                                        label='Last Name'
-                                        value={account.last_name}/>
-                                </div>
-                               
-                            </div>
-
-                            <div style={styles.row2}>
                                 <LabeledInputComponent 
-                                    onChange={(value)=>this.props.updateInputs('email',value)}
+                                    onChange={(value)=>this.props.updateInputs('account','email',value)}
                                     label='Email'
                                     value={account.email}/>
+                                </div>
                             </div>
+
+                            {/* <div style={styles.row2}>
+                               
+                            </div> */}
                          
                         </div>
                     </div>

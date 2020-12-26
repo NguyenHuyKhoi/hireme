@@ -247,25 +247,25 @@ class AuthModal extends Component {
 
     onSignin=()=>{
         var err_msg='';
-        //this.validateInput();
-        if (err_msg==='') {
-             this.props.onCloseModal();
-             //Call_API_Here
-            axios.get(BASE_URL+`/login?username=${this.state.username}&password=${this.state.password}`,
-                    {
-                        httpsAgent:new https.Agent({
-                            rejectUnauthorized: false
-                          })
-                    })
-                .then(res => {
-                        console.log('login :',res)
-                    })
-                    .catch(error => console.log(error));
+        // //this.validateInput();
+        // if (err_msg==='') {
+        //      this.props.onCloseModal();
+        //      //Call_API_Here
+        //     axios.get(BASE_URL+`/login?username=${this.state.username}&password=${this.state.password}`,
+        //             {
+        //                 httpsAgent:new https.Agent({
+        //                     rejectUnauthorized: false
+        //                   })
+        //             })
+        //         .then(res => {
+        //                 console.log('login :',res)
+        //             })
+        //             .catch(error => console.log(error));
 
           
            
-        }
-        else alert(err_msg)
+        // }
+        // else alert(err_msg)
     }
 
     onSignup=()=>{

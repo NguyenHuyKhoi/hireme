@@ -71,22 +71,6 @@ class Firebase {
             })
     }
 
-    //param : user_id 
-    setupCompanyProfile=async (id)=>{
-        await firebase.database().ref('/company/'+id)
-            .set({
-                id:id,
-                company_name:'',
-                tagline:'',
-                employee_size:'',
-                location:'',
-                business_area:'',
-                website_link:'',
-                description:'',
-                avatar_url:''
-            })
-    };
-
 
     //param : user_id 
     setupFreelancerProfile=async (id)=>{
@@ -96,6 +80,7 @@ class Firebase {
                 hourly_rate:HOURLY_RATE_DOMAIN[0],
                 tagline:'',
                 description:'',
+                category:'',
                 avatar_url:''
             })
     }
@@ -117,6 +102,33 @@ class Firebase {
         console.log("firebase signin exist:",user_infor);
         return user_infor;
         
+    }
+
+    // output :{account ,profile}
+    getSettingUser=async (type,id)=>{
+
+        console.log('firebase getSettingUser begin  ',type,id)
+        let output={};
+        await firebase.database().ref('/user/'+id).once('value')
+            .then (snapshot=>{
+                output.account=snapshot.val();
+            });
+
+        await firebase.database().ref('/'+type+'/'+id).once('value')
+            .then (snapshot=>{
+                output.profile=snapshot.val();
+            });
+        console.log('firebase getSettingUser output',output);
+        return output;
+    }
+
+    // input :id,data:{account ,profile}
+    updateSettingUser=async (type,id,data)=>{
+        let output={};
+        console.log('firebase updateSettingUser begin',type,id,data);
+        await firebase.database().ref('/user/'+id).update(data.account)
+        await firebase.database().ref('/'+type+'/'+id).update(data.profile)
+        return output;
     }
 }
 

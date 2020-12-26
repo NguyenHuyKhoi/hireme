@@ -18,8 +18,8 @@ export default class   SettingProfileFreelancerComponent extends Component {
 
     render(){
         const profile=this.props.profile;
-        const category=this.props.category;
-        const picked_skills=this.props.picked_skills
+        // const category=this.props.category;
+        // const picked_skills=this.props.picked_skills
         return (
             <div style={styles.container}>
 
@@ -34,7 +34,7 @@ export default class   SettingProfileFreelancerComponent extends Component {
 
                                 <div style={styles.field_container}>
                                     <LabeledInputComponent
-                                        onChange={(value)=>this.props.updateInputs('tagline',value)}
+                                        onChange={(value)=>this.props.updateInputs('profile','tagline',value)}
                                         label='Tagline'
                                         value={profile.tagline} />
                                 </div>
@@ -42,17 +42,17 @@ export default class   SettingProfileFreelancerComponent extends Component {
                                 <div style={styles.field_container}>
                                     <NumberInputComponent 
                                         label='Hourly Rate'
-                                        onChange={(value)=>this.props.updateInputs('hourly_rate',value[0])}
+                                        onChange={(value)=>this.props.updateInputs('profile','hourly_rate',value[0])}
                                         domain={HOURLY_RATE_DOMAIN}
                                         value={[profile.hourly_rate]}/>
                                 </div>
 
-                                <div style={{width:'100%',marginTop:30}}>
+                                {/* <div style={{width:'100%',marginTop:30}}>
                                     <AttachmentsComponent
                                         label='Attachments'
                                         is_edit={true}
                                         attachments={profile.attachments}/>
-                                </div>       
+                                </div>        */}
 
                              
                               
@@ -64,19 +64,19 @@ export default class   SettingProfileFreelancerComponent extends Component {
 
                                 <div style={styles.field_container}>
                                     <LabeledSelectedInputComponent 
-                                        onChange={value=>this.props.updateInputs('category',value)}
+                                        onChange={value=>this.props.updateInputs('profile','category',value)}
                                         label='Category'
                                         domain={CATEGORIES_DOMAIN.map(item=>item.name)}
                                         value={profile.category}/>
                                 </div>  
 
-                                <div style={styles.field_container}>
+                                {/* <div style={styles.field_container}>
                                     <SkillPickerComponent 
                                         onChange={value=>this.props.updateInputs('skills',value)}
                                         label='Skills'
                                         picked_skills={picked_skills}
                                         category={category}/>
-                                </div>
+                                </div> */}
 
                                                  
                             </div>
@@ -84,17 +84,17 @@ export default class   SettingProfileFreelancerComponent extends Component {
                         </div>
 
                             
-                        <div style={{width:'100%',marginTop:40}}>
+                        {/* <div style={{width:'100%',marginTop:40}}>
                             <ExperienceListComponent
-                                onChange={value=>this.props.updateInputs('experiences',value)} 
+                                onChange={value=>this.props.updateInputs('profile','experiences',value)} 
                                 experiences={profile.experiences}
                                 header_height={40} 
                                 is_edit={true}/>
-                        </div>
+                        </div> */}
                         
                         <div style={styles.row2}>
                            <TextareaInputComponent
-                                onChange={value=>this.props.updateInputs('description',value)} 
+                                onChange={value=>this.props.updateInputs('profile','description',value)} 
                                 label='Description'
                                 value={profile.description} />
                        </div>
