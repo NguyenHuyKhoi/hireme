@@ -19,6 +19,8 @@ import {connect }from 'react-redux'
 import * as action from '../../redux/action/user.action'
 
 import firebase from '../../firebase/firebase'
+import config from '../../firebase/config'
+
 class DashBoardTaskManagementScreen extends Component {
     constructor(props){
         super(props);
@@ -31,16 +33,23 @@ class DashBoardTaskManagementScreen extends Component {
     }
 
     getDetailTask=async ()=>{
-        let res=await firebase.get('/task/'+this.state.task_id);
 
-        console.log('taskManagement detail:',res);
-        this.setState({
-            task:{
-                ...res,
-                biddings:res.biddings===undefined?[]:Object.values(res.biddings),
-                stages:res.stages===undefined?[]:Object.values(res.stages)
-            }
-        })
+        await config.database().ref('/task/'+this.state.task_id)
+            .on('value',snapshot=>{
+                    let res=snapshot.val()
+
+                    console.log('taskManagement taskChange:',res);
+
+                    this.setState({
+                        task:{
+                            ...res,
+                            biddings:res.biddings===undefined?[]:Object.values(res.biddings),
+                            stages:res.stages===undefined?[]:Object.values(res.stages)
+                        }
+                    })
+            })
+     
+       
     }
 
 
@@ -81,7 +90,8 @@ class DashBoardTaskManagementScreen extends Component {
                 return  <div style={{display:'flex',width:'74vw',height:'80vh'}}>
                             <StageListComponent
                                 type={type} 
-                                stages={sts} task_id={this.state.task_id}/>
+                                stages={sts}
+                                task_id={this.state.task_id}/>
                         </div>
             case 4:
                 return  <div style={{display:'flex',width:'100%',height:'80vh'}}>

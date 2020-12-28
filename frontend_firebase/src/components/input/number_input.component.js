@@ -77,7 +77,7 @@ const styles={
         flexDirection: 'column'
     },
     label:{
-        fontSize:TEXT_SIZES.NORMAL,
+        fontSize:TEXT_SIZES.SMALL,
         color:BLACK,
         marginBottom:10
     },

@@ -53,11 +53,15 @@ class TimeLine extends Component{
 export default class StageItemComponent extends Component {
     render(){
         const stage=this.props.stage;
+
+        const attachments=stage.attachments!==undefined?stage.attachments:[]
+        const link=stage.link!==undefined?stage.link:''
+        const notes=stage.notes!==undefined?stage.notes:[]
         console.log('stage_item',stage);
         return (
             <div style={styles.container}>   
 
-                <TimeLine deadline={stage.deadline} percentage={stage.percentage}/>
+                <TimeLine deadline={stage.end_time} percentage={stage.process}/>
 
                 <div style={styles.header}>
 
@@ -72,18 +76,17 @@ export default class StageItemComponent extends Component {
                     <div style={styles.inner_body}>
                             
                             <AttachmentsComponent is_edit={true}
-                                   
-                                   attachments={stage.attachments}/>
+                                   attachments={attachments}/>
 
                             <div style={styles.res_container}>
                                 <LabeledInputComponent 
                                     label='Link Resource' 
                                     onChange={(value)=>{}}
-                                    value={stage.link}/>
+                                    value={ link}/>
                             </div>  
 
                             <div style={styles.notes_container}>
-                                <TaskNoteListComponent notes={stage.notes} />
+                                <TaskNoteListComponent notes={notes} />
                             </div>   
                            
                           

@@ -4,21 +4,50 @@ import ButtonComponent from '../common/button.component'
 import LabeledInputComponent from '../input/labeled_input.component'
 import { BLACK, BLUE_1, GREEN_1, WHITE } from '../../utils/palette'
 import { TEXT_SIZES } from '../../utils/constants'
-import SmallFieldComponent from '../common/small_field.component'
-import TaskNoteListComponent from './task_note_list.component'
-import AttachmentsComponent from '../input/attachments.component'
-import { convertFullDateToOnlyDay } from '../../utils/helper'
-// * bidding [
-//     {
-//       * id
-//       * freelancer : {id ,name ,avatar ,rate_score}
-//       * intended_time , intended_cost
-//       * post_time
-//     }
-//   ]
+import NumberInputComponent from '../input/number_input.component'
 
+import firebase from '../../firebase/firebase'
 export default class NewStageItemComponent extends Component {
+
+    constructor(props){
+        super(props);
+        this.state={
+            title:''
+        }
+        var curr = new Date();
+        curr.setDate(curr.getDate() + 3);
+        this.deadline = curr.toISOString().substr(0,10);
+    }
+
+
+    updateInputs=(field,value)=>{
+        console.log('updateInputs:',field,value);
+        this.setState({
+            [field]:value
+        });
+    }
+
+
+    addStage=async ()=>{
+        if (this.state.title===undefined || this.state.end_time===undefined || this.state.process===undefined){
+            alert('Please fill all information');
+            return 
+        }
+        else {
+            await firebase.push('/task/'+this.props.task_id+'/stages/',{
+                title:this.state.title,
+                end_time:this.state.end_time,
+                process:this.state.process
+            });
+
+            alert('Add Stage Successfully!!!');
+            this.updateInputs('title','');
+        }
+    }
+    
+
     render(){
+
         return (
             <div style={styles.container}>   
 
@@ -28,6 +57,8 @@ export default class NewStageItemComponent extends Component {
 
                     <input 
                         style={styles.header_title}
+                        value={this.state.title}
+                        onChange={e=>this.updateInputs('title',e.target.value)}
                         placeholder='Add Title'
                     />
                    
@@ -36,22 +67,29 @@ export default class NewStageItemComponent extends Component {
                 <div style={styles.body}>
 
                     <div style={styles.inner_body}>
-                        
-                            <AttachmentsComponent is_edit={true} />
 
                             <div style={styles.content}>
                                 <LabeledInputComponent 
                                     label='Deadline' 
-                                    onChange={(value)=>{}}/>
+                                    type='date'
+                                    value={this.deadline}
+                                    onChange={(value)=>this.updateInputs('end_time',value)}/>
 
-                                <LabeledInputComponent 
-                                    label='Percentage' 
-                                    type='number'
-                                    onChange={(value)=>{}}/>
+                                <div style={{width:'100%',marginTop:20}}>
+                                    <NumberInputComponent 
+                                        label='Percentage' 
+                                        domain={[0,100]}
+                                        unit='%'
+                                        value={[0]}
+                                        onChange={(value)=>this.updateInputs('process',value)}/>
+                                </div>
+                            
                             </div>  
                        
                             <div style={styles.btn_container}>
-                                <ButtonComponent label='Add Stage'/>
+                                <ButtonComponent 
+                                    onClick={this.addStage}
+                                    label='Add Stage'/>
                             </div>
                             
                     </div>
@@ -109,11 +147,10 @@ const styles={
         padding: 20
     },
     content: {
-        width:'80%',
-        marginTop:15
+        width:'80%'
     },
     btn_container:{
-        marginTop:20,
+        marginTop:60,
         width: '100%',
         paddingBottom:40,
         display:'flex',

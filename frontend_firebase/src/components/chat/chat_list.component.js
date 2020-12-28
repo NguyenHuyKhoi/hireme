@@ -102,6 +102,9 @@ export default class ChatListComponent extends Component {
                 <HeaderListComponent title='Chat list'/>
 
                 <div style={styles.body}>
+                    <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,margin:30}}>
+                        You have't not any chat
+                    </text>
                     {
                         chats.map((item,index)=>(
                             <ChatItem 

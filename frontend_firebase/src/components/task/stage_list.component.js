@@ -9,6 +9,7 @@ import StageItemComponent from './stage_item.component'
 export default class StageListComponent extends Component {
     render(){
         const stages=this.props.stages!==undefined?this.props.stages:[];
+        const type=this.props.type;
         console.log('stage_list:',stages);
         return (
             <div style={styles.container}>
@@ -25,9 +26,18 @@ export default class StageListComponent extends Component {
                     
                     }
 
-                    <div style={{width:'40vw'}}>
-                        <NewStageItemComponent/>
-                    </div>
+                    {
+                        type==='freelancer'?
+                        <div style={{width:'40vw'}}>
+                            <NewStageItemComponent
+                                task_id={this.props.task_id}
+                                />
+                        </div>
+                        :
+                        null
+                    }
+
+                  
 
                     <div style={styles.last_col}>
 
@@ -53,7 +63,8 @@ export default class StageListComponent extends Component {
                         </text>
 
                         <div style={styles.btn_container}>
-                            <ButtonComponent label='Confirm'/>
+                            <ButtonComponent 
+                                label='Confirm'/>
                         </div>
                     </div>
 

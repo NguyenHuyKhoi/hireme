@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import sample_db from '../../sample_db/fake_api_responses.json'
-import { WHITE } from '../../utils/palette';
+import { BLACK, WHITE } from '../../utils/palette';
 import ChatListComponent from './chat_list.component';
 import ConversationComponent from './conversation.component';
 
@@ -11,6 +11,7 @@ import config from '../../firebase/config'
 import firebase from '../../firebase/firebase'
 import {connect }from 'react-redux'
 import * as action from '../../redux/action/user.action'
+import { TEXT_SIZES } from '../../utils/constants';
 
 class ChatComponent extends Component {
 
@@ -98,22 +99,26 @@ class ChatComponent extends Component {
         console.log('chatComponent current_chat_id',this.state.current_chat_id)
         if (this.state.current_chat_id!==null)
             current_chat=chats.filter(item=>item.id===this.state.current_chat_id)[0];
-        console.log('chatComponent currentChat',chats,current_chat)
+        console.log('chatComponent chats',chats)
         return (
-            <div  style={styles.container}>    
+            <div  style={styles.container}> 
+
+               <div style={styles.chat_list}>
                 {
-                    chats===null  || chats==[]?
+                    chats==null?
                     // || (task_id!==undefined && user_type==='freelancer')?
                     //freelancer chat with company on a specify task  
                     null
                     :
-                    <div style={styles.chat_list}>
-                        <ChatListComponent
-                          //  getConversation={this.getConversation} 
-                            user_id={user_id}
-                            chats={chats}/>
-                    </div>
+
+                    <ChatListComponent
+                        //  getConversation={this.getConversation} 
+                        user_id={user_id}
+                        chats={chats}/>
+                  
                 }
+
+                </div>
                 {
                     current_chat===null || current_chat===undefined?
                     null
