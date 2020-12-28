@@ -42,7 +42,7 @@ export const routePaths={
     DASHBOARD_CHAT:'/dashboard/chat',
     DASHBOARD_PAYMENT:'/dashboard/payment',
     DASHBOARD_SETTING_FREELANCER:'/dashboard/setting/freelancer',
-    DASHBOARD_SETTING_COMPANY:'/dashboard/setting/company',
+    DASHBOARD_SETTING_USER:'/dashboard/setting/user',
 
     ADMIN_HOME:'/admin/home',
     ADMIN_USER_LIST:'/admin/user/list',

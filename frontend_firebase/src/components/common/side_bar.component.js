@@ -27,7 +27,7 @@ const sidebarItems=[
     },
     {
         label:'Cài đặt',
-        screen:routePaths.DASHBOARD_SETTING_FREELANCER,
+        screen:routePaths.DASHBOARD_SETTING_USER,
         icon:'setting'
     },
     {
@@ -85,13 +85,7 @@ class Item extends Component{
                 onClick={()=>{
                     if (item.label==='Đăng xuất') this.props.clickLogout();
                 }}
-                to={item.label!=='Cài đặt' || type==='admin'?
-                    item.screen
-                        : type==='company'?
-                            routePaths.DASHBOARD_SETTING_COMPANY
-                            :
-                            routePaths.DASHBOARD_SETTING_FREELANCER
-                }
+                to={item.screen}
                 style={styles.item_container}>
                 <CustomIconComponent name={item.icon} color={this.state.hover?BLUE_1: GRAY_2}/>
                 <text style={{...styles.item_label,

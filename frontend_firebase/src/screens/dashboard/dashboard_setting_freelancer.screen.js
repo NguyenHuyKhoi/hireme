@@ -31,7 +31,7 @@ class DashboardSettingFreelancerScreen extends Component {
     }
 
     updateInputs=async (part,field,value)=>{
-      //  console.log('update_inputs :',part,field,value)
+        console.log('update_inputs :',part,field,value)
         await this.setState({
             [part]:{
                 ...this.state[part],
@@ -45,7 +45,12 @@ class DashboardSettingFreelancerScreen extends Component {
 
 
     updateSetting=async ()=>{
-        console.log('update Setting :',this.state)
+        console.log('update Setting :',this.state);
+
+        if (this.state.account.avatar!==undefined){
+            let  new_avatar_url=await firebase.uploadFile(this.state.account.avatar,this.state.freelancer_id)
+            await this.updateInputs('account','avatar',new_avatar_url)
+        }
         await firebase.updateSettingUser('freelancer',this.state.freelancer_id,this.state);
         alert('Cập nhật thành công!');
     }

@@ -12,14 +12,14 @@ export default class SettingPasswordComponent extends Component {
         return (
             <div style={styles.container}>
 
-                <HeaderListComponent title='Password' height={40}/>
+                <HeaderListComponent title='Mật khẩu' height={40}/>
 
                 <div style={styles.body}>
                     
                         <div style={{flex:4}}>
                             <LabeledInputComponent
                                 onChange={(value)=>this.props.updateInputs('password',value)} 
-                                label='Password' />
+                                label='Mậ khẩu hiện tại' />
                         </div>
 
                         <div style={{flex:1}}/>
@@ -27,7 +27,7 @@ export default class SettingPasswordComponent extends Component {
                         <div style={{flex:4}}>
                             <LabeledInputComponent
                                 onChange={(value)=>this.props.updateInputs('new_password',value)} 
-                                label='New Password' />
+                                label='Mật khẩu mới' />
                         </div>
                                
                         
@@ -36,7 +36,7 @@ export default class SettingPasswordComponent extends Component {
                         <div style={{flex:4}}>
                             <LabeledInputComponent  
                                 onChange={(value)=>this.props.updateInputs('repeat_new_password',value)} 
-                                label='Re-enter New Password' />
+                                label='Nhập lại mật khẩu mới' />
                         </div>
                   
                     </div>

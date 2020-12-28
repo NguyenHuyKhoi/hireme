@@ -4,39 +4,36 @@ import { HOURLY_RATE_DOMAIN } from '../utils/constants';
 class Firebase {
 
     constructor(){
-        this.rootRef=firebase.database().ref();
-        this.userRef=firebase.database().ref('/user/');
-        this.companyRef=firebase.database().ref('/company/');
-        this.freelancerRef=firebase.database().ref('/freelancer/');
-        this.taskRef=firebase.database().ref('/task/');
+        this.storageRef=firebase.storage().ref();
+        this.dbRef=firebase.database().ref();
     }
 
     get=async (path)=>{
         console.log('firebase get :',path)
         let obj=null;
 
-        await this.rootRef.child(path).once('value')
+        await this.dbRef.child(path).once('value')
             .then(snapshot=>obj=snapshot.val());
         return obj;
     }
 
     set=async (path,data)=>{
         console.log('firebase set :',path,data)
-        await this.rootRef.child(path).set(data);
+        await this.dbRef.child(path).set(data);
     };
 
     update=async (path,data)=>{
         console.log('firebase update :',path,data)
-        await this.rootRef.child(path).update(data);
+        await this.dbRef.child(path).update(data);
     };
 
     //path : parent dir :
     push=async (path,data)=>{
         console.log('firebase push :',path,data)
-        let key=(await this.rootRef.child(path).push()).key;
+        let key=(await this.dbRef.child(path).push()).key;
 
         console.log('firebase push key:',key)
-        await this.rootRef.child(path+key).set({
+        await this.dbRef.child(path+key).set({
             ...data,
             id:key
         });
@@ -241,6 +238,33 @@ class Firebase {
 
         console.log('firebase findTaskForCompany finish :',res);
         return res;
+    }
+
+    uploadFile=async (file,id)=>{
+
+        console.log('uploadFile begin:',file,id)
+
+        let url ='';
+        var uploadTask =await firebase.storage().ref().child('1.jpg').put(file)  
+            .then(snapshot=>snapshot.ref.getDownloadURL())
+            .then (url =>{
+                console.log('uploadFile Download_url',url);
+                url=url
+            })
+
+        console.log('uploadFile end:',url)
+
+        
+
+        // uploadTask.on('state_changed',snapshot=>{ }, function(error) {
+        // // Handle unsuccessful uploads
+        // }, function() {
+        // // Handle successful uploads on complete
+        // // For instance, get the download URL: https://firebasestorage.googleapis.com/...
+        // uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+        //     console.log('File available at', downloadURL);
+        // });
+        // });
     }
 
 }

@@ -21,16 +21,17 @@ import * as action from '../../redux/action/user.action'
 
 import firebase from '../../firebase/firebase'
 
-class DashboardSettingCompanyScreen extends Component {
+class DashboardSettingUserScreen extends Component {
     constructor(props){
         super(props);
         this.state={
-            company_id:this.props.user_infor.id
+            id:this.props.user_infor.id,
+            type:this.props.user_infor.type
         }
     }
 
     componentDidMount=async ()=>{
-        let res=await firebase.getSettingUser('/company/'+this.state.company_id);
+        let res=await firebase.getSettingUser('/'+this.state.type+'/'+this.state.id);
         await this.setState(res);
     }
 
@@ -50,7 +51,13 @@ class DashboardSettingCompanyScreen extends Component {
 
     updateSetting=async ()=>{
         console.log('update Setting :',this.state)
-        await firebase.updateSettingUser('company',this.state.company_id,this.state);
+
+        if (this.state.account.avatar!==undefined){
+            let  new_avatar_url=await firebase.uploadFile(this.state.account.avatar,this.state.id)
+            await this.updateInputs('account','avatar',new_avatar_url)
+        }
+
+        await firebase.updateSettingUser(this.state.type,this.state.id,this.state);
         alert('Cập nhật thành công!');
     }
 
@@ -79,9 +86,31 @@ class DashboardSettingCompanyScreen extends Component {
                     </div>
                     
                     <div style={{marginTop:60}}>
-                        <SettingProfileCompanyComponent 
-                            updateInputs={this.updateInputs}
-                            profile={state.profile}/>
+                        {
+                            this.state.type==='company'?
+                            <SettingProfileCompanyComponent 
+                                updateInputs={this.updateInputs}
+                                profile={state.profile}/>
+                            :
+                            this.state.type==='freelancer'?
+                                <SettingProfileFreelancerComponent 
+                                // category={
+                                //     this.state!==null && this.state.category!==undefined?
+                                //         this.state.category
+                                //         :
+                                //         setting.profile.category
+                                // }
+                                // picked_skills={state.profile.skills!==undefined?
+                                //         setting.profile.skills.map(item=>item.name)
+                                //         :
+                                //         []
+                                // }
+                                updateInputs={this.updateInputs}
+                                profile={state.profile}/>
+                            :
+                            null
+                        }
+                      
                     </div>
 
                     {/* <div style={{marginTop:60}}>
@@ -131,4 +160,4 @@ const mapStateToProps = state => ({
 	user_infor: state.user_infor,
 });
 
-export default connect(mapStateToProps,action)(DashboardSettingCompanyScreen)
+export default connect(mapStateToProps,action)(DashboardSettingUserScreen)

@@ -9,23 +9,63 @@ import LabeledSelectedInputComponent from '../input/labeled_selected_input.compo
 import default_avatar from '../../assets/images/logo.png'
 export default class SettingAccountComponent extends Component {
    
+    constructor(props){
+        super(props);
+        this.state={
+            new_image:null
+        }
+    }
+
+    onChangeFile(event) {
+        event.stopPropagation();
+        event.preventDefault();
+        var file = event.target.files[0];
+        console.log(file);
+        this.setState({
+            new_image:file
+        }); 
+
+        this.props.updateInputs('account','avatar',file);
+        console.log('choose_file :',file)/// if you want to upload latter
+    }
 
     render(){
-        const account=this.props.account
+        const account=this.props.account;
+
+        let new_image_url=null
+        if (this.state.new_image!==null) new_image_url=URL.createObjectURL(this.state.new_image)
         return (
             <div style={styles.container}>
 
-                <HeaderListComponent title='Account' height={40}/>
+                <HeaderListComponent title='Tài khoản' height={40}/>
 
                 <div style={styles.body}>
 
-                        <img src={
-                            account.avatar==='' || account.avatar===undefined?
-                                default_avatar
-                                :
-                                account.avatar
-                            } 
-                            style={{width:100,height:100,borderRadius:50}}/>
+                        <div style={{display:'flex',flex:1,flexDirection:'column',
+                            justifyContent:'center',alignItems:'center'}}>
+
+                            <input id="fileUpload"
+                                type="file"
+                                ref={(ref) => this.upload = ref}
+                                style={{display: 'none'}}
+                                onChange={this.onChangeFile.bind(this)}
+                                />
+                            <img src={
+                                new_image_url!==null?
+                                    new_image_url
+                                    :
+                                    account.avatar==='' || account.avatar===undefined?
+                                        default_avatar
+                                        :
+                                        account.avatar
+                                    } 
+                                onClick={()=>{this.upload.click()}}
+                                style={{width:100,height:100,borderRadius:50}}/>
+
+                           
+                        </div>
+                      
+                      
 
                         <div style={styles.content}>
 
@@ -33,8 +73,10 @@ export default class SettingAccountComponent extends Component {
 
                                 <div style={{flex:4}}>
                                     <LabeledInputComponent 
-                                        onChange={(value)=>this.props.updateInputs('account','username',value)}
-                                        label='User Name'
+                                        onChange={(value)=>{
+                                            this.props.updateInputs('account','username',value)
+                                        }}
+                                        label='Tên người dùng'
                                         value={account.username}/>
                                 </div>
 
@@ -91,7 +133,7 @@ const styles={
     },
     content:{
         marginLeft:40,
-        flex:1,
+        flex:3,
         display:'flex',
         flexDirection:'column',
         justifyContent:'center'
