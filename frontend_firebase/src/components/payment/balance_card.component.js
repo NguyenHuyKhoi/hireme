@@ -28,14 +28,14 @@ export default class BalanceCardComponent extends Component {
         return (
             <div style={styles.container}>
 
-                <HeaderListComponent title='Balance' height={40}/>
+                <HeaderListComponent title='Số dư tài khoản' height={40}/>
 
                 <div style={styles.body}>
 
                     <div style={styles.balance_card}>
 
                         <text style={styles.title}>
-                            Current Account
+                            Bạn có
                         </text>
                         <text style={styles.balance}>
                             {'$'+balance}
@@ -46,7 +46,7 @@ export default class BalanceCardComponent extends Component {
                             <div style={{flex:3}}>
                                 <LabeledInputComponent 
                                     onChange={(value)=>this.props.updateInputs('transaction','amount',value)}
-                                    label='Amount'
+                                    label='Số tiền :'
                                   />
                             </div>
 
@@ -56,7 +56,7 @@ export default class BalanceCardComponent extends Component {
                                 {
                                     cards.length>0?
                                     <LabeledSelectedInputComponent
-                                        label='Choose cards:'
+                                        label='Chọn thẻ :'
                                         onChange={(number)=>this.findCard(number)}
                                         domain={cards.map(item=>item.number)}
                                         />
@@ -72,9 +72,9 @@ export default class BalanceCardComponent extends Component {
 
                             <div style={{flex:5}}>
                                     <LabeledSelectedInputComponent
-                                        label='Type:'
+                                        label='Loại:'
                                         onChange={(value)=>this.props.updateInputs('transaction','type',value)}
-                                        domain={['withdraw','recharge']}
+                                        domain={['Rút tiền','Chuyển tiền']}
                                         />
                             </div>
                           
@@ -84,7 +84,7 @@ export default class BalanceCardComponent extends Component {
                             <div style={{width: '20%'}}>
                                 <ButtonComponent 
                                     onClick={this.props.transaction}
-                                    label='Transaction' color={GREEN_1}/>
+                                    label='Giao dịch' color={GREEN_1}/>
                             </div>
 
                         </div>

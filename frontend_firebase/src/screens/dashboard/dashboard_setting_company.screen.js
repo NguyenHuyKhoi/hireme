@@ -51,7 +51,7 @@ class DashboardSettingCompanyScreen extends Component {
     updateSetting=async ()=>{
         console.log('update Setting :',this.state)
         await firebase.updateSettingUser('company',this.state.company_id,this.state);
-        alert('Update successfully');
+        alert('Cập nhật thành công!');
     }
 
     render(){
@@ -70,7 +70,7 @@ class DashboardSettingCompanyScreen extends Component {
                 <div style={styles.body}>
 
 
-                    <HeaderListComponent title='Setting'/>
+                    <HeaderListComponent title='Cài đặt'/>
 
                     <div style={{marginTop:30}}>
                         <SettingAccountComponent 
@@ -95,7 +95,7 @@ class DashboardSettingCompanyScreen extends Component {
                         style={{marginTop:50,width:'25%',textDecoration:'none'}}>
                         <ButtonComponent 
                             onClick={this.updateSetting}
-                            label='Save Your Changes' height={60}/>
+                            label='Lưu thay đổi' height={60}/>
                     </Link>
                     
                 </div>

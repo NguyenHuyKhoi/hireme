@@ -85,12 +85,12 @@ class TaskDetailScreen extends Component {
 
         console.log('userInfor :',u);
         if (u.id===undefined){
-            alert('Please sigin  in to place a bid !');
+            alert('Vui lòng đăng nhập để có thể đấu giá.!');
             return ;
         };
 
         if (u.type==='company' || u.type==='admin'){
-            alert('Only freelancer can place a bid !!! ');
+            alert('Chỉ tài khoản freelancer mới có thể đấu giá.');
             return ;
         };
 
@@ -98,7 +98,7 @@ class TaskDetailScreen extends Component {
 
         console.log('taskDetail myBidding',myBidding)
         if (myBidding!==null && myBidding!==undefined){
-            alert('You bidded this task !!!');
+            alert('Bạn không thể đấu giá lại dự án này.');
             return ;
         }
 
@@ -156,7 +156,7 @@ class TaskDetailScreen extends Component {
             }  
         });
 
-        alert('Place a bid successfully!');
+        alert('Đấu giá thành công!');
 
 
     }
@@ -195,7 +195,7 @@ class TaskDetailScreen extends Component {
 
                                 <div style={{marginTop:30}}>
                                     <DescriptionComponent 
-                                        title='About task:'
+                                        title='Về dự án:'
                                         content={task.description}/>
                                 </div>
 
@@ -207,7 +207,7 @@ class TaskDetailScreen extends Component {
                                     {
                                         task.biddings.length===0?
                                         <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
-                                            There is not any biddings.Be the first !
+                                            Dự án này chưa có đơn đấu giá nào, hãy trở thành người đầu tiên!
                                         </text>
                                         :
                                         <BiddingListComponent 
@@ -252,7 +252,7 @@ class TaskDetailScreen extends Component {
                                     <ButtonComponent 
                                         onClick={this.openReportModal}
                                         color={RED_2} text_color={WHITE}
-                                        label='Report Task'/>
+                                        label='Báo cáo'/>
                                 </div>
                             </div>
                             <div style={{flex:1}}/>

@@ -38,7 +38,7 @@ export default class ReviewItemComponent extends Component {
                     <Link
                         to={routePaths.TASK_DETAIL+`/${task.id}`}
                         style={styles.task_name}>
-                        {'On task : '+collapseText(task.name,30)} 
+                        {'Trong dự án : '+collapseText(task.name,30)} 
                     </Link>
 
                     <div style={styles.row}>

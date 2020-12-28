@@ -20,11 +20,11 @@ export default class FilterComponent extends Component {
             <div style={styles.container}>
 
                 <div style={styles.btn_container}>
-                    <ButtonComponent label='Search' height={45} onClick={this.props.clickSearch}/>
+                    <ButtonComponent label='Tìm' height={45} onClick={this.props.clickSearch}/>
                 </div>
                 
                 <LabeledSelectedInputComponent  
-                    label='Category '
+                    label='Danh mục '
                     onChange={(value)=>this.props.updateInputs('category',value)}
                     value={CATEGORIES_DOMAIN[0].name}
                     domain={CATEGORIES_DOMAIN.map(item=>item.name)}/>
@@ -32,20 +32,20 @@ export default class FilterComponent extends Component {
                 <div style={styles.field_container}>
                     <SkillPickerComponent 
                         onChange={value=>this.props.updateInputs('skills',value)}
-                        label="Skills"
+                        label="Kỹ năng"
                         category={category}/>
                 </div>
                 
                 <div style={styles.field_container}>
                     <LabeledInputComponent
                         onChange={(value)=>this.props.updateInputs('keyword',value)}
-                        label='Keyword'
+                        label='Từ khóa'
                         />
                 </div>
 
                 <div style={styles.field_container}>
                     <RangeInputComponent
-                        label='Hourly Rate' 
+                        label='Giá thuê' 
                         onChange={(value)=>this.props.updateInputs('hourly_rate',value)}
                         domain={HOURLY_RATE_DOMAIN}
                         value={[20,400]}
@@ -54,7 +54,7 @@ export default class FilterComponent extends Component {
 
                 <div style={styles.field_container}>
                     <RangeInputComponent 
-                        label='Fixed Price' 
+                        label='Giá dự án' 
                         onChange={(value)=>this.props.updateInputs('fixed_price',value)}
                         domain={FIXED_PRICE_DOMAIN}
                         value={[1000,5000]}/>

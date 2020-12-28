@@ -58,13 +58,12 @@ export default class StageListComponent extends Component {
                         
 
                         <text style={styles.confirm_notif}>
-                                If task reaches 100%, press to confirm it be completed.
-                                After that, budget will transfer to freelancer.
+                                Nếu dự án đạt 100% tiến độ, xác nhận hoàn thành để thanh toán tiền cho freelancer :
                         </text>
 
                         <div style={styles.btn_container}>
                             <ButtonComponent 
-                                label='Confirm'/>
+                                label='Xác nhận hoàn thành'/>
                         </div>
                     </div>
 

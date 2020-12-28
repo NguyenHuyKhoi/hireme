@@ -24,14 +24,14 @@ export default class BiddingListComponent extends Component {
     removeBidding=async (b)=>{
         console.log('taskManagement removeBidding',b.id)
         await firebase.set('/task/'+this.props.task.id+'/biddings/'+b.id,null);
-        alert('Remove Bidding Successfully')
+        alert('Đã xóa đơn đấu giá.')
     }
 
     acceptBidding=async (b)=>{
         console.log('taskManagement acceptBiding',b.id)
         await firebase.set('/task/'+this.props.task.id+'/accepted_bidding/',b);
         await firebase.set('/task/'+this.props.task.id+'/state/','doing');
-        alert('Accept Bidding Successfully')
+        alert('Đã chấp nhận đơn đấu giá.')
     }
 
     render(){
@@ -44,7 +44,7 @@ export default class BiddingListComponent extends Component {
     
         return (
             <div style={styles.container}>
-                <HeaderListComponent title='Biddings'/>
+                <HeaderListComponent title='Danh sách đấu giá'/>
 
 
                 <div style={styles.body}>

@@ -14,15 +14,6 @@ export default class AdminUserListScreen extends Component {
     }
 
     componentDidMount=()=>{
-         //Call_API_Here
-        // axios.get(BASE_URL+`/get_user_list`,{
-        //         data:{
-        //         }
-        //     })
-        //     .then(res => {
-        //     })
-        //     .catch(error => console.log(error));
-        alert('Call API get_user_list ')
         this.setState({
             users:api.get_user_list_admin
         })
@@ -41,7 +32,7 @@ export default class AdminUserListScreen extends Component {
                 {
                     users.length===0?
                     <text style={styles.text}>
-                        There is not any users, both companies and freelancers.
+                       Hiện hệ thống chưa có freelancer hay công ty nào đăng ký ...
                     </text>
                     :
                     <UserListAdminComponent users={users}/>

@@ -65,7 +65,7 @@ class Firebase {
         console.log("firebase signup :",data);
 
         if (await this.checkUserExist(data)){
-            alert('User is exist ,please signup with another email !!!');
+            alert('Email đã tồn tại, vui lòng chọn email khác.');
             return false 
         };
     

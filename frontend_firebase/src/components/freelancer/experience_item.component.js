@@ -45,8 +45,8 @@ export default class ExperienceItemComponent extends Component {
 
                         <div style={{width:'45%'}}>
                             <LabelInputComponent 
-                                label='Role'
-                                placeholder='Enter your role...'
+                                label='Chức vụ'
+                                placeholder='Chức vụ của bạn'
                                 disabled={!input_not_disabled}
                                 hide_label={true}
                                 inline={true}
@@ -86,8 +86,8 @@ export default class ExperienceItemComponent extends Component {
                     <div style={styles.row2}>
                         <div style={styles.row2_col1}>
                             <LabelInputComponent 
-                                label='Company'
-                                placeholder='Enter company name...'
+                                label='Công ty'
+                                placeholder='Nhập tên công ty ... '
                                 size={TEXT_SIZES.SMALL}
                                 disabled={!input_not_disabled}
                                 hide_label={true}
@@ -101,7 +101,7 @@ export default class ExperienceItemComponent extends Component {
                         <div style={styles.row2_col2}>
                             <div style={{display:'flex',flex:1,marginRight: 20}}>
                                 <LabelInputComponent
-                                    label='From' 
+                                    label='Từ' 
                                     size={TEXT_SIZES.SMALL}
                                     disabled={!input_not_disabled}
                                     inline={true}
@@ -115,7 +115,7 @@ export default class ExperienceItemComponent extends Component {
                           
                             <div style={{display:'flex',flex:1}}>
                             <LabelInputComponent 
-                                label='To'
+                                label='Đến'
                                 size={TEXT_SIZES.SMALL}
                                 disabled={!input_not_disabled}
                                 hide_label={true}
@@ -132,8 +132,8 @@ export default class ExperienceItemComponent extends Component {
 
                     <div style={styles.row3}>
                         <LabelInputComponent 
-                            label='Description'
-                            placeholder='Description your works...'
+                            label='Mô tả ngắn'
+                            placeholder='Mô tả ngắn về công việc...'
                             size={TEXT_SIZES.SMALL}
                             disabled={!input_not_disabled}
                             inline={true}

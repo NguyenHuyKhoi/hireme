@@ -56,7 +56,7 @@ export default class CardItemComponent extends Component {
                     <div style={{marginTop:10}}>
                         <div style={{width:'50%'}}>
                             <LabelInputComponent 
-                                label='Number :'
+                                label='Số thẻ :'
                                 type='number'
                                 onChange={value=>this.props.updateInputs('card','number',value)}
                                 size={TEXT_SIZES.NORMAL}
@@ -72,7 +72,7 @@ export default class CardItemComponent extends Component {
                     <div style={styles.row}>
                         <div style={{width:'30%'}}>
                         <LabelInputComponent 
-                            label='Owner :'
+                            label='Người sở hữu :'
                             onChange={value=>this.props.updateInputs('card','owner_name',value)}
                             size={TEXT_SIZES.SMALL}
                             disabled={disabled}
@@ -86,7 +86,7 @@ export default class CardItemComponent extends Component {
 
                         <div style={{width:'30%'}}>
                             <LabelInputComponent 
-                                label='Expired :'
+                                label='Thời hạn :'
                                 onChange={value=>this.props.updateInputs('card','expired_date',value)}
                                 size={TEXT_SIZES.SMALL}
                                 disabled={disabled}

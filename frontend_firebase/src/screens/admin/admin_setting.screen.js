@@ -34,17 +34,6 @@ class AdminSettingScreen extends Component {
     }
 
     componentDidMount=()=>{
-          //Call_API_Here
-        // axios.get(BASE_URL+`/get_setting_admin`,{
-        //         data:{
-        //         }
-        //     })
-        //     .then(res => {
-        //     })
-        //     .catch(error => console.log(error));
-
-    
-       // alert('Call API get_setting_user with admin_id '+this.state.admin_id)
         this.setState({
             setting:api.get_setting_admin
         })
@@ -79,22 +68,14 @@ class AdminSettingScreen extends Component {
     updateSetting=()=>{
         const inputs=this.groupInputs(FIELDS);
         if (inputs===null){
-            alert('Please enter all fields ...')
+            alert('Vui lòng điền đủ các trường...')
         }
         else {
             const body_req={
                 admin_id:this.state.admin_id,
                 ...inputs
             }
-            alert('Call API update_setting_admin  with body = '+JSON.stringify(body_req))
-            //Call_API_Here
-                // axios.get(BASE_URL+`/update_setting_admin `,{
-                //         data:{
-                //         }
-                //     })
-                //     .then(res => {
-                //         })
-                //         .catch(error => console.log(error));
+        
         }
     }
     render(){
@@ -112,7 +93,7 @@ class AdminSettingScreen extends Component {
                 :
                 <div style={styles.body}>
 
-                    <HeaderListComponent title='Setting'/>
+                    <HeaderListComponent title='Cài đặt'/>
 
                     <div style={{marginTop:30}}>
                         <SettingAccountComponent    
@@ -130,7 +111,7 @@ class AdminSettingScreen extends Component {
                     <Link 
                         to={routePaths.ADMIN_TASK_LIST}
                         style={{marginTop:50,width:'25%',textDecoration:'none'}}>
-                        <ButtonComponent label='Save Your Changes' height={60}/>
+                        <ButtonComponent label='Lưu thay đổi' height={60}/>
                     </Link>
 
                 </div>

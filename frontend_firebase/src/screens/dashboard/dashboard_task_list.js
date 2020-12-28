@@ -49,7 +49,7 @@ class DashBoardTaskListScreen extends Component {
                     {
                         tasks.length===0?
                         <text style={styles.text}>
-                            You have no any tasks
+                            Bạn chưa đăng hay đấu giá bất kỳ dự án nào...
                         </text>
                         :
                         <TaskListBriefComponent tasks={tasks}/>

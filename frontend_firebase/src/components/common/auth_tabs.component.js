@@ -5,10 +5,10 @@ import { BLUE_1, GRAY_2, GRAY_4, WHITE } from '../../utils/palette';
 
 const tabs=[
     {
-        label:'Login'
+        label:'Đăng nhập'
     },
     {
-        label:'Register'
+        label:'Đăng ký'
     }
 ]
 class TabBar extends Component{

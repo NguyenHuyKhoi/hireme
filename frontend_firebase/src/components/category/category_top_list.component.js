@@ -11,7 +11,7 @@ export default class CategoryTopListComponent extends Component {
             <div style={styles.container}>
 
             <text style={styles.title}>
-                Popular Task Categories 
+                Danh mục
             </text>
 
             <div style={styles.body}>

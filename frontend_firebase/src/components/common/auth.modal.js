@@ -69,9 +69,9 @@ class CommonTab extends Component{
                 <text style={styles.title}>
                     {
                         idx===0?
-                        'We are glad to see you again'
+                        'Đăng nhập'
                         :
-                        'Let is create an account'
+                        'Tạo tài khoản nhanh chóng'
                     }
                 </text>
 
@@ -96,11 +96,11 @@ class CommonTab extends Component{
                 }
 
                 <div style={styles.input_container}>
-                    <IconInput onChange={(value)=>this.props.updateInputs('email',value)} placehoder="Email..."/>
+                    <IconInput onChange={(value)=>this.props.updateInputs('email',value)} placehoder="Nhập email..."/>
                 </div>
 
                 <div style={styles.input_container}>
-                    <IconInput  onChange={(value)=>this.props.updateInputs('password',value)} placehoder="Password..."  is_secret={true}/>
+                    <IconInput  onChange={(value)=>this.props.updateInputs('password',value)} placehoder="Mật khẩu..."  is_secret={true}/>
                 </div>  
                 {/* {
                     idx===1?
@@ -118,7 +118,7 @@ class CommonTab extends Component{
                             if (idx===0) this.props.onSignin();
                                 else this.props.onSignup()
                         }}
-                        label={  idx===0? 'Login': 'Register' }/>
+                        label={  idx===0? 'Đăng nhập': 'Đăng ký' }/>
                 </div>  
 
         
@@ -129,13 +129,13 @@ class CommonTab extends Component{
                         <text 
                             
                             style={styles.link}>
-                           Forgot password
+                           Quên mật khẩu
                         </text>
 
                         <text 
                             onClick={this.props.onClickRegister}
                             style={styles.link}>
-                           Sign up
+                           Đăng ký
                         </text>
                     </div>
                     :
@@ -185,12 +185,12 @@ class AuthModal extends Component {
         });
 
         if (user) {
-            alert('SignIn successfully');
+            alert('Đăng nhập thành công.');
             this.props.loginSuccess(user)
             this.props.onClickClose();
         }
         else {
-            alert('SignIn failed ');
+            alert('Đăng nhập thất bại. ');
         }
 
 
@@ -216,11 +216,11 @@ class AuthModal extends Component {
         });
 
         if (ok) {
-            alert('Signup successfully');
+            alert('Đăng ký thành công.');
             this.props.onClickClose();
         }
         else {
-            alert('Signup failed ');
+            alert('Đăng ký thất bại.');
         }
 
 

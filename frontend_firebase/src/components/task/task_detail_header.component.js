@@ -10,14 +10,13 @@ import logo from '../../assets/images/logo.png'
 class ProjectBudget extends Component {
     render(){
         const budget=this.props.budget;
-        const type_price=this.props.type_price;
         return (
             <div style={{width: '100%',height:'60%',borderRadius:6,
                 backgroundColor:BLUE_1,display: 'flex',justifyContent: 'center',
                 flexDirection:'column',
                 alignItems: 'center'}}>
                 <text style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_3}}>
-                    Project Budget
+                    Chi phí
                 </text>
 
                 <text style={{fontSize:TEXT_SIZES.NORMAL,color:WHITE}}>
@@ -59,8 +58,7 @@ export default class TaskDetailHeaderComponent extends Component {
             <div style={{flex:1}}/>
 
             <div style={styles.col2}>
-                <ProjectBudget budget={[task.min_budget,task.max_budget]}
-                    type_price={'Budget'}/>
+                <ProjectBudget budget={[task.min_budget,task.max_budget]}/>
 
             </div>
 

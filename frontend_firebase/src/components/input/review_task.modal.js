@@ -17,7 +17,7 @@ export default class ReviewTaskModal extends Component {
 
                 <div style={styles.container}>
                     <text style={styles.title}>
-                        Review :
+                        Đăng nhận xét :
                     </text>
 
                     <TextareaInputComponent     
@@ -34,11 +34,11 @@ export default class ReviewTaskModal extends Component {
 
                     <div style={styles.footer}>
                         <div style={{...styles.btn_container,marginRight: 50}}>
-                            <ButtonComponent label='Back'
+                            <ButtonComponent label='Quay lại'
                                     onClick={this.props.clickBack}/>
                         </div>
                         <div style={styles.btn_container}>
-                            <ButtonComponent label='Review' color={GREEN_1}
+                            <ButtonComponent label='Gửi' color={GREEN_1}
                                 onClick={this.props.clickReview}/>
                         </div>
                     </div>

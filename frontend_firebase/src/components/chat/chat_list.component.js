@@ -99,12 +99,18 @@ export default class ChatListComponent extends Component {
         return (
             <div  style={styles.container} >    
 
-                <HeaderListComponent title='Chat list'/>
+                <HeaderListComponent title='Dach sách '/>
 
                 <div style={styles.body}>
-                    <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,margin:30}}>
-                        You have't not any chat!!!
-                    </text>
+                    {
+                        chats.length===0?
+                        <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,margin:30}}>
+                            Bạn hiện chưa có cuộc trò chuyện nào
+                        </text>
+                        :
+                        null
+                    }
+                  
                     {
                         chats.map((item,index)=>(
                             <ChatItem 

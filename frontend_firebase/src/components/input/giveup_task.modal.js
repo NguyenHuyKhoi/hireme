@@ -16,7 +16,7 @@ export default class GiveupTaskModal extends Component {
                 style={styles.modal}>
                 <div style={styles.container}>
                     <text style={styles.title}>
-                        Why do you give up this task ?
+                        Tại sao bạn từ bỏ dự án này?
                     </text>
 
                     <TextareaInputComponent
@@ -26,10 +26,10 @@ export default class GiveupTaskModal extends Component {
 
                     <div style={styles.footer}>
                         <div style={{...styles.btn_container,marginRight: 50}}>
-                            <ButtonComponent label='Back' onClick={this.props.clickBack}/>
+                            <ButtonComponent label='Quay lại' onClick={this.props.clickBack}/>
                         </div>
                         <div style={styles.btn_container}>
-                            <ButtonComponent label='Give up' color={YELLOW_1}
+                            <ButtonComponent label='Gửi' color={YELLOW_1}
                                 onClick={this.props.clickGiveup}/>
                         </div>
                     </div>

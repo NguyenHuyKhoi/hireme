@@ -16,7 +16,7 @@ export default class ReportTaskModal extends Component {
 
                 <div style={styles.container}>
                     <text style={styles.title}>
-                        Why do you report this task ?
+                        Tại sao bạn báo cáo dự án này?
                     </text>
 
                     <TextareaInputComponent 
@@ -26,11 +26,11 @@ export default class ReportTaskModal extends Component {
 
                     <div style={styles.footer}>
                         <div style={{...styles.btn_container,marginRight: 50}}>
-                            <ButtonComponent label='Back' 
+                            <ButtonComponent label='Quay lại' 
                                 onClick={this.props.clickBack}/>
                         </div>
                         <div style={styles.btn_container}>
-                            <ButtonComponent label='Report' color={RED_1}
+                            <ButtonComponent label='Gửi' color={RED_1}
                                 onClick={this.props.clickReport}/>
                         </div>
                     </div>

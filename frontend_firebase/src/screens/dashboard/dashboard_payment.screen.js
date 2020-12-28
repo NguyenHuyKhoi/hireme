@@ -64,7 +64,7 @@ class DashBoardPaymentScreen extends Component {
         let factor=t.type==='withdraw'?-1:1;
         let aftBalance=p.balance+t.amount*factor;
         if (aftBalance<0){
-            alert('Can\'n withdraw ');
+            alert('Không thể rút tiền khi số dư tài khoản không đủ.');
             return ;
         }
 
@@ -79,7 +79,7 @@ class DashBoardPaymentScreen extends Component {
         await firebase.set(this.path+'/balance/',aftBalance);
         await this.getPaymentDetail();
 
-        alert(' Transact Successfully!')
+        alert(' Giao dịch thành công!')
     }
 
     createCard=async()=>{
@@ -87,14 +87,14 @@ class DashBoardPaymentScreen extends Component {
         await firebase.push(this.path+'/cards/',this.state.card);
         await this.getPaymentDetail();
 
-        alert('Add  Card Successfully!')
+        alert('Thêm thẻ thành công!')
     }
 
     deleteCard=async(id)=>{
         console.log('dashboard payment deleteCard:',id)
         await firebase.set(this.path+'/cards/'+id, null )
         await this.getPaymentDetail();
-        alert('Delete  Card Successfully!')
+        alert('Xóa thẻ thành công.')
     }
 
     render(){
@@ -115,7 +115,7 @@ class DashBoardPaymentScreen extends Component {
                 <div style={styles.body}>
 
 
-                    <HeaderListComponent title='Payment'/>
+                    <HeaderListComponent title='Thanh toán'/>
 
                     <div style={{marginTop:30}}>
                         <CardListComponent 

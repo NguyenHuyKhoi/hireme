@@ -11,27 +11,27 @@ import * as action from '../../redux/action/user.action'
 const sidebarItems=[
 
     {
-        label:'Tasks',
+        label:'Dự án',
         screen:routePaths.DASHBOARD_TASK_LIST,
         icon:'task'
     },
     {
-        label:'Chat',
+        label:'Trò chuyện',
         screen:routePaths.DASHBOARD_CHAT,
         icon:'chat'
     },
     {
-        label:'Payment',
+        label:'Thanh toán',
         screen:routePaths.DASHBOARD_PAYMENT,
         icon:'payment'
     },
     {
-        label:'Setting',
+        label:'Cài đặt',
         screen:routePaths.DASHBOARD_SETTING_FREELANCER,
         icon:'setting'
     },
     {
-        label:'Logout',
+        label:'Đăng xuất',
         screen:routePaths.HOME,
         icon:'logout'
     },
@@ -40,27 +40,27 @@ const sidebarItems=[
 
 const sidebarAdminItems=[
     {
-        label:'User',
+        label:'Người dùng',
         screen:routePaths.ADMIN_USER_LIST,
         icon:'user'
     },
     {
-        label:'Task',
+        label:'Dự án',
         screen:routePaths.ADMIN_TASK_LIST,
         icon:'task'
     },
     {
-        label:'Chat',
+        label:'Trò chuyện',
         screen:routePaths.ADMIN_CHAT,
         icon:'chat'
     },
     {
-        label:'Setting',
+        label:'Cài đặt',
         screen:routePaths.ADMIN_SETTING,
         icon:'setting'
     },
     {
-        label:'Logout',
+        label:'Đăng xuất',
         screen:routePaths.HOME,
         icon:'logout'
     },
@@ -83,9 +83,9 @@ class Item extends Component{
                 onMouseLeave={()=>this.setState({hover:false})}
                 onMouseEnter={()=>this.setState({hover:true})}
                 onClick={()=>{
-                    if (item.label==='Logout') this.props.clickLogout();
+                    if (item.label==='Đăng xuất') this.props.clickLogout();
                 }}
-                to={item.label!=='Setting' || type==='admin'?
+                to={item.label!=='Cài đặt' || type==='admin'?
                     item.screen
                         : type==='company'?
                             routePaths.DASHBOARD_SETTING_COMPANY
@@ -155,7 +155,7 @@ class SidebarComponent extends Component {
                         <Link 
                             to={routePaths.DASHBOARD_TASK_POST}
                             style={styles.btn_container}>
-                            <ButtonComponent label='Post A Task'/>
+                            <ButtonComponent label='Đăng dự án'/>
                         </Link>
                         :
                         '.'

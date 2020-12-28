@@ -71,7 +71,7 @@ class ChatComponent extends Component {
 
     sendMessage=async ()=>{
         if (this.state.message===undefined || this.state.message===''){
-            alert('Please enter some thing before send ....')
+            alert('Bạn không thể gửi một tin nhắn trống...')
         }
         else {
             let i=this.props.user_infor

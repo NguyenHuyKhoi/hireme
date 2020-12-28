@@ -104,16 +104,16 @@ export const HOURLY_RATE_DOMAIN=[10,500]
 export const FIXED_PRICE_DOMAIN=[10,10000]
 export const BIDDING_TIME_DOMAIN=[1,100]
 export const CVV_DOMAIN=[0,999]
-export const BUSINESS_AREA_DOMAIN=['Strategy','Marketing','Finance','Human resources','Technology','Operations','Education','Others']
+export const BUSINESS_AREA_DOMAIN=['Công nghệ','Marketing','Tài chính','Du lịch','Giáo dục','Thể thao','Tư vấn','Khác']
 export const COMPANY_SIZES_DOMAIN=[ '0 - 10', '10 - 50', '50 - 100', '100 - 500','Over 500']
-export const TASKS_TYPE_DOMAIN=['Fixed Price','Hourly Rate']
+export const TASKS_TYPE_DOMAIN=['Giá cố định','Giá theo giờ']
 
 export const CATEGORIES_DOMAIN=[
     {
         id:0, //defined same both server and client
         icon:'cat_design',
         name:'Design & Creative',
-        description:'Design a website, an advertisement, or just a nice poster,...',
+        description:'Thiết kế website, logo , banner ,...',
         predefined_skills:[
             {
                 //defined same both server and client, 
@@ -209,7 +209,7 @@ export const CATEGORIES_DOMAIN=[
         id:1, //defined same both server and client
         icon:'cat_mobile',
         name:'Mobile',
-        description:'Development mobile app on android,iOS,...',
+        description:'Phát triển ứng dụng trên Android ,IOS...',
         predefined_skills:[
             {
                 //defined same both server and client, 
@@ -275,7 +275,7 @@ export const CATEGORIES_DOMAIN=[
         id:2, //defined same both server and client
         icon:'cat_web',
         name:'Web',
-        description:'Development websites on any platforms.',
+        description:'Phát triển website trên mọi nền tảng.',
         predefined_skills:[
             {
                 //defined same both server and client, 
@@ -351,7 +351,7 @@ export const CATEGORIES_DOMAIN=[
         id:3, //defined same both server and client
         icon:'cat_account',
         name:'Accountings/Consulting',
-        description:'Give valuable analytics about any fiels.',
+        description:'Đưa ra những phân tích giá trị trên mọi lĩnh vực.',
         predefined_skills:[
             {
                 //defined same both server and client, 
@@ -417,7 +417,7 @@ export const CATEGORIES_DOMAIN=[
         id:4, //defined same both server and client
         icon:'cat_customer',
         name:'Customer Service',
-        description:'Design a website, an advertisement, or just a nice poster,...',
+        description:'Các dịch vụ chăm sóc khách hàng..',
         predefined_skills:[
             {
                 //defined same both server and client, 
@@ -483,7 +483,7 @@ export const CATEGORIES_DOMAIN=[
         id:5, //defined same both server and client
         icon:'cat_engineer',
         name:'Engineering',
-        description:'Hire the best engineers for your work.',
+        description:'Thuê các kỹ sư có tay nghề cao .',
         predefined_skills:[
             {
                 //defined same both server and client, 
@@ -549,7 +549,7 @@ export const CATEGORIES_DOMAIN=[
         id:6, //defined same both server and client
         icon:'cat_sale',
         name:'Sales & Marketing',
-        description:'Hire saler and marketer for your products',
+        description:'Làm việc với các nhà bán hàng, marketer hàng đầu.',
         predefined_skills:[
             {
                 //defined same both server and client, 
@@ -615,7 +615,7 @@ export const CATEGORIES_DOMAIN=[
         id:7, //defined same both server and client
         icon:'cat_writing',
         name:'Writing & Translation',
-        description:'Work with the best writor and authors on worlds',
+        description:'Dịch thuật tài liệu, viết lách ,sửa bản in...',
         predefined_skills:[
             {
                 //defined same both server and client, 
@@ -680,4 +680,4 @@ export const CATEGORIES_DOMAIN=[
 
 export const TASK_STATE_DOMAIN=[ 'all','bidding','doing','done','reported','canceled']
 
-export const USER_FILTER_DOMAIN=[ 'All' ,'Freelancer','Company']
+export const USER_FILTER_DOMAIN=[ 'Tất cả' ,'Freelancer','Công ty']

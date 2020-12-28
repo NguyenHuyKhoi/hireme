@@ -80,7 +80,7 @@ export default class StageItemComponent extends Component {
 
                             <div style={styles.res_container}>
                                 <LabeledInputComponent 
-                                    label='Link Resource' 
+                                    label='Link tài nguyên:' 
                                     onChange={(value)=>{}}
                                     value={ link}/>
                             </div>  

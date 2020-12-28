@@ -33,7 +33,7 @@ export default class TaskListBriefComponent extends Component {
         return (
             <div style={styles.container}>
 
-                <HeaderListComponent   title='Tasks' height={50  }/>
+                <HeaderListComponent   title='Danh sách dự án' height={50  }/>
                 
 
                 <div style={styles.body}>

@@ -11,7 +11,7 @@ export default class FreelancerTopListComponent extends Component {
             <div style={styles.container}>
 
                 <text style={styles.title}>
-                    Top Freelancers
+                    Freelancer tiêu biểu
                 </text>
 
                 <div style={styles.body}>

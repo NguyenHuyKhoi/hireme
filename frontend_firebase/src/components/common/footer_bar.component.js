@@ -16,10 +16,10 @@ export default class FooterBarComponent extends Component {
 
                 <div style={styles.row1}>
                     <text style={styles.big_text}>
-                        About us
+                        Về chúng tôi
                     </text>
                     <text style={styles.normal_text}>
-                        The best platform for freelancers and companies ,and more....
+                        Nền tảng kết nối các Freelancers hàng đầu Việt Nam ...
                     </text>
                 </div>
 
@@ -30,7 +30,7 @@ export default class FooterBarComponent extends Component {
                             HIREME
                         </text>
                         <text style={styles.small_text}>
-                            Contact us: 
+                            Liên hệ : 
                         </text>
                         <text style={styles.small_text}>
                             hireme.contact@gmail.com
@@ -40,7 +40,7 @@ export default class FooterBarComponent extends Component {
                     <div style={styles.row2_col2}>
 
                         <text style={styles.normal_text}>
-                            Usefull links
+                            Hữu ích cho bạn :
                         </text>
 
                         <div style={styles.link_container}>
@@ -48,12 +48,12 @@ export default class FooterBarComponent extends Component {
                                 <Link
                                     to={routePaths.TASK_SEARCH}
                                     style={styles.small_text}>
-                                    Find Tasks 
+                                    Tìm dự án
                                 </Link>
                                 <Link
                                     to={routePaths.FREELANCER_SEARCH}
                                     style={styles.small_text}>
-                                    Find Freelancers 
+                                   Tìm freelancer
                                 </Link>
                             </div>
 
@@ -61,12 +61,12 @@ export default class FooterBarComponent extends Component {
                                 <Link
                                     to={routePaths.HOME}
                                     style={styles.small_text}>
-                                    Guides
+                                    Hướng dẫn
                                 </Link>
                                 <Link
                                     to={routePaths.HOME}
                                     style={styles.small_text}>
-                                    About us 
+                                    Về chúng tôi
                                 </Link>
                             </div>
                         </div>
@@ -74,11 +74,11 @@ export default class FooterBarComponent extends Component {
 
                     <div style={styles.row2_col3}>
                         <text style={{...styles.normal_text,marginTop:10}}>
-                            Register news from us :
+                            Đăng ký để nhận tin tức:
                         </text>
 
                         <div style={styles.email_register}>
-                            <input style={styles.email_input} placeholder='Enter your email ...'/>
+                            <input style={styles.email_input} placeholder='Nhập email của bạn ...'/>
 
                             <div style={styles.btn_container}>
                                 <ButtonComponent label={'->'} height={35}/>

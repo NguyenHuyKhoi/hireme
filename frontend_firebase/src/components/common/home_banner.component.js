@@ -15,17 +15,17 @@ export default class HomeBannerComponent extends Component {
                     <div style={styles.body}>
 
                         <text style={styles.title}>
-                            Hire Expert or be hire for any job, any time
+                            Thuê các freelancer cho mọi dự án của bạn 
                         </text>
 
                         <text style={styles.description}>
-                            Thousands small company use us to make their ideas be reality.
+                            Hàng nghìn công ty đã chọn chúng tôi !
                         </text>
 
                         <div style={styles.question_container}>
 
                             <text style={styles.question}>
-                                What do you want ?
+                                Bạn muốn tìm:
                             </text>
                         </div>
 
@@ -34,7 +34,7 @@ export default class HomeBannerComponent extends Component {
                             to={routePaths.TASK_SEARCH}
                             style={styles.btn_container}>
                             <ButtonInputComponent 
-                                btn_label='Search' />
+                                btn_label='Tìm' />
                         </Link>
                     
                     </div>

@@ -59,16 +59,16 @@ class HeaderBarComponent extends Component {
 
                     <Link to ={routePaths.HOME}
                         style={styles.item}>
-                            Home
+                            Trang chủ
                     </Link>
                     <Link to ={routePaths.FREELANCER_SEARCH}
                         style={styles.item}>
-                            Find Freelancers
+                            Tìm freelancer
                     </Link>
 
                     <Link to ={routePaths.TASK_SEARCH}
                         style={styles.item}>
-                            Find Tasks
+                            Tìm dự án
                     </Link>
 
                     {/* <Link to ={routePaths.FREELANCER_SEARCH}
@@ -93,14 +93,14 @@ class HeaderBarComponent extends Component {
                                 style={styles.avatar}/>
                             <text 
                                 style={styles.my_account}>
-                                    My Account
+                                    Tài khoản
                             </text>
                         </Link>
                     :
                         <text 
                             onClick={this.openAuthModal}
                             style={styles.login}>
-                            Login/Register  
+                            Đăng nhập/Đăng ký 
                         </text>
                     }   
                         

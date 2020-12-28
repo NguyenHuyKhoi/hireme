@@ -28,7 +28,7 @@ class DashBoardTaskPostScreen extends Component {
 
     post=async ()=>{
         await firebase.postTask(this.props.user_infor.id,this.state);
-        alert('Post task successfully');
+        alert('Đăng dự án thành công!');
     }
 
 
@@ -43,7 +43,7 @@ class DashBoardTaskPostScreen extends Component {
 
                     <div style={{display:'flex',flex:1,flexDirection: 'column'}}>
 
-                        <HeaderListComponent title='Post A Task'/>
+                        <HeaderListComponent title='Đăng dự án'/>
 
                         <div style={styles.form}>
                             <PostTaskProfileComponent 
@@ -60,7 +60,7 @@ class DashBoardTaskPostScreen extends Component {
                             to={routePaths.DASHBOARD_TASK_LIST}
                             onClick={this.post}
                             style={styles.btn_container}>
-                            <ButtonComponent label='Post This Task' height={60}/>
+                            <ButtonComponent label='Đăng' height={60}/>
                         </Link>
 
                     </div>

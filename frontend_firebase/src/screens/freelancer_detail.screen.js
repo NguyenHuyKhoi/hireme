@@ -65,7 +65,7 @@ export default class FreelancerDetailScreen extends Component {
 
                             <div style={{marginTop:30}}>
                                 <DescriptionComponent 
-                                    title='About Freelancer'
+                                    title='Mô tả'
                                     content={freelancer.description}/>
                             </div>
                         
@@ -90,20 +90,20 @@ export default class FreelancerDetailScreen extends Component {
                             <div style={{marginTop:50}}>
                                 <InforsBarComponent fields={[
                                     {
-                                        key:'Hourly Rate',value:freelancer.hourly_rate
+                                        key:'Giá thuê',value:freelancer.hourly_rate
                                     },
                                     {
-                                        key:'Done Tasks',value:freelancer.done_tasks!==undefined?freelancer.done_tasks:0
+                                        key:'Đã làm',value:freelancer.done_tasks!==undefined?freelancer.done_tasks:0
                                     },
                                     {
-                                        key:'Income($)',value:freelancer.income!==undefined?freelancer.done_tasks:0
+                                        key:'Thu nhập',value:freelancer.income!==undefined?freelancer.done_tasks:0
                                     }
                                 ]}/>
                             </div>
 
-                            <div style={{marginTop:15}}>
+                            {/* <div style={{marginTop:15}}>
                                 <ButtonComponent label='Make an offer'/>
-                            </div>
+                            </div> */}
                         
                         
                         </div>

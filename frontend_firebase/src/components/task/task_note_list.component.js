@@ -14,7 +14,7 @@ export default class TaskNoteListComponent extends Component {
         return (
             <div style={styles.container}>
                 <text style={styles.title}>
-                    Notes:
+                    Ghi chú:
                 </text>
 
                 <div style={styles.body}>

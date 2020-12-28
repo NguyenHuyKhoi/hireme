@@ -33,7 +33,7 @@ export default class TransactionListComponent extends Component {
         return (
             <div style={styles.container}>
 
-                <HeaderListComponent title='Transaction History' height={40} is_sort={true}/>
+                <HeaderListComponent title='Lịch sử giao dịch' height={40} is_sort={true}/>
                 
                 <div style={styles.body}>
 

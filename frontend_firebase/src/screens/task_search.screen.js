@@ -66,7 +66,7 @@ export default class TaskSearchScreen extends Component {
                         {
                             tasks.length===0?
                             <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
-                                Don't find any tasks 
+                                Không tìm thấy dự án nào ... 
                             </text>
                             :
                             <TaskListComponent tasks={tasks}/>

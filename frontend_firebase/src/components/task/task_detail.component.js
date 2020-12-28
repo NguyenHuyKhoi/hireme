@@ -24,7 +24,7 @@ export default class TaskDetailTabComponent extends Component {
                         
                         <div style={{marginTop:30}}>
                             <DescriptionComponent 
-                                title='About This Task:'
+                                title='Mô tả'
                                 content={task.description}/>
                         </div>
 

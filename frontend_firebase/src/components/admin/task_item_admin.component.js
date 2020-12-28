@@ -42,17 +42,17 @@ export default class TaskItemBriefAdminComponent extends Component {
     }
 
     banTask=()=>{
-        alert('Ban task :');
+      //  alert('Ban task :');
         this.closeBanModal();
     }
 
     rejectReport=(review)=>{
-        alert('Reject report :');
+        //alert('Reject report :');
         this.closeViewReportsModal();
     }
 
     banTaskFromReport=(review)=>{
-        alert('Ban task from report :');
+       // alert('Ban task from report :');
         this.closeViewReportsModal();
     }
     render(){

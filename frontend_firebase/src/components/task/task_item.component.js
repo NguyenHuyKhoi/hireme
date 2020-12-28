@@ -49,7 +49,7 @@ export default class TaskItemComponent extends Component {
                     <Link  
                         to={routePaths.TASK_DETAIL+`/${task.id}`}
                         style={styles.btn_container}>
-                        <ButtonComponent label='Bid Now'/>
+                        <ButtonComponent label='Xem chi tiết'/>
                     </Link>
                         
                 </div>

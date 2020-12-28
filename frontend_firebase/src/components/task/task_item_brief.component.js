@@ -50,7 +50,7 @@ export default class TaskItemBriefComponent extends Component {
                             {
                                 task.post_time!==undefined?
                                 <text style={styles.time_text}>
-                                    {'Posted :'+convertFullDateToOnlyDay(task.post_time)}
+                                    {'Đăng từ :'+convertFullDateToOnlyDay(task.post_time)}
                                 </text>
                                 :
                                 null
@@ -61,7 +61,7 @@ export default class TaskItemBriefComponent extends Component {
                             {
                                 task.undertaked_time!==undefined?
                                 <text style={styles.time_text}>
-                                    {'Posted :'+convertFullDateToOnlyDay(task.undertaked_time)}
+                                    {'Được nhận :'+convertFullDateToOnlyDay(task.undertaked_time)}
                                 </text>
                                 :
                                 null
@@ -72,7 +72,7 @@ export default class TaskItemBriefComponent extends Component {
                             {
                                 task.done_time!==undefined?
                                 <text style={styles.time_text}>
-                                    {'Posted :'+convertFullDateToOnlyDay(task.done_time)}
+                                    {'Hoàn thành :'+convertFullDateToOnlyDay(task.done_time)}
                                 </text>
                                 :
                                 null
@@ -88,7 +88,7 @@ export default class TaskItemBriefComponent extends Component {
                     <Link 
                         to={routePaths.DASHBOARD_TASK_MANAMENT+`/${task.id}`}
                         style={styles.btn_container}>
-                        <ButtonComponent label='Detail'/>
+                        <ButtonComponent label='Chi tiết'/>
                     </Link>
                 </div>
                 

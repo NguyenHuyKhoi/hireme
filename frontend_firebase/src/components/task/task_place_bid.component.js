@@ -13,14 +13,14 @@ export default class TaskPlaceBidComponent extends Component {
 
                 <div style={styles.header}>
                     <text style={styles.header_text}>
-                            Bidding on task
+                            Đấu giá dự án này:
                     </text>
                 </div>
 
                 <div style={styles.body}>
                         
                         <NumberInputComponent 
-                            label='Enter bidding cost '
+                            label='Chi phí đề xuất :'
                             onChange={value=>this.props.updateInputs('bidding','budget',value)}
                             domain={FIXED_PRICE_DOMAIN}
                             value={[4000]}/>
@@ -28,10 +28,10 @@ export default class TaskPlaceBidComponent extends Component {
 
                         <div style={{width: '100%',marginTop:20}}>
                             <NumberInputComponent
-                                label='Enter bidding time (day) '
+                                label='Thời gian triển khai (ngày): '
                                 onChange={value=>this.props.updateInputs('bidding','duration',value)}
                                 domain={BIDDING_TIME_DOMAIN}
-                                unit=' days'
+                                unit=' ngày'
                                 value={[20]}/>
 
                         </div>
@@ -40,14 +40,14 @@ export default class TaskPlaceBidComponent extends Component {
                         <div style={styles.btn_container}>
                             <ButtonComponent  
                                 onClick={this.props.placeBidding}
-                                label='Place A Bid'/>
+                                label='Đấu giá'/>
                         </div>
                     
                 </div>
 
                 <div style={styles.footer}>
                     <text style={styles.footer_text}>
-                        More feasible cost, more chances.
+                        Chi phí càng tối ưu, tỉ lệ được nhận càng cao!
                     </text>
                 </div>
             </div>
@@ -101,6 +101,7 @@ const styles={
     },
     footer_text:{
         fontSize:TEXT_SIZES.SMALL,
-        color:WHITE
+        color:WHITE,
+        textAlign: 'center'
     }
 }

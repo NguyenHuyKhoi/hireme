@@ -16,7 +16,7 @@ export default class CardListComponent extends Component {
         return (
             <div style={styles.container}>
               
-                <HeaderListComponent title='Credit Cards' height={40}/>
+                <HeaderListComponent title='Danh sách thẻ tín dụng: ' height={40}/>
                 
    
 

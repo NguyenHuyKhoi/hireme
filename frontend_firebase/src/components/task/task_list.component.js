@@ -30,7 +30,7 @@ export default class TaskListComponent extends Component {
 
             <div style={styles.container}>
               
-                <HeaderListComponent title='Tasks' is_sort={true}/>
+                <HeaderListComponent title='Danh sách dự án' is_sort={true}/>
                 
         
 

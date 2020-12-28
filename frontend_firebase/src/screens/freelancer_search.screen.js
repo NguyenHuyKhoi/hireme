@@ -63,7 +63,7 @@ export default class FreelancerSearchScreen extends Component {
                         {
                             freelancers.length===0?
                             <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
-                                Don't find any freelancers 
+                                Không tìm thấy freelancer nào !
                             </text>
                             :
                             <FreelancerListComponent freelancers={freelancers}/>

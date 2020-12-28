@@ -22,7 +22,7 @@ export default class TaskNoteItemComponent extends Component{
                         <div style={styles.btn_add}>
 
                             <text style={styles.btn_label}>
-                                Add
+                                Thêm
                             </text>
                         </div>
                     </div>

@@ -57,7 +57,7 @@ export default class TransactionItemComponent extends Component {
                         }
                         {
                             task!==undefined?
-                            'on task :'+task.name
+                            'trong dự án :'+task.name
                             :
                             ''
                         }
@@ -67,9 +67,9 @@ export default class TransactionItemComponent extends Component {
                         <text style={styles.from_text}>
                             {
                                 transaction.amount>0?
-                                'From : '
+                                'Từ : '
                                 :
-                                'To : '
+                                'Đến : '
                             }
                         </text>
                         {

@@ -40,7 +40,7 @@ export default class AdminTaskListScreen extends Component {
                     {
                         tasks.length===0?
                         <text style={styles.text}>
-                            There is not any users, both companies and freelancers.
+                            Hiện hệ thống chưa có dự án nào được đăng.
                         </text>
                         :
                         <TaskListAdminComponent tasks={tasks}/>

@@ -24,7 +24,7 @@ class BiddingBudget extends Component {
                     {'$'+budget}
                 </text>
                 <text style={{fontSize:TEXT_SIZES.SMALL,color:GRAY_3}}>
-                    in {duration} days
+                    trong {duration} ngày
                 </text>
 
                 
@@ -101,13 +101,13 @@ export default class BiddingItemComponent extends Component {
                         <div style={styles.btn_container}>
                             <ButtonComponent 
                                 onClick={this.props.acceptBidding}
-                                color={BLUE_1} label='Accept'/>
+                                color={BLUE_1} label='Chấp nhận'/>
                         </div>
 
                         <div style={{flex:0.3}}/>
 
                         <div style={styles.btn_container}>
-                            <ButtonComponent color={YELLOW_1} label='Chat'/>
+                            <ButtonComponent color={YELLOW_1} label='Trao đổi'/>
                         </div>
 
                         <div style={{flex:0.3}}/>
@@ -115,7 +115,7 @@ export default class BiddingItemComponent extends Component {
                         <div style={styles.btn_container}>
                             <ButtonComponent 
                                 onClick={this.props.removeBidding}
-                                color={GRAY_3} label='Remove'/>
+                                color={GRAY_3} label='Xóa'/>
                         </div>
 
                         <div style={{flex:1.5}}/>
@@ -170,7 +170,7 @@ const styles={
         marginBottom: 5
     },
     row1_col3:{
-        flex:1.5,
+        flex:2.5,
         height:'100%',
         display: 'flex',
         justifyContent: 'center',

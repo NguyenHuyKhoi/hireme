@@ -14,12 +14,12 @@ class NewFile extends Component{
         return(
             <div style={styles.item_container}>
             <text style={styles.item_upload_label}>
-                Upload
+                Tải lên
             </text>
 
             <div style={styles.item_upload_btn}>
                 {/* <input type="file" onChange={this.onFileChange} multiple /> */}
-                <ButtonComponent height={30} label='Choose' color={WHITE} text_color={BLUE_1}/>
+                <ButtonComponent height={30} label='Chọn' color={WHITE} text_color={BLUE_1}/>
             </div>
             </div>
                         

@@ -60,7 +60,7 @@ export default class CompanyDetailScreen extends Component {
 
                             <div style={{marginTop:30}}>
                                 <DescriptionComponent 
-                                    title='About Company'
+                                    title='Mô tả'
                                     content={company.description}/>
                             </div>
                         
@@ -77,28 +77,28 @@ export default class CompanyDetailScreen extends Component {
 
                             <div style={{marginTop:30}}>
                                 <SingleFieldComponent field={{
-                                        key:'Employee size :',
+                                        key:'Quy mô :',
                                         value:company.employee_size
                                     }} />
                             </div>
 
                             <div style={{marginTop:40}}>
                                 <SingleFieldComponent field={{
-                                    key:'Location :',
+                                    key:'Vị trí :',
                                     value:company.location
                                 }}/>
                             </div>
 
                             <div style={{marginTop:40}}>
                                 <SingleFieldComponent field={{
-                                    key:'Business Area :',
+                                    key:'Lĩnh vực :',
                                     value:company.business_area
                                 }}/>
                             </div>
 
                             <div style={{marginTop:40}}>
                                 <SingleFieldComponent field={{
-                                    key:'Website link:',
+                                    key:'Website:',
                                     value:company.website_link
                                 }}/>
                             </div>

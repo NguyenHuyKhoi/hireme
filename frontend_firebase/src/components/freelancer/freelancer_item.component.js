@@ -34,20 +34,20 @@ export default class FreelancerItemComponent extends Component {
                 <div style={styles.fields}>
                     <InforsBarComponent fields={[
                         {
-                            key:'Hourly Rate',value:freelancer.hourly_rate
+                            key:'Giá thuê',value:freelancer.hourly_rate
                         },
                         {
-                            key:'Done Tasks',value:freelancer.done_tasks!==undefined?freelancer.done_tasks:0
+                            key:'Đã làm',value:freelancer.done_tasks!==undefined?freelancer.done_tasks:0
                         },
                         {
-                            key:'Income($)',value:freelancer.income!==undefined?freelancer.income:0
+                            key:'Thu nhập',value:freelancer.income!==undefined?freelancer.income:0
                         }
                     ]}/>
                 </div>
                 <Link 
                     to={routePaths.FREELANCER_DETAIL+`/${freelancer.id}`}
                     style={styles.btn_container}>
-                    <ButtonComponent label='View Profile '/>
+                    <ButtonComponent label='Xem chi tiết'/>
                 </Link>
                
         

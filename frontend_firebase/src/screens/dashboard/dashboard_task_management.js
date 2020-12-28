@@ -70,7 +70,7 @@ class DashBoardTaskManagementScreen extends Component {
             case 1:
                 if (stb.length===0){
                     return  <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
-                        There is not any biddings.Be the first !
+                        Dự án này chưa có đơn đấu giá nào, hãy trở thành người đấu giá đầu tiên.
                     </text>
                 }
                 else {

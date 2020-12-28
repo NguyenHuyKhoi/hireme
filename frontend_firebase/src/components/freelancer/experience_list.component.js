@@ -23,7 +23,7 @@ export default class ExperienceListComponent extends Component {
         return (
             <div style={styles.container}>
                
-                <HeaderListComponent title='Experiences' 
+                <HeaderListComponent title='Kinh nghiệm' 
                     height={header_height!==undefined?header_height:60} />
 
      

@@ -27,7 +27,7 @@ export default class ReviewListComponent extends Component {
         return (
             <div style={styles.container}>
            
-                <HeaderListComponent title='Reviews'/>
+                <HeaderListComponent title='Nhận xét'/>
 
 
                 <div style={styles.body}>

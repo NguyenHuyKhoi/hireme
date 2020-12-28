@@ -20,7 +20,7 @@ export default class PostTaskProfileComponent extends Component {
 
             <div style={styles.container}>
 
-                <HeaderListComponent title='Complete This Form' height={40}/>
+                <HeaderListComponent title='Mô tả dự án của bạn :' height={40}/>
 
                 <div style={styles.body}>
                 
@@ -32,7 +32,7 @@ export default class PostTaskProfileComponent extends Component {
                                 <div style={{width:'70%'}}>
                                     <LabeledInputComponent 
                                         onChange={(value)=>this.props.updateInputs('task_name',value)}
-                                        label='Task Name'/>
+                                        label='Tên dự án'/>
                                 </div>
 
                                 <div style={{width:'80%',marginTop:30}}>
@@ -41,7 +41,7 @@ export default class PostTaskProfileComponent extends Component {
                                             this.props.updateInputs('min_budget',value[0]);
                                             this.props.updateInputs('max_budget',value[1])
                                         }}
-                                        label='What is your estimated budget?' 
+                                        label='Chi phí ước tính:' 
                                         domain={FIXED_PRICE_DOMAIN}
                                         value={[1000,5000]}/>
                                 </div>
@@ -57,7 +57,7 @@ export default class PostTaskProfileComponent extends Component {
                                 <div style={{width:'70%'}}>
                                     <LabeledSelectedInputComponent  
                                         onChange={(value)=>this.props.updateInputs('category',value)}
-                                        label='Category'
+                                        label='Danh mục'
                                         domain={CATEGORIES_DOMAIN.map(item=>item.name)}
                                         value={CATEGORIES_DOMAIN[0].name}/>
                                 </div>
@@ -65,7 +65,7 @@ export default class PostTaskProfileComponent extends Component {
                                 <div style={{width:'70%',marginTop:30}}>
                                     <SkillPickerComponent  
                                         onChange={(value)=>this.props.updateInputs('skills',value)}
-                                        label='Required Skills'
+                                        label='Kỹ năng yêu cầu'
                                         category={category} />
                                 </div>
 
@@ -85,7 +85,7 @@ export default class PostTaskProfileComponent extends Component {
                        <div style={styles.row2}>
                            <TextareaInputComponent 
                               onChange={(value)=>this.props.updateInputs('description',value)}
-                            label='Descrition'/>
+                            label='Mô tả '/>
                        </div>
                 
                     

@@ -12,41 +12,22 @@ import GiveupTaskModal from '../input/giveup_task.modal'
 const chats=sample_db.chats   ;
 
 const action_buttons=[
-    [
         {
-            title : 'When task is on process,  press to give up, get refund 50% budget.',
+            title : 'Khi dự án đang chạy, nhấn vào đây để từ bỏ và chịu phạt 50% chi phí dự án.',
             background:YELLOW_1,
             code:'give_up'
         },
         {
-            title : 'When task is confirmed as complete, leave a review about freelance below.',
+            title : 'Khi dự án hoàn thành, nhấn vào đây để gửi nhận xét về dự án và đối tác.',
             background:GREEN_1,
             code:'review'
         },
         {
-            title : 'When task has any problem, press to send report.',
-            background:RED_1,
-            code:'report'
-        }
-    ],
-    [
-        {
-            title : 'When task is on process,press to give up and get fine 20% budget.',
-            background:YELLOW_1,
-            code:'give_up'
-        },
-        {
-            title : 'When task is confirm as complete,leave a review about company below. ',
-            background:GREEN_1,
-            code:'review'
-        },
-        {
-            title : 'When task has any problem, press to send report.',
+            title : 'Khi dự án có vần đề gì đó, nhấn vào đây để gửi báo cáo lên quản trị viên.',
             background:RED_1,
             code:'report'
         }
     ]
-]
 
 class ActionButtons extends Component{
     render(){
@@ -118,62 +99,19 @@ export default class PaymentTabComponent extends Component {
         super(props);
         this.state={
             task_id:this.props.task_id,
-            open_giveup_modal:false,
-            open_review_modal:false,
-            open_report_modal:false,
+            modals:[false,false,false],
             modal_content:'',
             rate_score:2.5
         }
     }
 
-    openGiveupModal=()=>{
-        this.setState({
-            open_giveup_modal:true
-        })
-    }
+    switchModal=(index,state)=>{
 
-    closeGiveupModal=()=>{
+        let modals=this.state.modals;
+        modals[index]=state;
         this.setState({
-            open_giveup_modal:false
+            modals
         })
-    }
-
-    openReviewModal=()=>{
-        this.setState({
-            open_review_modal:true
-        })
-    }
-
-    closeReviewModal=()=>{
-        this.setState({
-            open_review_modal:false
-        })
-    }
-
-    openReportModal=()=>{
-        this.setState({
-            open_report_modal:true
-        })
-    }
-
-    closeReportModal=()=>{
-        this.setState({
-            open_report_modal:false
-        })
-    }
-
-    onClickBtn=(code)=>{
-        switch (code){
-            case 'give_up':
-                this.openGiveupModal();
-                break;
-            case 'review':
-                this.openReviewModal();
-                break;
-            case 'report':
-                this.openReportModal();
-                break;
-        }
     }
 
     giveupTask=()=>{
@@ -181,17 +119,7 @@ export default class PaymentTabComponent extends Component {
             task_id:this.state.task_id,
             content:this.state.modal_content
         };
-        alert('Call API give_up_task with body = '+JSON.stringify(body_req))
-        // //Call_API_Here
-        // axios.get(BASE_URL+`/give_up_task`,{
-        //         data:{
-        //         }
-        //     })
-        //     .then(res => {
-  
-        //         })
-        //         .catch(error => console.log(error));
-        this.closeGiveupModal();
+        this.switchModal(0,false);
     }
 
     reviewTask=()=>{
@@ -199,16 +127,7 @@ export default class PaymentTabComponent extends Component {
             task_id:this.state.task_id,
             content:this.state.modal_content
         };
-        alert('Call API review_task with body = '+JSON.stringify(body_req))
-        // //Call_API_Here
-        // axios.get(BASE_URL+`/review_task`,{
-        //         data:{
-        //         }
-        //     })
-        //     .then(res => {
-        //         })
-        //         .catch(error => console.log(error));
-        this.closeReviewModal();
+        this.switchModal(1,false);
     }
 
     reportTask=()=>{
@@ -216,17 +135,7 @@ export default class PaymentTabComponent extends Component {
             task_id:this.state.task_id,
             content:this.state.modal_content
         };
-        alert('Call API report_task with body = '+JSON.stringify(body_req))
-        // //Call_API_Here
-        // axios.get(BASE_URL+`/report_task`,{
-        //         data:{
-        //         }
-        //     })
-        //     .then(res => {
-  
-        //         })
-        //         .catch(error => console.log(error));
-        this.closeReportModal();
+        this.switchModal(2,false);
     }
 
     updateInputs=(field,value)=>{
@@ -242,21 +151,21 @@ export default class PaymentTabComponent extends Component {
             <div  style={styles.container }> 
                 <GiveupTaskModal
                     updateInputs={this.updateInputs}
-                    is_open={this.state.open_giveup_modal}
-                    clickBack={this.closeGiveupModal}
+                    is_open={this.state.modals[0]}
+                    clickBack={()=>this.switchModal(0,false)}
                     clickGiveup={this.giveupTask}/>
 
                 <ReviewTaskModal
                     updateInputs={this.updateInputs} 
                     onChangeRate={value=>this.setState({rate_score:value[0]})}
-                    is_open={this.state.open_review_modal}
-                    clickBack={this.closeReviewModal}
+                    is_open={this.state.modals[1]}
+                    clickBack={()=>this.switchModal(1,false)}
                     clickReview={this.props.reviewTask}/>
 
                 <ReportTaskModal
                     updateInputs={this.updateInputs}
-                    is_open={this.state.open_report_modal}
-                    clickBack={this.closeReportModal}
+                    is_open={this.state.modals[2]}
+                    clickBack={()=>this.switchModal(2,false)}
                     clickReport={this.props.reportTask}/>
 
                 <div style={{flex:1}}/>
@@ -269,12 +178,12 @@ export default class PaymentTabComponent extends Component {
                   
                     <div style={styles.col2}>
                         {
-                            action_buttons[company_view===true?0:1].map((item,index)=>
+                            action_buttons.map((item,index)=>
                                 
                                 <ActionButtons 
                                     key={''+index}
                                     data={item} 
-                                    onClick={()=>this.onClickBtn(item.code)}/>
+                                    onClick={()=>this.switchModal(index,true)}/>
                             )
                         }
                     </div>

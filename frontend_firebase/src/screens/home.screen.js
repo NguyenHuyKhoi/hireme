@@ -10,53 +10,10 @@ import { BLACK, BLUE_1, WHITE } from '../utils/palette';
 import axios from 'axios'
 import api from '../sample_db/fake_api_responses.json'
 
+import {CATEGORIES_DOMAIN} from '../utils/constants'
 export default class HomeScreen extends Component {
 
-    constructor(props){
-        super(props);
-        this.state={
-            popular_categories:[],
-            popular_freelancers:[]
-        }
-    };
 
-    componentDidMount=()=>{
-        this.setState({
-            popular_categories:api.get_popular_categories,
-            popular_freelancers:api.get_popular_freelancers
-        })
-    }
-
-    // componentDidMount() {
-    //     //Call_API_Here
-    //     axios.get(BASE_URL+`/get_popular_categories`,{
-    //             params:{
-    //                 count:8
-    //             }
-    //         })
-    //         .then(res => {
-    //             const data=res.data;
-    //             const categories=data.categories
-    //             this.setState({
-    //                 popular_categories:categories
-    //             })
-    //             })
-    //             .catch(error => console.log(error));
-
-    //     axios.get(BASE_URL+`/get_popular_freelancers`,{
-    //             params:{
-    //                 count:8
-    //             }
-    //         })
-    //         .then(res => {
-    //             const data=res.data;
-    //             const freelancers=data.freelancers
-    //             this.setState({
-    //                 popular_freelancers:freelancers
-    //             })
-    //             })
-    //             .catch(error => console.log(error));
-    // }
 
     render(){
         return (
@@ -70,7 +27,7 @@ export default class HomeScreen extends Component {
 
                     <HomeBannerComponent/>
 
-                    <TopCategoriesComponent categories={this.state.popular_categories}/>
+                    <TopCategoriesComponent categories={CATEGORIES_DOMAIN}/>
 
 
                     {/* <TopFreelancersComponent freelancers={this.state.popular_freelancers}/> */}

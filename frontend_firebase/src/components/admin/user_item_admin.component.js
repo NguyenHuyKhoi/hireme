@@ -28,7 +28,7 @@ export default class UserItemAdminComponent extends Component {
     }
 
     banUser=()=>{
-        alert('Ban User :');
+       // alert('Ban User :');
         this.closeBanModal();
     }
     render(){

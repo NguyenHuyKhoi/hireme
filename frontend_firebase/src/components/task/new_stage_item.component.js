@@ -30,7 +30,7 @@ export default class NewStageItemComponent extends Component {
 
     addStage=async ()=>{
         if (this.state.title===undefined || this.state.end_time===undefined || this.state.process===undefined){
-            alert('Please fill all information');
+            alert('Vui lòng điền đủ thông tin.');
             return 
         }
         else {
@@ -40,7 +40,7 @@ export default class NewStageItemComponent extends Component {
                 process:this.state.process
             });
 
-            alert('Add Stage Successfully!!!');
+            alert('Thêm giai đoạn thành công.');
             this.updateInputs('title','');
         }
     }
@@ -59,7 +59,7 @@ export default class NewStageItemComponent extends Component {
                         style={styles.header_title}
                         value={this.state.title}
                         onChange={e=>this.updateInputs('title',e.target.value)}
-                        placeholder='Add Title'
+                        placeholder='Mô tả giai đoạn...'
                     />
                    
                 </div> 
@@ -70,14 +70,14 @@ export default class NewStageItemComponent extends Component {
 
                             <div style={styles.content}>
                                 <LabeledInputComponent 
-                                    label='Deadline' 
+                                    label='Thời hạn :' 
                                     type='date'
                                     value={this.deadline}
                                     onChange={(value)=>this.updateInputs('end_time',value)}/>
 
                                 <div style={{width:'100%',marginTop:20}}>
                                     <NumberInputComponent 
-                                        label='Percentage' 
+                                        label='Tiến độ đạt được:' 
                                         domain={[0,100]}
                                         unit='%'
                                         value={[0]}
@@ -89,7 +89,7 @@ export default class NewStageItemComponent extends Component {
                             <div style={styles.btn_container}>
                                 <ButtonComponent 
                                     onClick={this.addStage}
-                                    label='Add Stage'/>
+                                    label='Thêm giai đoạn'/>
                             </div>
                             
                     </div>

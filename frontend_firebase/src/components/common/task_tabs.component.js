@@ -4,19 +4,19 @@ import { TEXT_SIZES } from '../../utils/constants';
 import { BLACK, BLUE_1, GRAY_4, WHITE } from '../../utils/palette';
 const taskTabItems=[
     {
-        label:'Detail'
+        label:'Mô tả'
     },
     {
-        label:'Bidding'
+        label:'Đấu giá'
     },
     {
-        label:'Chat'
+        label:'Trao đổi'
     },
     {
-        label:'Process'
+        label:'Tiến độ'
     },
     {
-        label:'Payment'
+        label:'Thanh toán'
     },
 ]
 class TabBar extends Component{
