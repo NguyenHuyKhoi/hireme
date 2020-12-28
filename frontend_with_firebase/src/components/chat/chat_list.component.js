@@ -6,15 +6,22 @@ import { collapseText, convertFullDateToOnlyDay } from '../../utils/helper';
 import { BLACK, BLUE_1, GRAY_1, GRAY_2, GRAY_3, GRAY_4, GRAY_5, WHITE } from '../../utils/palette';
 import HeaderListComponent from '../common/header_list.component';
 
-
+import logo from '../../assets/images/logo.png'
 
 
 class ChatItem extends Component {
     render (){
         const chat = this.props.chat
-        const partner=chat.partner;
-        const latest_message=chat.latest_message;
-        const task=chat.task
+
+        const users=Object.values(chat.users);
+        const user_id=this.props.user_id
+        const partner=users.filter((item)=>item.id===user_id)[0]
+
+        const messages=Object.values(chat.messages)
+        const latest_message=messages[messages.length-1]
+
+        console.log('chat_item :',users,messages,partner,user_id)
+     //   const task=chat.task
         return (
             <div 
                 onClick={this.props.onClick}
@@ -33,7 +40,9 @@ class ChatItem extends Component {
                 </div>
 
                 <div style={styles.col1}>
-                    <img style={styles.avatar} src={partner.avatar}/>
+                    <img 
+                        style={styles.avatar} 
+                        src={partner.avatar===''?logo:partner.avatar}/>
                 </div>
 
                 
@@ -42,17 +51,17 @@ class ChatItem extends Component {
                     
                     <div style={styles.col2_row1}>
                             <text style={styles.normal_text}>
-                                {collapseText(partner.name,12)}
+                                {collapseText(partner.username,12)}
                             </text>
                             <text style={styles.small_text}>
-                                {convertFullDateToOnlyDay(latest_message.time)}
+                                {convertFullDateToOnlyDay(latest_message.post_time)}
                             </text>
                     </div>
 
                     <text style={styles.small_text}>
                         {collapseText(latest_message.content,30)}
                     </text>
-                    {
+                    {/* {
                         task!==undefined  && task!==null?
                         <Link   
                             to={routePaths.DASHBOARD_TASK_MANAMENT} 
@@ -61,7 +70,7 @@ class ChatItem extends Component {
                         </Link>
                         :
                         null
-                    }
+                    } */}
                 
                 </div>
 
@@ -84,9 +93,9 @@ export default class ChatListComponent extends Component {
     }
     render(){
 
-        const chat_list=this.props.chat_list
-
-        console.log('chat_list :',chat_list);
+        const chats=this.props.chats
+        const user_id=this.props.user_id;
+        console.log('chat_list :',chats,user_id);
         return (
             <div  style={styles.container} >    
 
@@ -94,14 +103,15 @@ export default class ChatListComponent extends Component {
 
                 <div style={styles.body}>
                     {
-                        chat_list.map((item,index)=>(
+                        chats.map((item,index)=>(
                             <ChatItem 
                                 key={''+index}
                                 chat={item} 
                                 index={index} 
+                                user_id={user_id}
                                 is_current_chat={index===this.state.current_chat_index}
                                 onClick={()=>{
-                                    this.props.getConversation(item.id)
+                                  //  this.props.getConversation(item.id)
                                     this.setState({
                                         current_chat_index:index
                                     })

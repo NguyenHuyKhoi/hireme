@@ -7,15 +7,15 @@ import ButtonComponent from '../common/button.component';
 import HeaderListComponent from '../common/header_list.component';
 import ButtonInputComponent from '../input/button_input.component';
 
-
+import logo from '../../assets/images/logo.png'
 class MyMessage extends Component {
     render (){
         const message = this.props.message
-        const sender =message.sender
+        const user =message.user
         return (
             <div style={{...styles.message_container,
                 flexDirection: 'row-reverse'}}>
-                <img src={sender.avatar} style={styles.avatar}/>
+                <img src={user.avatar!==""?user.avatar:logo} style={styles.avatar}/>
                 <div style={{...styles.content_container,
                     backgroundColor: BLUE_1,marginRight:20}}>
                     <text style={{ ...styles.message_content, color:WHITE }}>
@@ -30,15 +30,15 @@ class MyMessage extends Component {
 class PartnerMessage extends Component {
     render (){
         const message = this.props.message
-        const sender =message.sender
+        const user =message.user
         return (
-            <div style={{...styles.message,
+            <div style={{...styles.message_container,
                 alignSelf:'baseline',
                 flexDirection: 'row'}}>
 
                 <Link to={routePaths.FREELANCER_DETAIL}
                     style={{textDecoration:'none'}}>
-                    <img src={sender.avatar} style={styles.avatar}/>
+                    <img src={user.avatar===''?logo:user.avatar} style={styles.avatar}/>
                 </Link>
               
 
@@ -57,12 +57,26 @@ class PartnerMessage extends Component {
 }
 export default class ConversationComponent extends Component {
 
-    render(){
-        const conversation=this.props.conversation;
-        const users =conversation.users;
-        const messages =conversation.messages
+    scrollToBottom = () => {
+        console.log('Scroll_to_bottom')
+        this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+      }
+      
+      componentDidMount() {
+        this.scrollToBottom();
+      }
+      
+      componentDidUpdate() {
+        this.scrollToBottom();
+      }
 
-        console.log('messages:',messages)
+    render(){
+        const chat=this.props.chat;
+        const users =Object.values(chat.users);
+        const messages =Object.values(chat.messages)
+
+
+        const user_id=this.props.user_id
         return (
             <div  style={styles.container}>    
 
@@ -71,14 +85,19 @@ export default class ConversationComponent extends Component {
                 <div style={styles.body}>
                     {
                         messages.map((item,index)=>(
-                            item.sender.id===users[0].id?
+                            item.user.id===user_id?
                             <MyMessage key={''+index} message={item}/>
                             :
                             <PartnerMessage key={''+index} message={item}/>
                         ))
                     }
+                    <div style={{ float:"left", clear: "both" }}
+                        ref={(el) => { this.messagesEnd = el; }}>
+                    </div>
+
                 </div>
 
+           
                 <ButtonInputComponent 
                     onChange={this.props.typeMessage}
                     onClick={this.props.sendMessage}
@@ -106,9 +125,9 @@ const styles={
     },
     message_container:{
         display: 'flex',
-        paddingRight: 20,
-        paddingLeft: 20,
-        paddingTop: 20,
+        paddingRight: 12,
+        paddingLeft: 12,
+        paddingTop: 12,
         flexDirection: 'row',
     },
     content_container:{
@@ -118,9 +137,9 @@ const styles={
     
     },
     avatar:{
-        height:50,
-        width:50, 
-        borderRadius: 25
+        height:40,
+        width:40, 
+        borderRadius: 20
     },
     message_content:{
         fontSize: TEXT_SIZES.SMALL
