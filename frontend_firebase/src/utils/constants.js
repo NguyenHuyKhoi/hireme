@@ -100,7 +100,7 @@ export const CARD_COMPANIES_DOMAIN=[
     }
 ]
 
-export const HOURLY_RATE_DOMAIN=[10,500]
+export const HOURLY_RATE_DOMAIN=[10000,500000]
 export const FIXED_PRICE_DOMAIN=[10,10000]
 export const BIDDING_TIME_DOMAIN=[1,100]
 export const CVV_DOMAIN=[0,999]

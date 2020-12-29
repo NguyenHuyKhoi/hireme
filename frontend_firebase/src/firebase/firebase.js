@@ -1,5 +1,6 @@
 import firebase from '../firebase/config';
-import { HOURLY_RATE_DOMAIN } from '../utils/constants';
+import { CATEGORIES_DOMAIN, HOURLY_RATE_DOMAIN } from '../utils/constants';
+import { toArray } from '../utils/helper';
 
 class Firebase {
 
@@ -47,7 +48,7 @@ class Firebase {
         let user_is_exist=false;
         console.log('checkUserExist begin :',data)
 
-        let users=Object.values(await this.get('/user/'));
+        let users=toArray(await this.get('/user/'));
 
         users.map((item)=>{
             if (item.email===data.email) user_is_exist=true;
@@ -73,7 +74,8 @@ class Firebase {
                 email:data.email,
                 password:data.password,
                 type:data.type,
-                username
+                username,
+                avatar:''
             });
 
         if (data.type==='freelancer') {
@@ -98,7 +100,6 @@ class Firebase {
                 business_area:'',
                 website_link:'',
                 description:'',
-                avatar:''
             }))
     }
 
@@ -109,10 +110,8 @@ class Firebase {
                 id:id,
                 hourly_rate:HOURLY_RATE_DOMAIN[0],
                 tagline:'',
-                username,
                 description:'',
-                category:'',
-                avatar:''
+                category:CATEGORIES_DOMAIN[0].name
             }))
     }
 
@@ -129,7 +128,7 @@ class Firebase {
         let user_infor=null;
         console.log("firebase signin data_entry:",data);
 
-        let users=Object.values(await this.get('/user/'));
+        let users=toArray(await this.get('/user/'));
 
         users.map((item)=>{
             if (data.password===item.password && data.email===item.email){
@@ -147,8 +146,8 @@ class Firebase {
 
         console.log('firebase getSettingUser begin  ',type,id)
         let output={
-            account:await this.get('user',id),
-            profile:await this.get(type,id)
+            account:await this.get('/user/'+id),
+            profile:await this.get('/'+type+'/'+id)
         };
         console.log('firebase getSettingUser output',output);
         return output;
@@ -187,7 +186,7 @@ class Firebase {
 
     searchTask=async (filter)=>{
         console.log('firebase searchTask begin :',filter)
-        let arr=Object.values(await this.get('task','') );
+        let arr=toArray(await this.get('task','') );
 
         console.log('firebase searchTask get :',arr)
         return arr;
@@ -195,7 +194,7 @@ class Firebase {
 
     searchFreelancer=async (filter)=>{
         console.log('firebase searchFreelancer begin :',filter)
-        let arr=Object.values(await this.get('freelancer',''));
+        let arr=toArray(await this.get('freelancer',''));
         console.log('firebase searchFreelancer get :',arr)
         return arr;
     }
@@ -203,7 +202,7 @@ class Firebase {
     findTaskForFreelancer=async (id)=>{
         console.log('firebase findTaskForFreelancer begin :',id);
 
-        let tasks=Object.values(await this.get('/task/'));
+        let tasks=toArray(await this.get('/task/'));
         let res=[];
 
         tasks.map((item)=>{
@@ -223,7 +222,7 @@ class Firebase {
     findTaskForCompany=async (id)=>{
         console.log('firebase findTaskForCompany begin :',id);
 
-        let tasks=Object.values(await this.get('/task/'));
+        let tasks=toArray(await this.get('/task/'));
         let res=[];
 
         tasks.map((item)=>{
@@ -240,31 +239,22 @@ class Firebase {
         return res;
     }
 
-    uploadFile=async (file,id)=>{
+    uploadFile=async (path,file,id)=>{
 
         console.log('uploadFile begin:',file,id)
 
+        
         let url ='';
-        var uploadTask =await firebase.storage().ref().child('1.jpg').put(file)  
+        await firebase.storage().ref(path+id+'.jpg').put(file)  
             .then(snapshot=>snapshot.ref.getDownloadURL())
-            .then (url =>{
-                console.log('uploadFile Download_url',url);
-                url=url
-            })
-
+            .then (downloadUrl =>{
+                console.log('uploadFile Download_url',downloadUrl);
+                url=downloadUrl
+            });
+        
         console.log('uploadFile end:',url)
 
-        
-
-        // uploadTask.on('state_changed',snapshot=>{ }, function(error) {
-        // // Handle unsuccessful uploads
-        // }, function() {
-        // // Handle successful uploads on complete
-        // // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-        // uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-        //     console.log('File available at', downloadURL);
-        // });
-        // });
+        return url; 
     }
 
 }

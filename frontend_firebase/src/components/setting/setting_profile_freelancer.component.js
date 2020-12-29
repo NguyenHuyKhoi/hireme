@@ -11,6 +11,7 @@ import { WHITE } from '../../utils/palette'
 import AttachmentsComponent from '../input/attachments.component'
 import TextareaInputComponent from '../input/textarea_input.component'
 import { CATEGORIES_DOMAIN, HOURLY_RATE_DOMAIN } from '../../utils/constants'
+import { toArray } from '../../utils/helper'
 
 export default class   SettingProfileFreelancerComponent extends Component {
 
@@ -18,7 +19,11 @@ export default class   SettingProfileFreelancerComponent extends Component {
 
     render(){
         const profile=this.props.profile;
-        // const category=this.props.category;
+        const category=profile.category;
+        const skills=toArray(profile.skills)
+        const experiences=toArray(profile.experiences)
+
+        console.log('settingFreelancer:',category,skills)
         // const picked_skills=this.props.picked_skills
         return (
             <div style={styles.container}>
@@ -42,18 +47,13 @@ export default class   SettingProfileFreelancerComponent extends Component {
                                 <div style={styles.field_container}>
                                     <NumberInputComponent 
                                         label='Giá thuê theo giờ'
-                                        unit='%'
+                                        unit=''
+                                        step={10000}
                                         onChange={(value)=>this.props.updateInputs('profile','hourly_rate',value)}
                                         domain={HOURLY_RATE_DOMAIN}
                                         value={[profile.hourly_rate]}/>
                                 </div>
 
-                                {/* <div style={{width:'100%',marginTop:30}}>
-                                    <AttachmentsComponent
-                                        label='Attachments'
-                                        is_edit={true}
-                                        attachments={profile.attachments}/>
-                                </div>        */}
 
                              
                               
@@ -71,13 +71,13 @@ export default class   SettingProfileFreelancerComponent extends Component {
                                         value={profile.category}/>
                                 </div>  
 
-                                {/* <div style={styles.field_container}>
+                                <div style={styles.field_container}>
                                     <SkillPickerComponent 
-                                        onChange={value=>this.props.updateInputs('skills',value)}
+                                        onChange={value=>this.props.updateInputs('profile','skills',value)}
                                         label='Skills'
-                                        picked_skills={picked_skills}
+                                        picked_skills={skills}
                                         category={category}/>
-                                </div> */}
+                                </div>
 
                                                  
                             </div>
@@ -85,13 +85,13 @@ export default class   SettingProfileFreelancerComponent extends Component {
                         </div>
 
                             
-                        {/* <div style={{width:'100%',marginTop:40}}>
+                        <div style={{width:'100%',marginTop:40}}>
                             <ExperienceListComponent
                                 onChange={value=>this.props.updateInputs('profile','experiences',value)} 
-                                experiences={profile.experiences}
+                                experiences={experiences}
                                 header_height={40} 
                                 is_edit={true}/>
-                        </div> */}
+                        </div>
                         
                         <div style={styles.row2}>
                            <TextareaInputComponent

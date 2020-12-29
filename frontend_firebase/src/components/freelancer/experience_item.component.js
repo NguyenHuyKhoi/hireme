@@ -15,6 +15,55 @@ import LabelInputComponent from '../input/labeled_input.component'
 //    + task : { id ,name }
 
 export default class ExperienceItemComponent extends Component {
+
+    constructor(props){
+        super(props);
+        this.state={};
+    }
+    updateInput=(part,field,value)=>{
+        console.log('update_inputs_exp:',part,field,value)
+        this.setState({
+            [part]:{
+                ...this.state[part],
+                [field]:value
+            }
+        });
+    }
+
+    add=()=>{
+        let e=this.state.new_experience;
+        if (e===undefined) {
+            alert('Vui lòng điền đủ các trường!');
+            return;
+        };
+        let fields=['role','company','start_time','end_time','description'];
+        let is_empty=false;
+        fields.map(item=>{
+            if (e[item]===undefined || e[item]==='') is_empty=true;
+        });
+
+        if (is_empty){
+            alert('Vui lòng điền đủ các trường!');
+            return;
+        };
+        
+        if (e.start_time>e.end_time){
+            // || e.start_time>(new Date()) || e.end_time>(new Date())){
+            alert('Vui lòng xem lại các mốc thời gian ');
+            return ;
+        }
+
+        this.props.addItem({
+            ...e,
+            id:new Date().getTime()
+        });
+     
+    }
+
+    
+    delete=()=>{
+        this.props.deleteItem(this.props.experience.id);
+    }
     render(){
        
         const experience=this.props.experience;
@@ -50,12 +99,14 @@ export default class ExperienceItemComponent extends Component {
                                 disabled={!input_not_disabled}
                                 hide_label={true}
                                 inline={true}
+                                onChange={value=>this.updateInput('new_experience','role',value)}
                                 value={is_new?'':experience.role}
                                 />
                         </div>
                         {
                             btn_add_visible?
                             <div 
+                            onClick={this.add}
                             style={{...styles.action_btn,paddingRight:10,paddingLeft:10,paddingTop:5,paddingBottom:5,backgroundColor:GREEN_1}}>
                                 <text style={styles.action_btn_label}>
                                     +
@@ -69,6 +120,7 @@ export default class ExperienceItemComponent extends Component {
                         {
                             btn_remove_visible?
                             <div 
+                            onClick={this.delete}
                             style={{...styles.action_btn,paddingRight:10,paddingLeft:10,paddingTop:5,paddingBottom:5,backgroundColor: RED_1}}>
                                 <text style={styles.action_btn_label}>
                                     -
@@ -92,7 +144,8 @@ export default class ExperienceItemComponent extends Component {
                                 disabled={!input_not_disabled}
                                 hide_label={true}
                                 inline={true}
-                                value={is_new?'':experience.company_name}
+                                onChange={value=>this.updateInput('new_experience','company',value)}
+                                value={is_new?'':experience.company}
                                 />
                         </div>
                         
@@ -107,6 +160,7 @@ export default class ExperienceItemComponent extends Component {
                                     inline={true}
                                     hide_label={true}
                                     type='date'
+                                    onChange={value=>this.updateInput('new_experience','start_time',value)}
                                     value={is_new?new Date():experience.start_time}
                                     />
                             </div>
@@ -121,6 +175,7 @@ export default class ExperienceItemComponent extends Component {
                                 hide_label={true}
                                 inline={true}
                                 type='date'
+                                onChange={value=>this.updateInput('new_experience','end_time',value)}
                                 value={is_new?new Date():experience.end_time}
                                 />
                             </div>
@@ -138,6 +193,7 @@ export default class ExperienceItemComponent extends Component {
                             disabled={!input_not_disabled}
                             inline={true}
                             hide_label={true}
+                            onChange={value=>this.updateInput('new_experience','description',value)}
                             value={is_new?'':experience.description}
                             />
                     </div>

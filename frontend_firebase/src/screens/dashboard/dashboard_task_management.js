@@ -20,6 +20,7 @@ import * as action from '../../redux/action/user.action'
 
 import firebase from '../../firebase/firebase'
 import config from '../../firebase/config'
+import { toArray } from '../../utils/helper';
 
 class DashBoardTaskManagementScreen extends Component {
     constructor(props){
@@ -43,8 +44,8 @@ class DashBoardTaskManagementScreen extends Component {
                     this.setState({
                         task:{
                             ...res,
-                            biddings:res.biddings===undefined?[]:Object.values(res.biddings),
-                            stages:res.stages===undefined?[]:Object.values(res.stages)
+                            biddings:res.biddings===undefined?[]:toArray(res.biddings),
+                            stages:res.stages===undefined?[]:toArray(res.stages)
                         }
                     })
             })

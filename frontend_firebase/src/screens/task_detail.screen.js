@@ -15,7 +15,7 @@ import ReportTaskModal from '../components/input/report_task.modal';
 
 import api from '../sample_db/fake_api_responses.json'
 import { TEXT_SIZES } from '../utils/constants';
-import { convertFullDateToOnlyDay,convertFullDateToHour } from '../utils/helper';
+import { convertFullDateToOnlyDay,convertFullDateToHour, toArray } from '../utils/helper';
 
 import firebase from '../firebase/firebase'
 
@@ -53,7 +53,7 @@ class TaskDetailScreen extends Component {
         await this.setState({
             task:{
                 ...res,
-                biddings:res.biddings===undefined?[]:Object.values(res.biddings)
+                biddings:res.biddings===undefined?[]:toArray(res.biddings)
             },
           //  reviews:api.get_reviews_freelancer
         })

@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom';
 import { routePaths, TEXT_SIZES } from '../../utils/constants';
-import { collapseText, convertFullDateToOnlyDay } from '../../utils/helper';
+import { collapseText, convertFullDateToOnlyDay, toArray } from '../../utils/helper';
 import { BLACK, BLUE_1, GRAY_1, GRAY_2, GRAY_3, GRAY_4, GRAY_5, WHITE } from '../../utils/palette';
 import HeaderListComponent from '../common/header_list.component';
 
@@ -13,11 +13,11 @@ class ChatItem extends Component {
     render (){
         const chat = this.props.chat
 
-        const users=Object.values(chat.users);
+        const users=toArray(chat.users);
         const user_id=this.props.user_id
         const partner=users.filter((item)=>item.id===user_id)[0]
 
-        const messages=Object.values(chat.messages)
+        const messages=toArray(chat.messages)
         const latest_message=messages[messages.length-1]
 
         console.log('chat_item :',users,messages,partner,user_id)

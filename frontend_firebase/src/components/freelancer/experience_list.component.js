@@ -14,6 +14,31 @@ export default class ExperienceListComponent extends Component {
             experiences:this.props.experiences!==undefined?this.props.experiences:[]
         }
     }
+
+    deleteItem=(id)=>{
+        console.log('ExperienceListComponent deleteItem :',id)
+        //id : not auto-generated id by firebase ,it is timestamp :
+        let arr=this.state.experiences.filter(item=>item.id!==id);
+        this.setState({
+            experiences:arr
+        });
+
+        this.props.onChange(arr)
+    };
+
+    
+
+
+    addItem=async (exp)=>{
+        console.log('ExperienceListComponent addItem :',exp)
+        let arr=this.state.experiences;
+        arr.push(exp);
+        await this.setState({
+            experiences:arr
+        });
+
+        this.props.onChange(arr)
+    }
     
     render(){
         const experiences=this.state.experiences;
@@ -26,8 +51,6 @@ export default class ExperienceListComponent extends Component {
                 <HeaderListComponent title='Kinh nghiệm' 
                     height={header_height!==undefined?header_height:60} />
 
-     
-
                 <div style={styles.body}>
                     {
                         is_edit?
@@ -35,6 +58,8 @@ export default class ExperienceListComponent extends Component {
                             is_edit={is_edit} 
                             is_new={true} 
                             index={0}  
+                            deleteItem={this.deleteItem}
+                            addItem={this.addItem}
                             key={''+0}/>
                         :
                         null
@@ -47,6 +72,8 @@ export default class ExperienceListComponent extends Component {
                                 is_edit={is_edit}
                                 is_new={false}
                                 experience={item} 
+                                deleteItem={this.deleteItem}
+                                addItem={this.addItem}
                                 index={index+1} 
                                 key={''+(index+1)}/>
                         ))

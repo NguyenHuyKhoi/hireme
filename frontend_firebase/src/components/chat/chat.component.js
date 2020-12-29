@@ -12,6 +12,7 @@ import firebase from '../../firebase/firebase'
 import {connect }from 'react-redux'
 import * as action from '../../redux/action/user.action'
 import { TEXT_SIZES } from '../../utils/constants';
+import { toArray } from '../../utils/helper';
 
 class ChatComponent extends Component {
 
@@ -35,7 +36,7 @@ class ChatComponent extends Component {
             .orderByChild('task_id').equalTo(id)
             .on('value',snapshot=>{
                 let data=snapshot.val();
-                let arr=Object.values(data);
+                let arr=toArray(data);
 
                 if (this.state.current_chat_id===null && arr.length>0) {
                     this.setState({

@@ -2,25 +2,26 @@ import { INPUT_TYPE } from "./constants"
 export class Validate {
     validateEmail=(str)=>{
         if (str.length===0){
-            return 'Email is empty! '
+            return 'Địa chỉ Email không được để trống. '
         }
         if (str.length<10 || str.length>30){
-            return 'Email address is too short or too long (10 -> 30 chars)'
+            return 'Địa chỉ email phải từ 10 đến 30 ký tự.'
         };
-        if (!str.endsWith('@gmail.com')){
-            return 'Email address is invalid !'
+
+        if (!/\S+@\S+\.\S+/.test(str)){
+            return 'Địa chỉ email không hợp lệ.'
         };
         return '';
     }
     
     validatePassword=(str)=>{
         if (str.length===0){
-            return 'Password is empty !'
+            return 'Mật khẩu không được để trống.'
         };
     
     
         if (str.length<6 || str.length>20){
-            return 'Password is too short or too long (6->20 chars)'
+            return 'Địa chỉ email phải từ 6 đến 20 ký tự.'
         };
         return '';
     };

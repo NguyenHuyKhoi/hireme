@@ -17,6 +17,7 @@ import {connect }from 'react-redux'
 import * as action from '../../redux/action/user.action'
 
 import firebase from '../../firebase/firebase'
+import { toArray } from '../../utils/helper'
 
 class DashBoardPaymentScreen extends Component {
     constructor(props){
@@ -34,8 +35,8 @@ class DashBoardPaymentScreen extends Component {
         this.setState({
             payment:{
                 ...res,
-                cards:res.cards===undefined?[]:Object.values(res.cards),
-                transactions:res.transactions===undefined?[]:Object.values(res.transactions)
+                cards:res.cards===undefined?[]:toArray(res.cards),
+                transactions:res.transactions===undefined?[]:toArray(res.transactions)
             }
         })
     };

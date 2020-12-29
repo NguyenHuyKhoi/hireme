@@ -42,7 +42,7 @@ export default class LabeledInputComponent extends Component {
                     :
                     <div style={{flex:1}}>
                 
-                        <text style={{...styles.label,ontSize:size}}>
+                        <text style={{...styles.label,fontSize:size}}>
                             {label}
                         </text>
                     </div>

@@ -77,7 +77,7 @@ const styles={
         flexDirection: 'column'
     },
     label:{
-        fontSize:TEXT_SIZES.SMALL,
+        fontSize:TEXT_SIZES.NORMAL,
         color:BLACK,
         marginBottom:10
     },
@@ -89,7 +89,7 @@ const styles={
         marginBottom:20
     },
     value:{
-        fontSize:TEXT_SIZES.SMALL,
+        fontSize:TEXT_SIZES.NORMAL,
         color:WHITE,
         padding: 7,
         backgroundColor:BLACK,

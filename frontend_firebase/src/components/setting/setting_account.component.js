@@ -25,7 +25,7 @@ export default class SettingAccountComponent extends Component {
             new_image:file
         }); 
 
-        this.props.updateInputs('account','avatar',file);
+        this.props.updateInputs('account','new_avatar',file);
         console.log('choose_file :',file)/// if you want to upload latter
     }
 

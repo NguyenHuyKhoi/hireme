@@ -31,12 +31,15 @@ class DashboardSettingUserScreen extends Component {
     }
 
     componentDidMount=async ()=>{
-        let res=await firebase.getSettingUser('/'+this.state.type+'/'+this.state.id);
+        console.log('SettingUserget begin:',this.state.type,this.state.id)
+        let res=await firebase.getSettingUser(this.state.type,this.state.id);
+
+        console.log('SettingUserget end:',res)
         await this.setState(res);
     }
 
     updateInputs=async (part,field,value)=>{
-      //  console.log('update_inputs :',part,field,value)
+        console.log('update_inputs :',part,field,value)
         await this.setState({
             [part]:{
                 ...this.state[part],
@@ -50,10 +53,12 @@ class DashboardSettingUserScreen extends Component {
 
 
     updateSetting=async ()=>{
-        console.log('update Setting :',this.state)
+        console.log('updateSetting :',this.state)
 
-        if (this.state.account.avatar!==undefined){
-            let  new_avatar_url=await firebase.uploadFile(this.state.account.avatar,this.state.id)
+        if (this.state.account.new_avatar!==undefined){
+            let new_avatar_url=await firebase.uploadFile('/avatar/',this.state.account.new_avatar,this.state.id);
+
+            console.log('updateSetting new_avatar_url:',new_avatar_url)
             await this.updateInputs('account','avatar',new_avatar_url)
         }
 

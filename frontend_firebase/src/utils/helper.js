@@ -14,3 +14,10 @@ export const convertFullDateToHour=(value)=>{
     var date = curr.toISOString().substr(0,19);
     return date;
 };
+
+
+export const toArray=(data)=>{
+    if (data==undefined) return [];
+    if (data==null) return []
+    return Object.values(data)
+}

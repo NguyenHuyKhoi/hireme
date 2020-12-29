@@ -8,6 +8,7 @@ import HeaderListComponent from '../common/header_list.component';
 import ButtonInputComponent from '../input/button_input.component';
 
 import logo from '../../assets/images/logo.png'
+import { toArray } from '../../utils/helper';
 class MyMessage extends Component {
     render (){
         const message = this.props.message
@@ -72,8 +73,8 @@ export default class ConversationComponent extends Component {
 
     render(){
         const chat=this.props.chat;
-        const users =Object.values(chat.users);
-        const messages =Object.values(chat.messages)
+        const users =toArray(chat.users);
+        const messages =toArray(chat.messages)
 
 
         const user_id=this.props.user_id
