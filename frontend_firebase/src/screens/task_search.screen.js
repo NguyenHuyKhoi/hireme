@@ -7,7 +7,7 @@ import TaskListComponent from '../components/task/task_list.component';
 import FilterComponent from '../components/input/filter.component';
 
 import api from '../sample_db/fake_api_responses.json'
-import { TEXT_SIZES } from '../utils/constants';
+import { CATEGORIES_DOMAIN, TEXT_SIZES } from '../utils/constants';
 import { BLACK } from '../utils/palette';
 
 import firebase from '../firebase/firebase'
@@ -17,22 +17,25 @@ export default class TaskSearchScreen extends Component {
     constructor(props){
         super(props);
         this.state={
-            tasks:[]
+            tasks:[],
+            filter:{}
         }
     }
 
 
 
-    updateInputs=async (field,value)=>{
-        await this.setState({
-            [field]:value
-        })
-
-        console.log('filter_now:',this.state) 
+    updateInput=(part,field,value)=>{
+        console.log('update_inputs_search:',part,field,value)
+        this.setState({
+            [part]:{
+                ...this.state[part],
+                [field]:value
+            }
+        });
     };
 
     search=async ()=>{
-        let arr=await firebase.searchTask(this.state)
+        let arr=await firebase.searchTask(this.state.filter)
         this.setState({
             tasks:arr
         })
@@ -41,6 +44,10 @@ export default class TaskSearchScreen extends Component {
 
     render(){
         const tasks=this.state.tasks;
+        const category=this.state.filter!==undefined && this.state.filter.category!==undefined?
+                this.state.filter.category
+                :
+                ''
         return (
 
             <div style={styles.container}>
@@ -55,9 +62,10 @@ export default class TaskSearchScreen extends Component {
                     {/* filters */}
                     <div style={{flex:2}}>
                         <FilterComponent  
-                            category={this.state.category}
+                            category={category}
+                            is_freelancer_search={false}
                             clickSearch={this.search}
-                            updateInputs={this.updateInputs} />
+                            updateInput={this.updateInput} />
                     </div>
 
                     <div style={{flex:0.5}}/>

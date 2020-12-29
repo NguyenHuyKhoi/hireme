@@ -6,7 +6,7 @@ import FooterBarComponent from '../components/common/footer_bar.component';
 import HeaderBarComponent from '../components/common/header_bar.component';
 import FreelancerListComponent from '../components/freelancer/freelancer_list.component';
 import api from '../sample_db/fake_api_responses.json'
-import { TEXT_SIZES } from '../utils/constants';
+import { CATEGORIES_DOMAIN, TEXT_SIZES } from '../utils/constants';
 import { BLACK } from '../utils/palette';
 import {BASE_URL} from '../utils/constants'
 import axios from 'axios'
@@ -18,19 +18,23 @@ export default class FreelancerSearchScreen extends Component {
     constructor(props){
         super(props);
         this.state={
-            freelancers:[]
+            freelancers:[],
+            filter:{}
         }
     }
 
-    updateInputs=async (field,value)=>{
-        await this.setState({
-            [field]:value
+    updateInput=(part,field,value)=>{
+        console.log('update_inputs_search:',part,field,value)
+        this.setState({
+            [part]:{
+                ...this.state[part],
+                [field]:value
+            }
         });
-        console.log('update_inputs:',field,value) 
     };
 
     search=async ()=>{
-        let arr=await firebase.searchFreelancer(this.state)
+        let arr=await firebase.searchFreelancer(this.state.filter)
         this.setState({
             freelancers:arr
         })
@@ -39,6 +43,10 @@ export default class FreelancerSearchScreen extends Component {
     render(){
 
         const freelancers=this.state.freelancers;
+        const category=this.state.filter!==undefined && this.state.filter.category!==undefined?
+                            this.state.filter.category
+                            :
+                            ''
         return (
 
             <div style={styles.container}>
@@ -52,9 +60,10 @@ export default class FreelancerSearchScreen extends Component {
 
                     <div style={{flex:2}}>
                         <FilterComponent
-                            category={this.state.category}
+                            category={category}
+                            is_freelancer_search={true}
                             clickSearch={this.search}
-                            updateInputs={this.updateInputs}/>
+                            updateInput={this.updateInput}/>
                     </div>
 
                     <div style={{flex:0.5}}/>

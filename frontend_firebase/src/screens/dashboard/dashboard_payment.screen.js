@@ -17,7 +17,7 @@ import {connect }from 'react-redux'
 import * as action from '../../redux/action/user.action'
 
 import firebase from '../../firebase/firebase'
-import { toArray } from '../../utils/helper'
+import { convertDateToHour, toArray } from '../../utils/helper'
 
 import firebaseConfig from '../../firebase/config'
 class DashBoardPaymentScreen extends Component {
@@ -101,7 +101,7 @@ class DashBoardPaymentScreen extends Component {
             {
                 ...this.state.transaction,
                 amount:t.amount*factor,
-                time:(new Date()).toDateString()
+                time:convertDateToHour(new  Date())
             });
             
        

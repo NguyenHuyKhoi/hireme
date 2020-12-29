@@ -15,7 +15,7 @@ import ReportTaskModal from '../components/input/report_task.modal';
 
 import api from '../sample_db/fake_api_responses.json'
 import { TEXT_SIZES } from '../utils/constants';
-import { convertFullDateToOnlyDay,convertFullDateToHour, toArray } from '../utils/helper';
+import { convertFullDateToOnlyDay,convertFullDateToHour, toArray, convertDateToHour } from '../utils/helper';
 
 import firebase from '../firebase/firebase'
 
@@ -113,14 +113,14 @@ class TaskDetailScreen extends Component {
         console.log('placeBidding:',{
                 ...this.state.bidding,
                 poster:user,
-                post_time:(new Date()).toDateString()
+                post_time:convertDateToHour(new  Date())
             })
 
         await firebase.set(this.path+'/biddings/'+u.id,{
             ...this.state.bidding,
             id:u.id,
             freelancer:user,
-            post_time:(new Date()).toDateString()
+            post_time:convertDateToHour(new  Date())
         });
 
         await this.getTaskDetail();
@@ -146,7 +146,7 @@ class TaskDetailScreen extends Component {
         });
 
         await firebase.push('/chat/'+chat_key+'/messages/',{
-            post_time:(new Date()).toDateString(),
+            post_time:convertDateToHour(new  Date()),
             content:' I want to bidding this task with budget :'+this.state.bidding.budget 
                 +' on duration :'+this.state.bidding.duration,
             user: {

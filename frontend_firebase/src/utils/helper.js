@@ -3,17 +3,41 @@ export const collapseText=(text,limit_length)=>{
     return text.substring(1,limit_length)+'...';
 }
 
+
+//value :string
 export const convertFullDateToOnlyDay=(value)=>{
     var curr = new Date(value);
     var date = curr.toISOString().substr(0,10);
     return date;
 };
 
+//value :string
 export const convertFullDateToHour=(value)=>{
     var curr = new Date(value);
     var date = curr.toISOString().substr(0,19);
     return date;
 };
+
+//d :Date
+export const convertDateToHour=(d)=>{
+    return d.toLocaleDateString()+' '+d.getHours()+':'+d.getMinutes()
+}
+
+export const hasSameElement=(arr1,arr2)=>{
+
+    console.log('hasSameElement',arr1,arr2);
+    if (arr1===undefined || arr1===[] || arr1===null) return false;
+    if (arr2===undefined || arr2===[] || arr2===null) return false;
+
+    let i=false;
+    arr1.map(item1=>{
+        arr2.map(item2=>{
+            i=i || (item1===item2)
+        })
+    })
+
+    return i
+}
 
 
 export const toArray=(data)=>{

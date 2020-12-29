@@ -20,14 +20,14 @@ export default class FreelancerItemComponent extends Component {
                     {freelancer.username}
                 </text>
 
-                <text style={styles.freelancer_tagline}>
+                <text style={styles.tagline}>
                     {freelancer.tagline}
                 </text>
 
                 <SmallFieldComponent 
                     background_color={YELLOW_1} 
                     label_color={WHITE} 
-                    label={freelancer.rate_score}/>
+                    label={freelancer.category}/>
 
 
 

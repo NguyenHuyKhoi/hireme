@@ -13,8 +13,9 @@ export default class FilterComponent extends Component {
 
 
     render(){
-        const category=this.props.category!==undefined?this.props.category:CATEGORIES_DOMAIN[0].name;
+        const category=this.props.category;
 
+        const is_freelancer_search=this.props.is_freelancer_search!==undefined?this.props.is_freelancer_search:false
         console.log('category_filter:',category)
         return (
             <div style={styles.container}>
@@ -25,39 +26,56 @@ export default class FilterComponent extends Component {
                 
                 <LabeledSelectedInputComponent  
                     label='Danh mục '
-                    onChange={(value)=>this.props.updateInputs('category',value)}
-                    value={CATEGORIES_DOMAIN[0].name}
+                    onChange={(value)=>this.props.updateInput('filter','category',value)}
+                    value={''}
                     domain={CATEGORIES_DOMAIN.map(item=>item.name)}/>
 
-                <div style={styles.field_container}>
-                    <SkillPickerComponent 
-                        onChange={value=>this.props.updateInputs('skills',value)}
-                        label="Kỹ năng"
-                        category={category}/>
-                </div>
+                {
+                    category===''?
+                    null
+                    :
+                    <div style={styles.field_container}>
+                        <SkillPickerComponent 
+                            onChange={value=>this.props.updateInput('filter','skills',value)}
+                            label="Kỹ năng"
+                            category={category}/>
+                    </div>
+                }
+               
                 
                 <div style={styles.field_container}>
                     <LabeledInputComponent
-                        onChange={(value)=>this.props.updateInputs('keyword',value)}
+                        onChange={(value)=>this.props.updateInput('filter','keyword',value)}
                         label='Từ khóa'
                         />
                 </div>
 
+                
                 <div style={styles.field_container}>
+                {
+                    is_freelancer_search?
                     <RangeInputComponent
-                        label='Giá thuê' 
-                        onChange={(value)=>this.props.updateInputs('hourly_rate',value)}
+                        label='Giá theo giờ' 
+                        step={10000}
+                        unit='vnd'
+                        onChange={(value)=>this.props.updateInput('filter','hourly_rate',value)}
                         domain={HOURLY_RATE_DOMAIN}
-                        value={[20,400]}
-                         />
+                        value={HOURLY_RATE_DOMAIN}
+                    />
+                    :
+                    <RangeInputComponent 
+                        label='Giá dự án' 
+                        step={100000}
+                        unit='vnd'
+                        onChange={(value)=>this.props.updateInput('filter','fixed_price',value)}
+                        domain={FIXED_PRICE_DOMAIN}
+                        value={FIXED_PRICE_DOMAIN}/>
+                }
+                   
                 </div>
 
                 <div style={styles.field_container}>
-                    <RangeInputComponent 
-                        label='Giá dự án' 
-                        onChange={(value)=>this.props.updateInputs('fixed_price',value)}
-                        domain={FIXED_PRICE_DOMAIN}
-                        value={[1000,5000]}/>
+                   
                 </div>
 
                 

@@ -12,7 +12,7 @@ import firebase from '../../firebase/firebase'
 import {connect }from 'react-redux'
 import * as action from '../../redux/action/user.action'
 import { TEXT_SIZES } from '../../utils/constants';
-import { toArray } from '../../utils/helper';
+import { convertDateToHour, toArray } from '../../utils/helper';
 
 class ChatComponent extends Component {
 
@@ -78,7 +78,7 @@ class ChatComponent extends Component {
             let i=this.props.user_infor
             await firebase.push('/chat/'+this.state.current_chat_id+'/messages/',{
                 content:this.state.message,
-                post_time:(new Date()).toDateString(),
+                post_time:convertDateToHour(new Date()),
                 user:{
                     id:i.id,
                     username:i.username,

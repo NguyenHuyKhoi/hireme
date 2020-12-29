@@ -1,6 +1,6 @@
 import firebase from '../firebase/config';
 import { CATEGORIES_DOMAIN, HOURLY_RATE_DOMAIN } from '../utils/constants';
-import { toArray } from '../utils/helper';
+import { convertDateToHour, hasSameElement, toArray } from '../utils/helper';
 
 class Firebase {
 
@@ -175,7 +175,7 @@ class Firebase {
         
         await this.push('/task/',{
             ...data,
-            post_time:(new Date()).toDateString(),
+            post_time:convertDateToHour(new Date()),
             company:{
                 id:company.id,
                 company_name:company.company_name,
@@ -188,18 +188,47 @@ class Firebase {
     };
 
     searchTask=async (filter)=>{
-        console.log('firebase searchTask begin :',filter)
-        let arr=toArray(await this.get('task','') );
+        console.log('firebase searchTask begin :',filter);
+        let arr=toArray(await this.get('/task/') );
 
-        console.log('firebase searchTask get :',arr)
-        return arr;
+
+        console.log('firebase searchTask get :',arr);
+        let res=arr.filter(item=>
+            (filter.category===undefined || item.category===filter.category)
+            && (filter.keyword===undefined || (''+item.description).includes(filter.keyword) || (''+item.task_name).includes(filter.keyword))
+            && (filter.skills===undefined || hasSameElement(filter.skills,item.skills))
+            && (filter.fixed_price[0]<=item.min_budget && item.max_budget<=filter.fixed_price[1])
+        )
+
+
+        console.log('firebase searchTask end :',res)
+        return res;
     }
 
     searchFreelancer=async (filter)=>{
         console.log('firebase searchFreelancer begin :',filter)
-        let arr=toArray(await this.get('freelancer',''));
-        console.log('firebase searchFreelancer get :',arr)
-        return arr;
+        let arr=toArray(await this.get('/freelancer/'));
+
+        arr=arr.filter(item=>
+            (filter.category===undefined || item.category===filter.category)
+            && (filter.keyword===undefined || (''+item.description).includes(filter.keyword) || (''+item.tagline).includes(filter.keyword))
+            && (filter.skills===undefined || hasSameElement(filter.skills,item.skills))
+            && (filter.hourly_rate[0]<=item.hourly_rate<=filter.hourly_rate[1])
+        )
+        console.log('firebase searchFreelancer get :',arr);
+
+        let res=await Promise.all(arr.map(async (item)=>{
+            let user=await this.get('/user/'+item.id);
+            console.log('firebase searchFreelancer fetchUser',user)
+            return {
+                ...item,
+                avatar:user.avatar,
+                username:user.username
+            }
+        }))
+
+        console.log('firebase searchFreelancer afterFetch :',res);
+        return res;
     }
 
     findTaskForFreelancer=async (id)=>{
