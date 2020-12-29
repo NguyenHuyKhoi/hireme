@@ -89,7 +89,7 @@ const styles={
         marginBottom:20
     },
     value:{
-        fontSize:TEXT_SIZES.NORMAL,
+        fontSize:TEXT_SIZES.SMALL,
         color:WHITE,
         padding: 7,
         backgroundColor:BLACK,

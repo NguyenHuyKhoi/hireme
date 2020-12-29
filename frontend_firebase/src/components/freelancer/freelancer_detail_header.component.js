@@ -21,19 +21,19 @@ export default class FreelancerDetailHeaderComponent extends Component {
                 
                 <div style={styles.content}>
                     <text style={styles.freelancer_name}>
-                        {freelancer.name}
+                        {freelancer.username}
                     </text>
 
                     <text style={styles.freelancer_tagline}>
                         {freelancer.tagline}
                     </text>
                     
-                    <div style={{flex:1}}>
+                    {/* <div style={{flex:1}}>
                         <SmallFieldComponent 
                             background_color={YELLOW_1} 
                             label_color={WHITE} 
-                            label={freelancer.rate_score}/>
-                    </div>
+                            label={freelancer.category}/>
+                    </div> */}
                   
                 </div>
             </div>

@@ -21,18 +21,20 @@ export default class TaskPlaceBidComponent extends Component {
                         
                         <NumberInputComponent 
                             label='Chi phí đề xuất :'
-                            onChange={value=>this.props.updateInputs('bidding','budget',value)}
+                            onChange={value=>this.props.updateInput('bidding','budget',value)}
                             domain={FIXED_PRICE_DOMAIN}
-                            value={[4000]}/>
+                            unit='vnd'
+                            step={100000}
+                            value={[FIXED_PRICE_DOMAIN[0]]}/>
                      
 
                         <div style={{width: '100%',marginTop:20}}>
                             <NumberInputComponent
-                                label='Thời gian triển khai (ngày): '
-                                onChange={value=>this.props.updateInputs('bidding','duration',value)}
+                                label='Thời gian(ngày): '
+                                onChange={value=>this.props.updateInput('bidding','duration',value)}
                                 domain={BIDDING_TIME_DOMAIN}
                                 unit=' ngày'
-                                value={[20]}/>
+                                value={[BIDDING_TIME_DOMAIN[0]]}/>
 
                         </div>
                       

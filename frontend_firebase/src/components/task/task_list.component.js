@@ -41,7 +41,7 @@ export default class TaskListComponent extends Component {
                     )
                 }
                 </div>
-
+                
                 <PaginationComponent    
                     onClickPage={(l,r)=>this.switchPage(l,r)}
                     items={tasks.length} items_per_page={4} />

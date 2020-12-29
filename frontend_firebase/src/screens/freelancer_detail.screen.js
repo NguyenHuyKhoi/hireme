@@ -16,6 +16,7 @@ import SkillsListComponent from '../components/common/skills_list.component';
 import api from '../sample_db/fake_api_responses.json'
 
 import firebase from '../firebase/firebase'
+import { toArray } from '../utils/helper';
 export default class FreelancerDetailScreen extends Component {
 
     constructor(props){
@@ -28,10 +29,17 @@ export default class FreelancerDetailScreen extends Component {
     }
 
     componentDidMount=async ()=>{
-        let res=await firebase.get('/freelancer/'+this.state.freelancer_id)
+        let freelancer=await firebase.get('/freelancer/'+this.state.freelancer_id)
 
+        let user =await firebase.get('/user/'+this.state.freelancer_id)
         this.setState({
-            freelancer:res,
+            freelancer:{
+                ...freelancer,
+                username:user.username,
+                avatar:user.avatar,
+                skills:toArray(freelancer.skills),
+                experiences:toArray(freelancer.experiences)
+            },
           //  reviews:api.get_reviews_freelancer
         })
     }
@@ -70,12 +78,12 @@ export default class FreelancerDetailScreen extends Component {
                             </div>
                         
                             
-                            {/* <div style={{marginTop:50}}>
+                            <div style={{marginTop:50}}>
                                 <ExperienceListComponent experiences={freelancer.experiences}/>
                             </div>
                         
 
-                            <div style={{marginTop:50}}>
+                            {/* <div style={{marginTop:50}}>
                                 <ReviewListComponent reviews={reviews}/>
                             </div> */}
                         
@@ -85,25 +93,27 @@ export default class FreelancerDetailScreen extends Component {
 
                         <div style={styles.freelancer_body_col2}>
  
-                            {/* <SkillsListComponent skills={freelancer.skills}/> */}
+                            <SkillsListComponent skills={freelancer.skills}/>
                 
                             <div style={{marginTop:50}}>
                                 <InforsBarComponent fields={[
                                     {
                                         key:'Giá thuê',value:freelancer.hourly_rate
-                                    },
-                                    {
-                                        key:'Đã làm',value:freelancer.done_tasks!==undefined?freelancer.done_tasks:0
-                                    },
-                                    {
-                                        key:'Thu nhập',value:freelancer.income!==undefined?freelancer.done_tasks:0
                                     }
+                                    ,
+                                    {
+                                        key:'Lĩnh vực',value:freelancer.category
+                                    }
+                                    // ,
+                                    // {
+                                    //     key:'Thu nhập',value:freelancer.income!==undefined?freelancer.done_tasks:0
+                                    // }
                                 ]}/>
                             </div>
 
-                            {/* <div style={{marginTop:15}}>
+                            <div style={{marginTop:15}}>
                                 <ButtonComponent label='Make an offer'/>
-                            </div> */}
+                            </div>
                         
                         
                         </div>

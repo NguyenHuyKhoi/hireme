@@ -5,6 +5,8 @@ import PaginationComponent from '../common/pagination.component';
 import BiddingItemComponent from './bidding_item.component';
 
 import firebase from '../../firebase/firebase'
+import { TEXT_SIZES } from '../../utils/constants';
+import { BLACK } from '../../utils/palette';
 export default class BiddingListComponent extends Component {
     constructor(props){
         super(props);
@@ -49,6 +51,14 @@ export default class BiddingListComponent extends Component {
 
                 <div style={styles.body}>
                     {
+                        biddings.length===0?
+                        <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
+                            Dự án này chưa có đơn đấu giá nào, hãy trở thành người đầu tiên!
+                        </text>
+                        :
+                        null
+                    }
+                    {
                     biddings.slice(l,r+1).map((item,index)=>
                         <BiddingItemComponent 
                             type={type}
@@ -63,9 +73,15 @@ export default class BiddingListComponent extends Component {
                     }
                 </div>
                 
-                <PaginationComponent    
-                    onClickPage={(l,r)=>this.switchPage(l,r)}
-                    items={biddings.length} items_per_page={5} />
+                {
+                    biddings.length>0?
+                    <PaginationComponent    
+                        onClickPage={(l,r)=>this.switchPage(l,r)}
+                        items={biddings.length} items_per_page={5} />
+                    :
+                    null
+                }
+               
 
 
             </div>

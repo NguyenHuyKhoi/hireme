@@ -1,5 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
+import { TEXT_SIZES } from '../../utils/constants';
+import { BLACK } from '../../utils/palette';
 
 import HeaderListComponent from '../common/header_list.component';
 import PaginationComponent from '../common/pagination.component';
@@ -49,9 +51,17 @@ export default class ExperienceListComponent extends Component {
             <div style={styles.container}>
                
                 <HeaderListComponent title='Kinh nghiệm' 
-                    height={header_height!==undefined?header_height:60} />
+                    height={header_height!==undefined?header_height:45} />
 
                 <div style={styles.body}>
+                    {
+                        experiences.length===0?
+                        <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK,margin:20}}>
+                            Người dùng này chưa thêm bất kỳ lịch sử làm việc nào
+                        </text>
+                        :
+                        null
+                    }
                     {
                         is_edit?
                         <ExperienceItemComponent  

@@ -14,6 +14,7 @@ import { WHITE } from '../utils/palette';
 import firebase from '../firebase/firebase'
 
 import api from '../sample_db/fake_api_responses.json'
+import { toArray } from '../utils/helper';
 export default class CompanyDetailScreen extends Component {
     constructor(props){
         super(props);
@@ -25,10 +26,16 @@ export default class CompanyDetailScreen extends Component {
     }
 
     componentDidMount=async ()=>{
-        let res=await firebase.get('/company/'+this.state.company_id)
+        let company=await firebase.get('/company/'+this.state.company_id)
 
+        let user =await firebase.get('/user/'+this.state.company_id)
         this.setState({
-            company:res,
+            company:{
+                ...company,
+                avatar:user.avatar,
+                username:user.username,
+                reviews:toArray(company.reviews)
+            },
           //  reviews:api.get_reviews_freelancer
         })
     }
@@ -78,28 +85,28 @@ export default class CompanyDetailScreen extends Component {
                             <div style={{marginTop:30}}>
                                 <SingleFieldComponent field={{
                                         key:'Quy mô :',
-                                        value:company.employee_size
+                                        value:company.employee_size!==''?company.employee_size:'Không có thông tin.'
                                     }} />
                             </div>
 
-                            <div style={{marginTop:40}}>
+                            <div style={{marginTop:20}}>
                                 <SingleFieldComponent field={{
                                     key:'Vị trí :',
-                                    value:company.location
+                                    value:company.location!==''?company.location:'Không có thông tin.'
                                 }}/>
                             </div>
 
-                            <div style={{marginTop:40}}>
+                            <div style={{marginTop:20}}>
                                 <SingleFieldComponent field={{
                                     key:'Lĩnh vực :',
-                                    value:company.business_area
+                                    value:company.business_area!==''?company.business_area:'Không có thông tin.'
                                 }}/>
                             </div>
 
-                            <div style={{marginTop:40}}>
+                            <div style={{marginTop:20}}>
                                 <SingleFieldComponent field={{
                                     key:'Website:',
-                                    value:company.website_link
+                                    value:company.website_link!==''?company.website_link:'Không có thông tin.'
                                 }}/>
                             </div>
 

@@ -5,6 +5,8 @@ import sample_db from '../../sample_db/fake_api_responses'
 import HeaderListComponent from '../common/header_list.component';
 import ReviewItemComponent from './review_item.component';
 import PaginationComponent from '../common/pagination.component';
+import { TEXT_SIZES } from '../../utils/constants';
+import { BLACK } from '../../utils/palette';
 export default class ReviewListComponent extends Component {
     constructor(props){
         super(props);
@@ -27,10 +29,18 @@ export default class ReviewListComponent extends Component {
         return (
             <div style={styles.container}>
            
-                <HeaderListComponent title='Nhận xét'/>
+                <HeaderListComponent title='Nhận xét' height={45}/>
 
 
                 <div style={styles.body}>
+                {
+                        reviews.length===0?
+                        <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK,margin:20}}>
+                            Hiện chưa có bất kỳ đánh giá nào.
+                        </text>
+                        :
+                        null
+                }
                 {
                     reviews.slice(l,r+1).map((item,index)=>
                         <ReviewItemComponent 
@@ -40,9 +50,16 @@ export default class ReviewListComponent extends Component {
                 }
                 </div>
 
-                <PaginationComponent    
-                    onClickPage={(l,r)=>this.switchPage(l,r)}
-                    items={reviews.length} items_per_page={4} />
+                {
+                    reviews.length>0?
+                    <PaginationComponent    
+                        onClickPage={(l,r)=>this.switchPage(l,r)}
+                        items={reviews.length} items_per_page={4} />
+                    :
+                    null
+                }
+
+             
            
 
             </div>

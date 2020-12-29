@@ -12,12 +12,13 @@ import TaskPlaceBidComponent from '../components/task/task_place_bid.component';
 import { BLACK, BLUE_1, BLUE_2, GREEN_1, GREEN_2, RED_2, WHITE } from '../utils/palette';
 import AttachmentsComponent from '../components/input/attachments.component';
 import ReportTaskModal from '../components/input/report_task.modal';
-
+import SingleFieldComponent from '../components/common/single_field.component'
 import api from '../sample_db/fake_api_responses.json'
 import { TEXT_SIZES } from '../utils/constants';
 import { convertFullDateToOnlyDay,convertFullDateToHour, toArray, convertDateToHour } from '../utils/helper';
 
 import firebase from '../firebase/firebase'
+import firebaseConfig from '../firebase/config'
 
 import {connect }from 'react-redux'
 import * as action from '../redux/action/user.action'
@@ -47,26 +48,26 @@ class TaskDetailScreen extends Component {
         })
     };
 
-    getTaskDetail=async ()=>{
-        let res=await firebase.get(this.path)
-        console.log('task_detail:',res);
-        await this.setState({
-            task:{
-                ...res,
-                biddings:res.biddings===undefined?[]:toArray(res.biddings)
-            },
-          //  reviews:api.get_reviews_freelancer
-        })
-    }
+    componentDidMount= ()=>{
+        firebaseConfig.database().ref().child(this.path)
+            .on('value',snapshot=>{
+                let data=snapshot.val();
+                console.log('updateTaskDetail:',data);
+                this.setState({
+                    task:{
+                        ...data,
+                        biddings:toArray(data.biddings),
+                        skills:toArray(data.skills)
+                    },
+                  //  reviews:api.get_reviews_freelancer
+                })
+            })
 
-    componentDidMount=async ()=>{
-
-        await this.getTaskDetail();
-      
+       
     }
     
 
-    updateInputs=(part,field,value)=>{
+    updateInput=(part,field,value)=>{
         console.log('update_input:',part,field,value)
 
         this.setState({
@@ -102,32 +103,38 @@ class TaskDetailScreen extends Component {
             return ;
         }
 
+
+        let bi=this.state.bidding;
+
+        if (bi===undefined || bi.budget===undefined || bi.duration===undefined){
+            alert('Vui lòng điền đủ các trường !');
+            return ;
+        }
         let user={
             id:u.id,
             username:u.username,
             avatar:u.avatar===undefined?'':u.avatar
         };
 
-        console.log('placeBidding:',this.state.bidding)
+        console.log('placeBidding:',bi)
 
         console.log('placeBidding:',{
-                ...this.state.bidding,
+                ...bi,
                 poster:user,
                 post_time:convertDateToHour(new  Date())
             })
 
         await firebase.set(this.path+'/biddings/'+u.id,{
-            ...this.state.bidding,
+            ...bi,
             id:u.id,
             freelancer:user,
             post_time:convertDateToHour(new  Date())
         });
 
-        await this.getTaskDetail();
      
         let company=await firebase.get(this.path+'/company/');
 
-        console.log('taskDetail placeBidding company:',company)
+        console.log('taskDetail placeBidding 2 partner:',company,u)
         let chat_key=await firebase.push('/chat/',{
             task_id:this.state.task_id,
             users:[
@@ -138,7 +145,7 @@ class TaskDetailScreen extends Component {
                 },
                 {
                     id:company.id,
-                    username:company.username,
+                    username:company.company_name,
                     avatar:company.avatar!==undefined?company.avatar:''
 
                 },
@@ -167,6 +174,7 @@ class TaskDetailScreen extends Component {
 
     render(){
         const task=this.state.task;
+        console.log('taskDetail render')
         return (
 
             <div style={styles.container}>
@@ -175,7 +183,7 @@ class TaskDetailScreen extends Component {
                 <HeaderBarComponent/>
 
                 <ReportTaskModal
-                    updateInputs={this.updateInputs}
+                    updateInput={this.updateInput}
                     is_open={this.state.open_report_modal} 
                     clickBack={this.closeReportModal}
                     clickReport={this.reportTask}
@@ -200,51 +208,45 @@ class TaskDetailScreen extends Component {
                                 </div>
 
                                 <div style={{marginTop:50}}>
-                                    <AttachmentsComponent  attachments={task.attachments}/>
-                                </div>
-
-                                <div style={{marginTop:50}}>
-                                    {
-                                        task.biddings.length===0?
-                                        <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
-                                            Dự án này chưa có đơn đấu giá nào, hãy trở thành người đầu tiên!
-                                        </text>
-                                        :
-                                        <BiddingListComponent 
+                                    <BiddingListComponent 
                                             task={task}/>
 
-                                    }
+                           
                                     
                                 </div>
+                            
                             </div>
 
                             <div style={{flex:0.5}}/>
 
                             <div style={styles.task_body_col2}>
-
-                                <SkillsListComponent skills={task.skills}/>
-
-                                <div style={{width: '100%',marginTop:50}}>
-                                    <ButtonComponent color={GREEN_2} text_color={GREEN_1}
-                                        label={convertFullDateToOnlyDay(task.post_time)}/>
+                                <div style={{marginTop:20}}>
+                                    <SingleFieldComponent field={{
+                                        key:'Danh mục:',
+                                        value:task.category
+                                    }}/>
                                 </div>
 
-                                {/* {
+                                <div style={{marginTop:20}}>
+                                    <SkillsListComponent skills={task.skills}/>
+                                </div>
+                                <div style={{width: '100%',marginTop:50}}>
+                                    <ButtonComponent color={GREEN_2} text_color={GREEN_1}
+                                        label={task.post_time}/>
+                                </div>
+
+                                {
                                     task.state==='bidding'?
                                     <div style={{marginTop:50}}>
                                         <TaskPlaceBidComponent
                                         placeBidding={this.placeBidding}
-                                        updateInputs={this.updateInputs}/>
+                                        updateInput={this.updateInput}/>
                                     </div>
                                     :
                                     null
-                                } */}
+                                }
 
-                                <div style={{marginTop:50}}>
-                                    <TaskPlaceBidComponent
-                                        placeBidding={this.placeBidding}
-                                        updateInputs={this.updateInputs}/>
-                                </div>
+
 
                                
 
@@ -260,7 +262,7 @@ class TaskDetailScreen extends Component {
                         </div>
                 
                
-                </div>
+                    </div>
 
 
                 }

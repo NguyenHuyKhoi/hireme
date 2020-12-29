@@ -24,10 +24,10 @@ export default class FreelancerItemComponent extends Component {
                     {freelancer.tagline}
                 </text>
 
-                <SmallFieldComponent 
+                {/* <SmallFieldComponent 
                     background_color={YELLOW_1} 
                     label_color={WHITE} 
-                    label={freelancer.category}/>
+                    label={freelancer.category}/> */}
 
 
 
@@ -37,11 +37,12 @@ export default class FreelancerItemComponent extends Component {
                             key:'Giá thuê',value:freelancer.hourly_rate
                         },
                         {
-                            key:'Đã làm',value:freelancer.done_tasks!==undefined?freelancer.done_tasks:0
-                        },
-                        {
-                            key:'Thu nhập',value:freelancer.income!==undefined?freelancer.income:0
+                            key:'Lĩnh vực',value:freelancer.category
                         }
+                        // ,
+                        // {
+                        //     key:'Thu nhập',value:freelancer.income!==undefined?freelancer.income:0
+                        // }
                     ]}/>
                 </div>
                 <Link 

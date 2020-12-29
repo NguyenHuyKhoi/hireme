@@ -20,7 +20,7 @@ class ProjectBudget extends Component {
                 </text>
 
                 <text style={{fontSize:TEXT_SIZES.NORMAL,color:WHITE}}>
-                    {'$'+budget[0]+' - '+'%'+budget[1]}
+                    {budget[0]+'vnd - '+budget[1]+'vnd'}
                 </text>
             </div>
         )
