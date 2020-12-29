@@ -25,6 +25,7 @@ export default class LabeledInputComponent extends Component {
         const value=this.state.value;
 
         const type=this.props.type!==undefined?this.props.type:'text';
+        const step=this.props.step!==undefined?this.props.step:1;
         const hide_label=this.props.hide_label!==undefined?this.props.hide_label:false;
         const size=this.props.size!==undefined?this.props.size:TEXT_SIZES.NORMAL;
         const disabled=this.props.disabled!==undefined?this.props.disabled:false;
@@ -64,6 +65,7 @@ export default class LabeledInputComponent extends Component {
                         this.setState({value:e.target.value})
                         this.props.onChange(e.target.value)
                     }}
+                    step={step}
                     style={{
                         ...styles.input,
                         fontSize: size,

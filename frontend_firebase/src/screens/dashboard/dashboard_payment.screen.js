@@ -19,6 +19,7 @@ import * as action from '../../redux/action/user.action'
 import firebase from '../../firebase/firebase'
 import { toArray } from '../../utils/helper'
 
+import firebaseConfig from '../../firebase/config'
 class DashBoardPaymentScreen extends Component {
     constructor(props){
         super(props);
@@ -29,20 +30,18 @@ class DashBoardPaymentScreen extends Component {
     }
 
 
-    getPaymentDetail=async ()=>{
-        let res=await firebase.get(this.path);
-        console.log('getPayment :',res)
-        this.setState({
-            payment:{
-                ...res,
-                cards:res.cards===undefined?[]:toArray(res.cards),
-                transactions:res.transactions===undefined?[]:toArray(res.transactions)
-            }
-        })
-    };
-
     componentDidMount=async()=>{
-        await this.getPaymentDetail();
+        await firebaseConfig.database().ref().child('/payment/'+this.state.user_id)
+            .on('value',snapshot=>{
+                let data=snapshot.val();
+                this.setState({
+                    payment:{
+                        ...data,
+                        cards:toArray(data.cards),
+                        transactions:toArray(data.transactions)
+                    }
+                })
+            })
      
     }
 
@@ -62,7 +61,7 @@ class DashBoardPaymentScreen extends Component {
         let t=this.state.transaction
         let p=this.state.payment;
 
-        let factor=t.type==='withdraw'?-1:1;
+        let factor=t.type==='Rút tiền'?-1:1;
         let aftBalance=p.balance+t.amount*factor;
         if (aftBalance<0){
             alert('Không thể rút tiền khi số dư tài khoản không đủ.');
@@ -78,28 +77,58 @@ class DashBoardPaymentScreen extends Component {
             
        
         await firebase.set(this.path+'/balance/',aftBalance);
-        await this.getPaymentDetail();
 
         alert(' Giao dịch thành công!')
     }
 
-    createCard=async()=>{
-        console.log('dashboard payment createCards:',this.state.card)
-        await firebase.push(this.path+'/cards/',this.state.card);
-        await this.getPaymentDetail();
+    validateCard=(e)=>{
+        if (e===undefined) {
+            return ('Vui lòng điền đủ các trường!');
+        };
 
+        let fields=['company','number','owner_name','expired_date','email','ccv'];
+        let is_empty=false;
+        fields.map(item=>{
+            if (e[item]===undefined || e[item]==='') is_empty=true;
+        });
+
+        if (is_empty){
+            return('Vui lòng điền đủ các trường!');
+        };
+
+        if (!/[0-9]{12}/.test(e.number)){
+            return 'Định dạng mã thẻ phải là 12 chữ số'
+        }
+
+        if (!/[0-9]{3}/.test(e.ccv)){
+            return 'Định dạng số ccv phải là 3 chữ số'
+        }
+        return '';
+        
+    }
+
+    createCard=async()=>{
+        console.log('dashboard payment createCards:',this.state.card);
+
+        let err_msg=this.validateCard(this.state.card)
+        
+        if (err_msg!=='') {
+            alert(err_msg);
+            return ;
+        }
+
+        await firebase.push(this.path+'/cards/',this.state.card);
         alert('Thêm thẻ thành công!')
     }
 
     deleteCard=async(id)=>{
         console.log('dashboard payment deleteCard:',id)
         await firebase.set(this.path+'/cards/'+id, null )
-        await this.getPaymentDetail();
         alert('Xóa thẻ thành công.')
     }
 
     render(){
-        const payment=this.state.payment
+        const payment=this.state.payment;
 
         if (payment!==undefined) console.log('cards:',payment.cards)
         return (

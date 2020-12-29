@@ -38,13 +38,15 @@ export default class BalanceCardComponent extends Component {
                             Bạn có
                         </text>
                         <text style={styles.balance}>
-                            {'$'+balance}
+                            {balance+'vnd'}
                         </text>
 
                     
                         <div style={styles.field_container}>
                             <div style={{flex:3}}>
                                 <LabeledInputComponent 
+                                    type='number'
+                                    step={10000}
                                     onChange={(value)=>this.props.updateInputs('transaction','amount',value)}
                                     label='Số tiền :'
                                   />
@@ -74,7 +76,7 @@ export default class BalanceCardComponent extends Component {
                                     <LabeledSelectedInputComponent
                                         label='Loại:'
                                         onChange={(value)=>this.props.updateInputs('transaction','type',value)}
-                                        domain={['Rút tiền','Chuyển tiền']}
+                                        domain={['Rút tiền','Nạp tiền']}
                                         />
                             </div>
                           

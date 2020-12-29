@@ -72,7 +72,7 @@ export default class CardItemComponent extends Component {
                     <div style={styles.row}>
                         <div style={{width:'30%'}}>
                         <LabelInputComponent 
-                            label='Người sở hữu :'
+                            label='Chủ thẻ :'
                             onChange={value=>this.props.updateInputs('card','owner_name',value)}
                             size={TEXT_SIZES.SMALL}
                             disabled={disabled}

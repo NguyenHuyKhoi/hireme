@@ -13,7 +13,7 @@ export default class TransactionListComponent extends Component {
         super(props);
         this.state={
             first_item_index:0,
-            last_item_index:Math.min(4,this.props.transactions.length-1)
+            last_item_index:Math.min(2,this.props.transactions.length-1)
         }
     }
 
@@ -53,7 +53,7 @@ export default class TransactionListComponent extends Component {
                 
                 <PaginationComponent    
                     onClickPage={(l,r)=>this.switchPage(l,r)}
-                    items={transactions.length} items_per_page={5} />
+                    items={transactions.length} items_per_page={3} />
                 
 
             </div>
