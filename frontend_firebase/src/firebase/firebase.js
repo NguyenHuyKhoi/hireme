@@ -168,15 +168,18 @@ class Firebase {
     postTask=async (company_id,data)=>{
 
         console.log('firebase postTask begin :',data);
-        var company=await this.get('company',company_id);
+        var company=await this.get('/company/'+company_id);
+        var company_account=await this.get('/user/'+company_id);
+
+        console.log('firebase postTask getData :',company,company_account);
         
-        await this.push('/company',{
+        await this.push('/task/',{
             ...data,
-            post_time:new Date(),
+            post_time:(new Date()).toDateString(),
             company:{
                 id:company.id,
                 company_name:company.company_name,
-                avatar:company.avatar
+                avatar:company_account.avatar
             },
             state:'bidding'
         });

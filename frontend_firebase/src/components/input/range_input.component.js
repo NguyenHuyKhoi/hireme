@@ -19,7 +19,7 @@ export default class RangeInputComponent extends Component {
         const value=this.state.value;
         const unit=this.props.unit!==undefined?this.props.unit:'$';
         const label=this.props.label!==undefined?this.props.label:'';
-
+        const step=this.props.step!==undefined?this.props.step:1
         console.log('domain_value:',domain,value)
         return (
             <div style={styles.container}>
@@ -42,6 +42,7 @@ export default class RangeInputComponent extends Component {
                     min={domain[0]}      
                     max={domain[1]}
                     values={value}
+                    step={step}
                     onChange={(values) =>{
                         this.setState({value:values})
                         this.props.onChange(values)

@@ -58,9 +58,9 @@ class DashBoardTaskPostScreen extends Component {
             return;
         };
 
-        console.log('taskPost:',t)
+        console.log('taskPost:',t,this.props.user_infor.id)
 
-        await firebase.postTask(this.props.user_infor.id,this.state.task);
+        await firebase.postTask(this.props.user_infor.id,t);
         alert('Đăng dự án thành công!');
     }
 
@@ -80,9 +80,9 @@ class DashBoardTaskPostScreen extends Component {
 
                         <div style={styles.form}>
                             <PostTaskProfileComponent 
-                                category={this.state!==null && this.state.category!==undefined
+                                category={this.state.task!==undefined && this.state.task.category!==undefined
                                     ?
-                                    this.state.category
+                                    this.state.task.category
                                     :
                                     CATEGORIES_DOMAIN[0].name}
                                 updateInput={this.updateInput}/>
