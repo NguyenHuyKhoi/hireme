@@ -11,7 +11,7 @@ import * as action from '../../redux/action/user.action'
 import Modal from 'react-modal';
 import AuthModal from './auth.modal';
 
-
+import default_avatar from '../../assets/images/logo.png'
 Modal.setAppElement('#root');
 const logo123='FaTwitter'
 
@@ -35,7 +35,8 @@ class HeaderBarComponent extends Component {
         this.setState({
             auth_modal_open:false
         })
-    }
+    };
+    
     render(){
         const is_login=false;
         const IconName=`Icons.FaHome`;
@@ -89,8 +90,8 @@ class HeaderBarComponent extends Component {
                                 routePaths.DASHBOARD_TASK_LIST
                             }
                             style={styles.my_account_container}>
-                            <img src='https://randomuser.me/api/portraits/women/25.jpg' 
-                                style={styles.avatar}/>
+                            {/* <img src={user_infor.avatar!==''?user_infor.avatar:default_avatar}
+                                style={styles.avatar}/> */}
                             <text 
                                 style={styles.my_account}>
                                     Tài khoản

@@ -186,6 +186,8 @@ class AuthModal extends Component {
 
         if (user) {
             alert('Đăng nhập thành công.');
+
+            
             this.props.loginSuccess(user)
             this.props.onClickClose();
         }

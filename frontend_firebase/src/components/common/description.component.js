@@ -6,15 +6,29 @@ import { BLACK, GRAY_1, WHITE } from '../../utils/palette'
 export default class DescriptionComponent extends Component {
     render(){
             
+        console.log('Description content',this.props.content)
+        console.log('Description content',this.props.content.split('\\n'))
         return (
             <div style={styles.container}>
                 <text style={styles.title}>
                     {this.props.title}
                 </text>
 
-                <text style={styles.content}>
-                    {this.props.content}
-                </text>
+
+                {/* <text style={styles.content}>
+                    <textarea>
+                     {this.props.content}
+                    </textarea>
+                
+                
+                </text> */}
+
+                <textarea style={styles.content}>
+                     {this.props.content}
+                    </textarea>
+
+
+
             </div>
 
       
@@ -35,8 +49,10 @@ const styles={
     },
     content:{
         marginTop: 8,
+        padding:20,
         fontSize:TEXT_SIZES.NORMAL,
         color:GRAY_1,
-        textAlign:'left'
+        textAlign:'left',
+        width:'100%'
     }
 }

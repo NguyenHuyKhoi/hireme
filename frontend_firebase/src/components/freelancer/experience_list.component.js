@@ -55,7 +55,7 @@ export default class ExperienceListComponent extends Component {
 
                 <div style={styles.body}>
                     {
-                        experiences.length===0?
+                        experiences.length===0 && is_edit===false?
                         <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK,margin:20}}>
                             Người dùng này chưa thêm bất kỳ lịch sử làm việc nào
                         </text>

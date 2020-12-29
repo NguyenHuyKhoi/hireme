@@ -111,6 +111,148 @@ export const TASKS_TYPE_DOMAIN=['Giá cố định','Giá theo giờ']
 export const CATEGORIES_DOMAIN=[
     {
         id:0, //defined same both server and client
+        icon:'cat_mobile',
+        name:'Mobile',
+        description:'Phát triển ứng dụng trên Android ,IOS...',
+        predefined_skills:[
+            {
+                //defined same both server and client, 
+                //structure : [2]{0-9}[2]{0-9} : 'CATEGORY_ID''SKILLS_INDEX'
+                // or CATEGORY_ID*100 + SKILLS_INDEX
+                id:100, 
+                name:'Android',
+                
+            },
+            {
+                id:101, 
+                name:'React Native',
+                
+            },
+            {
+                id:102, 
+                name:'Cordova',
+                
+            },
+            {
+                id:103, 
+                name:'Flutter',
+                
+            },
+            {
+                id:104, 
+                name:'iOS',
+                
+            },
+            {
+                id:105, 
+                name:'Native App',
+                
+            },
+            {
+                id:106, 
+                name:'Wep App',
+                
+            },
+            {
+                id:107, 
+                name:'E-commerce',
+                
+            },
+            {
+                id:108,
+                name:'Firebase',
+                
+            },
+            {
+                id:109,
+                name:'Java',
+                
+            },
+            {
+                id:110, 
+                name:'Xamarin',
+                
+            }
+        ]
+    },
+    {
+        id:1, //defined same both server and client
+        icon:'cat_web',
+        name:'Web',
+        description:'Phát triển website trên mọi nền tảng.',
+        predefined_skills:[
+            {
+                //defined same both server and client, 
+                //structure : [2]{0-9}[2]{0-9} : 'CATEGORY_ID''SKILLS_INDEX'
+                // or CATEGORY_ID*100 + SKILLS_INDEX
+                id:200, 
+                name:'HTML/CSS',
+                
+            },
+            {
+                id:201, 
+                name:'JS',
+                
+            },
+            {
+                id:202, 
+                name:'ReactJS',
+                
+            },
+            {
+                id:203, 
+                name:'Wordpress',
+                
+            },
+            {
+                id:204, 
+                name:'Angular',
+                
+            },
+            {
+                id:205, 
+                name:'NodeJS',
+                
+            },
+            {
+                id:206, 
+                name:'AWS',
+                
+            },
+            {
+                id:207, 
+                name:'Front-end',
+                
+            },
+            {
+                id:208,
+                name:'Back-end',
+                
+            },
+            {
+                id:209,
+                name:'CSS Dev',
+                
+            },
+            {
+                id:210, 
+                name:'Database Designer',
+                
+            },
+            {
+                id:211, 
+                name:'PHP',
+                
+            },
+            {
+                id:212, 
+                name:'Admin',
+                
+            }
+        ]
+    },
+    {
+        id:2, //defined same both server and client
         icon:'cat_design',
         name:'Design & Creative',
         description:'Thiết kế website, logo , banner ,...',
@@ -205,148 +347,8 @@ export const CATEGORIES_DOMAIN=[
             },
         ]
     },
-    {
-        id:1, //defined same both server and client
-        icon:'cat_mobile',
-        name:'Mobile',
-        description:'Phát triển ứng dụng trên Android ,IOS...',
-        predefined_skills:[
-            {
-                //defined same both server and client, 
-                //structure : [2]{0-9}[2]{0-9} : 'CATEGORY_ID''SKILLS_INDEX'
-                // or CATEGORY_ID*100 + SKILLS_INDEX
-                id:100, 
-                name:'Android',
-                
-            },
-            {
-                id:101, 
-                name:'React Native',
-                
-            },
-            {
-                id:102, 
-                name:'Cordova',
-                
-            },
-            {
-                id:103, 
-                name:'Flutter',
-                
-            },
-            {
-                id:104, 
-                name:'iOS',
-                
-            },
-            {
-                id:105, 
-                name:'Native App',
-                
-            },
-            {
-                id:106, 
-                name:'Wep App',
-                
-            },
-            {
-                id:107, 
-                name:'E-commerce',
-                
-            },
-            {
-                id:108,
-                name:'Firebase',
-                
-            },
-            {
-                id:109,
-                name:'Java',
-                
-            },
-            {
-                id:110, 
-                name:'Xamarin',
-                
-            }
-        ]
-    },
-    {
-        id:2, //defined same both server and client
-        icon:'cat_web',
-        name:'Web',
-        description:'Phát triển website trên mọi nền tảng.',
-        predefined_skills:[
-            {
-                //defined same both server and client, 
-                //structure : [2]{0-9}[2]{0-9} : 'CATEGORY_ID''SKILLS_INDEX'
-                // or CATEGORY_ID*100 + SKILLS_INDEX
-                id:200, 
-                name:'HTML/CSS',
-                
-            },
-            {
-                id:201, 
-                name:'JS',
-                
-            },
-            {
-                id:202, 
-                name:'ReactJS',
-                
-            },
-            {
-                id:203, 
-                name:'Wordpress',
-                
-            },
-            {
-                id:204, 
-                name:'Angular',
-                
-            },
-            {
-                id:205, 
-                name:'NodeJS',
-                
-            },
-            {
-                id:206, 
-                name:'AWS',
-                
-            },
-            {
-                id:207, 
-                name:'Front-end',
-                
-            },
-            {
-                id:208,
-                name:'Back-end',
-                
-            },
-            {
-                id:209,
-                name:'CSS Dev',
-                
-            },
-            {
-                id:210, 
-                name:'Database Designer',
-                
-            },
-            {
-                id:211, 
-                name:'PHP',
-                
-            },
-            {
-                id:212, 
-                name:'Admin',
-                
-            }
-        ]
-    },
+
+ 
     {
         id:3, //defined same both server and client
         icon:'cat_account',
