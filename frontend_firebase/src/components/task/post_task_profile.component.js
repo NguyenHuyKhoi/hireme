@@ -31,19 +31,20 @@ export default class PostTaskProfileComponent extends Component {
 
                                 <div style={{width:'70%'}}>
                                     <LabeledInputComponent 
-                                        onChange={(value)=>this.props.updateInputs('task_name',value)}
+                                        onChange={(value)=>this.props.updateInput('task','task_name',value)}
                                         label='Tên dự án'/>
                                 </div>
 
                                 <div style={{width:'80%',marginTop:30}}>
                                     <RangeInputComponent 
                                         onChange={(value)=>{
-                                            this.props.updateInputs('min_budget',value[0]);
-                                            this.props.updateInputs('max_budget',value[1])
+                                            this.props.updateInput('task','min_budget',value[0]);
+                                            this.props.updateInput('task','max_budget',value[1])
                                         }}
+                                        unit=''
                                         label='Chi phí ước tính:' 
                                         domain={FIXED_PRICE_DOMAIN}
-                                        value={[1000,5000]}/>
+                                        value={[FIXED_PRICE_DOMAIN[0],FIXED_PRICE_DOMAIN[1]/2]}/>
                                 </div>
 
                               
@@ -56,15 +57,15 @@ export default class PostTaskProfileComponent extends Component {
 
                                 <div style={{width:'70%'}}>
                                     <LabeledSelectedInputComponent  
-                                        onChange={(value)=>this.props.updateInputs('category',value)}
+                                        onChange={(value)=>this.props.updateInput('task','category',value)}
                                         label='Danh mục'
                                         domain={CATEGORIES_DOMAIN.map(item=>item.name)}
                                         value={CATEGORIES_DOMAIN[0].name}/>
                                 </div>
 
-                                <div style={{width:'70%',marginTop:30}}>
+                                <div style={{width:'70%',marginTop:40}}>
                                     <SkillPickerComponent  
-                                        onChange={(value)=>this.props.updateInputs('skills',value)}
+                                        onChange={(value)=>this.props.updateInput('task','skills',value)}
                                         label='Kỹ năng yêu cầu'
                                         category={category} />
                                 </div>
@@ -74,7 +75,7 @@ export default class PostTaskProfileComponent extends Component {
                                 {/* <div style={{width:'70%',marginTop:30}}>
                                     <AttachmentsComponent
                                         label='Attachments'
-                                        onChange={(value)=>this.props.updateInputs('attachments',value)}
+                                        onChange={(value)=>this.props.updateInput('task','attachments',value)}
                                         is_edit={true} />
                                 </div> */}
                             </div>
@@ -84,7 +85,7 @@ export default class PostTaskProfileComponent extends Component {
 
                        <div style={styles.row2}>
                            <TextareaInputComponent 
-                              onChange={(value)=>this.props.updateInputs('description',value)}
+                              onChange={(value)=>this.props.updateInput('task','description',value)}
                             label='Mô tả '/>
                        </div>
                 

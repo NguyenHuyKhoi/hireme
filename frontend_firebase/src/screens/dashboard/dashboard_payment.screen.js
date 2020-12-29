@@ -34,6 +34,7 @@ class DashBoardPaymentScreen extends Component {
         await firebaseConfig.database().ref().child('/payment/'+this.state.user_id)
             .on('value',snapshot=>{
                 let data=snapshot.val();
+                console.log('updatePayment:',data)
                 this.setState({
                     payment:{
                         ...data,
@@ -57,11 +58,38 @@ class DashBoardPaymentScreen extends Component {
         })
     };
 
+    validateTransaction=(e)=>{
+        if (e===undefined) {
+            return ('Vui lòng điền đủ các trường!');
+        };
+
+        let fields=['amount','card','type'];
+        let is_empty=false;
+        fields.map(item=>{
+            if (e[item]===undefined || e[item]==='') is_empty=true;
+        });
+
+        if (is_empty){
+            return('Vui lòng điền đủ các trường!');
+        };
+        return '';
+        
+    }
+
     transaction=async ()=>{
         let t=this.state.transaction
+
+       let err_msg= this.validateTransaction(t);
+       if (err_msg!=='') {
+           alert(err_msg);
+           return;
+        };
+
+        console.log('paymentType:',t.type)
         let p=this.state.payment;
 
         let factor=t.type==='Rút tiền'?-1:1;
+
         let aftBalance=p.balance+t.amount*factor;
         if (aftBalance<0){
             alert('Không thể rút tiền khi số dư tài khoản không đủ.');
@@ -72,6 +100,7 @@ class DashBoardPaymentScreen extends Component {
         await firebase.push(this.path+'/transactions/',
             {
                 ...this.state.transaction,
+                amount:t.amount*factor,
                 time:(new Date()).toDateString()
             });
             
@@ -106,6 +135,8 @@ class DashBoardPaymentScreen extends Component {
         return '';
         
     }
+
+
 
     createCard=async()=>{
         console.log('dashboard payment createCards:',this.state.card);

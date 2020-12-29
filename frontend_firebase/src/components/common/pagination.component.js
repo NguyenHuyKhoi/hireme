@@ -29,19 +29,22 @@ const DISPLAY_PAGE=5;
 export default class PaginationComponent extends Component {
     constructor(props){
         super(props);
-        const items=this.props.items;
-        const items_per_page=this.props.items_per_page
-        const pages=Math.floor(items/items_per_page)+(items%items_per_page!==0)
 
-        console.log('pagination ',items,items_per_page,pages);
         this.state={
-            items:items,
-            items_per_page:items_per_page,
-            pages:pages,
             left_page_index:1,
-            display_pages:Math.min(DISPLAY_PAGE,pages),
+
             current_page_index:1
         };
+    }
+
+    calPages=()=>{
+        let i=this.props.items;
+        let pi=this.props.items_per_page;
+        return Math.floor(i/pi)+(i%pi!==0)
+    }
+
+    calDisplayPages=()=>{
+        return Math.min(DISPLAY_PAGE,this.calPages())
     }
 
 
@@ -55,8 +58,8 @@ export default class PaginationComponent extends Component {
 
     onClickNext=()=>{
         let l=this.state.left_page_index;
-        console.log('click_next:',l,this.state.display_pages,this.state.pages)
-        if (l+this.state.display_pages>this.state.pages) return ;
+        console.log('click_next:',l,this.calDisplayPages(),this.calPages())
+        if (l+this.calDisplayPages()>this.calPages()) return ;
         this.setState({
             left_page_index:l+1,
 
@@ -68,14 +71,20 @@ export default class PaginationComponent extends Component {
             current_page_index:item
         })
 
-        const first_item_index=(item-1)*this.state.items_per_page;
-        const last_item_index=Math.min(first_item_index+this.state.items_per_page-1,this.state.items-1);
+        const first_item_index=(item-1)*this.props.items_per_page;
+        const last_item_index=Math.min(first_item_index+this.props.items_per_page-1,this.props.items-1);
         this.props.onClickPage(first_item_index,last_item_index)
     }
 
-    render(){
-        const {pages,left_page_index,current_page_index,display_pages}=this.state
 
+    
+    render(){
+        const {left_page_index,current_page_index}=this.state
+
+        const items=this.props.items;
+        const items_per_page=this.props.items_per_page
+        const pages=this.calPages()
+        const display_pages=this.calDisplayPages();
         const arr=[]
         for (let i=0;i<display_pages;i++) arr.push(left_page_index+i)
 

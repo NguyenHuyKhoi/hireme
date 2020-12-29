@@ -17,17 +17,50 @@ import firebase from '../../firebase/firebase'
 class DashBoardTaskPostScreen extends Component {
 
 
-    updateInputs=async (field,value)=>{
-        await this.setState({
-            [field]:value
-        })
+    constructor(props){
+        super(props);
+        this.state={};
+    }
+    updateInput=(part,field,value)=>{
+        console.log('update_input_task:',part,field,value)
+        this.setState({
+            [part]:{
+                ...this.state[part],
+                [field]:value
+            }
+        });
+    }
 
-        console.log('inputs_nows:',JSON.stringify(this.state)) 
-    };
+    validateTask=(e)=>{
+        if (e===undefined) {
+            return ('Vui lòng điền đủ các trường!');
+        };
 
+        let fields=['task_name','min_budget','max_budget','category','skills','description'];
+        let is_empty=false;
+        fields.map(item=>{
+            if (e[item]===undefined || e[item]==='') is_empty=true;
+        });
+
+        if (is_empty){
+            return('Vui lòng điền đủ các trường!');
+        };
+        return '';
+        
+    }
 
     post=async ()=>{
-        await firebase.postTask(this.props.user_infor.id,this.state);
+        let t=this.state.task
+
+        let err_msg= this.validateTask(t);
+        if (err_msg!=='') {
+            alert(err_msg);
+            return;
+        };
+
+        console.log('taskPost:',t)
+
+        await firebase.postTask(this.props.user_infor.id,this.state.task);
         alert('Đăng dự án thành công!');
     }
 
@@ -52,12 +85,12 @@ class DashBoardTaskPostScreen extends Component {
                                     this.state.category
                                     :
                                     CATEGORIES_DOMAIN[0].name}
-                                updateInputs={this.updateInputs}/>
+                                updateInput={this.updateInput}/>
                         </div>
                       
 
                         <Link 
-                            to={routePaths.DASHBOARD_TASK_LIST}
+                            // to={routePaths.DASHBOARD_TASK_LIST}
                             onClick={this.post}
                             style={styles.btn_container}>
                             <ButtonComponent label='Đăng' height={60}/>

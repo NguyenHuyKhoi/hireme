@@ -101,7 +101,7 @@ export const CARD_COMPANIES_DOMAIN=[
 ]
 
 export const HOURLY_RATE_DOMAIN=[10000,500000]
-export const FIXED_PRICE_DOMAIN=[10,10000]
+export const FIXED_PRICE_DOMAIN=[100000,10000000]
 export const BIDDING_TIME_DOMAIN=[1,100]
 export const CVV_DOMAIN=[0,999]
 export const BUSINESS_AREA_DOMAIN=['Công nghệ','Marketing','Tài chính','Du lịch','Giáo dục','Thể thao','Tư vấn','Khác']
