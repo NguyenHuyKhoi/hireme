@@ -1,519 +1,597 @@
-	{
-	"company" : {
-	"-MPhPMkFXOtvW3oMiYYZ" : {
-		"business_area" : "Công nghệ",
-		"company_name" : "Công ty Cổ phần Aimesoft",
-		"description" : "Aimesoft là công ty tiên phong nghiên cứu và ứng dụng công nghệ Trí tuệ nhân tạo Đa thể thức, được phát triển từ mô hình Học máy Đa thể thức (Multimodal Machine Learning), nhằm giải quyết các bài toán phức tạp với độ chính xác cao.\n\nTài sản lớn nhất của Aimesoft là đội ngũ hơn 30 chuyên gia và kĩ sư nghiên cứu với nền tảng lập trình vững chắc và kinh nghiệm thực chiến các dự án “khó nhằn”. Dưới dự dẫn dắt của TS. Nguyễn Tuấn Đức (CEO) và cố vấn của các chuyên gia đến từ Đại học Tokyo, Nhật Bản, Aimesoft đang có những bước chuyển mình mạnh mẽ nhằm khẳng định vị trí số 1 về cung cấp giải pháp ứng dụng Trí tuệ nhân tạo.\n\nỞ Aimesoft, chúng tôi hay nói đùa với nhau rằng “Cứ cái gì khó thì để Aimesoft làm”. Điều đó khẳng định tiềm lực, năng lực nghiên cứu và triển khai của Aimesoft cũng như sự tín nhiệm của khách hàng và đối tác dành cho Aimesoft.",
-		"employee_size" : "50 - 100",
-		"id" : "-MPhPMkFXOtvW3oMiYYZ",
-		"location" : " Số 3, ngõ 82 Dịch Vọng Hậu",
-		"tagline" : "Công ty phát triển phần mềm",
-		"website_link" : ""
-	},
-	"-MPj6vYjQNwlpmfa_XNU" : {
-		"business_area" : "Công nghệ",
-		"company_name" : "BASE.VN",
-		"description" : "Là một trong những công ty công nghệ đi đầu trong lĩnh vực nền tảng quản trị doanh nghiệp Software-as-a-Service tại Việt Nam, Base Enterprise mang sứ mệnh xây dựng một nền tảng mở và thông minh, nơi có tất cả các ứng dụng tuyệt với nhất cho các doanh nghiệp trên khắp châu Á.\n\nHiện tại, các ứng dụng trên nền tảng Base đang phục vụ 3000+ doanh nghiệp tại Việt Nam, với các dòng sản phẩm về Management, Human Resources và Productivity. Đội ngũ Base bao gồm những cá nhân xuất sắc tốt nghiệp tại các trường ĐH hàng đầu tại Mỹ & Việt Nam và có nhiều năm kinh nghiệp trong ngành Software-as-a-Service.\n\nTại Base hội tụ các cá nhân xuất sắc trong các lĩnh vực:\n\n- Lập trình PHP/Full Stack (PHP,JS)\n\n- Nghiên cứu phát triển AI, Deep Learning, Comnputer Vision, NLP...\n\n- Lập trình Mobile: React Native, IOS, Android...\n\n- DevOps Cloud: AWS, Google Cloud...\n\n- BA, Tester",
-		"employee_size" : "100 - 500",
-		"id" : "-MPj6vYjQNwlpmfa_XNU",
-		"location" : "Thanh Xuân, Hà Nội",
-		"tagline" : "Gia công phần mềm",
-		"website_link" : ""
-	},
-	"-MPj7-jlscneytqvQYha" : {
-		"business_area" : "Marketing",
-		"company_name" : "Gameloft",
-		"description" : "Gameloft Hà Nội được thành lập vào năm 2011, hiện tại với khoảng 180 nhân viên hoạt động trên các lĩnh vực chính như triển khai game lên các thiết bị di động khác nhau, cập nhật và chỉnh sửa game cho thị trường Trung Quốc, các dự án game hyper casual, ... \n\nCác dự án nổi bật ở Gameloft Hà Nội cần phải kể đến như Asphalt 8: Airborne, Asphalt 9: Legends, Despicable Me: Minion Rush, Disney Magic Kingdom, Dragon Mania Legends, Dungeon Hunter Champions, March of Empires,... Đặc biệt, Gameloft Hà Nội tự hào là studio duy nhất của Gameloft làm game cho thị trường Trung Quốc - 1 thị trường vô cùng tiềm năng với số lượng người chơi và mức tiêu dùng khổng lồ, nhưng cũng vô cùng khó tính với các nhà phát hành game nước ngoài. Vào tháng 9/2019 vừa qua, Asphalt 9 đã được phát hành tại Trung Quốc thông qua hợp tác với Alibaba,là một thành công lớn của Gameloft Hà Nội nói riêng và Gameloft toàn cầu nói chung.",
-		"employee_size" : "10 - 50",
-		"id" : "-MPj7-jlscneytqvQYha",
-		"location" : "quận Nam Từ Liêm, Hà Nội",
-		"tagline" : "Tài chính Ngân hàng",
-		"website_link" : ""
-	},
-	"-MPj70q3wp0OpPC6Ym1f" : {
-		"business_area" : "Tài chính",
-		"company_name" : "Navistar ",
-		"description" : "Công Ty Cổ Phần Nghiên Cứu Và Phát Triển Công Nghệ Navistar Thành lập ngày 20-03-2015 có mã số thuế là 0106794930 hiện đang đăng ký kinh doanh tại địa chỉ Tầng 5, tòa nhà số 1, ngõ 120 đường Trường Chinh, Phường Phương Mai, Quận Đống đa, Thành phố Hà Nội.",
-		"employee_size" : "0 - 10",
-		"id" : "-MPj70q3wp0OpPC6Ym1f",
-		"location" : " Quận Đống đa, Hà Nội",
-		"tagline" : "Gia công phần mềm ",
-		"website_link" : ""
-	},
-	"-MPj71mSG6snwKobWmHF" : {
-		"business_area" : "Giáo dục",
-		"company_name" : "SmartOSC",
-		"description" : "SmartOSC là công ty Công nghệ thông tin hàng đầu Đông Nam Á trong việc tư vấn và cung cấp các giải pháp thương mại điện tử đa nền tảng cho các doanh nghiệp trên khắp thế giới. Với 14 năm kinh nghiệm và với hơn 350 chuyên gia làm việc tại các văn phòng ở Việt Nam, Australia, Singapore, Nhật Bản, Châu Âu, Mỹ. SmartOSC đang là đối tác tin cậy của các thương hiệu lớn trên thế giới như eBay, PayPal, DreamWorks, SpaceX, Friso, LG, Lotte, My Kingdom, Nestlé, SpaceX, Courts, Club 21, Priceline Pharmacy và Smartbox.  Các giải pháp được SmartOSC cung cấp dựa trên hiểu biết chuyên sâu về ngành công nghiệp bán lẻ, được công nhận là đối tác chiến lược của các nền tảng công nghệ lớn như Magento, Sitecore, Shopify Plus và Adobe.  SmartOSC còn là đơn vị đứng ra tổ chức Meet Magento – diễn đàn chia sẻ và kết nối các doanh nghiệp hoạt động trong lĩnh vực thương mại điện tử trong khu vực, đặc biệt là cộng đồng Magento.",
-		"employee_size" : "Over 500",
-		"id" : "-MPj71mSG6snwKobWmHF",
-		"location" : "Ngã tư Phạm Hùng ,Mễ Trì",
-		"tagline" : "Công ty Giáo dục",
-		"website_link" : ""
-	}
-	},
-	"freelancer" : {
-	"-MPhD0_6EYcu1zpn7MnP" : {
-		"category" : "Web",
-		"description" : "-Huỳnh Lê Anh Tài (04/10/1998)\n-Kỹ năng:\n+Lập trình web (PHP, Laravel, MySQL, CSS, JS, VueJS)\n-Sinh viên Đại học Công nghệ Thông tin TPHCM\n-04/2020 - 08/2020: Lập trình viên tại VNPT IT2\n-09/2020 - hiện tại: Lập trình viên tại Gonosen Quốc Tế\n-Từng làm các trang web quản trị, quán bá",
-		"hourly_rate" : 210000,
-		"id" : "-MPhD0_6EYcu1zpn7MnP",
-		"skills" : [ "PHP", "HTML/CSS", "JS", "Back-end", "Admin" ],
-		"tagline" : "Lập trình viên PHP"
-	},
-	"-MPj6Pte34-YnRxcJvED" : {
-		"category" : "Web",
-		"description" : "Hi everybody,\n\nI am a senior App(Android & IOS), Nodejs, PHP(Laravel), CMS(Wordpress, Magento), HTML5, CSS3, Bootstrap, Ajax, Jquery, Javascript developer, with strong experience over 7 years.\n===============\nA. Our Services\n===============\n\n> App(Android & IOS)\n\n> Framework (CI & Laravel)\n> CMS(Wordpress, Magento)\n\n> Web desgin & development\n> PSD to Responsive HTML, HTML5, CSS, CSS3, Bootstrap\n> PSD to Responsive WordPress theme\n> Responsive website design and redesign\n> Woo-commerce, eCommerce site design and development\n> Graphic Desgin\n> SEO\n> Google Ads\n> Facebook Ads\n> Youtube Ads",
-		"hourly_rate" : 400000,
-		"id" : "-MPj6Pte34-YnRxcJvED",
-		"skills" : [ "HTML/CSS", "JS", "ReactJS", "Angular", "NodeJS", "PHP", "CSS Dev" ],
-		"tagline" : "Web developer, Mobi App & Graphic Designer"
-	},
-	"-MPj6T8_mqL1KY3R3M8s" : {
-		"category" : "Web",
-		"description" : "Tôi là founder của [mona-media.com], công ty có tuổi đời 7 năm trong Website, web-app, Desktop app, IOS Android development. Suốt từ ngày đầu tới nay, Mona Media chưa từng bỏ dang dở bất kì dự án nào, chúng tôi có tỉ lệ giao hàng thành công là 100%.\n\nHãy xem kỹ portfolio của chúng tôi tại [mona-media.com], bạn sẽ thấy mức độ hài lòng của khách hàng thể hiện qua việc họ đều cộng tác với Mona Media nhiều hơn 1 lần, đồng thời họ còn giới thiệu Mona Media đến bạn bè và đối tác. Đây chính là phương hướng kinh doanh mà chúng tôi muốn hướng tới ngay từ đầu. Làm hài lòng mọi khách hàng, tôi muốn nhấn mạnh, MỌI KHÁCH HÀNG.\n\nChọn lựa Mona Media nếu bạn thật sự nghiêm túc với những dự án của mình. Chúng tôi sẽ không tiếp nhận những khách hàng hời hợt, thiếu đầu tư với chính sản phẩm của họ.\n",
-		"hourly_rate" : 10000,
-		"id" : "-MPj6T8_mqL1KY3R3M8s",
-		"skills" : [ "HTML/CSS", "Wordpress", "PHP", "Angular", "ReactJS", "JS", "NodeJS", "Admin" ],
-		"tagline" : "Thiết kế website, Web-app,"
-	},
-	"-MPj6W1au8JbQtXbEewT" : {
-		"category" : "Web",
-		"description" : "Team chúng tôi là những \u001Ddeveloper có hơn 6 năm kinh nghiệm chuyên lập trình web/app cho nhiều lĩnh vực khác nhau.\nVới khả năng full-stack nên có thể đảm nhận từ phân tích và thiết kế hệ thống, tư vấn giải pháp, cho đến triển khai xây dựng backend và frontend dựa trên các nền tảng phổ biế\u001Dn.\nNhận xây dựng, bảo trì, fix bug và tối ưu cải thiện tốc độ website, những vấn đề liên quan tới sự vận hành web\n\n=====================================\n\nKhi bắt đầu một dự án, tôi sẽ:\n- Nhận thông tin yêu cầu tổng quan về dự án\n- Gặp mặt trao đổi trực tiếp (nếu \u001Dcó thể)\n- Lên danh sách Q&A để trao đổi làm rõ yêu cầu - Hỗ trợ tư vấn giải pháp nếu cần\n- Xác định scope và thống nhất nội dung công việc\n- Lên kế hoạch, xây dựng tài liệu \bphát triển (đối với dự án lớn)\n- Bắt tay vào xây dựng sản phẩm\n- Kiểm tra chất lượng sản phẩm trên môi trường test\n- Triển khai cài đặt trên môi trường live để bàn giao sản phẩm\n- Cung cấp tài liệu hướng dẫn sử dụng nếu cần\n- Hỗ trợ fix bug nếu phát sinh vấn đề khi vận hành\n- \u001DNhận bảo trì và phát triển nếu làm product lâu dài",
-		"hourly_rate" : 10000,
-		"id" : "-MPj6W1au8JbQtXbEewT",
-		"skills" : [ "HTML/CSS", "JS", "PHP", "Admin" ],
-		"tagline" : "Fullstack Web/App Developer"
-	},
-	"-MPj6hQrt7x51mFzvFsu" : {
-		"category" : "Web",
-		"description" : "- Là người cẩn thận, có trách nhiệm trong công việc.\n- Chuyên gia với hơn 5 năm kinh nghiệm lập trình PHP, wordpress với vai trò là full stack developer cho các dự án freelance, công ty , tâp đoàn nước ngoài ở Nga , Úc...\n- Chuyên gia thiết kế hình ảnh, banner chạy quảng cáo TVC online, facebook ads, google adwords.",
-		"hourly_rate" : 380000,
-		"id" : "-MPj6hQrt7x51mFzvFsu",
-		"skills" : [ "HTML/CSS", "JS", "PHP", "Back-end" ],
-		"tagline" : "Full stack web developer,Designer , Video 3D"
-	},
-	"-MPj6ibNiXf1J9cporMY" : {
-		"category" : "Web",
-		"description" : "- Tôi tên là: Nguyễn Quốc Tiệc.\n- Quê quán: Hà Nội.\n- Mình có kinh nghiệm hơn 4 năm trong lập trình:\n- Mobile App, react-native\n- C#,\n- ASP NET MVC, ASP NET CORE MVC\n- Angular js,\n- Jquery,\n- JavaScript,\n- Ajax.\n- Lập trình Sharepoint, Sql Server,\n- Mongodb, nodejs, vuejs\n- Thiết kế website\n- Phần mềm ERP, quản lý khách hàng, quản lý nhân sự, quản lý kho...\n\nKhi bắt đầu một dự án, tôi sẽ:\n- Nhận thông tin yêu cầu tổng quan về dự án\n- Gặp mặt trao đổi trực tiếp (nếu có thể)\n- Lên danh sách Q&A để trao đổi làm rõ yêu cầu - Hỗ trợ tư vấn giải pháp nếu cần\n- Xác định scope và thống nhất nội dung công việc\n- Lên kế hoạch, xây dựng tài liệu phát triển (đối với dự án lớn)\n- Bắt tay vào xây dựng sản phẩm\n- Kiểm tra chất lượng sản phẩm trên môi trường test\n- Triển khai cài đặt trên môi trường live để bàn giao sản phẩm\n- Hỗ trợ fix bug nếu phát sinh vấn đề khi vận hành",
-		"hourly_rate" : 300000,
-		"id" : "-MPj6ibNiXf1J9cporMY",
-		"skills" : [ "AWS", "Front-end", "HTML/CSS", "ReactJS" ],
-		"tagline" : "Fullstack Web/App Developer"
-	},
-	"-MPj6jhq2xVdIBDyYT47" : {
-		"category" : "Web",
-		"description" : "WP CODER TEAM là một nhóm lập trình viên và chuyên viên đồ họa , chúng tôi sẽ cho bạn nhưng lời tư vấn tốt nhất hoặc một sản phẩm đáng đồng tiền bát gạo , dựa trên nền tảng Wordpress , hoặc PHP Framework ( tùy khách ) .\n\n- Chúng tôi thành thạo : CSS3,CSS2, Laravel , Codeigniter, Jquery , Wordpress, Plugin & Theme Wordpress .... Autocar 3D, 3D Max ....\n\n- tháng 8 - 2016 WP CODER TEAM ký hợp đồng đối tác FPT Telecom ...",
-		"hourly_rate" : 200000,
-		"id" : "-MPj6jhq2xVdIBDyYT47",
-		"skills" : [ "HTML/CSS", "PHP", "Back-end", "JS" ],
-		"tagline" : "Lập Trình Viên PHP"
-	},
-	"-MPj6kdv_oT7pMl9oGIH" : {
-		"category" : "Web",
-		"description" : "Tôi là Lê Văn Thu, Tốt nghiệp trường HVKTQS năm 2017 bằng giỏi. Tôi có khả năng lập trình tốt, đặc biệt là lập trình các mạch điều khiển, lập trình ứng dụng máy tính hay xây dựng website có tính phức tạp cao. Tôi tham gia trang với mục đích kiếm thêm thu nhập cho cá nhân.",
-		"hourly_rate" : 10000,
-		"id" : "-MPj6kdv_oT7pMl9oGIH",
-		"skills" : [ "AWS", "Front-end", "Back-end", "PHP", "Admin", "Database Designer" ],
-		"tagline" : "Kỹ sư tin học và điều khiển"
-	},
-	"-MPj6lgJN5YhmaQz8gcq" : {
-		"category" : "Web",
-		"description" : "Tốt nghiệp đại học chính quy ngành CNTT trường Đại Học Sài Gòn loại giỏi.\n2012 - 2013: Kỹ sư phần mềm tại Ngân Hàng Đông Á.\n2013 - 2014: Trưởng nhóm phát triển phần mềm tại công ty Semantics\n2014 - nay: freelancer.",
-		"hourly_rate" : 290000,
-		"id" : "-MPj6lgJN5YhmaQz8gcq",
-		"skills" : [ "HTML/CSS", "ReactJS", "JS", "NodeJS", "Angular" ],
-		"tagline" : "Fullstack Web/App Developer, PHP"
-	},
-	"-MPj6mmXM9gLGa2Sy9D3" : {
-		"category" : "Web",
-		"description" : "- Với 10 năm kinh nghiệm làm việc trong lĩnh vực mobile app trên các thiết bị di động.\n- Bắt đầu từ thuở sơ khai của mobile app với nền tảng j2me cho điện thoại hỗ trợ java.\n- Phát triển cho nền tảng Android với nhiều ứng dụng nổi tiếng trên kho ứng dụng (như EVNCPC mobile, Bói tên, Lịch tốt xấu,...)\n- Làm teamleader trong gần 3 năm và có cái nhìn tổng quát về các vấn đề trên mobile cũng như kiến thức sâu rộng trong mảng mobile app.\n- Đã từng làm nhiều app cho android (cung cấp trên kho google play) và nhiều app iOs (kho apple store).\n- Làm qua nhiều nền tảng, opensource, framework như: J2me(j2me polish, lwuit,...); android (awesome-android-ui, retrofit, Android Architecture Blueprints,...); game mobile (unity, andengine, libgdx, jndt,...); react native, kotlin, cordova....\n- Sử dụng nhiều ngôn ngữ khác nhau: java (java EE, J2me, Swing, JavaFx, JSF, Jsp); android (Java, kotlin); DBMS(sql, mySql, MSSQL, oracle, sqlite, mongoDb....); iOs(objective-c, swift,...); ,....\n- kho ứng dụng Android trên Play store với nhiều ứng dụng trên 100.000 lượt tải: http://bit.ly/2NyYve4\n- Kho ứng dụng iOs trên App store: https://apple.co/2YxByZP\n- Thông tin thêm tại: https://richard-dam.web.app",
-		"hourly_rate" : 350000,
-		"id" : "-MPj6mmXM9gLGa2Sy9D3",
-		"skills" : [ "HTML/CSS", "JS", "Angular", "Front-end", "CSS Dev", "Admin" ],
-		"tagline" : "Fullstack developer & Mobile developer"
-	},
-	"-MPj6nyN7UAqyQ2m-SzM" : {
-		"category" : "Mobile",
-		"description" : "- Tôi có kinh nghiệm 2 năm làm lập trình trong lĩnh vực di động.\n- Có thể làm được các ngôn ngữ: Java, Swift, Object-C, Koltin, Flutter, Nodejs.\n- Tôi tự tin có thể làm tốt các yêu cầu của khách hàng.\n- Tôi đã có nhiều ứng dụng trên App Store, Google Play.",
-		"hourly_rate" : 10000,
-		"id" : "-MPj6nyN7UAqyQ2m-SzM",
-		"skills" : [ "iOS", "Flutter", "Android", "Native App" ],
-		"tagline" : "iOS Android Flutter NodeJs Json"
-	},
-	"-MPj6ox0g_hZ_t_HTbml" : {
-		"category" : "Mobile",
-		"description" : "Mình có trên 5 năm kinh nghiệm làm Software Engineer & Product Designer, chuyên thiết kế UI/UX, lập trình các ứng dụng di động và websites. Mình đã từng làm việc tại các công ty như Tiki, Luxstay, Scurry, IDTEK, KMS,...\n\nVới mình, một thiết kế tốt không chỉ đẹp là đủ, mà nó phải thoả mãn về mặt UX. Để làm được điều đó, phải thực hiện nghiên cứu hành vi người dùng và thiết kế dựa trên những dữ liệu được thu thập. Thiết kế sẽ được cải thiện liên tục thông qua usability testing để đảm bảo giải quyết được đúng nhu cầu người dùng.\n\nHi vọng mình sẽ giúp các khách hàng trên Vlance giải quyết được các vấn đề mà họ gặp phải thông qua các thiết kế của mình.",
-		"hourly_rate" : 10000,
-		"id" : "-MPj6ox0g_hZ_t_HTbml",
-		"skills" : [ "Android", "React Native", "Native App", "Firebase" ],
-		"tagline" : "Apps Developer - UI/UX/Graphic Designer"
-	},
-	"-MPj6qFNvNErqf6PLt5J" : {
-		"category" : "Mobile",
-		"description" : "Hiện tại tôi là team leader nhóm mobile của 1 công ty phần mềm tại Hà Nội. Tôi có kinh nghiệm 4 năm về phát triển ứng dụng trên HĐH Android. Đặc biệt về mảng multimedia, telecom. Tôi có khả năng làm ứng dụng ở tầng native, cũng đã từng làm việc dưới tầng kernel khi phát triển ứng dụng cần biên dịch lại mã nguồn gốc của HĐH. Tôi có khả năng vận dụng tốt open source: open cv, ffmpeg,... làm viêc thành thạo web service, social,... Kinh nghiệm làm việc 3 năm trên Linux.",
-		"hourly_rate" : 10000,
-		"id" : "-MPj6qFNvNErqf6PLt5J",
-		"skills" : [ "Android", "Firebase", "Java" ],
-		"tagline" : "Lập trình viên Android"
-	},
-	"-MPj6rOEC1X-MlMDKi5S" : {
-		"category" : "Mobile",
-		"description" : "Mình là Kiên,\ntốt nghiệp đại học Bách Khoa Hà Nội và đã có gần 5 năm kinh nghiệm lập trình Android.\n\nTham gia cộng đồng vLance với mục đích trau dồi thêm kinh nghiệm cũng như kiếm thêm việc làm.",
-		"hourly_rate" : 10000,
-		"id" : "-MPj6rOEC1X-MlMDKi5S",
-		"skills" : [ "Android", "Flutter", "Native App", "Firebase", "E-commerce", "Java" ],
-		"tagline" : "Lập trình viên Android"
-	},
-	"-MPj6soPbmYFtbyYqv_k" : {
-		"category" : "Mobile",
-		"description" : "Hơn 3 năm kinh nghiệm trong lĩnh vực Mobile App và Web development\n\nKỹ năng lập trình chính của tôi:\n- React Native/ ReactJS\n- Python\n- Java/Kotlin (Android)\n- NodeJS\n- C++\n\nTham khảo các projects tôi đã làm : https://github.com/kiennguyensys",
-		"hourly_rate" : 10000,
-		"id" : "-MPj6soPbmYFtbyYqv_k",
-		"skills" : [ "Android", "Java", "Native App", "React Native" ],
-		"tagline" : "Software Engineer"
-	}
-	},
-	"payment" : {
-	"-MPhD0_6EYcu1zpn7MnP" : {
-		"balance" : 0,
-		"id" : "-MPhD0_6EYcu1zpn7MnP"
-	},
-	"-MPhPMkFXOtvW3oMiYYZ" : {
-		"balance" : 130000,
-		"cards" : {
-		"-MPhUB4AIECzxe1CgP5w" : {
-			"ccv" : "323",
-			"company" : "visa",
-			"email" : "sfsf",
-			"expired_date" : "2020-12-25",
-			"id" : "-MPhUB4AIECzxe1CgP5w",
-			"number" : "215315152523",
-			"owner_name" : "huykhoi"
-		},
-		"-MPhWfTdk9amwq9zGMAb" : {
-			"ccv" : "214",
-			"company" : "visa",
-			"email" : "2",
-			"expired_date" : "2020-12-31",
-			"id" : "-MPhWfTdk9amwq9zGMAb",
-			"number" : "423337263726",
-			"owner_name" : "21"
-		}
-		},
-		"id" : "-MPhPMkFXOtvW3oMiYYZ",
-		"transactions" : {
-		"-MPhlkBWyttQNsMOUU9C" : {
-			"amount" : -20000,
-			"card" : {
-			"company" : "visa",
-			"id" : "-MPhUB4AIECzxe1CgP5w",
-			"number" : "215315152523"
-			},
-			"id" : "-MPhlkBWyttQNsMOUU9C",
-			"time" : "Tue Dec 29 2020",
-			"type" : "Rút tiền"
-		},
-		"-MPhlkvTGnFJZfsN1hYm" : {
-			"amount" : -20000,
-			"card" : {
-			"company" : "visa",
-			"id" : "-MPhUB4AIECzxe1CgP5w",
-			"number" : "215315152523"
-			},
-			"id" : "-MPhlkvTGnFJZfsN1hYm",
-			"time" : "Tue Dec 29 2020",
-			"type" : "Rút tiền"
-		},
-		"-MPhllfig-R8DASIfGf2" : {
-			"amount" : -20000,
-			"card" : {
-			"company" : "visa",
-			"id" : "-MPhUB4AIECzxe1CgP5w",
-			"number" : "215315152523"
-			},
-			"id" : "-MPhllfig-R8DASIfGf2",
-			"time" : "Tue Dec 29 2020",
-			"type" : "Rút tiền"
-		},
-		"-MPhlm6yjPtrUjfLXyxg" : {
-			"amount" : -20000,
-			"card" : {
-			"company" : "visa",
-			"id" : "-MPhUB4AIECzxe1CgP5w",
-			"number" : "215315152523"
-			},
-			"id" : "-MPhlm6yjPtrUjfLXyxg",
-			"time" : "Tue Dec 29 2020",
-			"type" : "Rút tiền"
-		},
-		"-MPhlmiLdbtWfXdHoeey" : {
-			"amount" : -20000,
-			"card" : {
-			"company" : "visa",
-			"id" : "-MPhUB4AIECzxe1CgP5w",
-			"number" : "215315152523"
-			},
-			"id" : "-MPhlmiLdbtWfXdHoeey",
-			"time" : "Tue Dec 29 2020",
-			"type" : "Rút tiền"
-		},
-		"-MPhlnByL0ExH9LHsrMa" : {
-			"amount" : -20000,
-			"card" : {
-			"company" : "visa",
-			"id" : "-MPhUB4AIECzxe1CgP5w",
-			"number" : "215315152523"
-			},
-			"id" : "-MPhlnByL0ExH9LHsrMa",
-			"time" : "Tue Dec 29 2020",
-			"type" : "Rút tiền"
-		},
-		"-MPhloIVanndcyHyXnEb" : {
-			"amount" : -20000,
-			"card" : {
-			"company" : "visa",
-			"id" : "-MPhUB4AIECzxe1CgP5w",
-			"number" : "215315152523"
-			},
-			"id" : "-MPhloIVanndcyHyXnEb",
-			"time" : "Tue Dec 29 2020",
-			"type" : "Rút tiền"
-		}
-		}
-	},
-	"-MPj6Pte34-YnRxcJvED" : {
-		"balance" : 0,
-		"id" : "-MPj6Pte34-YnRxcJvED"
-	},
-	"-MPj6T8_mqL1KY3R3M8s" : {
-		"balance" : 0,
-		"id" : "-MPj6T8_mqL1KY3R3M8s"
-	},
-	"-MPj6W1au8JbQtXbEewT" : {
-		"balance" : 0,
-		"id" : "-MPj6W1au8JbQtXbEewT"
-	},
-	"-MPj6hQrt7x51mFzvFsu" : {
-		"balance" : 0,
-		"id" : "-MPj6hQrt7x51mFzvFsu"
-	},
-	"-MPj6ibNiXf1J9cporMY" : {
-		"balance" : 0,
-		"id" : "-MPj6ibNiXf1J9cporMY"
-	},
-	"-MPj6jhq2xVdIBDyYT47" : {
-		"balance" : 0,
-		"id" : "-MPj6jhq2xVdIBDyYT47"
-	},
-	"-MPj6kdv_oT7pMl9oGIH" : {
-		"balance" : 0,
-		"id" : "-MPj6kdv_oT7pMl9oGIH"
-	},
-	"-MPj6lgJN5YhmaQz8gcq" : {
-		"balance" : 0,
-		"id" : "-MPj6lgJN5YhmaQz8gcq"
-	},
-	"-MPj6mmXM9gLGa2Sy9D3" : {
-		"balance" : 0,
-		"id" : "-MPj6mmXM9gLGa2Sy9D3"
-	},
-	"-MPj6nyN7UAqyQ2m-SzM" : {
-		"balance" : 0,
-		"id" : "-MPj6nyN7UAqyQ2m-SzM"
-	},
-	"-MPj6ox0g_hZ_t_HTbml" : {
-		"balance" : 0,
-		"id" : "-MPj6ox0g_hZ_t_HTbml"
-	},
-	"-MPj6qFNvNErqf6PLt5J" : {
-		"balance" : 0,
-		"id" : "-MPj6qFNvNErqf6PLt5J"
-	},
-	"-MPj6rOEC1X-MlMDKi5S" : {
-		"balance" : 0,
-		"id" : "-MPj6rOEC1X-MlMDKi5S"
-	},
-	"-MPj6soPbmYFtbyYqv_k" : {
-		"balance" : 0,
-		"id" : "-MPj6soPbmYFtbyYqv_k"
-	},
-	"-MPj6vYjQNwlpmfa_XNU" : {
-		"balance" : 0,
-		"id" : "-MPj6vYjQNwlpmfa_XNU"
-	},
-	"-MPj7-jlscneytqvQYha" : {
-		"balance" : 0,
-		"id" : "-MPj7-jlscneytqvQYha"
-	},
-	"-MPj70q3wp0OpPC6Ym1f" : {
-		"balance" : 0,
-		"id" : "-MPj70q3wp0OpPC6Ym1f"
-	},
-	"-MPj71mSG6snwKobWmHF" : {
-		"balance" : 0,
-		"id" : "-MPj71mSG6snwKobWmHF"
-	}
-	},
-	"user" : {
-	"-MPhD0_6EYcu1zpn7MnP" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPhD0_6EYcu1zpn7MnP.jpg?alt=media&token=521dc4cc-2f37-4fbb-b239-b675c78d0e01",
-		"email" : "freelancer1@gmail.com",
-		"id" : "-MPhD0_6EYcu1zpn7MnP",
-		"password" : "123456",
-		"type" : "freelancer",
-		"username" : "T. Huỳnh"
-	},
-	"-MPhPMkFXOtvW3oMiYYZ" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPhPMkFXOtvW3oMiYYZ.jpg?alt=media&token=9dbcebc2-4faa-4ad1-8aaa-f4b9462483da",
-		"email" : "company1@gmail.com",
-		"id" : "-MPhPMkFXOtvW3oMiYYZ",
-		"password" : "123456",
-		"type" : "company",
-		"username" : "Aimesoft"
-	},
-	"-MPj6Pte34-YnRxcJvED" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6Pte34-YnRxcJvED.jpg?alt=media&token=150070c6-4315-4655-87a9-11c06929b872",
-		"email" : "freelancer2@gmail.com",
-		"id" : "-MPj6Pte34-YnRxcJvED",
-		"password" : "123456",
-		"type" : "freelancer",
-		"username" : "L. Q. Việt"
-	},
-	"-MPj6T8_mqL1KY3R3M8s" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6T8_mqL1KY3R3M8s.jpg?alt=media&token=3b32f9f1-fd8f-4c03-856f-3f8c33d12e54",
-		"email" : "freelancer3@gmail.com",
-		"id" : "-MPj6T8_mqL1KY3R3M8s",
-		"password" : "123456",
-		"type" : "freelancer",
-		"username" : "V. N. K. Hùng"
-	},
-	"-MPj6W1au8JbQtXbEewT" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6W1au8JbQtXbEewT.jpg?alt=media&token=c6633bed-9927-4131-acd7-79f19ef59e4e",
-		"email" : "freelancer4@gmail.com",
-		"id" : "-MPj6W1au8JbQtXbEewT",
-		"password" : "123456",
-		"type" : "freelancer",
-		"username" : "L. Đ. Kỳ"
-	},
-	"-MPj6hQrt7x51mFzvFsu" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6hQrt7x51mFzvFsu.jpg?alt=media&token=aef39f50-3972-4fa6-b409-be13ca0d70f6",
-		"email" : "freelancer5@gmail.com",
-		"id" : "-MPj6hQrt7x51mFzvFsu",
-		"password" : "123456",
-		"type" : "freelancer",
-		"username" : "N. Dũng "
-	},
-	"-MPj6ibNiXf1J9cporMY" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6ibNiXf1J9cporMY.jpg?alt=media&token=2fa02b2d-50eb-46fa-b015-6b1ba33481a1",
-		"email" : "freelancer6@gmail.com",
-		"id" : "-MPj6ibNiXf1J9cporMY",
-		"password" : "123456",
-		"type" : "freelancer",
-		"username" : "N. Q. Tiệc"
-	},
-	"-MPj6jhq2xVdIBDyYT47" : {
-		"avatar" : "",
-		"email" : "freelancer7@gmail.com",
-		"id" : "-MPj6jhq2xVdIBDyYT47",
-		"password" : "123456",
-		"type" : "freelancer",
-		"username" : "W. C. Team "
-	},
-	"-MPj6kdv_oT7pMl9oGIH" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6kdv_oT7pMl9oGIH.jpg?alt=media&token=aedaab0b-cf21-4f04-805b-3e2797d9a8d5",
-		"email" : "freelancer8@gmail.com",
-		"id" : "-MPj6kdv_oT7pMl9oGIH",
-		"password" : "123456",
-		"type" : "freelancer",
-		"username" : "L. V. Thu "
-	},
-	"-MPj6lgJN5YhmaQz8gcq" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6lgJN5YhmaQz8gcq.jpg?alt=media&token=f7748202-8c69-44cf-abf8-0fe3a096f357",
-		"email" : "freelancer9@gmail.com",
-		"id" : "-MPj6lgJN5YhmaQz8gcq",
-		"password" : "123456",
-		"type" : "freelancer",
-		"username" : "B. H. Vũ "
-	},
-	"-MPj6mmXM9gLGa2Sy9D3" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6mmXM9gLGa2Sy9D3.jpg?alt=media&token=d2ec0234-78ca-4053-88c8-0fb4045823fa",
-		"email" : "freelancer10@gmail.com",
-		"id" : "-MPj6mmXM9gLGa2Sy9D3",
-		"password" : "123456",
-		"type" : "freelancer",
-		"username" : "Đ. M. Hùng "
-	},
-	"-MPj6nyN7UAqyQ2m-SzM" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6nyN7UAqyQ2m-SzM.jpg?alt=media&token=113b152b-a1f1-4ff5-8575-7f9aa1ae8030",
-		"email" : "freelancer11@gmail.com",
-		"id" : "-MPj6nyN7UAqyQ2m-SzM",
-		"password" : "123456",
-		"type" : "freelancer",
-		"username" : "C. Nguyen"
-	},
-	"-MPj6ox0g_hZ_t_HTbml" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6ox0g_hZ_t_HTbml.jpg?alt=media&token=af4727cc-4c00-4a1e-a97e-5601559f806c",
-		"email" : "freelancer12@gmail.com",
-		"id" : "-MPj6ox0g_hZ_t_HTbml",
-		"password" : "123456",
-		"type" : "freelancer",
-		"username" : "N. N. Tuyên "
-	},
-	"-MPj6qFNvNErqf6PLt5J" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6qFNvNErqf6PLt5J.jpg?alt=media&token=91389750-1ccc-47d7-b791-f080573c875d",
-		"email" : "freelancer13@gmail.com",
-		"id" : "-MPj6qFNvNErqf6PLt5J",
-		"password" : "123456",
-		"type" : "freelancer",
-		"username" : "Bav"
-	},
-	"-MPj6rOEC1X-MlMDKi5S" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6rOEC1X-MlMDKi5S.jpg?alt=media&token=09e3879e-6a50-41fe-a293-005b23d30d03",
-		"email" : "freelancer14@gmail.com",
-		"id" : "-MPj6rOEC1X-MlMDKi5S",
-		"password" : "123456",
-		"type" : "freelancer",
-		"username" : "K. Bùi"
-	},
-	"-MPj6soPbmYFtbyYqv_k" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6soPbmYFtbyYqv_k.jpg?alt=media&token=f2cceb02-1c63-4cdd-a952-08988c8a0a11",
-		"email" : "freelancer15@gmail.com",
-		"id" : "-MPj6soPbmYFtbyYqv_k",
-		"password" : "123456",
-		"type" : "freelancer",
-		"username" : "K. Nguyen"
-	},
-	"-MPj6vYjQNwlpmfa_XNU" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6vYjQNwlpmfa_XNU.jpg?alt=media&token=cdd8d9ba-0631-41a2-8f12-131acc6e1d63",
-		"email" : "company2@gmail.com",
-		"id" : "-MPj6vYjQNwlpmfa_XNU",
-		"password" : "123456",
-		"type" : "company",
-		"username" : "BASE.VN"
-	},
-	"-MPj7-jlscneytqvQYha" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj7-jlscneytqvQYha.jpg?alt=media&token=bb8a9bcb-bdcf-44b1-8077-4abbc0a9f17d",
-		"email" : "company3@gmail.com",
-		"id" : "-MPj7-jlscneytqvQYha",
-		"password" : "123456",
-		"type" : "company",
-		"username" : "Gameloft "
-	},
-	"-MPj70q3wp0OpPC6Ym1f" : {
-		"avatar" : "",
-		"email" : "company4@gmail.com",
-		"id" : "-MPj70q3wp0OpPC6Ym1f",
-		"password" : "123456",
-		"type" : "company",
-		"username" : "Navistar "
-	},
-	"-MPj71mSG6snwKobWmHF" : {
-		"avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj71mSG6snwKobWmHF.jpg?alt=media&token=05219b77-56b1-4af6-abb4-0be29c88e377",
-		"email" : "company5@gmail.com",
-		"id" : "-MPj71mSG6snwKobWmHF",
-		"password" : "123456",
-		"type" : "company",
-		"username" : "SmartOSC"
-	}
-	}
-	}
+{
+  "company" : {
+    "-MPhPMkFXOtvW3oMiYYZ" : {
+      "business_area" : "Công nghệ",
+      "company_name" : "Công ty Cổ phần Aimesoft",
+      "description" : "Aimesoft là công ty tiên phong nghiên cứu và ứng dụng công nghệ Trí tuệ nhân tạo Đa thể thức, được phát triển từ mô hình Học máy Đa thể thức (Multimodal Machine Learning), nhằm giải quyết các bài toán phức tạp với độ chính xác cao.\n\nTài sản lớn nhất của Aimesoft là đội ngũ hơn 30 chuyên gia và kĩ sư nghiên cứu với nền tảng lập trình vững chắc và kinh nghiệm thực chiến các dự án “khó nhằn”. Dưới dự dẫn dắt của TS. Nguyễn Tuấn Đức (CEO) và cố vấn của các chuyên gia đến từ Đại học Tokyo, Nhật Bản, Aimesoft đang có những bước chuyển mình mạnh mẽ nhằm khẳng định vị trí số 1 về cung cấp giải pháp ứng dụng Trí tuệ nhân tạo.\n\nỞ Aimesoft, chúng tôi hay nói đùa với nhau rằng “Cứ cái gì khó thì để Aimesoft làm”. Điều đó khẳng định tiềm lực, năng lực nghiên cứu và triển khai của Aimesoft cũng như sự tín nhiệm của khách hàng và đối tác dành cho Aimesoft.",
+      "employee_size" : "50 - 100",
+      "id" : "-MPhPMkFXOtvW3oMiYYZ",
+      "location" : " Số 3, ngõ 82 Dịch Vọng Hậu",
+      "tagline" : "Công ty phát triển phần mềm",
+      "website_link" : ""
+    },
+    "-MPj6vYjQNwlpmfa_XNU" : {
+      "business_area" : "Công nghệ",
+      "company_name" : "BASE.VN",
+      "description" : "Là một trong những công ty công nghệ đi đầu trong lĩnh vực nền tảng quản trị doanh nghiệp Software-as-a-Service tại Việt Nam, Base Enterprise mang sứ mệnh xây dựng một nền tảng mở và thông minh, nơi có tất cả các ứng dụng tuyệt với nhất cho các doanh nghiệp trên khắp châu Á.\n\nHiện tại, các ứng dụng trên nền tảng Base đang phục vụ 3000+ doanh nghiệp tại Việt Nam, với các dòng sản phẩm về Management, Human Resources và Productivity. Đội ngũ Base bao gồm những cá nhân xuất sắc tốt nghiệp tại các trường ĐH hàng đầu tại Mỹ & Việt Nam và có nhiều năm kinh nghiệp trong ngành Software-as-a-Service.\n\nTại Base hội tụ các cá nhân xuất sắc trong các lĩnh vực:\n\n- Lập trình PHP/Full Stack (PHP,JS)\n\n- Nghiên cứu phát triển AI, Deep Learning, Comnputer Vision, NLP...\n\n- Lập trình Mobile: React Native, IOS, Android...\n\n- DevOps Cloud: AWS, Google Cloud...\n\n- BA, Tester",
+      "employee_size" : "100 - 500",
+      "id" : "-MPj6vYjQNwlpmfa_XNU",
+      "location" : "Thanh Xuân, Hà Nội",
+      "tagline" : "Gia công phần mềm",
+      "website_link" : ""
+    },
+    "-MPj7-jlscneytqvQYha" : {
+      "business_area" : "Marketing",
+      "company_name" : "Gameloft",
+      "description" : "Gameloft Hà Nội được thành lập vào năm 2011, hiện tại với khoảng 180 nhân viên hoạt động trên các lĩnh vực chính như triển khai game lên các thiết bị di động khác nhau, cập nhật và chỉnh sửa game cho thị trường Trung Quốc, các dự án game hyper casual, ... \n\nCác dự án nổi bật ở Gameloft Hà Nội cần phải kể đến như Asphalt 8: Airborne, Asphalt 9: Legends, Despicable Me: Minion Rush, Disney Magic Kingdom, Dragon Mania Legends, Dungeon Hunter Champions, March of Empires,... Đặc biệt, Gameloft Hà Nội tự hào là studio duy nhất của Gameloft làm game cho thị trường Trung Quốc - 1 thị trường vô cùng tiềm năng với số lượng người chơi và mức tiêu dùng khổng lồ, nhưng cũng vô cùng khó tính với các nhà phát hành game nước ngoài. Vào tháng 9/2019 vừa qua, Asphalt 9 đã được phát hành tại Trung Quốc thông qua hợp tác với Alibaba,là một thành công lớn của Gameloft Hà Nội nói riêng và Gameloft toàn cầu nói chung.",
+      "employee_size" : "10 - 50",
+      "id" : "-MPj7-jlscneytqvQYha",
+      "location" : "quận Nam Từ Liêm, Hà Nội",
+      "tagline" : "Tài chính Ngân hàng",
+      "website_link" : ""
+    },
+    "-MPj70q3wp0OpPC6Ym1f" : {
+      "business_area" : "Tài chính",
+      "company_name" : "Navistar ",
+      "description" : "Công Ty Cổ Phần Nghiên Cứu Và Phát Triển Công Nghệ Navistar Thành lập ngày 20-03-2015 có mã số thuế là 0106794930 hiện đang đăng ký kinh doanh tại địa chỉ Tầng 5, tòa nhà số 1, ngõ 120 đường Trường Chinh, Phường Phương Mai, Quận Đống đa, Thành phố Hà Nội.",
+      "employee_size" : "0 - 10",
+      "id" : "-MPj70q3wp0OpPC6Ym1f",
+      "location" : " Quận Đống đa, Hà Nội",
+      "tagline" : "Gia công phần mềm ",
+      "website_link" : ""
+    },
+    "-MPj71mSG6snwKobWmHF" : {
+      "business_area" : "Giáo dục",
+      "company_name" : "SmartOSC",
+      "description" : "SmartOSC là công ty Công nghệ thông tin hàng đầu Đông Nam Á trong việc tư vấn và cung cấp các giải pháp thương mại điện tử đa nền tảng cho các doanh nghiệp trên khắp thế giới. Với 14 năm kinh nghiệm và với hơn 350 chuyên gia làm việc tại các văn phòng ở Việt Nam, Australia, Singapore, Nhật Bản, Châu Âu, Mỹ. SmartOSC đang là đối tác tin cậy của các thương hiệu lớn trên thế giới như eBay, PayPal, DreamWorks, SpaceX, Friso, LG, Lotte, My Kingdom, Nestlé, SpaceX, Courts, Club 21, Priceline Pharmacy và Smartbox.  Các giải pháp được SmartOSC cung cấp dựa trên hiểu biết chuyên sâu về ngành công nghiệp bán lẻ, được công nhận là đối tác chiến lược của các nền tảng công nghệ lớn như Magento, Sitecore, Shopify Plus và Adobe.  SmartOSC còn là đơn vị đứng ra tổ chức Meet Magento – diễn đàn chia sẻ và kết nối các doanh nghiệp hoạt động trong lĩnh vực thương mại điện tử trong khu vực, đặc biệt là cộng đồng Magento.",
+      "employee_size" : "Over 500",
+      "id" : "-MPj71mSG6snwKobWmHF",
+      "location" : "Ngã tư Phạm Hùng ,Mễ Trì",
+      "tagline" : "Công ty Giáo dục",
+      "website_link" : ""
+    }
+  },
+  "freelancer" : {
+    "-MPhD0_6EYcu1zpn7MnP" : {
+      "category" : "Web",
+      "description" : "-Huỳnh Lê Anh Tài (04/10/1998)\n-Kỹ năng:\n+Lập trình web (PHP, Laravel, MySQL, CSS, JS, VueJS)\n-Sinh viên Đại học Công nghệ Thông tin TPHCM\n-04/2020 - 08/2020: Lập trình viên tại VNPT IT2\n-09/2020 - hiện tại: Lập trình viên tại Gonosen Quốc Tế\n-Từng làm các trang web quản trị, quán bá",
+      "hourly_rate" : 210000,
+      "id" : "-MPhD0_6EYcu1zpn7MnP",
+      "skills" : [ "PHP", "HTML/CSS", "JS", "Back-end", "Admin" ],
+      "tagline" : "Lập trình viên PHP"
+    },
+    "-MPj6Pte34-YnRxcJvED" : {
+      "category" : "Web",
+      "description" : "Hi everybody,\n\nI am a senior App(Android & IOS), Nodejs, PHP(Laravel), CMS(Wordpress, Magento), HTML5, CSS3, Bootstrap, Ajax, Jquery, Javascript developer, with strong experience over 7 years.\n===============\nA. Our Services\n===============\n\n> App(Android & IOS)\n\n> Framework (CI & Laravel)\n> CMS(Wordpress, Magento)\n\n> Web desgin & development\n> PSD to Responsive HTML, HTML5, CSS, CSS3, Bootstrap\n> PSD to Responsive WordPress theme\n> Responsive website design and redesign\n> Woo-commerce, eCommerce site design and development\n> Graphic Desgin\n> SEO\n> Google Ads\n> Facebook Ads\n> Youtube Ads",
+      "hourly_rate" : 400000,
+      "id" : "-MPj6Pte34-YnRxcJvED",
+      "skills" : [ "HTML/CSS", "JS", "ReactJS", "Angular", "NodeJS", "PHP", "CSS Dev" ],
+      "tagline" : "Web developer, Mobi App & Graphic Designer"
+    },
+    "-MPj6T8_mqL1KY3R3M8s" : {
+      "category" : "Web",
+      "description" : "Tôi là founder của [mona-media.com], công ty có tuổi đời 7 năm trong Website, web-app, Desktop app, IOS Android development. Suốt từ ngày đầu tới nay, Mona Media chưa từng bỏ dang dở bất kì dự án nào, chúng tôi có tỉ lệ giao hàng thành công là 100%.\n\nHãy xem kỹ portfolio của chúng tôi tại [mona-media.com], bạn sẽ thấy mức độ hài lòng của khách hàng thể hiện qua việc họ đều cộng tác với Mona Media nhiều hơn 1 lần, đồng thời họ còn giới thiệu Mona Media đến bạn bè và đối tác. Đây chính là phương hướng kinh doanh mà chúng tôi muốn hướng tới ngay từ đầu. Làm hài lòng mọi khách hàng, tôi muốn nhấn mạnh, MỌI KHÁCH HÀNG.\n\nChọn lựa Mona Media nếu bạn thật sự nghiêm túc với những dự án của mình. Chúng tôi sẽ không tiếp nhận những khách hàng hời hợt, thiếu đầu tư với chính sản phẩm của họ.\n",
+      "hourly_rate" : 10000,
+      "id" : "-MPj6T8_mqL1KY3R3M8s",
+      "skills" : [ "HTML/CSS", "Wordpress", "PHP", "Angular", "ReactJS", "JS", "NodeJS", "Admin" ],
+      "tagline" : "Thiết kế website, Web-app,"
+    },
+    "-MPj6W1au8JbQtXbEewT" : {
+      "category" : "Web",
+      "description" : "Team chúng tôi là những \u001Ddeveloper có hơn 6 năm kinh nghiệm chuyên lập trình web/app cho nhiều lĩnh vực khác nhau.\nVới khả năng full-stack nên có thể đảm nhận từ phân tích và thiết kế hệ thống, tư vấn giải pháp, cho đến triển khai xây dựng backend và frontend dựa trên các nền tảng phổ biế\u001Dn.\nNhận xây dựng, bảo trì, fix bug và tối ưu cải thiện tốc độ website, những vấn đề liên quan tới sự vận hành web\n\n=====================================\n\nKhi bắt đầu một dự án, tôi sẽ:\n- Nhận thông tin yêu cầu tổng quan về dự án\n- Gặp mặt trao đổi trực tiếp (nếu \u001Dcó thể)\n- Lên danh sách Q&A để trao đổi làm rõ yêu cầu - Hỗ trợ tư vấn giải pháp nếu cần\n- Xác định scope và thống nhất nội dung công việc\n- Lên kế hoạch, xây dựng tài liệu \bphát triển (đối với dự án lớn)\n- Bắt tay vào xây dựng sản phẩm\n- Kiểm tra chất lượng sản phẩm trên môi trường test\n- Triển khai cài đặt trên môi trường live để bàn giao sản phẩm\n- Cung cấp tài liệu hướng dẫn sử dụng nếu cần\n- Hỗ trợ fix bug nếu phát sinh vấn đề khi vận hành\n- \u001DNhận bảo trì và phát triển nếu làm product lâu dài",
+      "hourly_rate" : 10000,
+      "id" : "-MPj6W1au8JbQtXbEewT",
+      "skills" : [ "HTML/CSS", "JS", "PHP", "Admin" ],
+      "tagline" : "Fullstack Web/App Developer"
+    },
+    "-MPj6hQrt7x51mFzvFsu" : {
+      "category" : "Web",
+      "description" : "- Là người cẩn thận, có trách nhiệm trong công việc.\n- Chuyên gia với hơn 5 năm kinh nghiệm lập trình PHP, wordpress với vai trò là full stack developer cho các dự án freelance, công ty , tâp đoàn nước ngoài ở Nga , Úc...\n- Chuyên gia thiết kế hình ảnh, banner chạy quảng cáo TVC online, facebook ads, google adwords.",
+      "hourly_rate" : 380000,
+      "id" : "-MPj6hQrt7x51mFzvFsu",
+      "skills" : [ "HTML/CSS", "JS", "PHP", "Back-end" ],
+      "tagline" : "Full stack web developer,Designer , Video 3D"
+    },
+    "-MPj6ibNiXf1J9cporMY" : {
+      "category" : "Web",
+      "description" : "- Tôi tên là: Nguyễn Quốc Tiệc.\n- Quê quán: Hà Nội.\n- Mình có kinh nghiệm hơn 4 năm trong lập trình:\n- Mobile App, react-native\n- C#,\n- ASP NET MVC, ASP NET CORE MVC\n- Angular js,\n- Jquery,\n- JavaScript,\n- Ajax.\n- Lập trình Sharepoint, Sql Server,\n- Mongodb, nodejs, vuejs\n- Thiết kế website\n- Phần mềm ERP, quản lý khách hàng, quản lý nhân sự, quản lý kho...\n\nKhi bắt đầu một dự án, tôi sẽ:\n- Nhận thông tin yêu cầu tổng quan về dự án\n- Gặp mặt trao đổi trực tiếp (nếu có thể)\n- Lên danh sách Q&A để trao đổi làm rõ yêu cầu - Hỗ trợ tư vấn giải pháp nếu cần\n- Xác định scope và thống nhất nội dung công việc\n- Lên kế hoạch, xây dựng tài liệu phát triển (đối với dự án lớn)\n- Bắt tay vào xây dựng sản phẩm\n- Kiểm tra chất lượng sản phẩm trên môi trường test\n- Triển khai cài đặt trên môi trường live để bàn giao sản phẩm\n- Hỗ trợ fix bug nếu phát sinh vấn đề khi vận hành",
+      "hourly_rate" : 300000,
+      "id" : "-MPj6ibNiXf1J9cporMY",
+      "skills" : [ "AWS", "Front-end", "HTML/CSS", "ReactJS" ],
+      "tagline" : "Fullstack Web/App Developer"
+    },
+    "-MPj6jhq2xVdIBDyYT47" : {
+      "category" : "Web",
+      "description" : "WP CODER TEAM là một nhóm lập trình viên và chuyên viên đồ họa , chúng tôi sẽ cho bạn nhưng lời tư vấn tốt nhất hoặc một sản phẩm đáng đồng tiền bát gạo , dựa trên nền tảng Wordpress , hoặc PHP Framework ( tùy khách ) .\n\n- Chúng tôi thành thạo : CSS3,CSS2, Laravel , Codeigniter, Jquery , Wordpress, Plugin & Theme Wordpress .... Autocar 3D, 3D Max ....\n\n- tháng 8 - 2016 WP CODER TEAM ký hợp đồng đối tác FPT Telecom ...",
+      "hourly_rate" : 200000,
+      "id" : "-MPj6jhq2xVdIBDyYT47",
+      "skills" : [ "HTML/CSS", "PHP", "Back-end", "JS" ],
+      "tagline" : "Lập Trình Viên PHP"
+    },
+    "-MPj6kdv_oT7pMl9oGIH" : {
+      "category" : "Web",
+      "description" : "Tôi là Lê Văn Thu, Tốt nghiệp trường HVKTQS năm 2017 bằng giỏi. Tôi có khả năng lập trình tốt, đặc biệt là lập trình các mạch điều khiển, lập trình ứng dụng máy tính hay xây dựng website có tính phức tạp cao. Tôi tham gia trang với mục đích kiếm thêm thu nhập cho cá nhân.",
+      "hourly_rate" : 10000,
+      "id" : "-MPj6kdv_oT7pMl9oGIH",
+      "skills" : [ "AWS", "Front-end", "Back-end", "PHP", "Admin", "Database Designer" ],
+      "tagline" : "Kỹ sư tin học và điều khiển"
+    },
+    "-MPj6lgJN5YhmaQz8gcq" : {
+      "category" : "Web",
+      "description" : "Tốt nghiệp đại học chính quy ngành CNTT trường Đại Học Sài Gòn loại giỏi.\n2012 - 2013: Kỹ sư phần mềm tại Ngân Hàng Đông Á.\n2013 - 2014: Trưởng nhóm phát triển phần mềm tại công ty Semantics\n2014 - nay: freelancer.",
+      "hourly_rate" : 290000,
+      "id" : "-MPj6lgJN5YhmaQz8gcq",
+      "skills" : [ "HTML/CSS", "ReactJS", "JS", "NodeJS", "Angular" ],
+      "tagline" : "Fullstack Web/App Developer, PHP"
+    },
+    "-MPj6mmXM9gLGa2Sy9D3" : {
+      "category" : "Web",
+      "description" : "- Với 10 năm kinh nghiệm làm việc trong lĩnh vực mobile app trên các thiết bị di động.\n- Bắt đầu từ thuở sơ khai của mobile app với nền tảng j2me cho điện thoại hỗ trợ java.\n- Phát triển cho nền tảng Android với nhiều ứng dụng nổi tiếng trên kho ứng dụng (như EVNCPC mobile, Bói tên, Lịch tốt xấu,...)\n- Làm teamleader trong gần 3 năm và có cái nhìn tổng quát về các vấn đề trên mobile cũng như kiến thức sâu rộng trong mảng mobile app.\n- Đã từng làm nhiều app cho android (cung cấp trên kho google play) và nhiều app iOs (kho apple store).\n- Làm qua nhiều nền tảng, opensource, framework như: J2me(j2me polish, lwuit,...); android (awesome-android-ui, retrofit, Android Architecture Blueprints,...); game mobile (unity, andengine, libgdx, jndt,...); react native, kotlin, cordova....\n- Sử dụng nhiều ngôn ngữ khác nhau: java (java EE, J2me, Swing, JavaFx, JSF, Jsp); android (Java, kotlin); DBMS(sql, mySql, MSSQL, oracle, sqlite, mongoDb....); iOs(objective-c, swift,...); ,....\n- kho ứng dụng Android trên Play store với nhiều ứng dụng trên 100.000 lượt tải: http://bit.ly/2NyYve4\n- Kho ứng dụng iOs trên App store: https://apple.co/2YxByZP\n- Thông tin thêm tại: https://richard-dam.web.app",
+      "hourly_rate" : 350000,
+      "id" : "-MPj6mmXM9gLGa2Sy9D3",
+      "skills" : [ "HTML/CSS", "JS", "Angular", "Front-end", "CSS Dev", "Admin" ],
+      "tagline" : "Fullstack developer & Mobile developer"
+    },
+    "-MPj6nyN7UAqyQ2m-SzM" : {
+      "category" : "Mobile",
+      "description" : "- Tôi có kinh nghiệm 2 năm làm lập trình trong lĩnh vực di động.\n- Có thể làm được các ngôn ngữ: Java, Swift, Object-C, Koltin, Flutter, Nodejs.\n- Tôi tự tin có thể làm tốt các yêu cầu của khách hàng.\n- Tôi đã có nhiều ứng dụng trên App Store, Google Play.",
+      "hourly_rate" : 10000,
+      "id" : "-MPj6nyN7UAqyQ2m-SzM",
+      "skills" : [ "iOS", "Flutter", "Android", "Native App" ],
+      "tagline" : "iOS Android Flutter NodeJs Json"
+    },
+    "-MPj6ox0g_hZ_t_HTbml" : {
+      "category" : "Mobile",
+      "description" : "Mình có trên 5 năm kinh nghiệm làm Software Engineer & Product Designer, chuyên thiết kế UI/UX, lập trình các ứng dụng di động và websites. Mình đã từng làm việc tại các công ty như Tiki, Luxstay, Scurry, IDTEK, KMS,...\n\nVới mình, một thiết kế tốt không chỉ đẹp là đủ, mà nó phải thoả mãn về mặt UX. Để làm được điều đó, phải thực hiện nghiên cứu hành vi người dùng và thiết kế dựa trên những dữ liệu được thu thập. Thiết kế sẽ được cải thiện liên tục thông qua usability testing để đảm bảo giải quyết được đúng nhu cầu người dùng.\n\nHi vọng mình sẽ giúp các khách hàng trên Vlance giải quyết được các vấn đề mà họ gặp phải thông qua các thiết kế của mình.",
+      "hourly_rate" : 10000,
+      "id" : "-MPj6ox0g_hZ_t_HTbml",
+      "skills" : [ "Android", "React Native", "Native App", "Firebase" ],
+      "tagline" : "Apps Developer - UI/UX/Graphic Designer"
+    },
+    "-MPj6qFNvNErqf6PLt5J" : {
+      "category" : "Mobile",
+      "description" : "Hiện tại tôi là team leader nhóm mobile của 1 công ty phần mềm tại Hà Nội. Tôi có kinh nghiệm 4 năm về phát triển ứng dụng trên HĐH Android. Đặc biệt về mảng multimedia, telecom. Tôi có khả năng làm ứng dụng ở tầng native, cũng đã từng làm việc dưới tầng kernel khi phát triển ứng dụng cần biên dịch lại mã nguồn gốc của HĐH. Tôi có khả năng vận dụng tốt open source: open cv, ffmpeg,... làm viêc thành thạo web service, social,... Kinh nghiệm làm việc 3 năm trên Linux.",
+      "hourly_rate" : 10000,
+      "id" : "-MPj6qFNvNErqf6PLt5J",
+      "skills" : [ "Android", "Firebase", "Java" ],
+      "tagline" : "Lập trình viên Android"
+    },
+    "-MPj6rOEC1X-MlMDKi5S" : {
+      "category" : "Mobile",
+      "description" : "Mình là Kiên,\ntốt nghiệp đại học Bách Khoa Hà Nội và đã có gần 5 năm kinh nghiệm lập trình Android.\n\nTham gia cộng đồng vLance với mục đích trau dồi thêm kinh nghiệm cũng như kiếm thêm việc làm.",
+      "hourly_rate" : 10000,
+      "id" : "-MPj6rOEC1X-MlMDKi5S",
+      "skills" : [ "Android", "Flutter", "Native App", "Firebase", "E-commerce", "Java" ],
+      "tagline" : "Lập trình viên Android"
+    },
+    "-MPj6soPbmYFtbyYqv_k" : {
+      "category" : "Mobile",
+      "description" : "Hơn 3 năm kinh nghiệm trong lĩnh vực Mobile App và Web development\n\nKỹ năng lập trình chính của tôi:\n- React Native/ ReactJS\n- Python\n- Java/Kotlin (Android)\n- NodeJS\n- C++\n\nTham khảo các projects tôi đã làm : https://github.com/kiennguyensys",
+      "hourly_rate" : 10000,
+      "id" : "-MPj6soPbmYFtbyYqv_k",
+      "skills" : [ "Android", "Java", "Native App", "React Native" ],
+      "tagline" : "Software Engineer"
+    }
+  },
+  "payment" : {
+    "-MPhD0_6EYcu1zpn7MnP" : {
+      "balance" : 0,
+      "id" : "-MPhD0_6EYcu1zpn7MnP"
+    },
+    "-MPhPMkFXOtvW3oMiYYZ" : {
+      "balance" : 130000,
+      "id" : "-MPhPMkFXOtvW3oMiYYZ",
+      "transactions" : {
+        "-MPhlkBWyttQNsMOUU9C" : {
+          "amount" : -20000,
+          "card" : {
+            "company" : "visa",
+            "id" : "-MPhUB4AIECzxe1CgP5w",
+            "number" : "215315152523"
+          },
+          "id" : "-MPhlkBWyttQNsMOUU9C",
+          "time" : "Tue Dec 29 2020",
+          "type" : "Rút tiền"
+        },
+        "-MPhlkvTGnFJZfsN1hYm" : {
+          "amount" : -20000,
+          "card" : {
+            "company" : "visa",
+            "id" : "-MPhUB4AIECzxe1CgP5w",
+            "number" : "215315152523"
+          },
+          "id" : "-MPhlkvTGnFJZfsN1hYm",
+          "time" : "Tue Dec 29 2020",
+          "type" : "Rút tiền"
+        },
+        "-MPhllfig-R8DASIfGf2" : {
+          "amount" : -20000,
+          "card" : {
+            "company" : "visa",
+            "id" : "-MPhUB4AIECzxe1CgP5w",
+            "number" : "215315152523"
+          },
+          "id" : "-MPhllfig-R8DASIfGf2",
+          "time" : "Tue Dec 29 2020",
+          "type" : "Rút tiền"
+        },
+        "-MPhlm6yjPtrUjfLXyxg" : {
+          "amount" : -20000,
+          "card" : {
+            "company" : "visa",
+            "id" : "-MPhUB4AIECzxe1CgP5w",
+            "number" : "215315152523"
+          },
+          "id" : "-MPhlm6yjPtrUjfLXyxg",
+          "time" : "Tue Dec 29 2020",
+          "type" : "Rút tiền"
+        },
+        "-MPhlmiLdbtWfXdHoeey" : {
+          "amount" : -20000,
+          "card" : {
+            "company" : "visa",
+            "id" : "-MPhUB4AIECzxe1CgP5w",
+            "number" : "215315152523"
+          },
+          "id" : "-MPhlmiLdbtWfXdHoeey",
+          "time" : "Tue Dec 29 2020",
+          "type" : "Rút tiền"
+        },
+        "-MPhlnByL0ExH9LHsrMa" : {
+          "amount" : -20000,
+          "card" : {
+            "company" : "visa",
+            "id" : "-MPhUB4AIECzxe1CgP5w",
+            "number" : "215315152523"
+          },
+          "id" : "-MPhlnByL0ExH9LHsrMa",
+          "time" : "Tue Dec 29 2020",
+          "type" : "Rút tiền"
+        },
+        "-MPhloIVanndcyHyXnEb" : {
+          "amount" : -20000,
+          "card" : {
+            "company" : "visa",
+            "id" : "-MPhUB4AIECzxe1CgP5w",
+            "number" : "215315152523"
+          },
+          "id" : "-MPhloIVanndcyHyXnEb",
+          "time" : "Tue Dec 29 2020",
+          "type" : "Rút tiền"
+        }
+      }
+    },
+    "-MPj6Pte34-YnRxcJvED" : {
+      "balance" : 0,
+      "id" : "-MPj6Pte34-YnRxcJvED"
+    },
+    "-MPj6T8_mqL1KY3R3M8s" : {
+      "balance" : 0,
+      "id" : "-MPj6T8_mqL1KY3R3M8s"
+    },
+    "-MPj6W1au8JbQtXbEewT" : {
+      "balance" : 0,
+      "id" : "-MPj6W1au8JbQtXbEewT"
+    },
+    "-MPj6hQrt7x51mFzvFsu" : {
+      "balance" : 0,
+      "id" : "-MPj6hQrt7x51mFzvFsu"
+    },
+    "-MPj6ibNiXf1J9cporMY" : {
+      "balance" : 0,
+      "id" : "-MPj6ibNiXf1J9cporMY"
+    },
+    "-MPj6jhq2xVdIBDyYT47" : {
+      "balance" : 0,
+      "id" : "-MPj6jhq2xVdIBDyYT47"
+    },
+    "-MPj6kdv_oT7pMl9oGIH" : {
+      "balance" : 0,
+      "id" : "-MPj6kdv_oT7pMl9oGIH"
+    },
+    "-MPj6lgJN5YhmaQz8gcq" : {
+      "balance" : 0,
+      "id" : "-MPj6lgJN5YhmaQz8gcq"
+    },
+    "-MPj6mmXM9gLGa2Sy9D3" : {
+      "balance" : 0,
+      "id" : "-MPj6mmXM9gLGa2Sy9D3"
+    },
+    "-MPj6nyN7UAqyQ2m-SzM" : {
+      "balance" : 0,
+      "id" : "-MPj6nyN7UAqyQ2m-SzM"
+    },
+    "-MPj6ox0g_hZ_t_HTbml" : {
+      "balance" : 0,
+      "id" : "-MPj6ox0g_hZ_t_HTbml"
+    },
+    "-MPj6qFNvNErqf6PLt5J" : {
+      "balance" : 0,
+      "id" : "-MPj6qFNvNErqf6PLt5J"
+    },
+    "-MPj6rOEC1X-MlMDKi5S" : {
+      "balance" : 0,
+      "id" : "-MPj6rOEC1X-MlMDKi5S"
+    },
+    "-MPj6soPbmYFtbyYqv_k" : {
+      "balance" : 0,
+      "id" : "-MPj6soPbmYFtbyYqv_k"
+    },
+    "-MPj6vYjQNwlpmfa_XNU" : {
+      "balance" : 0,
+      "id" : "-MPj6vYjQNwlpmfa_XNU"
+    },
+    "-MPj7-jlscneytqvQYha" : {
+      "balance" : 0,
+      "id" : "-MPj7-jlscneytqvQYha"
+    },
+    "-MPj70q3wp0OpPC6Ym1f" : {
+      "balance" : 0,
+      "id" : "-MPj70q3wp0OpPC6Ym1f"
+    },
+    "-MPj71mSG6snwKobWmHF" : {
+      "balance" : 0,
+      "id" : "-MPj71mSG6snwKobWmHF"
+    }
+  },
+  "task" : {
+    "-MPjQ4Uqf4hXA5LiYE9r" : {
+      "category" : "Web",
+      "company" : {
+        "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPhPMkFXOtvW3oMiYYZ.jpg?alt=media&token=9dbcebc2-4faa-4ad1-8aaa-f4b9462483da",
+        "company_name" : "Công ty Cổ phần Aimesoft",
+        "id" : "-MPhPMkFXOtvW3oMiYYZ"
+      },
+      "description" : "Bạn có thể cung cấp dịch vụ này? Thêm vào hồ sơ làm việc.\nChúng tôi cần tuyển một freelance để xây dựng website tuyển dụng/ tìm việc tiếng Việt sử dụng WordPress CMS\n\nNhững chức năng chính bao gồm:\n\n-> Giới thiệu ứng viên/ hồ sơ thích hợp cho doanh nghiệp\n\n-> Quảng cáo việc làm trên website (kết hợp cổng thanh toán)\n\n-> Hệ thống thông báo (email) đến người dùng (ứng viên/ doanh nghiệp)\n\n-> Họp trực tuyến qua website (tích hợp Zoom)\n\nVà một số chức năng cơ bản khác sẽ được đề cập sau.\n\n- Chúng tôi muốn gặp và trao đổi với freelance tại văn phòng ở thành phố Hồ Chí Minh (Quận 1).\n\n- Freelance có thể làm việc từ xa hoặc tại văn phòng.\n\n- Freelance có thể giao tiếp tiếng Anh.\n\n- Freelance biết sử dụng WordPress, plug-in chính và cách chỉnh sửa.",
+      "id" : "-MPjQ4Uqf4hXA5LiYE9r",
+      "max_budget" : 5000000,
+      "min_budget" : 2000000,
+      "post_time" : "29/12/2020 23:54",
+      "skills" : [ "HTML/CSS", "JS", "ReactJS", "PHP", "CSS Dev", "Admin", "Front-end", "Back-end" ],
+      "state" : "bidding",
+      "task_name" : "Building hiring website / job platform "
+    },
+    "-MPjQJCQxwt-rjQSR0mq" : {
+      "category" : "Web",
+      "company" : {
+        "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPhPMkFXOtvW3oMiYYZ.jpg?alt=media&token=9dbcebc2-4faa-4ad1-8aaa-f4b9462483da",
+        "company_name" : "Công ty Cổ phần Aimesoft",
+        "id" : "-MPhPMkFXOtvW3oMiYYZ"
+      },
+      "description" : "Dùng ngôn ngữ node.js lập trình các tính năng cơ bản:\n- Quản lý lớp học\n- Quản lý học viên theo lớp học\n- Quản lý việc nộp bài của học sinh, sinh viên\nCó thể họạt động tương tự như trang web này: https://ucode.vn/course/",
+      "id" : "-MPjQJCQxwt-rjQSR0mq",
+      "max_budget" : 4000000,
+      "min_budget" : 1200000,
+      "post_time" : "29/12/2020 23:55",
+      "skills" : [ "HTML/CSS", "JS", "Front-end", "Back-end", "ReactJS", "NodeJS" ],
+      "state" : "bidding",
+      "task_name" : "Viết một trang web quản lý việc học lập trình"
+    },
+    "-MPjR3bfUTMB2En-lxUP" : {
+      "category" : "Web",
+      "company" : {
+        "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPhPMkFXOtvW3oMiYYZ.jpg?alt=media&token=9dbcebc2-4faa-4ad1-8aaa-f4b9462483da",
+        "company_name" : "Công ty Cổ phần Aimesoft",
+        "id" : "-MPhPMkFXOtvW3oMiYYZ"
+      },
+      "description" : "Hi, mình đang tìm 1 Dev lập trình website giới thiệu công ty cơ bản theo demo giao diện đã thiết kế trên figma, sử dụng Wordpress.\n\nThông tin dự án như sau:\n\n1. Sitemap:\n\nTrang chủ\n\nGiới thiệu\n\nDịch vụ / Chi tiết dịch vụ\n\nTin tức / Chi tiết tin tức\n\nSự kiện / Chi tiết sự kiện\n\nTuyển dụng / Chi tiết tuyển dụng\n\nLiên hệ\n\n2. Ngôn ngữ Việt - Anh (mặc định tiếng Việt)\n\nYêu cầu:\n\n- Chuyên Wordpress\n\n- Deadline: 07/01/2020\n\n- Chuẩn SEO, load 3s, pagespeed >80 điểm\n\n- Đảm bảo responsive mobile\n\nGửi kèm giúp mình các dự án tiêu biểu khi chào giá. Cảm ơn các bạn!",
+      "id" : "-MPjR3bfUTMB2En-lxUP",
+      "max_budget" : 3500000,
+      "min_budget" : 1000000,
+      "post_time" : "29/12/2020 23:59",
+      "skills" : [ "HTML/CSS", "JS", "Wordpress", "Admin" ],
+      "state" : "bidding",
+      "task_name" : "Lập trình website giới thiệu công ty, dịch vụ (Wordpress)"
+    },
+    "-MPjR40lSZCU_H-WECEY" : {
+      "category" : "Web",
+      "company" : {
+        "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPhPMkFXOtvW3oMiYYZ.jpg?alt=media&token=9dbcebc2-4faa-4ad1-8aaa-f4b9462483da",
+        "company_name" : "Công ty Cổ phần Aimesoft",
+        "id" : "-MPhPMkFXOtvW3oMiYYZ"
+      },
+      "description" : "Hi, mình đang tìm 1 Dev lập trình website giới thiệu công ty cơ bản theo demo giao diện đã thiết kế trên figma, sử dụng Wordpress.\n\nThông tin dự án như sau:\n\n1. Sitemap:\n\nTrang chủ\n\nGiới thiệu\n\nDịch vụ / Chi tiết dịch vụ\n\nTin tức / Chi tiết tin tức\n\nSự kiện / Chi tiết sự kiện\n\nTuyển dụng / Chi tiết tuyển dụng\n\nLiên hệ\n\n2. Ngôn ngữ Việt - Anh (mặc định tiếng Việt)\n\nYêu cầu:\n\n- Chuyên Wordpress\n\n- Deadline: 07/01/2020\n\n- Chuẩn SEO, load 3s, pagespeed >80 điểm\n\n- Đảm bảo responsive mobile\n\nGửi kèm giúp mình các dự án tiêu biểu khi chào giá. Cảm ơn các bạn!",
+      "id" : "-MPjR40lSZCU_H-WECEY",
+      "max_budget" : 3500000,
+      "min_budget" : 1000000,
+      "post_time" : "29/12/2020 23:59",
+      "skills" : [ "HTML/CSS", "JS", "Wordpress", "Admin" ],
+      "state" : "bidding",
+      "task_name" : "Lập trình website giới thiệu công ty, dịch vụ (Wordpress)"
+    },
+    "-MPjRdtDwIXeI5UtW85x" : {
+      "category" : "Mobile",
+      "company" : {
+        "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6vYjQNwlpmfa_XNU.jpg?alt=media&token=cdd8d9ba-0631-41a2-8f12-131acc6e1d63",
+        "company_name" : "BASE.VN",
+        "id" : "-MPj6vYjQNwlpmfa_XNU"
+      },
+      "description" : "Giao diện đơn giản, hiện đại bao gồm backend\n\n- Đăng nhập; đăng ký; quản lý tài khoản;\n\n- Trang chủ có Dashboard, tin tức, quảng cáo, sản phẩm\n\n- Đăng ký dịch vụ; quản lý dịch vụ\n\n- Quản lý yêu cầu; đánh giá dịch vụ\n\n- Quản lý phí; Thanh toán\n\n- Quản lý hóa đơn; thiết bị đi kèm căn hộ\n\n- Quản lý hợp đồng\n\n- Đăng ký tạm trú, định mức\n\nCho nhân viên\n\n- Trang chủ có Dashboard, tin tức, quảng cáo, sản phẩm\n\n- Danh sách yêu cầu xử lý\n\n- Danh sách dịch vụ xử lý\n\n- Danh sách khách hàng và tài sản của KH\n\n- Danh sách đối tác và nhiệm vụ\n\n- Bàn giao, nghiệm thu\n\n- Công tác định kỳ xác nhận tiếp nhận công tác bằng quét mã\n\n- Ca trực và đăng ký ca\n\n- Biểu mẫu",
+      "id" : "-MPjRdtDwIXeI5UtW85x",
+      "max_budget" : 6000000,
+      "min_budget" : 3000000,
+      "post_time" : "30/12/2020 0:1",
+      "skills" : [ "Android", "E-commerce", "iOS", "Native App" ],
+      "state" : "bidding",
+      "task_name" : "App quản lý tòa nhà"
+    },
+    "-MPjRvtQ7LpUXS8aejH3" : {
+      "category" : "Mobile",
+      "company" : {
+        "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6vYjQNwlpmfa_XNU.jpg?alt=media&token=cdd8d9ba-0631-41a2-8f12-131acc6e1d63",
+        "company_name" : "BASE.VN",
+        "id" : "-MPj6vYjQNwlpmfa_XNU"
+      },
+      "description" : "Chào các bạn, hiện nay mình có một đội dịch thuật, chuyên dịch chuyện tranh cho Nhật. Xin mời các chế báo giá cho mình một app tương đương với Manga Toon để mình chia sẻ truyện đội dịch của mình. Thanks",
+      "id" : "-MPjRvtQ7LpUXS8aejH3",
+      "max_budget" : 5000000,
+      "min_budget" : 2600000,
+      "post_time" : "30/12/2020 0:2",
+      "skills" : [ "Android", "React Native", "Native App", "Firebase", "E-commerce", "Java" ],
+      "state" : "bidding",
+      "task_name" : "Xây dựng App đọc truyện"
+    }
+  },
+  "user" : {
+    "-MPhD0_6EYcu1zpn7MnP" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPhD0_6EYcu1zpn7MnP.jpg?alt=media&token=521dc4cc-2f37-4fbb-b239-b675c78d0e01",
+      "email" : "freelancer1@gmail.com",
+      "id" : "-MPhD0_6EYcu1zpn7MnP",
+      "password" : "123456",
+      "type" : "freelancer",
+      "username" : "T. Huỳnh"
+    },
+    "-MPhPMkFXOtvW3oMiYYZ" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPhPMkFXOtvW3oMiYYZ.jpg?alt=media&token=9dbcebc2-4faa-4ad1-8aaa-f4b9462483da",
+      "email" : "company1@gmail.com",
+      "id" : "-MPhPMkFXOtvW3oMiYYZ",
+      "password" : "123456",
+      "type" : "company",
+      "username" : "Aimesoft"
+    },
+    "-MPj6Pte34-YnRxcJvED" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6Pte34-YnRxcJvED.jpg?alt=media&token=150070c6-4315-4655-87a9-11c06929b872",
+      "email" : "freelancer2@gmail.com",
+      "id" : "-MPj6Pte34-YnRxcJvED",
+      "password" : "123456",
+      "type" : "freelancer",
+      "username" : "L. Q. Việt"
+    },
+    "-MPj6T8_mqL1KY3R3M8s" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6T8_mqL1KY3R3M8s.jpg?alt=media&token=3b32f9f1-fd8f-4c03-856f-3f8c33d12e54",
+      "email" : "freelancer3@gmail.com",
+      "id" : "-MPj6T8_mqL1KY3R3M8s",
+      "password" : "123456",
+      "type" : "freelancer",
+      "username" : "V. N. K. Hùng"
+    },
+    "-MPj6W1au8JbQtXbEewT" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6W1au8JbQtXbEewT.jpg?alt=media&token=c6633bed-9927-4131-acd7-79f19ef59e4e",
+      "email" : "freelancer4@gmail.com",
+      "id" : "-MPj6W1au8JbQtXbEewT",
+      "password" : "123456",
+      "type" : "freelancer",
+      "username" : "L. Đ. Kỳ"
+    },
+    "-MPj6hQrt7x51mFzvFsu" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6hQrt7x51mFzvFsu.jpg?alt=media&token=aef39f50-3972-4fa6-b409-be13ca0d70f6",
+      "email" : "freelancer5@gmail.com",
+      "id" : "-MPj6hQrt7x51mFzvFsu",
+      "password" : "123456",
+      "type" : "freelancer",
+      "username" : "N. Dũng "
+    },
+    "-MPj6ibNiXf1J9cporMY" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6ibNiXf1J9cporMY.jpg?alt=media&token=2fa02b2d-50eb-46fa-b015-6b1ba33481a1",
+      "email" : "freelancer6@gmail.com",
+      "id" : "-MPj6ibNiXf1J9cporMY",
+      "password" : "123456",
+      "type" : "freelancer",
+      "username" : "N. Q. Tiệc"
+    },
+    "-MPj6jhq2xVdIBDyYT47" : {
+      "avatar" : "",
+      "email" : "freelancer7@gmail.com",
+      "id" : "-MPj6jhq2xVdIBDyYT47",
+      "password" : "123456",
+      "type" : "freelancer",
+      "username" : "W. C. Team "
+    },
+    "-MPj6kdv_oT7pMl9oGIH" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6kdv_oT7pMl9oGIH.jpg?alt=media&token=aedaab0b-cf21-4f04-805b-3e2797d9a8d5",
+      "email" : "freelancer8@gmail.com",
+      "id" : "-MPj6kdv_oT7pMl9oGIH",
+      "password" : "123456",
+      "type" : "freelancer",
+      "username" : "L. V. Thu "
+    },
+    "-MPj6lgJN5YhmaQz8gcq" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6lgJN5YhmaQz8gcq.jpg?alt=media&token=f7748202-8c69-44cf-abf8-0fe3a096f357",
+      "email" : "freelancer9@gmail.com",
+      "id" : "-MPj6lgJN5YhmaQz8gcq",
+      "password" : "123456",
+      "type" : "freelancer",
+      "username" : "B. H. Vũ "
+    },
+    "-MPj6mmXM9gLGa2Sy9D3" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6mmXM9gLGa2Sy9D3.jpg?alt=media&token=d2ec0234-78ca-4053-88c8-0fb4045823fa",
+      "email" : "freelancer10@gmail.com",
+      "id" : "-MPj6mmXM9gLGa2Sy9D3",
+      "password" : "123456",
+      "type" : "freelancer",
+      "username" : "Đ. M. Hùng "
+    },
+    "-MPj6nyN7UAqyQ2m-SzM" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6nyN7UAqyQ2m-SzM.jpg?alt=media&token=113b152b-a1f1-4ff5-8575-7f9aa1ae8030",
+      "email" : "freelancer11@gmail.com",
+      "id" : "-MPj6nyN7UAqyQ2m-SzM",
+      "password" : "123456",
+      "type" : "freelancer",
+      "username" : "C. Nguyen"
+    },
+    "-MPj6ox0g_hZ_t_HTbml" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6ox0g_hZ_t_HTbml.jpg?alt=media&token=af4727cc-4c00-4a1e-a97e-5601559f806c",
+      "email" : "freelancer12@gmail.com",
+      "id" : "-MPj6ox0g_hZ_t_HTbml",
+      "password" : "123456",
+      "type" : "freelancer",
+      "username" : "N. N. Tuyên "
+    },
+    "-MPj6qFNvNErqf6PLt5J" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6qFNvNErqf6PLt5J.jpg?alt=media&token=91389750-1ccc-47d7-b791-f080573c875d",
+      "email" : "freelancer13@gmail.com",
+      "id" : "-MPj6qFNvNErqf6PLt5J",
+      "password" : "123456",
+      "type" : "freelancer",
+      "username" : "Bav"
+    },
+    "-MPj6rOEC1X-MlMDKi5S" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6rOEC1X-MlMDKi5S.jpg?alt=media&token=09e3879e-6a50-41fe-a293-005b23d30d03",
+      "email" : "freelancer14@gmail.com",
+      "id" : "-MPj6rOEC1X-MlMDKi5S",
+      "password" : "123456",
+      "type" : "freelancer",
+      "username" : "K. Bùi"
+    },
+    "-MPj6soPbmYFtbyYqv_k" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6soPbmYFtbyYqv_k.jpg?alt=media&token=f2cceb02-1c63-4cdd-a952-08988c8a0a11",
+      "email" : "freelancer15@gmail.com",
+      "id" : "-MPj6soPbmYFtbyYqv_k",
+      "password" : "123456",
+      "type" : "freelancer",
+      "username" : "K. Nguyen"
+    },
+    "-MPj6vYjQNwlpmfa_XNU" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj6vYjQNwlpmfa_XNU.jpg?alt=media&token=cdd8d9ba-0631-41a2-8f12-131acc6e1d63",
+      "email" : "company2@gmail.com",
+      "id" : "-MPj6vYjQNwlpmfa_XNU",
+      "password" : "123456",
+      "type" : "company",
+      "username" : "BASE.VN"
+    },
+    "-MPj7-jlscneytqvQYha" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj7-jlscneytqvQYha.jpg?alt=media&token=bb8a9bcb-bdcf-44b1-8077-4abbc0a9f17d",
+      "email" : "company3@gmail.com",
+      "id" : "-MPj7-jlscneytqvQYha",
+      "password" : "123456",
+      "type" : "company",
+      "username" : "Gameloft "
+    },
+    "-MPj70q3wp0OpPC6Ym1f" : {
+      "avatar" : "",
+      "email" : "company4@gmail.com",
+      "id" : "-MPj70q3wp0OpPC6Ym1f",
+      "password" : "123456",
+      "type" : "company",
+      "username" : "Navistar "
+    },
+    "-MPj71mSG6snwKobWmHF" : {
+      "avatar" : "https://firebasestorage.googleapis.com/v0/b/hireme-48bb9.appspot.com/o/avatar%2F-MPj71mSG6snwKobWmHF.jpg?alt=media&token=05219b77-56b1-4af6-abb4-0be29c88e377",
+      "email" : "company5@gmail.com",
+      "id" : "-MPj71mSG6snwKobWmHF",
+      "password" : "123456",
+      "type" : "company",
+      "username" : "SmartOSC"
+    }
+  }
+}
