@@ -71,14 +71,7 @@ export default class TaskSearchScreen extends Component {
                     <div style={{flex:0.5}}/>
 
                     <div style={{flex:5.5}}>
-                        {
-                            tasks.length===0?
-                            <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
-                                Không tìm thấy dự án nào ... 
-                            </text>
-                            :
                             <TaskListComponent tasks={tasks}/>
-                        }
                     </div>
                  
                     <div style={{flex:1}}/>

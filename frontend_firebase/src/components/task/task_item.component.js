@@ -26,12 +26,12 @@ export default class TaskItemComponent extends Component {
                         </text>
 
                         <text style={styles.task_description}>
-                            {collapseText(task.description,180)}
+                            {collapseText(task.description,250)}
                         </text>
                     </div>
 
                     <div style={styles.skills_container}>
-                        <SkillsListComponent skills={task.skills} hide_title={true}/>
+                        <SkillsListComponent skills={task.skills.slice(0,Math.min(5,task.skills.length))} hide_title={true}/>
                     </div>
                     
                 
@@ -94,7 +94,8 @@ const styles={
     },
     skills_container:{
         display:'flex',
-        flex:1  
+        flex:1  ,
+        marginTop: 20
     },
     col2:{
         flex:4,

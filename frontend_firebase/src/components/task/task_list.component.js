@@ -1,5 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
+import { TEXT_SIZES } from '../../utils/constants';
+import { BLACK } from '../../utils/palette';
 
 import HeaderListComponent from '../common/header_list.component'
 import PaginationComponent from '../common/pagination.component';
@@ -23,9 +25,12 @@ export default class TaskListComponent extends Component {
 
     render(){
         const tasks=this.props.tasks;
-        const l=this.state.first_item_index;
-        const r=this.state.last_item_index;
-        console.log('freelancer_list',l,r)
+        let l=this.state.first_item_index;
+        let r=this.state.last_item_index;
+
+        if (l===0) {
+            r=Math.min(3,this.props.tasks.length-1);
+        }
         return (
 
             <div style={styles.container}>
@@ -36,16 +41,29 @@ export default class TaskListComponent extends Component {
 
                 <div style={styles.body}>
                 {
+                    tasks.length===0?
+                    <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
+                        Không tìm thấy dự án nào ... 
+                    </text>
+                    :
+                    null
+                }
+                {
                     tasks.slice(l,r+1).map((item,index)=>
                         <TaskItemComponent task={item} key={''+index}/>
                     )
                 }
                 </div>
+
+                {
+                    tasks.length===0?
+                    null
+                    :
+                    <PaginationComponent    
+                        onClickPage={(l,r)=>this.switchPage(l,r)}
+                        items={tasks.length} items_per_page={4} />
+                }
                 
-                <PaginationComponent    
-                    onClickPage={(l,r)=>this.switchPage(l,r)}
-                    items={tasks.length} items_per_page={4} />
-          
             </div>
                     
     
