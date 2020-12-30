@@ -33,29 +33,22 @@ class DashBoardTaskManagementScreen extends Component {
         }
     }
 
-    getDetailTask=async ()=>{
-
-        await config.database().ref('/task/'+this.state.task_id)
-            .on('value',snapshot=>{
-                    let res=snapshot.val()
-
-                    console.log('taskManagement taskChange:',res);
-
-                    this.setState({
-                        task:{
-                            ...res,
-                            biddings:toArray(res.biddings),
-                            stages:toArray(res.stages)
-                        }
-                    })
-            })
-     
-       
-    }
-
 
     componentDidMount=async()=>{
-        await this.getDetailTask();
+        await config.database().ref('/task/'+this.state.task_id)
+        .on('value',snapshot=>{
+                let res=snapshot.val()
+
+                console.log('taskManagement taskChange:',res);
+
+                this.setState({
+                    task:{
+                        ...res,
+                        biddings:toArray(res.biddings),
+                        stages:toArray(res.stages)
+                    }
+                })
+        })
     }
 
     renderBody=()=>{

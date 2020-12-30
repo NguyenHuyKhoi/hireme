@@ -10,13 +10,12 @@ import StageItemComponent from './stage_item.component'
 export default class StageListComponent extends Component {
 
     confirmDoneTask=()=>{
-        alert('Xác nhận hoàn thành dự án thành công, tiền đã chuyển cho freelancer.');
+        alert('Xác nhận hoàn thành dự án thành công, tiền đã chuyển cho freelancer');
     }
 
     notifyDoneTask=()=>{
         alert('Đã gửi thông báo hoàn thành dự án cho công ty. ');
     }
-    
     render(){
         const task=this.props.task;
         const stages=task.stages;
@@ -30,6 +29,8 @@ export default class StageListComponent extends Component {
                             <div style={{width:'40vw'}}>
                                 <StageItemComponent 
                                     stage={item}
+                                    is_edit={type==='freelancer'}
+                                    task_id={task.id}
                                     key={''+index}/>
                             </div>
                             

@@ -7,15 +7,9 @@ import { TEXT_SIZES } from '../../utils/constants'
 import SmallFieldComponent from '../common/small_field.component'
 import TaskNoteListComponent from './task_note_list.component'
 import AttachmentsComponent from '../input/attachments.component'
-import { convertFullDateToOnlyDay } from '../../utils/helper'
-// * bidding [
-//     {
-//       * id
-//       * freelancer : {id ,name ,avatar ,rate_score}
-//       * intended_time , intended_cost
-//       * post_time
-//     }
-//   ]
+import { convertFullDateToOnlyDay, toArray } from '../../utils/helper'
+
+import firebase from '../../firebase/firebase'
 
 class TimeLine extends Component{
     render(){
@@ -51,12 +45,53 @@ class TimeLine extends Component{
     }
 }
 export default class StageItemComponent extends Component {
-    render(){
-        const stage=this.props.stage;
 
-        const attachments=stage.attachments!==undefined?stage.attachments:[]
-        const link=stage.link!==undefined?stage.link:''
-        const notes=stage.notes!==undefined?stage.notes:[]
+    constructor(props){
+        super(props);
+
+        let stage=this.props.stage;
+
+        stage={
+            ...stage,
+            attachments:toArray(stage.attachments),
+            notes:toArray(stage.notes)
+        }
+
+        this.state={
+            stage
+        };
+    }
+
+    updateInput=(part,field,value)=>{
+        console.log('update_input_stage:',part,field,value)
+        this.setState({
+            [part]:{
+                ...this.state[part],
+                [field]:value
+            }
+        });
+    }
+
+    save=async()=>{
+        let s=this.state.stage
+        await firebase.update('/task/'+this.props.task_id+'/stages/'+this.props.stage.id,{
+            link:s.link,
+            notes:s.notes,
+            attachments:s.attachments
+        })
+
+        alert('Cập nhật thành công!')
+    }
+
+    render(){
+        let stage=this.props.stage;
+        let is_edit=this.props.is_edit!==undefined?this.props.is_edit:false
+        stage={
+            ...stage,
+            attachments:toArray(stage.attachments),
+            notes:toArray(stage.notes)
+        }
+
         console.log('stage_item',stage);
         return (
             <div style={styles.container}>   
@@ -75,19 +110,41 @@ export default class StageItemComponent extends Component {
 
                     <div style={styles.inner_body}>
                             
-                            <AttachmentsComponent is_edit={true}
-                                   attachments={attachments}/>
+                            <AttachmentsComponent 
+                                label='Tệp đính kèm'
+                                disabled={!is_edit}
+                                attachments={stage.attachments}/>
 
                             <div style={styles.res_container}>
                                 <LabeledInputComponent 
                                     label='Link tài nguyên:' 
-                                    onChange={(value)=>{}}
-                                    value={ link}/>
+                                    disabled={!is_edit}
+                                    onChange={(value)=>this.updateInput('stage','link',value)}
+                                    value={ stage.link}/>
                             </div>  
 
                             <div style={styles.notes_container}>
-                                <TaskNoteListComponent notes={notes} />
+                                <TaskNoteListComponent 
+                                    disabled={!is_edit}
+                                    onChange={(value)=>this.updateInput('stage','notes',value)}
+                                    notes={stage.notes} />
                             </div>   
+
+                            {
+                                is_edit?
+                                <div style={{width: '100%',marginTop:20,marginBottom:20,display: 'flex',flexDirection:'row',justifyContent:'center'}}>
+                                    <div style={{ width: '60%'}}>
+                                        <ButtonComponent 
+                                            onClick={this.save}
+                                            label='Lưu thay đổi'/>
+                                    </div>
+                                </div>
+                                :
+                                null
+                            }
+                            
+                          
+                            
                            
                           
                     </div>
@@ -129,19 +186,20 @@ const styles={
     body:{
         display:'flex',
         flex:1,
-        width:'80%',
+        width:'83.5%',
         backgroundColor: WHITE,
-        overflowY:'scroll',
+        overflowY:'hidden',
         boxShadow:'0px 0px 30px 5px  #707070'
     },
     inner_body:{
         display:'flex',
         flex:1,
+        overflowX: 'hidden',
         flexDirection:'column',
         padding: 20
     },
     res_container:{
-        width:'80%',
+        width:'100%',
         marginTop:15
     },
     notes_container:{

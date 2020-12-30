@@ -30,7 +30,7 @@ class NewFile extends Component{
 class NormalFile extends Component{
     render(){
         const attachment=this.props.attachment;
-        const is_edit=this.props.is_edit
+        const disabled=this.props.disabled
         return(
             <div style={styles.item_container}>
 
@@ -43,7 +43,7 @@ class NormalFile extends Component{
                         {attachment.type}
                     </text>
                     {
-                        is_edit!==undefined && is_edit===true?
+                        disabled!==undefined && disabled===false?
                         <div style={styles.item_del_btn}>
                             <text style={styles.item_del_label}>
                                 x
@@ -65,7 +65,7 @@ class NormalFile extends Component{
 export default class AttachmentsComponent extends Component {
     render(){
         const attachments=this.props.attachments!==undefined?this.props.attachments:[];
-        const is_edit=this.props.is_edit!==undefined?this.props.is_edit:false
+        const disabled=this.props.disabled!==undefined?this.props.disabled:true
         const label=this.props.label!==undefined?this.props.label:''
         return (
             <div style={styles.container}>
@@ -76,8 +76,17 @@ export default class AttachmentsComponent extends Component {
 
                 <div style={styles.body}>
                     {
-                        is_edit?
+                        !disabled?
                         <NewFile/>
+                        :
+                        null
+                    }
+
+                    {
+                        attachments.length===0?
+                        <text style={{fontSize: TEXT_SIZES.SMALL,color:BLACK,textAlign:'center',margin:10}}>
+                            Hiện freelancer chưa thêm tệp nào!
+                        </text>
                         :
                         null
                     }
@@ -85,7 +94,7 @@ export default class AttachmentsComponent extends Component {
                         attachments.map((item,index)=>
                             <NormalFile 
                                 attachment={item}
-                                is_edit={is_edit}  key={''+index}/>
+                                disabled={disabled}  key={''+index}/>
                         )
                     }
                 </div>

@@ -69,7 +69,7 @@ export default class LabeledInputComponent extends Component {
                     style={{
                         ...styles.input,
                         fontSize: size,
-                        height: size===TEXT_SIZES.NORMAL?30:25,
+                        height: size===TEXT_SIZES.NORMAL?35:30,
                         marginTop:inline?0:15,
                         marginLeft:inline?15:0,
                         border:disabled?'none':'default',
