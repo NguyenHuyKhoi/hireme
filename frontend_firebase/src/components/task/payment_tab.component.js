@@ -3,8 +3,6 @@ import React, {Component} from 'react'
 import sample_db from '../../sample_db/fake_api_responses'
 import { TASK_TRANSACTION, TEXT_SIZES } from '../../utils/constants';
 import { BLUE_1, GRAY_2, GREEN_1, RED_1, WHITE, YELLOW_1 } from '../../utils/palette';
-import ButtonComponent from '../common/button.component';
-import ButtonInputComponent from '../input/button_input.component';
 import ReportTaskModal from '../input/report_task.modal';
 import ReviewTaskModal from '../input/review_task.modal';
 import GiveupTaskModal from '../input/giveup_task.modal'

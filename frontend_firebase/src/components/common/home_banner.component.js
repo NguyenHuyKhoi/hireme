@@ -34,6 +34,7 @@ export default class HomeBannerComponent extends Component {
                             to={routePaths.TASK_SEARCH}
                             style={styles.btn_container}>
                             <ButtonInputComponent 
+                                onClick={()=>{}}
                                 btn_label='Tìm' />
                         </Link>
                     

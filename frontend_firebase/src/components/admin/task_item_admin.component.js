@@ -124,7 +124,8 @@ export default class TaskItemBriefAdminComponent extends Component {
                     <Link 
                         to={routePaths.TASK_DETAIL+`/${task.id}`}
                         style={styles.btn_container}>
-                        <ButtonComponent label='Xem chi tiết' color={BLUE_1}/>
+                        <ButtonComponent 
+                            label='Xem chi tiết' color={BLUE_1}/>
                     </Link>
 
                     {/* <div 
@@ -136,7 +137,9 @@ export default class TaskItemBriefAdminComponent extends Component {
                     <div 
                         onClick={this.openViewReportsModal}  
                         style={{...styles.btn_container,visibility: false,marginLeft: 20}}>
-                        <ButtonComponent label='Xem báo cáo' color={GRAY_2}/>
+                        <ButtonComponent    
+                        
+                        label='Xem báo cáo' color={GRAY_2}/>
                     </div>
                 </div>
                 

@@ -31,7 +31,7 @@ export default  class ButtonInputComponent extends Component {
                     <ButtonComponent 
                         onClick={()=>{
                             this.setState({value:''})
-                            this.props.onClick()
+                            this.props.onClick();
                         }}
                         label={btn_label!==undefined?btn_label:'Gửi'} />
                 </div>
