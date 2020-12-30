@@ -109,6 +109,7 @@ class DashBoardTaskManagementScreen extends Component {
                 }
                 return  <div style={{display:'flex',width:'100%',height:'80vh'}}>
                             <PaymentTabComponent
+                                user={u}
                                 task={st}/>
                         </div>
         }

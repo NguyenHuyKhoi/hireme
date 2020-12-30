@@ -1,7 +1,7 @@
 //import from library 
 import React, {Component} from 'react'
 import sample_db from '../../sample_db/fake_api_responses'
-import { TEXT_SIZES } from '../../utils/constants';
+import { TASK_TRANSACTION, TEXT_SIZES } from '../../utils/constants';
 import { BLUE_1, GRAY_2, GREEN_1, RED_1, WHITE, YELLOW_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
 import ButtonInputComponent from '../input/button_input.component';
@@ -10,6 +10,7 @@ import ReviewTaskModal from '../input/review_task.modal';
 import GiveupTaskModal from '../input/giveup_task.modal'
 import { convertFullDateToOnlyDay, displayState } from '../../utils/helper';
 
+import firebase from '../../firebase/firebase'
 const chats=sample_db.chats   ;
 
 const action_buttons=[
@@ -107,14 +108,31 @@ export default class PaymentTabComponent extends Component {
 
     switchModal=(index,state)=>{
 
+        if (index===0 && (
+            this.state.task.state==='freelancer_give_up' 
+            || this.state.task.state==='company_give_up')){
+            alert('Dự án đã bị hủy từ trước.');
+            return; 
+        }
+        
         console.log('paymentTab switchModal ,',index,this.state.task.state);
         if (index===0 && this.state.task.state!=='doing'){
             alert('Dự án đã qua giai đoạn "Đang triển khai", không thể hủy.');
             return; 
         }
 
+     
+
         if (index===1 && this.state.task.state!=='done'){
             alert('Dự án chưa hoàn thành, không thể gửi phản hồi.');
+            return; 
+        }
+
+        if (index===1 && 
+            this.state.task[this.props.user.type==='freelancer'?
+                'freelancer_review':'company_review'
+            ]!==undefined){
+            alert('Bạn đã gửi phản hồi về dự án này.');
             return; 
         }
 
@@ -123,6 +141,7 @@ export default class PaymentTabComponent extends Component {
             alert('Dự án đã hoàn thành, không thể gửi báo cáo.');
             return; 
         }
+
         let modals=this.state.modals;
         modals[index]=state;
         this.setState({
@@ -130,15 +149,78 @@ export default class PaymentTabComponent extends Component {
         })
     }
 
-    giveupTask=()=>{
+    giveupTask=async ()=>{
+        if (this.state.modal_content===undefined || this.state.modal_content===''){
+            alert('Bạn chưa nhập thông tin gì cả !!!')
+            return ;
+        };
+
+        let t=this.props.task;
+        let u=this.props.user;
+
+        await firebase.update('/task/'+t.id,{
+            [u.type==='freelancer'?'freelancer_give_up':'company_give_up']:{
+                content:this.state.modal_content,
+                time:(new Date()).toISOString(),
+            }
+        });
+
+        await firebase.taskTransact(t,
+                u.type==='freelancer'?
+                    TASK_TRANSACTION.FREELANCER_GIVE_UP
+                    :
+                    TASK_TRANSACTION.COMPANY_GIVE_UP
+        )
+        
+        alert('Đã từ bỏ dự án thành công. Bạn chịu phạt 50% chi phí dự án.')
+
+
         this.switchModal(0,false);
     }
 
-    reviewTask=()=>{
+    reviewTask=async()=>{
+        if (this.state.modal_content===undefined || this.state.modal_content===''){
+            alert('Bạn chưa nhập thông tin gì cả !!!')
+            return ;
+        }
+
+        let t=this.props.task;
+        let u=this.props.user;
+
+        await firebase.update('/task/'+t.id,{
+            [u.type==='freelancer'?'freelancer_review':'company_review']:{
+                content:this.state.modal_content,
+                time:(new Date()).toISOString(),
+            }
+        });
+
+        alert('Đã gửi phản hồi về đối tác thành công!!!')
         this.switchModal(1,false);
     }
 
-    reportTask=()=>{
+    reportTask=async()=>{
+        if (this.state.modal_content===undefined || this.state.modal_content===''){
+            alert('Bạn chưa nhập thông tin gì cả !!!')
+            return ;
+        }
+
+        let t=this.props.task;
+        let u=this.props.user;
+
+        await firebase.push('/task/'+t.id+'/report/',{
+                user:{
+                    id:u.id,
+                    username:u.username,
+                    avatar:u.avatar,
+                    type:u.type
+                },
+                content:this.state.modal_content,
+                time:(new Date()).toISOString(),
+            }
+        );
+
+        alert('Đã gửi báo cáo về dự án thành công!!!')
+
         this.switchModal(2,false);
     }
 
@@ -149,7 +231,7 @@ export default class PaymentTabComponent extends Component {
     }
 
     render(){
-        const company_view=false;
+
         const task=this.props.task;
         const accepted_bidding=task.accepted_bidding;
         console.log('paymentTab:',task,accepted_bidding)
@@ -166,13 +248,13 @@ export default class PaymentTabComponent extends Component {
                     onChangeRate={value=>this.setState({rate_score:value[0]})}
                     is_open={this.state.modals[1]}
                     clickBack={()=>this.switchModal(1,false)}
-                    clickReview={this.props.reviewTask}/>
+                    clickReview={this.reviewTask}/>
 
                 <ReportTaskModal
                     updateInputs={this.updateInputs}
                     is_open={this.state.modals[2]}
                     clickBack={()=>this.switchModal(2,false)}
-                    clickReport={this.props.reportTask}/>
+                    clickReport={this.reportTask}/>
 
                 <div style={{flex:1}}/>
 

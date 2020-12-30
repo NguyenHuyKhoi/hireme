@@ -108,7 +108,7 @@ export default class TransactionItemComponent extends Component {
                             ''
                         }
                         {
-                            amount+'$'
+                            amount+'vnd'
                         }
                     </text>
                 </div>

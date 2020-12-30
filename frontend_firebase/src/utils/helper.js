@@ -50,7 +50,8 @@ export const displayState=(state_code)=>{
         case 'doing':return 'Đang triển khai';
         case 'done':return 'Đã hoàn thành';
         case 'reported':return 'Đã bị báo cáo';
-        case 'canceled':return 'Đã bị hủy';
+        case 'freelancer_give_up':return 'Bị hủy bởi freelancer';
+        case 'company_give_up':return ' Bị hủy bởi công ty';
     }
 
 }

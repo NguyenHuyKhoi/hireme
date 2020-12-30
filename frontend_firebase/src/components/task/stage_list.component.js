@@ -91,11 +91,14 @@ export default class StageListComponent extends Component {
                                             </div>
                                         </div>
                                         :
+                                        task.state==='done'?
                                         <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
                                             <text style={styles.confirm_notif}>
                                                     Dự án đã được xác nhận hoàn thành. Chi phí cũng đã được thanh toán cho freelancer
                                             </text>
                                         </div>
+                                        :
+                                        null
 
                                 :
                                     task.state==='doing'?
@@ -112,11 +115,14 @@ export default class StageListComponent extends Component {
                                             </div>
                                         </div>
                                         :
+                                        task.state==='done'?
                                         <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
                                             <text style={styles.confirm_notif}>
                                                     Dự án đã được xác nhận hoàn thành. Bạn đã nhận được chi phí cho dự án này. Hãy kiểm tra trong lịch sử giao dịch.
                                             </text>
                                         </div>
+                                        :
+                                        null
 
                             :
                             null
