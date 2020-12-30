@@ -108,7 +108,7 @@ class DashBoardPaymentScreen extends Component {
         alert(' Giao dịch thành công!')
     }
 
-    validateCard=(e)=>{
+    validateCard=async (e)=>{
         if (e===undefined) {
             return ('Vui lòng điền đủ các trường!');
         };
@@ -127,6 +127,25 @@ class DashBoardPaymentScreen extends Component {
             return 'Định dạng mã thẻ phải là 12 chữ số'
         }
 
+        let is_exist_card=false;
+        let payment=toArray(await firebase.get('/payment/'));
+        payment.map(item=>{
+            let cards=toArray(item.cards);
+
+            cards.map(card=>{
+                console.log('CheckCard',card)
+                if (card.company==e.company && card.number==e.number){
+                    is_exist_card=true;
+                }
+            })
+           
+        })
+
+        if (is_exist_card){
+            return ('Thẻ đã xuất hiện trong hệ thống, vui lòng chọn thẻ khác.')
+        }
+
+
         if (!/[0-9]{3}/.test(e.ccv)){
             return 'Định dạng số ccv phải là 3 chữ số'
         }
@@ -139,7 +158,7 @@ class DashBoardPaymentScreen extends Component {
     createCard=async()=>{
         console.log('dashboard payment createCards:',this.state.card);
 
-        let err_msg=this.validateCard(this.state.card)
+        let err_msg=await this.validateCard(this.state.card)
         
         if (err_msg!=='') {
             alert(err_msg);
