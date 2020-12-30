@@ -1,6 +1,6 @@
 export const collapseText=(text,limit_length)=>{
     if (text.length<limit_length) return text;
-    return text.substring(0,limit_length)+'...';
+    return text.substring(0,limit_length);
 }
 
 

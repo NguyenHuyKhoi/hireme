@@ -277,7 +277,7 @@ class Firebase {
 
         
         let url ='';
-        await firebase.storage().ref(path+id+'.jpg').put(file)  
+        await firebase.storage().ref(path+id).put(file)  
             .then(snapshot=>snapshot.ref.getDownloadURL())
             .then (downloadUrl =>{
                 console.log('uploadFile Download_url',downloadUrl);
@@ -287,6 +287,19 @@ class Firebase {
         console.log('uploadFile end:',url)
 
         return url; 
+    }
+
+
+    deleteFile=async (path,id)=>{
+        console.log('deleteFile begin:',path,id)
+
+        
+        await firebase.storage().ref(path+id).delete()  
+            .then(()=> {
+                // File deleted successfully
+            }).catch(error=> {
+                // Uh-oh, an error occurred!
+            });
     }
 
 }

@@ -1,6 +1,8 @@
 //import from library 
 import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
 import { TEXT_SIZES } from '../../utils/constants'
+import { collapseText } from '../../utils/helper'
 import { BLACK, BLUE_1, GRAY_2, GRAY_4, GRAY_5, RED_1, WHITE } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
 
@@ -10,16 +12,45 @@ class NewFile extends Component{
     //     this.props
     // }
 
+    onChangeFile=(event)=>{
+        event.stopPropagation();
+        event.preventDefault();
+        var file = event.target.files[0];
+        console.log(file);
+        this.setState({
+            new_image:file
+        }); 
+
+        let fileObj={
+            name:file.name,
+            type:file.type,
+            size:file.size,
+            content:file,
+            id:(new Date()).getTime()
+        }
+        this.props.choose(fileObj);
+        console.log('choose_file :',fileObj)/// if you want to upload latter
+    }
+
     render(){
         return(
-            <div style={styles.item_container}>
+            <div style={{...styles.item_container,alignItems: 'center'}}>
             <text style={styles.item_upload_label}>
                 Tải lên
             </text>
 
+            <input id="fileUpload"
+                type="file"
+                ref={(ref) => this.upload = ref}
+                style={{display: 'none'}}
+                onChange={this.onChangeFile.bind(this)}
+                />
+
             <div style={styles.item_upload_btn}>
                 {/* <input type="file" onChange={this.onFileChange} multiple /> */}
-                <ButtonComponent height={30} label='Chọn' color={WHITE} text_color={BLUE_1}/>
+                <ButtonComponent 
+                    onClick={()=>{this.upload.click()}}
+                    height={30} label='Chọn' color={WHITE} text_color={BLUE_1}/>
             </div>
             </div>
                         
@@ -28,23 +59,47 @@ class NewFile extends Component{
 }
 
 class NormalFile extends Component{
+    convertSize=(size)=>{
+        if (size<1000) return (size+' bytes');
+        if (size<1000000) return (Math.floor(size/1000)+' KB');
+        if (size<1000000000) return (Math.floor(size/1000000)+' MB');
+    }
+
+    displayName=(name)=>{
+        let arr=name.split('.');
+        return collapseText(arr[0],12)+'.'+arr[1]
+    }
     render(){
         const attachment=this.props.attachment;
         const disabled=this.props.disabled
         return(
-            <div style={styles.item_container}>
+            <div style={{...styles.item_container,
+                width:  disabled!==undefined && disabled===false?'10vw':'14vw'}}>
 
-                <text style={styles.item_name}>
-                    {attachment.name}
-                </text>
+                {
+                    attachment.url!==undefined?
+                    <a
+                        href={attachment.url}
+                        target="_blank" rel="noopener noreferrer" download
+                        style={styles.item_name}>
+                        {this.displayName(attachment.name)}
+                    </a>
+                    :
+                    <text style={styles.item_name}>
+                        {this.displayName(attachment.name)}
+                    </text>
+
+                }
+              
 
                 <div style={styles.item_row}>
                     <text style={styles.item_type}>
-                        {attachment.type}
+                        {this.convertSize(attachment.size)}
                     </text>
                     {
                         disabled!==undefined && disabled===false?
-                        <div style={styles.item_del_btn}>
+                        <div style={styles.item_del_btn}
+                            onClick={this.props.delete}>
                             <text style={styles.item_del_label}>
                                 x
                             </text>
@@ -63,8 +118,51 @@ class NormalFile extends Component{
 
 
 export default class AttachmentsComponent extends Component {
+
+    constructor(props){
+        super(props);
+        this.state={
+            attachments:this.props.attachments
+        }
+    }
+
+    deleteItem=(id)=>{
+        console.log('Attachments deleteItem :',id)
+        //id : not auto-generated id by firebase ,it is timestamp :
+        let arr=this.state.attachments.filter(item=>item.id!==id);
+        this.setState({
+            attachments:arr
+        });
+
+        this.props.onChange(arr)
+
+        this.props.addFileToDeletedQueue(id);
+    };
+
+    
+
+
+    addItem=async (item)=>{
+        console.log('Attachments addItem :',item)
+        let arr=this.state.attachments;
+        arr.push(item);
+        await this.setState({
+            attachments:arr
+        });
+
+        this.props.onChange(arr)
+    }
+
+
+    componentWillReceiveProps(nextProps) {
+        // You don't have to do this check first, but it can help prevent an unneeded render
+        if (nextProps.attachments !== this.state.attachments) {
+          this.setState({ attachments: nextProps.attachments });
+        }
+      }
+
     render(){
-        const attachments=this.props.attachments!==undefined?this.props.attachments:[];
+        const attachments=this.state.attachments;
         const disabled=this.props.disabled!==undefined?this.props.disabled:true
         const label=this.props.label!==undefined?this.props.label:''
         return (
@@ -77,7 +175,9 @@ export default class AttachmentsComponent extends Component {
                 <div style={styles.body}>
                     {
                         !disabled?
-                        <NewFile/>
+                        <NewFile
+                            choose={this.addItem}
+                        />
                         :
                         null
                     }
@@ -94,6 +194,7 @@ export default class AttachmentsComponent extends Component {
                         attachments.map((item,index)=>
                             <NormalFile 
                                 attachment={item}
+                                delete={()=>this.deleteItem(item.id)}
                                 disabled={disabled}  key={''+index}/>
                         )
                     }
@@ -128,8 +229,8 @@ const styles={
     },
     item_container:{
         marginRight:10,
-        marginTop: 7,
-        width:'9vw',
+        marginTop: 10,
+        width:'10vw',
         height:70,
         borderRadius:8,
         backgroundColor: GRAY_4,
@@ -139,21 +240,22 @@ const styles={
     },
     item_upload_label:{
         fontSize:TEXT_SIZES.SMALL,
-        color:WHITE
+        color:BLACK
     },
     item_upload_btn:{
-        width:'60%',
-        marginTop:5
+        width:'70%',
+        marginTop:8
     },
     item_name:{
-        marginLeft:15,
+        marginLeft: 15,
+        marginTop: 5,
         fontSize:TEXT_SIZES.SMALL,
         color:BLACK
     },
     item_row:{
         display:'flex',
-        width:'75%',
-        marginLeft:15,
+        marginLeft: 15,
+        width:'80%',
         alignSelf:'baseline',
         flexDirection:'row',
         justifyContent:'space-between'
@@ -163,8 +265,9 @@ const styles={
         color:GRAY_2
     },
     item_del_btn:{
-        width: 25,
-        height:25,
+        width: 20,
+        height:20,
+        marginBottom: 15,
         borderRadius:3,  
         display:'flex',
         justifyContent:'center',
