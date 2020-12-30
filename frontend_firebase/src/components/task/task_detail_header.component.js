@@ -19,7 +19,7 @@ class ProjectBudget extends Component {
                     Chi phí
                 </text>
 
-                <text style={{fontSize:TEXT_SIZES.NORMAL,color:WHITE}}>
+                <text style={{fontSize:TEXT_SIZES.NORMAL,color:WHITE,textAlign:'center'}}>
                     {budget[0]+'vnd - '+budget[1]+'vnd'}
                 </text>
             </div>

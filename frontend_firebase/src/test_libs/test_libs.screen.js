@@ -23,7 +23,7 @@ import { BLACK, GRAY_6, WHITE } from '../utils/palette';
 				<text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK,marginTop:50}}>
 					{d.toISOString()}
                 </text>
-				<text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK,marginTop:50}}>
+				{/* <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK,marginTop:50}}>
 					{d.toTimeString()}
                 </text>
 				<text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK,marginTop:50}}>
@@ -31,7 +31,7 @@ import { BLACK, GRAY_6, WHITE } from '../utils/palette';
                 </text>
 				<text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK,marginTop:50}}>
 					{d.toLocaleTimeString()}
-                </text>
+                </text> */}
               
                 
 

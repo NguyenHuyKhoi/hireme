@@ -44,8 +44,8 @@ class DashBoardTaskManagementScreen extends Component {
                     this.setState({
                         task:{
                             ...res,
-                            biddings:res.biddings===undefined?[]:toArray(res.biddings),
-                            stages:res.stages===undefined?[]:toArray(res.stages)
+                            biddings:toArray(res.biddings),
+                            stages:toArray(res.stages)
                         }
                     })
             })
@@ -59,26 +59,23 @@ class DashBoardTaskManagementScreen extends Component {
     }
 
     renderBody=()=>{
+        const u=this.props.user_infor;
         const type=this.props.user_infor.type
         const st=this.state.task;
         const stb=st.biddings;
         const sts=st.stages
+        const ab=st.accepted_bidding;
+
+        console.log('renderBody :')
         switch (this.state.focus_tab_index){
             case 0:
                 if (st===null) return null;
                 return  <TaskDetailTabComponent task={st} />
 
             case 1:
-                if (stb.length===0){
-                    return  <text style={{fontSize: TEXT_SIZES.NORMAL,color:BLACK}}>
-                        Dự án này chưa có đơn đấu giá nào, hãy trở thành người đấu giá đầu tiên.
-                    </text>
-                }
-                else {
                    return   <BiddingListComponent 
                         type={type}
                         task={st}/>
-                }
 
             case 2:
                 return  <div style={{display:'flex',width:'100%',height:'80vh'}}>
@@ -87,7 +84,19 @@ class DashBoardTaskManagementScreen extends Component {
                                 task_id={this.state.task_id}/>
                         </div>
              
-            case 3:
+            case 3: 
+                if (st.state==='bidding'){
+                    return <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,margin:20}}>
+                        Dự án này vẫn đang được đấu giá, chưa tìm được freelancer đảm nhận.
+                    </text>
+                };
+
+                console.log('renderBody StageList :',ab,type,u)
+                if (ab!==undefined && type==='freelancer' && ab.freelancer.id!==u.id){
+                    return <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,margin:20}}>
+                        Bạn không phải là freelancer được chọn trong dự án này.
+                    </text>
+                }
                 return  <div style={{display:'flex',width:'74vw',height:'80vh'}}>
                             <StageListComponent
                                 type={type} 
@@ -95,6 +104,17 @@ class DashBoardTaskManagementScreen extends Component {
                                 task_id={this.state.task_id}/>
                         </div>
             case 4:
+                if (st.state==='bidding'){
+                    return <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,margin:20}}>
+                        Dự án này vẫn đang được đấu giá, chưa tìm được freelancer đảm nhận.
+                    </text>
+                }
+
+                if (ab!==undefined && type==='freelancer' && ab.freelancer.id!==u.id){
+                    return <text style={{fontSize:TEXT_SIZES.NORMAL,color:BLACK,margin:20}}>
+                        Bạn không phải là freelancer được chọn trong dự án này.
+                    </text>
+                }
                 return  <div style={{display:'flex',width:'100%',height:'80vh'}}>
                             <PaymentTabComponent
                                 task_id={this.state.task_id}/>

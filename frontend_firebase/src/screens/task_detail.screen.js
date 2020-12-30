@@ -15,7 +15,7 @@ import ReportTaskModal from '../components/input/report_task.modal';
 import SingleFieldComponent from '../components/common/single_field.component'
 import api from '../sample_db/fake_api_responses.json'
 import { TEXT_SIZES } from '../utils/constants';
-import { convertFullDateToOnlyDay,convertFullDateToHour, toArray, convertDateToHour } from '../utils/helper';
+import { convertFullDateToOnlyDay,convertFullDateToHour, toArray } from '../utils/helper';
 
 import firebase from '../firebase/firebase'
 import firebaseConfig from '../firebase/config'
@@ -121,14 +121,14 @@ class TaskDetailScreen extends Component {
         console.log('placeBidding:',{
                 ...bi,
                 poster:user,
-                post_time:convertDateToHour(new  Date())
+                post_time:(new Date()).toISOString()
             })
 
         await firebase.set(this.path+'/biddings/'+u.id,{
             ...bi,
             id:u.id,
             freelancer:user,
-            post_time:convertDateToHour(new  Date())
+            post_time:(new Date()).toISOString()
         });
 
      
@@ -153,9 +153,9 @@ class TaskDetailScreen extends Component {
         });
 
         await firebase.push('/chat/'+chat_key+'/messages/',{
-            post_time:convertDateToHour(new  Date()),
-            content:' I want to bidding this task with budget :'+this.state.bidding.budget 
-                +' on duration :'+this.state.bidding.duration,
+            post_time:(new Date()).toISOString(),
+            content:' Tôi muốn đấu giá dự án này với chi phí :'+this.state.bidding.budget 
+                +'vnd, trong :'+this.state.bidding.duration +' ngày.',
             user: {
                 id:u.id,
                 username:u.username,
@@ -207,12 +207,11 @@ class TaskDetailScreen extends Component {
                                         content={task.description}/>
                                 </div>
 
+
+
                                 <div style={{marginTop:50}}>
                                     <BiddingListComponent 
                                             task={task}/>
-
-                           
-                                    
                                 </div>
                             
                             </div>
@@ -232,7 +231,7 @@ class TaskDetailScreen extends Component {
                                 </div>
                                 <div style={{width: '100%',marginTop:50}}>
                                     <ButtonComponent color={GREEN_2} text_color={GREEN_1}
-                                        label={task.post_time}/>
+                                        label={convertFullDateToHour(task.post_time)}/>
                                 </div>
 
                                 {

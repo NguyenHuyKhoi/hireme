@@ -75,13 +75,14 @@ export default class ConversationComponent extends Component {
         const chat=this.props.chat;
         const users =toArray(chat.users);
         const messages =toArray(chat.messages)
-
-
         const user_id=this.props.user_id
+
+        const partner=users.filter(item=>item.id!==user_id)[0]
+
         return (
             <div  style={styles.container}>    
 
-                <HeaderListComponent title={users[1].name}/>
+                <HeaderListComponent title={partner.username}/>
 
                 <div style={styles.body}>
                     {

@@ -2,7 +2,7 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import { routePaths, TEXT_SIZES } from '../../utils/constants'
-import { BLACK, BLUE_1, BLUE_2, GRAY_3, WHITE, YELLOW_1 } from '../../utils/palette'
+import { BLACK, BLUE_1, BLUE_2, GRAY_3, GREEN_1, WHITE, YELLOW_1 } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
 import RateScoreComponent from '../common/rate_score.component'
 import SmallFieldComponent from '../common/small_field.component'
@@ -34,11 +34,13 @@ class BiddingBudget extends Component {
 }
 
 export default class BiddingItemComponent extends Component {
+
     render(){
         const bidding = this.props.bidding;
         const state=this.props.state;
         const freelancer= bidding.freelancer
         const type=this.props.type;
+        const is_accepted=this.props.is_accepted
         console.log('bidding_item',bidding.intended_time);
         return (
             <div style={{
@@ -65,12 +67,18 @@ export default class BiddingItemComponent extends Component {
                                 {freelancer.username}
                             </Link>
 
-                            {/* <div style={{marginTop:3}}>
-                                <SmallFieldComponent 
-                                    background_color={YELLOW_1} 
-                                    label_color={WHITE} 
-                                    label={freelancer.rate_score}/>
-                            </div> */}
+                            {
+                                is_accepted?
+                                <div style={{marginTop:3}}>
+                                    <SmallFieldComponent 
+                                        background_color={GREEN_1} 
+                                        label_color={WHITE} 
+                                        label={'Người được chọn!'}/>
+                                </div>
+                                :
+                                null
+                            }
+                           
                         
 
 
@@ -106,17 +114,21 @@ export default class BiddingItemComponent extends Component {
 
                         <div style={{flex:0.3}}/>
 
-                        <div style={styles.btn_container}>
-                            <ButtonComponent color={YELLOW_1} label='Trao đổi'/>
-                        </div>
+                        <Link 
+                            to={routePaths.FREELANCER_DETAIL+`/${freelancer.id}`}
+                            style={{...styles.btn_container,textDecoration: 'none'}}>
+                            <ButtonComponent 
+                                onClick={this.props.navToChat}
+                                color={YELLOW_1} label='Xem thông tin'/>
+                        </Link>
 
                         <div style={{flex:0.3}}/>
 
-                        <div style={styles.btn_container}>
+                        {/* <div style={styles.btn_container}>
                             <ButtonComponent 
                                 onClick={this.props.removeBidding}
                                 color={GRAY_3} label='Xóa'/>
-                        </div>
+                        </div> */}
 
                         <div style={{flex:1.5}}/>
                     </div>

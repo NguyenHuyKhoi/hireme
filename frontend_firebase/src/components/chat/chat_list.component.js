@@ -15,7 +15,7 @@ class ChatItem extends Component {
 
         const users=toArray(chat.users);
         const user_id=this.props.user_id
-        const partner=users.filter((item)=>item.id===user_id)[0]
+        const partner=users.filter((item)=>item.id!==user_id)[0]
 
         const messages=toArray(chat.messages)
         const latest_message=messages[messages.length-1]
@@ -99,7 +99,7 @@ export default class ChatListComponent extends Component {
         return (
             <div  style={styles.container} >    
 
-                <HeaderListComponent title='Dach sách '/>
+                <HeaderListComponent title='Dach sách ' height={45}/>
 
                 <div style={styles.body}>
                     {
@@ -120,7 +120,7 @@ export default class ChatListComponent extends Component {
                                 user_id={user_id}
                                 is_current_chat={index===this.state.current_chat_index}
                                 onClick={()=>{
-                                  //  this.props.getConversation(item.id)
+                                    this.props.getConversation(item.id)
                                     this.setState({
                                         current_chat_index:index
                                     })
@@ -138,7 +138,7 @@ const styles={
     item_container:{
         display: 'flex',
         flexDirection: 'row',
-        flex:1,
+        width: '100%',
         height:95,
     },
     col1:{

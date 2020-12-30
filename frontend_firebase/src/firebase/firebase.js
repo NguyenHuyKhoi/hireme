@@ -1,6 +1,6 @@
 import firebase from '../firebase/config';
 import { CATEGORIES_DOMAIN, HOURLY_RATE_DOMAIN } from '../utils/constants';
-import { convertDateToHour, hasSameElement, toArray } from '../utils/helper';
+import { hasSameElement, toArray } from '../utils/helper';
 
 class Firebase {
 
@@ -175,7 +175,7 @@ class Firebase {
         
         await this.push('/task/',{
             ...data,
-            post_time:convertDateToHour(new Date()),
+            post_time:(new Date()).toISOString(),
             company:{
                 id:company.id,
                 company_name:company.company_name,

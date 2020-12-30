@@ -22,7 +22,7 @@ export default class DashBoardChatScreen extends Component {
                 <SidebarComponent/>
             
                 <div style={styles.body}>
-                    <ChatComponent user_id={this.state.user_id} />
+                    <ChatComponent/>
                 </div>
 
             </div>

@@ -14,14 +14,10 @@ export const convertFullDateToOnlyDay=(value)=>{
 //value :string
 export const convertFullDateToHour=(value)=>{
     var curr = new Date(value);
-    var date = curr.toISOString().substr(0,19);
+    var date = curr.toISOString().substr(0,16);
     return date;
 };
 
-//d :Date
-export const convertDateToHour=(d)=>{
-    return d.toLocaleDateString()+' '+d.getHours()+':'+d.getMinutes()
-}
 
 export const hasSameElement=(arr1,arr2)=>{
 

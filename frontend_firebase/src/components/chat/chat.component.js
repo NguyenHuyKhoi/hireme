@@ -12,7 +12,7 @@ import firebase from '../../firebase/firebase'
 import {connect }from 'react-redux'
 import * as action from '../../redux/action/user.action'
 import { TEXT_SIZES } from '../../utils/constants';
-import { convertDateToHour, toArray } from '../../utils/helper';
+import {  toArray } from '../../utils/helper';
 
 class ChatComponent extends Component {
 
@@ -38,6 +38,10 @@ class ChatComponent extends Component {
                 let data=snapshot.val();
                 let arr=toArray(data);
 
+                arr=arr.filter(item=>
+                        item.users[0].id===this.state.user_id 
+                        || item.users[1].id===this.state.user_id
+                        )
                 if (this.state.current_chat_id===null && arr.length>0) {
                     this.setState({
                         current_chat_id:arr[0].id
@@ -69,6 +73,11 @@ class ChatComponent extends Component {
         await this.getChatList();
     };
 
+    getConversation=(chat_id)=>{
+        this.setState({
+            current_chat_id:chat_id
+        })
+    }
 
     sendMessage=async ()=>{
         if (this.state.message===undefined || this.state.message===''){
@@ -78,11 +87,11 @@ class ChatComponent extends Component {
             let i=this.props.user_infor
             await firebase.push('/chat/'+this.state.current_chat_id+'/messages/',{
                 content:this.state.message,
-                post_time:convertDateToHour(new Date()),
+                post_time:(new Date()).toISOString(),
                 user:{
                     id:i.id,
                     username:i.username,
-                    avatar:''
+                    avatar:i.avatar
                 }
             })
         }
@@ -104,22 +113,24 @@ class ChatComponent extends Component {
         return (
             <div  style={styles.container}> 
 
-               <div style={styles.chat_list}>
                 {
-                    chats==null?
-                    // || (task_id!==undefined && user_type==='freelancer')?
-                    //freelancer chat with company on a specify task  
+                    chats===null || chats.length===1?
                     null
                     :
+                    <div style={styles.chat_list}>
+    
 
-                    <ChatListComponent
-                        //  getConversation={this.getConversation} 
-                        user_id={user_id}
-                        chats={chats}/>
-                  
+                        <ChatListComponent
+                            getConversation={this.getConversation} 
+                            user_id={user_id}
+                            chats={chats}/>
+                    
+            
+
+                    </div>
+
                 }
 
-                </div>
                 {
                     current_chat===null || current_chat===undefined?
                     null
