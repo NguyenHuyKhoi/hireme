@@ -24,13 +24,14 @@ export const convertFullDateToHour=(value)=>{
 export const hasSameElement=(arr1,arr2)=>{
 
     console.log('hasSameElement',arr1,arr2);
-    if (arr1===undefined || arr1===[] || arr1===null) return false;
-    if (arr2===undefined || arr2===[] || arr2===null) return false;
+    if (arr1===undefined || arr1.length===0 || arr1===null) return true;
+    if (arr2===undefined || arr1.length===0 || arr2===null) return true;
 
+    console.log('hasSameElement2',arr1,arr2);
     let i=false;
     arr1.map(item1=>{
         arr2.map(item2=>{
-            i=i || (item1===item2)
+            if (item1===item2) {i=true}
         })
     })
 
