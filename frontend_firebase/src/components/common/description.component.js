@@ -23,7 +23,9 @@ export default class DescriptionComponent extends Component {
                 
                 </text> */}
 
-                <textarea style={styles.content}>
+                <textarea 
+                    disabled={true}
+                    style={styles.content}>
                      {this.props.content}
                     </textarea>
 
