@@ -16,7 +16,11 @@ class NewFile extends Component{
         event.stopPropagation();
         event.preventDefault();
         var file = event.target.files[0];
-        console.log(file);
+        console.log('choose_file :',file);
+
+        if (file===undefined){
+            return ;
+        }
         this.setState({
             new_image:file
         }); 
