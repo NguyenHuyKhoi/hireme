@@ -1,14 +1,25 @@
 //import from library 
 import React, {Component} from 'react'
 import { TEXT_SIZES } from '../../utils/constants'
-import { BLACK, RED_1, WHITE } from '../../utils/palette'
+import { convertFullDateToOnlyDay } from '../../utils/helper'
+import { BLACK, GREEN_1, RED_1, WHITE } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
 import NewStageItemComponent from './new_stage_item.component'
 import StageItemComponent from './stage_item.component'
 
 export default class StageListComponent extends Component {
+
+    confirmDoneTask=()=>{
+        alert('Xác nhận hoàn thành dự án thành công, tiền đã chuyển cho freelancer.');
+    }
+
+    notifyDoneTask=()=>{
+        alert('Đã gửi thông báo hoàn thành dự án cho công ty. ');
+    }
+    
     render(){
-        const stages=this.props.stages!==undefined?this.props.stages:[];
+        const task=this.props.task;
+        const stages=task.stages;
         const type=this.props.type;
         console.log('stage_list:',stages);
         return (
@@ -27,10 +38,10 @@ export default class StageListComponent extends Component {
                     }
 
                     {
-                        type==='freelancer'?
+                        type==='freelancer' && task.process<100?
                         <div style={{width:'40vw'}}>
                             <NewStageItemComponent
-                                task_id={this.props.task_id}
+                                task={task}
                                 />
                         </div>
                         :
@@ -40,31 +51,57 @@ export default class StageListComponent extends Component {
                   
 
                     <div style={styles.last_col}>
-
-
-                        <div style={styles.deadline_container}>
-
+                        <div style={{...styles.deadline_container,
+                            backgroundColor: task.process!==100?RED_1:GREEN_1}}>
                             <text style={styles.deadline_header}>
                                 DEADLINE
                             </text>
                             <text style={styles.deadline_time}>
-                                08:00
+                                {convertFullDateToOnlyDay(task.deadline)}
                             </text>
+
                             <text style={styles.deadline_time}>
-                                02/12/2020
+                                {'Đã xong:'+(task.process)+'%'}
                             </text>
                         </div>
+
 
                         
 
-                        <text style={styles.confirm_notif}>
-                                Nếu dự án đạt 100% tiến độ, xác nhận hoàn thành để thanh toán tiền cho freelancer :
-                        </text>
+                        {
+                            task.process==100?
+                                type==='company'?
+                                <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+                                    <text style={styles.confirm_notif}>
+                                            Dự án đã đạt 100% tiến độ, xác nhận hoàn thành để thanh toán tiền cho freelancer :
+                                    </text>
 
-                        <div style={styles.btn_container}>
-                            <ButtonComponent 
-                                label='Xác nhận hoàn thành'/>
-                        </div>
+                                    <div style={styles.btn_container}>
+                                        <ButtonComponent 
+                                            color={GREEN_1}
+                                            onClick={this.confirmDoneTask}
+                                            label='Xác nhận hoàn thành'/>
+                                    </div>
+                                </div>
+                                :
+                                <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+                                    <text style={styles.confirm_notif}>
+                                            Dự án đã đạt 100% tiến độ, thông báo công ty thanh toán dự án:
+                                    </text>
+
+                                    <div style={styles.btn_container}>
+                                        <ButtonComponent 
+                                            color={GREEN_1}
+                                            onClick={this.notifyDoneTask}
+                                            label='Gửi thông báo'/>
+                                    </div>
+                                </div>
+
+                            :
+                            null
+                      
+                        }
+                      
                     </div>
 
                    
@@ -98,6 +135,7 @@ const styles={
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
+        width: 150,
         padding:15,
         flexDirection:'column',
         borderRadius:4,

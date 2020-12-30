@@ -29,7 +29,7 @@ class TimeLine extends Component{
                         flexDirection:'column',marginBottom:10}}>
 
                         <input 
-                            style={{fontSize:TEXT_SIZES.SMALL,color:BLACK,width:'6vw',
+                            style={{fontSize:TEXT_SIZES.SMALL,color:BLACK,width:'7vw',
                             backgroundColor: 'rgba(0,0,0,0)',
                             outline:'none',
                             borderColor:'rgba(0,0,0,0)'

@@ -100,8 +100,7 @@ class DashBoardTaskManagementScreen extends Component {
                 return  <div style={{display:'flex',width:'74vw',height:'80vh'}}>
                             <StageListComponent
                                 type={type} 
-                                stages={sts}
-                                task_id={this.state.task_id}/>
+                                task={st}/>
                         </div>
             case 4:
                 if (st.state==='bidding'){

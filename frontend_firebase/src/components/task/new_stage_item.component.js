@@ -7,12 +7,14 @@ import { TEXT_SIZES } from '../../utils/constants'
 import NumberInputComponent from '../input/number_input.component'
 
 import firebase from '../../firebase/firebase'
+import DateInputComponent from '../input/date_input.component'
 export default class NewStageItemComponent extends Component {
 
     constructor(props){
         super(props);
         this.state={
-            title:''
+            title:'',
+            new_stage:{}
         }
         var curr = new Date();
         curr.setDate(curr.getDate() + 3);
@@ -20,34 +22,67 @@ export default class NewStageItemComponent extends Component {
     }
 
 
-    updateInputs=(field,value)=>{
-        console.log('updateInputs:',field,value);
+    updateInput=(part,field,value)=>{
+        console.log('update_inputs_new_stage:',part,field,value)
         this.setState({
-            [field]:value
+            [part]:{
+                ...this.state[part],
+                [field]:value
+            }
         });
     }
 
+    validateNewStage=(e)=>{
+        if (e==={}) {
+            return ('Vui lòng điền đủ các trường!');
+        };
+
+        let fields=['title','end_time','process'];
+        let is_empty=false;
+        fields.map(item=>{
+            if (e[item]===undefined || e[item]==='') is_empty=true;
+        });
+
+        if (is_empty){
+            return('Vui lòng điền đủ các trường!');
+        };
+        return '';
+        
+    }
 
     addStage=async ()=>{
-        if (this.state.title===undefined || this.state.end_time===undefined || this.state.process===undefined){
-            alert('Vui lòng điền đủ thông tin.');
-            return 
-        }
-        else {
-            await firebase.push('/task/'+this.props.task_id+'/stages/',{
-                title:this.state.title,
-                end_time:this.state.end_time,
-                process:this.state.process
-            });
+        let new_stage=this.state.new_stage
 
-            alert('Thêm giai đoạn thành công.');
-            this.updateInputs('title','');
-        }
+       let err_msg= this.validateNewStage(new_stage);
+       if (err_msg!=='') {
+           alert(err_msg);
+           return;
+        };
+
+        let task=this.props.task;
+
+        await firebase.push('/task/'+task.id+'/stages/',{
+            title:new_stage.title,
+            end_time:new_stage.end_time,
+            start_time:task.stage_start_time,
+            process:new_stage.process
+        });
+
+        await firebase.set('/task/'+task.id+'/process/',new_stage.process)
+        await firebase.set('/task/'+task.id+'/stage_start_time/',new_stage.end_time)
+
+        alert('Thêm giai đoạn thành công.');
+        this.updateInput('new_stage','title','');
     }
     
 
     render(){
 
+        const task=this.props.task;
+        const new_stage=this.state.new_stage;
+        let {stage_start_time,deadline,process}=task;
+
+        console.log('new_stage_render:',stage_start_time,deadline,process)
         return (
             <div style={styles.container}>   
 
@@ -57,8 +92,8 @@ export default class NewStageItemComponent extends Component {
 
                     <input 
                         style={styles.header_title}
-                        value={this.state.title}
-                        onChange={e=>this.updateInputs('title',e.target.value)}
+                        value={new_stage.title!==undefined?new_stage.title:''}
+                        onChange={e=>this.updateInput('new_stage','title',e.target.value)}
                         placeholder='Mô tả giai đoạn...'
                     />
                    
@@ -69,19 +104,20 @@ export default class NewStageItemComponent extends Component {
                     <div style={styles.inner_body}>
 
                             <div style={styles.content}>
-                                <LabeledInputComponent 
+                                <DateInputComponent 
                                     label='Thời hạn :' 
-                                    type='date'
-                                    value={this.deadline}
-                                    onChange={(value)=>this.updateInputs('end_time',value)}/>
+                                    min_date={stage_start_time}
+                                    max_date={deadline}
+                                    onChange={(value)=>this.updateInput('new_stage','end_time',value)}/>
 
                                 <div style={{width:'100%',marginTop:20}}>
+
                                     <NumberInputComponent 
                                         label='Tiến độ đạt được:' 
-                                        domain={[0,100]}
+                                        domain={[process,100]}
                                         unit='%'
-                                        value={[0]}
-                                        onChange={(value)=>this.updateInputs('process',value)}/>
+                                        value={[process]}
+                                        onChange={(value)=>this.updateInput('new_stage','process',value)}/>
                                 </div>
                             
                             </div>  
