@@ -20,6 +20,10 @@ export default class SettingAccountComponent extends Component {
         event.stopPropagation();
         event.preventDefault();
         var file = event.target.files[0];
+
+        if (file===undefined){
+            return ;
+        }
         console.log(file);
         this.setState({
             new_image:file
