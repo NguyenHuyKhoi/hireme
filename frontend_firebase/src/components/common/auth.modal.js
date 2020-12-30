@@ -192,7 +192,7 @@ class AuthModal extends Component {
             this.props.onClickClose();
         }
         else {
-            alert('Đăng nhập thất bại, vui lòng kiểm tra email và mật khẩu. ');
+            alert('Đăng nhập thất bại, sai thông tin hoặc tài khoản đã bị cấm! ');
         }
 
 

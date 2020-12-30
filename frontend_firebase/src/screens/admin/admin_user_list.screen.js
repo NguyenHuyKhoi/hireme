@@ -5,6 +5,10 @@ import UserListAdminComponent from '../../components/admin/user_list_admin.compo
 import { SIDEBAR_RATIO,PADDING_BODY_DASHBOARD, TEXT_SIZES } from '../../utils/constants'
 import { BLACK, GRAY_6 } from '../../utils/palette'
 import api from '../../sample_db/fake_api_responses.json'
+
+import firebase from '../../firebase/firebase'
+import { toArray } from '../../utils/helper'
+
 export default class AdminUserListScreen extends Component {
     constructor(props){
         super(props);
@@ -13,9 +17,10 @@ export default class AdminUserListScreen extends Component {
         }
     }
 
-    componentDidMount=()=>{
-        this.setState({
-            users:api.get_user_list_admin
+    componentDidMount=async ()=>{
+        let users= await firebase.get('/user/');
+        await this.setState({
+            users:toArray(users)
         })
     }
 

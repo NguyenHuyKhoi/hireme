@@ -14,20 +14,20 @@ export default class BanUserModal extends Component {
                 style={styles.modal}>
                         <div style={styles.container}>
                             <text style={styles.normal_text}>
-                                Ban this user?
+                                Cấm tài khoản này?
                             </text>
 
                             <text style={styles.small_text}>
-                                When user is banner ,she/he can't log in anymore.
-                                You can unban any time.
+                               Khi người dùng bị cầm, họ sẽ không thể đăng nhập được. Tuy nhiên, bạn vẫn
+                            có thể gỡ lệnh cấm sau này.
                             </text>
 
                             <div style={styles.footer}>
                                 <div style={{...styles.btn_container,marginRight: 50}}>
-                                    <ButtonComponent label='Back' onClick={this.props.clickBack}/>
+                                    <ButtonComponent label='Quay lại' onClick={this.props.clickBack}/>
                                 </div>
                                 <div style={styles.btn_container}>
-                                    <ButtonComponent label='Ban' color={RED_1}
+                                    <ButtonComponent label='Xác nhận' color={RED_1}
                                         onClick={this.props.clickBan}/>
                                 </div>
                             </div>

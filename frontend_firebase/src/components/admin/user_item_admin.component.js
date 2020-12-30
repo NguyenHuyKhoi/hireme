@@ -2,11 +2,15 @@
 import React, {Component} from 'react'
 import { Link } from 'react-router-dom'
 import { routePaths, TEXT_SIZES } from '../../utils/constants'
-import { WHITE,GRAY_4, BLACK, YELLOW_1, GRAY_2, GRAY_3, BLUE_1, RED_1 } from '../../utils/palette';
+import { WHITE,GRAY_4, BLACK, YELLOW_1, GRAY_2, GRAY_3, BLUE_1, RED_1, GREEN_1 } from '../../utils/palette';
 import ButtonComponent from '../common/button.component';
 import RateScoreComponent from '../common/rate_score.component'
 import SmallFieldComponent from '../common/small_field.component';
 import BanUserModal from './ban_user.modal'
+
+import firebaseConfig from '../../firebase/config'
+import firebase from '../../firebase/firebase'
+import default_logo from '../../assets/images/logo.png'
 export default class UserItemAdminComponent extends Component {
     constructor(props){
         super(props);
@@ -27,10 +31,17 @@ export default class UserItemAdminComponent extends Component {
         })
     }
 
-    banUser=()=>{
-       // alert('Ban User :');
+    banUser=async ()=>{
+        await firebase.update('/user/'+this.props.user.id,{is_banned:true})
+        alert('Đã cấm người dùng này.')
         this.closeBanModal();
     }
+
+    unBanUser=async()=>{
+        await firebase.update('/user/'+this.props.user.id,{is_banned:false})
+        alert('Đã khôi phục tài khoản của người dùng này.')
+    }
+
     render(){
         const user=this.props.user;
         const index=this.props.index;
@@ -46,21 +57,33 @@ export default class UserItemAdminComponent extends Component {
     
                 <div style={{flex:0.5}}/>
 
+                <img src={user.avatar!==''?user.avatar:default_logo} 
+                    style={{width: 50,height:50,borderRadius:25,marginRight: 20}}/>
+
                 <div style={styles.col1}>
 
                     <div style={styles.col1_row1}>
                         <text style={styles.normal_text}>
-                            {user.name}
+                            {user.username}
                         </text>
-
-                     
+                        {
+                        user.is_banned===true?
+                        <SmallFieldComponent
+                                background_color={RED_1} 
+                                label_color={WHITE} 
+                                label={'Bị cấm'}/>
+                            :
+                            null
+                        }
                     </div>
+
+                   
 
                     <div style={styles.col1_row2}>
 
                         <div style={styles.field_container}>
                             <text style={styles.small_text}>
-                                {'Type : '+user.user_type}
+                                {'Type : '+user.type}
                             </text>
                         </div>
 
@@ -76,20 +99,33 @@ export default class UserItemAdminComponent extends Component {
 
                 <div style={styles.col2}>
                     <Link 
-                        to={user.user_type==='freelancer'?
+                        to={user.type==='freelancer'?
                             routePaths.FREELANCER_DETAIL+`/${user.id}`
                             :
                             routePaths.COMPANY_DETAIL+`/${user.id}`
                         }
                         style={styles.btn_container}>
-                        <ButtonComponent label='Detail' color={BLUE_1}/>
+                        <ButtonComponent label='Xem chi tiết' color={BLUE_1}/>
                     </Link>
 
-                    <div 
-                        onClick={this.openBanModal}  
-                        style={{textDecoration:'none',width:'80%',marginRight: 25}}>
-                        <ButtonComponent label='Ban' color={RED_1}/>
-                    </div>
+                    {
+                        user.is_banned===undefined || user.is_banned===false?
+                        <div 
+                            onClick={this.openBanModal}  
+                            style={{textDecoration:'none',width:'80%',marginRight: 40}}>
+                            <ButtonComponent 
+                                label='Cấm' color={RED_1}/>
+                        </div>
+                        :
+                        <div 
+                            onClick={this.unBanUser}  
+                            style={{textDecoration:'none',width:'80%',marginRight: 40}}>
+                            <ButtonComponent 
+                                label='Phục hồi' color={GREEN_1}/>
+                        </div>
+
+                    }
+                   
                 </div>
                 
                 <div style={{flex:0.5}}/>
@@ -107,7 +143,8 @@ const styles={
         width:'100%',
         height:80,
         alignSelf:'baseline',
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignItems: 'center'
     },
     col1:{
         display:'flex',
@@ -121,7 +158,8 @@ const styles={
     },
     normal_text:{
         fontSize:TEXT_SIZES.NORMAL,
-        color:BLACK 
+        color:BLACK ,
+        marginRight: 20
     },
     col1_row2:{
         width:'100%',

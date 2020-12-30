@@ -22,7 +22,6 @@ import DashboardSettingFreelancerScreen from './screens/dashboard/dashboard_sett
 import DashboardSettingUserScreen from './screens/dashboard/dashboard_setting_user.screen';
 import DashBoardTaskPostScreen from './screens/dashboard/dashboard_task_post.screen';
 import TestLibsScreen from './test_libs/test_libs.screen';
-import AdminHomeScreen from './screens/admin/admin_home.screen';
 import AdminUserListScreen from './screens/admin/admin_user_list.screen';
 import AdminTaskListScreen from './screens/admin/admin_task_list.screen';
 import AdminChatScreen from './screens/admin/admin_chat.screen';
@@ -73,7 +72,6 @@ export default class  App extends Component {
 
 							{/* admin screens */}
 							
-							<Route path={routePaths.ADMIN_HOME} component={AdminHomeScreen}/>
 							<Route path={routePaths.ADMIN_USER_LIST} component={AdminUserListScreen}/>
 							<Route path={routePaths.ADMIN_TASK_LIST} component={AdminTaskListScreen}/>
 							<Route path={routePaths.ADMIN_CHAT} component={AdminChatScreen}/>

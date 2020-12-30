@@ -24,8 +24,12 @@ export default class UserListAdminComponent extends Component {
     render(){
         const users=this.props.users;
 
-        const l=this.state.first_item_index;
-        const r=this.state.last_item_index;
+        let l=this.state.first_item_index;
+        let r=this.state.last_item_index;
+
+        if (l===0){
+            r=Math.min(4,this.props.users.length-1)
+        }
         return (
             <div style={styles.container}>
                

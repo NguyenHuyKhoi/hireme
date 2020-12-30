@@ -131,7 +131,9 @@ class Firebase {
         let users=toArray(await this.get('/user/'));
 
         users.map((item)=>{
-            if (data.password===item.password && data.email===item.email){
+            if (data.password===item.password 
+                && data.email===item.email
+                && (item.is_banned===undefined || item.is_banned===false)){
                 user_infor=item;
             };
         });

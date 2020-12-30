@@ -50,7 +50,7 @@ export default class TaskItemBriefComponent extends Component {
                             {
                                 task.post_time!==undefined?
                                 <text style={styles.time_text}>
-                                    {'Đăng từ :'+convertFullDateToOnlyDay(task.post_time)}
+                                    {'Đăng từ : '+convertFullDateToOnlyDay(task.post_time)}
                                 </text>
                                 :
                                 null
@@ -61,7 +61,7 @@ export default class TaskItemBriefComponent extends Component {
                             {
                                 task.undertaked_time!==undefined?
                                 <text style={styles.time_text}>
-                                    {'Được nhận :'+convertFullDateToOnlyDay(task.undertaked_time)}
+                                    {'Được nhận : '+convertFullDateToOnlyDay(task.undertaked_time)}
                                 </text>
                                 :
                                 null
@@ -72,7 +72,7 @@ export default class TaskItemBriefComponent extends Component {
                             {
                                 task.done_time!==undefined?
                                 <text style={styles.time_text}>
-                                    {'Hoàn thành :'+convertFullDateToOnlyDay(task.done_time)}
+                                    {'Hoàn thành : '+convertFullDateToOnlyDay(task.done_time)}
                                 </text>
                                 :
                                 null
@@ -149,6 +149,6 @@ const styles={
     },
     btn_container:{
         textDecoration:'none',
-        width:'80%'
+        width:'100%'
     }
 }
