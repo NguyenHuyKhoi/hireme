@@ -19,9 +19,9 @@ export default class TaskItemBriefAdminComponent extends Component {
     }
 
     openBanModal=()=>{
-        this.setState({
-            open_ban_modal:true
-        })
+        // this.setState({
+        //     open_ban_modal:true
+        // })
     }
 
     closeBanModal=()=>{
@@ -30,9 +30,9 @@ export default class TaskItemBriefAdminComponent extends Component {
         })
     }
     openViewReportsModal=()=>{
-        this.setState({
-            open_view_reports_modal:true
-        })
+        // this.setState({
+        //     open_view_reports_modal:true
+        // })
     }
 
     closeViewReportsModal=()=>{
@@ -82,36 +82,37 @@ export default class TaskItemBriefAdminComponent extends Component {
 
                     <div style={styles.col1_row1}>
                         <text style={styles.normal_text}>
-                            {collapseText(task.name,30)}
+                            {collapseText(task.task_name,40)}
                         </text>
 
                         <div style={{marginLeft:30}}>
                             <SmallFieldComponent 
                                 background_color={
-                                    task.status==='bidding'?YELLOW_1
-                                        :task.status==='doing'?BLUE_1
-                                            :task.status==='done'?GREEN_1
-                                                :task.status==='canceled' 
-                                                    || task.status==='reported'?RED_1:GRAY_2
+                                    task.state==='bidding'?YELLOW_1
+                                        :task.state==='doing'?BLUE_1
+                                            :task.state==='done'?GREEN_1
+                                                :task.state==='freelancer_give_up'
+                                                    || task.state==='company_give_up' 
+                                                    || task.state==='reported'?RED_1:GRAY_2
                                 } 
                                 label_color={WHITE} 
-                                label={task.status}/>
+                                label={task.state}/>
                         </div>
                      
                     </div>
 
                     <div style={styles.col1_row2}>
 
-                        <div style={styles.field_container}>
+                        <div style={{...styles.field_container,flex: 2}}>
                             <text style={styles.small_text}>
-                                {'Posted :'+company.name}
+                                {'Đăng bởi :'+company.company_name}
                                 
                             </text>
                         </div>
 
                         <div style={styles.field_container}    >
                             <text style={styles.small_text}>
-                                {'On : '+convertFullDateToOnlyDay(task.post_time)}
+                                {'Ngày : '+convertFullDateToOnlyDay(task.post_time)}
                             </text>
                         </div>
                     </div>
@@ -123,19 +124,19 @@ export default class TaskItemBriefAdminComponent extends Component {
                     <Link 
                         to={routePaths.TASK_DETAIL+`/${task.id}`}
                         style={styles.btn_container}>
-                        <ButtonComponent label='Detail' color={BLUE_1}/>
+                        <ButtonComponent label='Xem chi tiết' color={BLUE_1}/>
                     </Link>
 
-                    <div 
+                    {/* <div 
                         onClick={this.openBanModal}  
                         style={styles.btn_container}>
-                        <ButtonComponent label='Ban' color={RED_1}/>
-                    </div>
+                        <ButtonComponent label='Cấm' color={RED_1}/>
+                    </div> */}
 
                     <div 
                         onClick={this.openViewReportsModal}  
-                        style={styles.btn_container}>
-                        <ButtonComponent label='View Reports' color={YELLOW_1}/>
+                        style={{...styles.btn_container,visibility: false,marginLeft: 20}}>
+                        <ButtonComponent label='Xem báo cáo' color={GRAY_2}/>
                     </div>
                 </div>
                 
@@ -161,7 +162,7 @@ const styles={
     },
     col1:{
         display:'flex',
-        flex:5,
+        flex:6,
         flexDirection: 'column',
         justifyContent:'center'
     },
@@ -188,7 +189,7 @@ const styles={
         color:BLACK
     },
     col2:{
-        flex:4,
+        flex:3,
         display:'flex',
         justifyContent: 'center',
         alignItems: 'center'

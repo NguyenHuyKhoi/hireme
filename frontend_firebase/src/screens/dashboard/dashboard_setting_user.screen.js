@@ -38,7 +38,7 @@ class DashboardSettingUserScreen extends Component {
         await this.setState(res);
     }
 
-    updateInputs=async (part,field,value)=>{
+    updateInput=async (part,field,value)=>{
         console.log('update_inputs :',part,field,value)
         await this.setState({
             [part]:{
@@ -59,7 +59,7 @@ class DashboardSettingUserScreen extends Component {
             let new_avatar_url=await firebase.uploadFile('/avatar/',this.state.account.new_avatar,this.state.id);
 
             console.log('updateSetting new_avatar_url:',new_avatar_url)
-            await this.updateInputs('account','avatar',new_avatar_url)
+            await this.updateInput('account','avatar',new_avatar_url)
         }
 
         await firebase.updateSettingUser(this.state.type,this.state.id,this.state);
@@ -86,7 +86,7 @@ class DashboardSettingUserScreen extends Component {
 
                     <div style={{marginTop:30}}>
                         <SettingAccountComponent 
-                            updateInputs={this.updateInputs}
+                            updateInput={this.updateInput}
                             account={state.account}/>
                     </div>
                     
@@ -94,7 +94,7 @@ class DashboardSettingUserScreen extends Component {
                         {
                             this.state.type==='company'?
                             <SettingProfileCompanyComponent 
-                                updateInputs={this.updateInputs}
+                                updateInput={this.updateInput}
                                 profile={state.profile}/>
                             :
                             this.state.type==='freelancer'?
@@ -110,7 +110,7 @@ class DashboardSettingUserScreen extends Component {
                                 //         :
                                 //         []
                                 // }
-                                updateInputs={this.updateInputs}
+                                updateInput={this.updateInput}
                                 profile={state.profile}/>
                             :
                             null
@@ -120,7 +120,7 @@ class DashboardSettingUserScreen extends Component {
 
                     {/* <div style={{marginTop:60}}>
                         <SettingPasswordComponent
-                                updateInputs={this.updateInputs}
+                                updateInput={this.updateInput}
                             />
                     </div> */}
 

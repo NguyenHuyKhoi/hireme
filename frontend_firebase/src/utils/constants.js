@@ -41,7 +41,6 @@ export const routePaths={
     DASHBOARD_TASK_MANAMENT:'/dashboard/task/management',
     DASHBOARD_CHAT:'/dashboard/chat',
     DASHBOARD_PAYMENT:'/dashboard/payment',
-    DASHBOARD_SETTING_FREELANCER:'/dashboard/setting/freelancer',
     DASHBOARD_SETTING_USER:'/dashboard/setting/user',
 
     ADMIN_HOME:'/admin/home',

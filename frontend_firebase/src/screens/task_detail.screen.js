@@ -249,12 +249,12 @@ class TaskDetailScreen extends Component {
 
                                
 
-                                <div style={{width: '100%',marginTop:50}}>
+                                {/* <div style={{width: '100%',marginTop:50}}>
                                     <ButtonComponent 
                                         onClick={this.openReportModal}
                                         color={RED_2} text_color={WHITE}
                                         label='Báo cáo'/>
-                                </div>
+                                </div> */}
                             </div>
                             <div style={{flex:1}}/>
 

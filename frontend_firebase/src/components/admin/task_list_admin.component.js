@@ -22,8 +22,12 @@ export default class TaskListAdminComponent extends Component {
     }
     render(){
         const tasks=this.props.tasks;
-        const l=this.state.first_item_index;
-        const r=this.state.last_item_index;
+        let l=this.state.first_item_index;
+        let r=this.state.last_item_index;
+
+        if (l===0){
+            r=Math.min(4,this.props.tasks.length-1)
+        }
         return (
             <div style={styles.container}>
                

@@ -6,6 +6,9 @@ import { SIDEBAR_RATIO,PADDING_BODY_DASHBOARD, TEXT_SIZES } from '../../utils/co
 import { BLACK, GRAY_6 } from '../../utils/palette'
 
 import api from '../../sample_db/fake_api_responses.json'
+import { toArray } from '../../utils/helper'
+
+import firebase from '../../firebase/firebase'
 export default class AdminTaskListScreen extends Component {
     constructor(props){
         super(props);
@@ -14,21 +17,15 @@ export default class AdminTaskListScreen extends Component {
         }
     }
 
-    componentDidMount=()=>{
-        //Call_API_Here
-        // axios.get(BASE_URL+`/get_task_list_admin`,{
-        //         data:{
-        //         }
-        //     })
-        //     .then(res => {
-        //     })
-        //     .catch(error => console.log(error));
-        this.setState({
-            tasks:api.get_task_list_admin
-        });
+    componentDidMount=async ()=>{
+        let tasks= await firebase.get('/task/');
+        await this.setState({
+            tasks:toArray(tasks)
+        })
     }
     render(){
         const tasks=this.state.tasks
+
         return (
 
             <div style={styles.container}>

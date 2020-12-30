@@ -148,9 +148,15 @@ class Firebase {
 
         console.log('firebase getSettingUser begin  ',type,id)
         let output={
-            account:await this.get('/user/'+id),
-            profile:await this.get('/'+type+'/'+id)
+            account:await this.get('/user/'+id)
         };
+
+        if (type!=='admin'){
+            output={
+                ...output,
+                profile:await this.get('/'+type+'/'+id)
+            }
+        }
         console.log('firebase getSettingUser output',output);
         return output;
     }
@@ -161,7 +167,9 @@ class Firebase {
         console.log('firebase updateSettingUser begin',type,id,data);
         await this.update('/user/'+id,data.account);
 
-        await this.update('/'+type+'/'+id,data.profile);
+        if (type!=='admin') {
+            await this.update('/'+type+'/'+id,data.profile);
+        }
         return output;
     }
 

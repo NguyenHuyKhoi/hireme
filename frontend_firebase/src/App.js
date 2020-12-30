@@ -18,7 +18,6 @@ import DashBoardHomeScreen from './screens/dashboard/dashboard_home.screen';
 import DashBoardChatScreen from './screens/dashboard/dashboard_chat.screen';
 import DashBoardTaskListScreen from './screens/dashboard/dashboard_task_list';
 import DashBoardPaymentScreen from './screens/dashboard/dashboard_payment.screen';
-import DashboardSettingFreelancerScreen from './screens/dashboard/dashboard_setting_freelancer.screen';
 import DashboardSettingUserScreen from './screens/dashboard/dashboard_setting_user.screen';
 import DashBoardTaskPostScreen from './screens/dashboard/dashboard_task_post.screen';
 import TestLibsScreen from './test_libs/test_libs.screen';
@@ -67,7 +66,6 @@ export default class  App extends Component {
 							<Route path={routePaths.DASHBOARD_TASK_MANAMENT+'/:id'} component={DashBoardTaskManagementScreen}/>
 							<Route path={routePaths.DASHBOARD_CHAT} component={DashBoardChatScreen}/>
 							<Route path={routePaths.DASHBOARD_PAYMENT} component={DashBoardPaymentScreen}/>
-							<Route path={routePaths.DASHBOARD_SETTING_FREELANCER} component={DashboardSettingFreelancerScreen}/>
 							<Route path={routePaths.DASHBOARD_SETTING_USER} component={DashboardSettingUserScreen}/>
 
 							{/* admin screens */}

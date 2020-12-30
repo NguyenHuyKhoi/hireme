@@ -25,7 +25,7 @@ export default class SettingAccountComponent extends Component {
             new_image:file
         }); 
 
-        this.props.updateInputs('account','new_avatar',file);
+        this.props.updateInput('account','new_avatar',file);
         console.log('choose_file :',file)/// if you want to upload latter
     }
 
@@ -74,7 +74,7 @@ export default class SettingAccountComponent extends Component {
                                 <div style={{flex:4}}>
                                     <LabeledInputComponent 
                                         onChange={(value)=>{
-                                            this.props.updateInputs('account','username',value)
+                                            this.props.updateInput('account','username',value)
                                         }}
                                         label='Tên người dùng'
                                         value={account.username}/>
@@ -85,7 +85,7 @@ export default class SettingAccountComponent extends Component {
                                 
                                 <div style={{flex:4}}>
                                 <LabeledInputComponent 
-                                    onChange={(value)=>this.props.updateInputs('account','email',value)}
+                                    onChange={(value)=>this.props.updateInput('account','email',value)}
                                     label='Email'
                                     value={account.email}/>
                                 </div>

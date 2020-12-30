@@ -25,20 +25,20 @@ export default class SettingProfileCompanyComponent extends Component {
 
                                 <div style={styles.field_container}>
                                     <LabeledInputComponent  
-                                        onChange={value=>this.props.updateInputs('profile','company_name',value)}
+                                        onChange={value=>this.props.updateInput('profile','company_name',value)}
                                         label='Tên công ty'
                                         value={profile.company_name}/>
                                 </div>
 
                                 <div style={styles.field_container}>
                                     <LabeledInputComponent 
-                                        onChange={value=>this.props.updateInputs('profile','location',value)}
+                                        onChange={value=>this.props.updateInput('profile','location',value)}
                                         label='Vị trí' 
                                         value={profile.location}/>
                                 </div>
                                 <div style={styles.field_container}>
                                     <LabeledInputComponent 
-                                         onChange={value=>this.props.updateInputs('profile','tagline',value)}
+                                         onChange={value=>this.props.updateInput('profile','tagline',value)}
                                          label='Mô tả ngắn'
                                         value={profile.tagline}/>
                                 </div>
@@ -48,7 +48,7 @@ export default class SettingProfileCompanyComponent extends Component {
 
                                 <div style={styles.field_container}>
                                     <LabeledSelectedInputComponent
-                                         onChange={(value)=>this.props.updateInputs('profile','employee_size',value)} 
+                                         onChange={(value)=>this.props.updateInput('profile','employee_size',value)} 
                                         label='Quy mô'
                                         domain={COMPANY_SIZES_DOMAIN}
                                         value={profile.employee_size}/>
@@ -56,7 +56,7 @@ export default class SettingProfileCompanyComponent extends Component {
 
                                 <div style={styles.field_container}>
                                     <LabeledSelectedInputComponent 
-                                        onChange={(value)=>this.props.updateInputs('profile','business_area',value)} 
+                                        onChange={(value)=>this.props.updateInput('profile','business_area',value)} 
                                         label='Lĩnh vực'
                                         domain={BUSINESS_AREA_DOMAIN}
                                         value={profile.business_area} />
@@ -64,7 +64,7 @@ export default class SettingProfileCompanyComponent extends Component {
 
                                 <div style={styles.field_container}>
                                     <LabeledInputComponent
-                                        onChange={(value)=>this.props.updateInputs('profile','website_link',value)}
+                                        onChange={(value)=>this.props.updateInput('profile','website_link',value)}
                                         onChange={(value)=>{}}
                                         label='Website' 
                                         value={profile.website_link}/>
@@ -78,7 +78,7 @@ export default class SettingProfileCompanyComponent extends Component {
                         
                         <div style={styles.row2}>
                             <TextareaInputComponent 
-                                 onChange={(value)=>this.props.updateInputs('profile','description',value)}
+                                 onChange={(value)=>this.props.updateInput('profile','description',value)}
                                 label='Mô tả chi tiết'
                                 value={profile.description} />
                         </div>

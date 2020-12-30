@@ -20,66 +20,52 @@ import api from '../../sample_db/fake_api_responses.json'
 import {connect }from 'react-redux'
 import * as action from '../../redux/action/user.action'
 
-const FIELDS=[
-    'first_name','last_name','email',
-    'password','repeat_new_password','new_password']
-
+import firebase from '../../firebase/firebase'
 class AdminSettingScreen extends Component {
     constructor(props){
         super(props);
         this.state={
-            setting:null,
-            admin_id:this.props.user_infor.user_id
+            id:this.props.user_infor.id,
+            type:this.props.user_infor.type
         }
     }
 
-    componentDidMount=()=>{
-        this.setState({
-            setting:api.get_setting_admin
-        })
+    componentDidMount=async ()=>{
+        console.log('SettingUserget begin:',this.state.type,this.state.id)
+        let res=await firebase.getSettingUser(this.state.type,this.state.id);
+
+        console.log('SettingUserget end:',res)
+        await this.setState(res);
     }
 
-
-    updateInputs=async (field,value)=>{
-        console.log('update_inputs :',field,value)
+    updateInput=async (part,field,value)=>{
+        console.log('update_inputs :',part,field,value)
         await this.setState({
-            [field]:value
-        })
+            [part]:{
+                ...this.state[part],
+                [field]:value
+            }
+        });
 
      //console.log('filter_now:',JSON.stringify(this.state)) 
     };
 
-    groupInputs=(fields)=>{
-        let inputs={};
-        let state=this.state;
-        let has_field_null=false
-        fields.map(item=>{
-            if (state[item]===undefined || state[item]==='') has_field_null=true // user haven't yet enter this fields;
-            else  inputs[item]=state[item];
-        });
 
-        console.log('group_inputs:',inputs);
+    updateSetting=async ()=>{
+        console.log('updateSetting :',this.state)
 
-    //    if (has_field_null) return null
-        return inputs;
-    }
+        if (this.state.account.new_avatar!==undefined){
+            let new_avatar_url=await firebase.uploadFile('/avatar/',this.state.account.new_avatar,this.state.id);
 
-
-    updateSetting=()=>{
-        const inputs=this.groupInputs(FIELDS);
-        if (inputs===null){
-            alert('Vui lòng điền đủ các trường...')
+            console.log('updateSetting new_avatar_url:',new_avatar_url)
+            await this.updateInput('account','avatar',new_avatar_url)
         }
-        else {
-            const body_req={
-                admin_id:this.state.admin_id,
-                ...inputs
-            }
-        
-        }
+
+        await firebase.updateSettingUser(this.state.type,this.state.id,this.state);
+        alert('Cập nhật thành công!');
     }
     render(){
-        const setting=this.state.setting;
+        const state=this.state;
         return (
 
             <div style={styles.container}>
@@ -88,7 +74,7 @@ class AdminSettingScreen extends Component {
                 <SidebarComponent is_admin={true} />
            
                 {
-                setting===null?
+                state.account===undefined?
                 null
                 :
                 <div style={styles.body}>
@@ -97,22 +83,23 @@ class AdminSettingScreen extends Component {
 
                     <div style={{marginTop:30}}>
                         <SettingAccountComponent    
-                            updateInputs={this.updateInputs}
-                            account={setting.account}/>
+                            updateInput={this.updateInput}
+                            account={state.account}/>
                     </div>
                 
-                    <div style={{marginTop:60}}>
+                    {/* <div style={{marginTop:60}}>
                         <SettingPasswordComponent
-                            updateInputs={this.updateInputs}
+                            updateInput={this.updateInput}
                             />
-                    </div>
+                    </div> */}
 
 
-                    <Link 
-                        to={routePaths.ADMIN_TASK_LIST}
+                    <div 
                         style={{marginTop:50,width:'25%',textDecoration:'none'}}>
-                        <ButtonComponent label='Lưu thay đổi' height={60}/>
-                    </Link>
+                        <ButtonComponent 
+                            onClick={this.updateSetting}
+                            label='Lưu thay đổi' height={60}/>
+                    </div>
 
                 </div>
         
