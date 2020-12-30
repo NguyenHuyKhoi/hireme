@@ -107,7 +107,7 @@ export default class ChatListComponent extends Component {
         return (
             <div  style={styles.container} >    
 
-                <HeaderListComponent title='Dach sách ' height={45}/>
+                <HeaderListComponent title='Danh sách ' height={45}/>
 
                 <div style={styles.body}>
                     {
