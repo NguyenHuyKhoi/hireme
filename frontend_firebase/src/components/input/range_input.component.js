@@ -8,11 +8,10 @@ export default class RangeInputComponent extends Component {
 
     constructor(props){
         super(props);
-        let value=this.props.value!==undefined?this.props.value:''
         this.state={
-            value:value
+            value:this.props.value
         };
-        this.props.onChange(value)
+        this.props.onChange(this.props.value)
     }
     render(){
         const domain=this.props.domain;

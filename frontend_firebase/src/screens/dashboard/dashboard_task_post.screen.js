@@ -28,7 +28,7 @@ class DashBoardTaskPostScreen extends Component {
             balance
         })
     }
-    updateInput=(part,field,value)=>{
+    updateInput= (part,field,value)=>{
         console.log('update_input_task:',part,field,value)
         this.setState({
             [part]:{
@@ -45,12 +45,17 @@ class DashBoardTaskPostScreen extends Component {
 
         let fields=['task_name','min_budget','max_budget','category','skills','description'];
         let is_empty=false;
+        let field_empty='';
         fields.map(item=>{
-            if (e[item]===undefined || e[item]==='') is_empty=true;
+            if (e[item]===undefined || e[item]===''){
+                console.log('empty :',item,e[item])
+                is_empty=true;
+                field_empty=item;
+            } 
         });
 
         if (is_empty){
-            return('Vui lòng điền đủ các trường!');
+            return('Vui lòng điền đủ các trường!'+field_empty);
         };
 
         if (this.state.task.min_budget>this.state.balance){

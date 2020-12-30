@@ -1,8 +1,5 @@
 //import from library 
 import React, {Component} from 'react'
-import ChatComponent from '../../components/chat/chat.component'
-import LabeledSelectedInputComponent from '../../components/input/labeled_selected_input.component'
-import RangeInputComponent from '../../components/input/range_input.component'
 import SidebarComponent from '../../components/common/side_bar.component'
 import SkillPickerComponent from '../../components/input/skill_picker.component'
 import BalanceCardComponent from '../../components/payment/balance_card.component'

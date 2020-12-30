@@ -45,7 +45,7 @@ export default class PostTaskProfileComponent extends Component {
                                         label='Chi phí ước tính:' 
                                         domain={FIXED_PRICE_DOMAIN}
                                         step={100000}
-                                        value={[FIXED_PRICE_DOMAIN[0],FIXED_PRICE_DOMAIN[1]/2]}/>
+                                        value={FIXED_PRICE_DOMAIN}/>
                                 </div>
 
                               

@@ -21,7 +21,7 @@ export default class SkillsListComponent extends Component {
              
                 <div style={{...styles.body,marginTop:hide_title?0:7}}>
                 {
-                    skills.slice(0,7).map((item,index)=>
+                    skills.map((item,index)=>
                         <div 
                             key={''+index}
                             style={styles.item_container}>
