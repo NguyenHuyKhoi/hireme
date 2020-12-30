@@ -31,12 +31,16 @@ export default class BiddingListComponent extends Component {
 
     acceptBidding=async (b)=>{
         console.log('taskManagement acceptBiding',b.id)
-        await firebase.set('/task/'+this.props.task.id+'/accepted_bidding/',b);
-        await firebase.set('/task/'+this.props.task.id+'/state/','doing');
-
         let date= new Date();
         date.setDate(date.getDate()+b.duration);
-        await firebase.set('/task/'+this.props.task.id+'/deadline/',date.toISOString());
+
+        await firebase.update('/task/'+this.props.task.id,{
+            accepted_bidding:b,
+            state:'doing',
+            deadline:date.toISOString(),
+            process:0,
+            stage_start_time:this.props.task.post_time
+        })
         alert('Đã chấp nhận đơn đấu giá.')
     }
 

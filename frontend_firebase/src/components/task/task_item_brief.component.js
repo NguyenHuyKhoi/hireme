@@ -25,7 +25,7 @@ export default class TaskItemBriefComponent extends Component {
 
                     <div style={styles.col1_row1}>
                         <text style={styles.task_name}>
-                           {collapseText(task.task_name,30)}
+                           {collapseText(task.task_name,60)}
                         </text>
 
                         <div style={{marginLeft:30}}>

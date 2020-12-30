@@ -21,6 +21,13 @@ class DashBoardTaskPostScreen extends Component {
         super(props);
         this.state={};
     }
+
+    componentDidMount=async ()=>{
+        let balance=await firebase.get('/payment/'+this.props.user_infor.id+'/balance/');
+        await this.setState({
+            balance
+        })
+    }
     updateInput=(part,field,value)=>{
         console.log('update_input_task:',part,field,value)
         this.setState({
@@ -45,6 +52,11 @@ class DashBoardTaskPostScreen extends Component {
         if (is_empty){
             return('Vui lòng điền đủ các trường!');
         };
+
+        if (this.state.task.min_budget>this.state.balance){
+            return ('Tài khoản bạn chỉ còn '+this.state.balance+'vnd, không thể đăng việc với mức giá tối thiểu '+this.state.task.min_budget+'vnd')
+
+        }
         return '';
         
     }

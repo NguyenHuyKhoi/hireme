@@ -81,7 +81,6 @@ class TaskDetailScreen extends Component {
 
     placeBidding=async ()=>{  
 
-        
         let u=this.props.user_infor;
 
         console.log('userInfor :',u);
@@ -104,12 +103,21 @@ class TaskDetailScreen extends Component {
         }
 
 
+
         let bi=this.state.bidding;
 
         if (bi===undefined || bi.budget===undefined || bi.duration===undefined){
             alert('Vui lòng điền đủ các trường !');
             return ;
         }
+
+        let balance =await firebase.get('/payment/'+u.id+'/balance/');
+        
+        if (balance*2<bi.budget){
+            alert('Tài khoản bạn chỉ còn '+balance+'vnd, không thể đấu giá với mức '+bi.budget +' vì không thể đền bù 50% chi phí nếu được nhận và từ bỏ dự án sau đó.')
+            return;
+        }
+
         let user={
             id:u.id,
             username:u.username,
@@ -136,7 +144,10 @@ class TaskDetailScreen extends Component {
 
         console.log('taskDetail placeBidding 2 partner:',company,u)
         let chat_key=await firebase.push('/chat/',{
-            task_id:this.state.task_id,
+            task:{
+                id:this.state.task.id,
+                task_name:this.state.task.task_name
+            },
             users:[
                 {
                     id:u.id,

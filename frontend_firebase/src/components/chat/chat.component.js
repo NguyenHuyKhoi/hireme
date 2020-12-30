@@ -32,8 +32,9 @@ class ChatComponent extends Component {
     };
 
     getChatForTask=async (id)=>{
+        console.log('    task_id:',this.state.task_id)
         var ref=await config.database().ref(this.rootRef)
-            .orderByChild('task_id').equalTo(id)
+            .orderByChild('/task/id').equalTo(id)
             .on('value',snapshot=>{
                 let data=snapshot.val();
                 let arr=toArray(data);
@@ -55,6 +56,31 @@ class ChatComponent extends Component {
     }
 
     getChatForUser=async (id)=>{
+
+
+        await config.database().ref('/chat/')
+            .on('value',snapshot=>{
+                let chats=toArray(snapshot.val());
+                console.log('chatComponent userChats:',chats)
+                let arr=chats.filter(item=>{
+                    let users=toArray(item.users);
+                    console.log('chatComponent userChats users:',users);
+                    if (users[0].id===this.state.user_id || users[1].id===this.state.user_id)
+                        return true;
+                    return false
+                });
+        
+                if (this.state.current_chat_id===null && arr.length>0) {
+                    this.setState({
+                        current_chat_id:arr[0].id
+                    })
+                }
+                console.log('chatComponent userChats end    :',arr)
+                 this.setState({
+                    chats:arr
+                })
+            })
+      
     }
 
     getChatList=async()=>{
@@ -114,7 +140,7 @@ class ChatComponent extends Component {
             <div  style={styles.container}> 
 
                 {
-                    chats===null || chats.length===1?
+                    chats===null ?
                     null
                     :
                     <div style={styles.chat_list}>

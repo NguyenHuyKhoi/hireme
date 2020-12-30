@@ -10,6 +10,8 @@ import logo from '../../assets/images/logo.png'
 
 
 class ChatItem extends Component {
+
+
     render (){
         const chat = this.props.chat
 
@@ -17,10 +19,7 @@ class ChatItem extends Component {
         const user_id=this.props.user_id
         const partner=users.filter((item)=>item.id!==user_id)[0]
 
-        const messages=toArray(chat.messages)
-        const latest_message=messages[messages.length-1]
-
-        console.log('chat_item :',users,messages,partner,user_id)
+        const task=chat.task
      //   const task=chat.task
         return (
             <div 
@@ -51,16 +50,25 @@ class ChatItem extends Component {
                     
                     <div style={styles.col2_row1}>
                             <text style={styles.normal_text}>
-                                {collapseText(partner.username,12)}
-                            </text>
-                            <text style={styles.small_text}>
-                                {convertFullDateToOnlyDay(latest_message.post_time)}
+                                {collapseText(partner.username,20)}
                             </text>
                     </div>
 
-                    <text style={styles.small_text}>
-                        {collapseText(latest_message.content,30)}
-                    </text>
+                    {
+                        task===undefined?
+                        null
+                        :
+                        <Link 
+                            to={routePaths.DASHBOARD_TASK_MANAMENT+`/${task.id}`}
+                            style={{textDecoration: 'none'}}>
+
+                            <text style={styles.small_text}>
+                                {'Dự án: '+ collapseText(task.task_name,30)}
+                            </text>
+                        </Link>
+                        
+                   
+                    }
                     {/* {
                         task!==undefined  && task!==null?
                         <Link   

@@ -49,6 +49,7 @@ class DashBoardPaymentScreen extends Component {
 
     updateInputs=async (part,field,value)=>{
         console.log('update_inputs :',field,value)
+
         await this.setState({
             [part]:{
                 ...this.state[part],
