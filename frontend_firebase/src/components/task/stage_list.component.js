@@ -1,15 +1,20 @@
 //import from library 
 import React, {Component} from 'react'
-import { TEXT_SIZES } from '../../utils/constants'
+import { TASK_TRANSACTION, TEXT_SIZES } from '../../utils/constants'
 import { convertFullDateToOnlyDay } from '../../utils/helper'
 import { BLACK, GREEN_1, RED_1, WHITE } from '../../utils/palette'
 import ButtonComponent from '../common/button.component'
 import NewStageItemComponent from './new_stage_item.component'
 import StageItemComponent from './stage_item.component'
 
+
+import firebase from '../../firebase/firebase'
+
+import firebaseConfig from '../../firebase/config'
 export default class StageListComponent extends Component {
 
-    confirmDoneTask=()=>{
+    confirmDoneTask=async ()=>{
+        await firebase.taskTransact(this.props.task,TASK_TRANSACTION.DONE_PAY)
         alert('Xác nhận hoàn thành dự án thành công, tiền đã chuyển cho freelancer');
     }
 
@@ -72,31 +77,46 @@ export default class StageListComponent extends Component {
                         {
                             task.process==100?
                                 type==='company'?
-                                <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
-                                    <text style={styles.confirm_notif}>
-                                            Dự án đã đạt 100% tiến độ, xác nhận hoàn thành để thanh toán tiền cho freelancer :
-                                    </text>
+                                    task.state==='doing'?
+                                        <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+                                            <text style={styles.confirm_notif}>
+                                                    Dự án đã đạt 100% tiến độ, xác nhận hoàn thành để thanh toán tiền cho freelancer :
+                                            </text>
 
-                                    <div style={styles.btn_container}>
-                                        <ButtonComponent 
-                                            color={GREEN_1}
-                                            onClick={this.confirmDoneTask}
-                                            label='Xác nhận hoàn thành'/>
-                                    </div>
-                                </div>
+                                            <div style={styles.btn_container}>
+                                                <ButtonComponent 
+                                                    color={GREEN_1}
+                                                    onClick={this.confirmDoneTask}
+                                                    label='Xác nhận hoàn thành'/>
+                                            </div>
+                                        </div>
+                                        :
+                                        <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+                                            <text style={styles.confirm_notif}>
+                                                    Dự án đã được xác nhận hoàn thành. Chi phí cũng đã được thanh toán cho freelancer
+                                            </text>
+                                        </div>
+
                                 :
-                                <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
-                                    <text style={styles.confirm_notif}>
-                                            Dự án đã đạt 100% tiến độ, thông báo công ty thanh toán dự án:
-                                    </text>
+                                    task.state==='doing'?
+                                        <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+                                            <text style={styles.confirm_notif}>
+                                                    Dự án đã đạt 100% tiến độ, thông báo công ty thanh toán dự án:
+                                            </text>
 
-                                    <div style={styles.btn_container}>
-                                        <ButtonComponent 
-                                            color={GREEN_1}
-                                            onClick={this.notifyDoneTask}
-                                            label='Gửi thông báo'/>
-                                    </div>
-                                </div>
+                                            <div style={styles.btn_container}>
+                                                <ButtonComponent 
+                                                    color={GREEN_1}
+                                                    onClick={this.notifyDoneTask}
+                                                    label='Gửi thông báo'/>
+                                            </div>
+                                        </div>
+                                        :
+                                        <div style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+                                            <text style={styles.confirm_notif}>
+                                                    Dự án đã được xác nhận hoàn thành. Bạn đã nhận được chi phí cho dự án này. Hãy kiểm tra trong lịch sử giao dịch.
+                                            </text>
+                                        </div>
 
                             :
                             null

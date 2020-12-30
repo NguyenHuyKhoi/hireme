@@ -682,4 +682,21 @@ export const CATEGORIES_DOMAIN=[
 
 export const TASK_STATE_DOMAIN=[ 'all','bidding','doing','done','reported','canceled']
 
+export const TASK_TRANSACTION={
+    DONE_PAY:{
+        factor:1,
+        task_state:'done',
+        type:['Nhận từ','Thanh toán']
+    },
+    FREELANCER_GIVE_UP:{
+        factor:-0.5,
+        task_state:'freelancer_give_up',
+        type:['Từ bỏ','Nhận đền bù']
+    },
+    COMPANY_GIVE_UP:{
+        factor:0.5,
+        task_state:'company_give_up',
+        type:['Nhận đền bù','Từ bỏ']
+    }
+}
 export const USER_FILTER_DOMAIN=[ 'Tất cả' ,'Freelancer','Công ty']

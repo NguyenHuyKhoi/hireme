@@ -109,7 +109,7 @@ class DashBoardTaskManagementScreen extends Component {
                 }
                 return  <div style={{display:'flex',width:'100%',height:'80vh'}}>
                             <PaymentTabComponent
-                                task_id={this.state.task_id}/>
+                                task={st}/>
                         </div>
         }
     };

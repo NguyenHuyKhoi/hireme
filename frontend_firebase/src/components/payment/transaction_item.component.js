@@ -57,7 +57,7 @@ export default class TransactionItemComponent extends Component {
                         }
                         {
                             task!==undefined?
-                            'trong dự án :'+task.name
+                            ':'+task.name
                             :
                             ''
                         }

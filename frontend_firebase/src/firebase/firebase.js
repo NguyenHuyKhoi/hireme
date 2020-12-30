@@ -302,6 +302,54 @@ class Firebase {
             });
     }
 
+    taskTransact=async (task,action)=>{
+        let amount = task.accepted_bidding.budget*action.factor;
+        let company=task.company;
+        let freelancer=task.accepted_bidding.freelancer;
+        let types = action.type;
+
+        await this.update('/task/'+task.id,{state:action.task_state});
+
+        let fBalance=await this.get('/payment/'+freelancer.id+'/balance/');
+        console.log('taskTransaction fBalance :',fBalance,fBalance+amount)
+        await this.update('/payment/'+freelancer.id,{balance:fBalance+amount})
+
+        let cBalance=await this.get('/payment/'+company.id+'/balance/');
+        console.log('taskTransaction cBalance :',cBalance,cBalance-amount)
+        await this.update('/payment/'+company.id,{balance:cBalance-amount})
+
+        await this.push('/payment/'+freelancer.id+'/transactions/',{
+            amount:amount,
+            time:(new Date()).toISOString(),
+            type:types[0],
+            task:{
+                id:task.id,
+                name:task.task_name
+            },
+            partner:{
+                id:company.id,
+                name:company.company_name,
+                avatar:company.avatar
+            }
+        })
+
+        await this.push('/payment/'+company.id+'/transactions/',{
+            amount:-amount,
+            time:(new Date()).toISOString(),
+            type:types[1],
+            task:{
+                id:task.id,
+                name:task.task_name
+            },
+            partner:{
+                id:freelancer.id,
+                name:freelancer.username,
+                avatar:freelancer.avatar
+            }
+        })
+ 
+    }
+
 }
 
 const obj = new Firebase();

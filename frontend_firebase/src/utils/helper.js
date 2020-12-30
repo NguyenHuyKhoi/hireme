@@ -1,3 +1,5 @@
+import { TASK_STATE_DOMAIN } from "./constants";
+
 export const collapseText=(text,limit_length)=>{
     if (text.length<limit_length) return text;
     return text.substring(0,limit_length);
@@ -40,4 +42,15 @@ export const toArray=(data)=>{
     if (data==undefined) return [];
     if (data==null) return []
     return Object.values(data)
+}
+
+export const displayState=(state_code)=>{
+    switch (state_code){
+        case 'bidding':return 'Đang đấu giá';
+        case 'doing':return 'Đang triển khai';
+        case 'done':return 'Đã hoàn thành';
+        case 'reported':return 'Đã bị báo cáo';
+        case 'canceled':return 'Đã bị hủy';
+    }
+
 }

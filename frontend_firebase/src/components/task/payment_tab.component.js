@@ -8,12 +8,13 @@ import ButtonInputComponent from '../input/button_input.component';
 import ReportTaskModal from '../input/report_task.modal';
 import ReviewTaskModal from '../input/review_task.modal';
 import GiveupTaskModal from '../input/giveup_task.modal'
+import { convertFullDateToOnlyDay, displayState } from '../../utils/helper';
 
 const chats=sample_db.chats   ;
 
 const action_buttons=[
         {
-            title : 'Khi dự án đang chạy, nhấn vào đây để từ bỏ và chịu phạt 50% chi phí dự án.',
+            title : 'Khi dự án đang triển khai, nhấn vào đây để từ bỏ và chịu phạt 50% chi phí dự án.',
             background:YELLOW_1,
             code:'give_up'
         },
@@ -60,6 +61,7 @@ class SingleField extends Component {
 }
 class ProjectDetail extends Component {
     render(){
+        const {budget,company_name,freelancer_name,deadline,state}=this.props.infor
         return (
             <div style={{flex:1,alignSelf:'center',padding:20, backgroundColor: BLUE_1,borderRadius: 6}}>
 
@@ -67,24 +69,22 @@ class ProjectDetail extends Component {
                     marginBottom:20,
                     justifyContent: 'space-between',alignItems: 'center'}}>
                         
-                    <SingleField label='Project Budget' big={true}/>
-                    <SingleField label='$3500' big={true}/>
+                    <SingleField label='Kinh phí dự án' big={true}/>
+                    <SingleField label={budget+'vnd'} big={true}/>
                 </div>
 
                 <div style={{display:'flex',flexDirection: 'row',justifyContent:'space-between'}}>
                     <div style={{display:'flex',flexDirection:'column'}}>
-                        <SingleField label='Company '/>
+                        <SingleField label='Công ty '/>
                         <SingleField label='Freelancer  '/>
                         <SingleField label='Deadline  '/>
-                        <SingleField label='State  '/>
-                        <SingleField label='Payment  '/>
+                        <SingleField label='Trạng thái  '/>
                     </div>
                     <div style={{display:'flex',flexDirection:'column',alignItems:'flex-end'}}>
-                        <SingleField label=' Facebook'/>
-                        <SingleField label=' Freelancer1'/>
-                        <SingleField label=' 14/02/2020'/>
-                        <SingleField label=' Complete'/>
-                        <SingleField label=' Unpaid'/>
+                        <SingleField label={company_name}/>
+                        <SingleField label={freelancer_name}/>
+                        <SingleField label={deadline}/>
+                        <SingleField label={state}/>
                     </div>
 
 
@@ -98,7 +98,7 @@ export default class PaymentTabComponent extends Component {
     constructor(props){
         super(props);
         this.state={
-            task_id:this.props.task_id,
+            task:this.props.task,
             modals:[false,false,false],
             modal_content:'',
             rate_score:2.5
@@ -107,6 +107,22 @@ export default class PaymentTabComponent extends Component {
 
     switchModal=(index,state)=>{
 
+        console.log('paymentTab switchModal ,',index,this.state.task.state);
+        if (index===0 && this.state.task.state!=='doing'){
+            alert('Dự án đã qua giai đoạn "Đang triển khai", không thể hủy.');
+            return; 
+        }
+
+        if (index===1 && this.state.task.state!=='done'){
+            alert('Dự án chưa hoàn thành, không thể gửi phản hồi.');
+            return; 
+        }
+
+
+        if (index===2 && this.state.task.state==='done'){
+            alert('Dự án đã hoàn thành, không thể gửi báo cáo.');
+            return; 
+        }
         let modals=this.state.modals;
         modals[index]=state;
         this.setState({
@@ -115,26 +131,14 @@ export default class PaymentTabComponent extends Component {
     }
 
     giveupTask=()=>{
-        let body_req={
-            task_id:this.state.task_id,
-            content:this.state.modal_content
-        };
         this.switchModal(0,false);
     }
 
     reviewTask=()=>{
-        let body_req={
-            task_id:this.state.task_id,
-            content:this.state.modal_content
-        };
         this.switchModal(1,false);
     }
 
     reportTask=()=>{
-        let body_req={
-            task_id:this.state.task_id,
-            content:this.state.modal_content
-        };
         this.switchModal(2,false);
     }
 
@@ -146,7 +150,9 @@ export default class PaymentTabComponent extends Component {
 
     render(){
         const company_view=false;
-        console.log('modal_content:',this.state.modal_content)
+        const task=this.props.task;
+        const accepted_bidding=task.accepted_bidding;
+        console.log('paymentTab:',task,accepted_bidding)
         return (
             <div  style={styles.container }> 
                 <GiveupTaskModal
@@ -173,7 +179,13 @@ export default class PaymentTabComponent extends Component {
                 <div style={styles.body}>
                     
                     <div style={styles.col1}>
-                        <ProjectDetail/>
+                        <ProjectDetail infor={{
+                            budget:accepted_bidding.budget,
+                            company_name:task.company.company_name,
+                            freelancer_name:accepted_bidding.freelancer.username,
+                            deadline:convertFullDateToOnlyDay(task.deadline),
+                            state:displayState(task.state)
+                        }}/>
                     </div>
                   
                     <div style={styles.col2}>
