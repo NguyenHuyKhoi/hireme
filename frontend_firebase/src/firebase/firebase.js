@@ -202,12 +202,12 @@ class Firebase {
         let arr=toArray(await this.get('/task/') );
 
 
-        console.log('firebase searchTask get :',arr);
+        console.log('firebase searchTask get :',arr,filter);
         let res=arr.filter(item=>
             (filter.category===undefined || item.category===filter.category)
             && (filter.keyword===undefined || (''+item.description).includes(filter.keyword) || (''+item.task_name).includes(filter.keyword))
             && (filter.skills===undefined || hasSameElement(filter.skills,item.skills))
-            && (filter.fixed_price[0]<=item.min_budget && item.max_budget<=filter.fixed_price[1])
+            && (filter.fixed_price===undefined || (filter.fixed_price[0]<=item.min_budget && item.max_budget<=filter.fixed_price[1]))
         )
 
 
@@ -223,7 +223,7 @@ class Firebase {
             (filter.category===undefined || item.category===filter.category)
             && (filter.keyword===undefined || (''+item.description).includes(filter.keyword) || (''+item.tagline).includes(filter.keyword))
             && (filter.skills===undefined || hasSameElement(filter.skills,item.skills))
-            && (filter.hourly_rate[0]<=item.hourly_rate<=filter.hourly_rate[1])
+            && (filter.hourly_rate===undefined || (filter.hourly_rate[0]<=item.hourly_rate && item.hourly_rate<=filter.hourly_rate[1]))
         )
         console.log('firebase searchFreelancer get :',arr);
 

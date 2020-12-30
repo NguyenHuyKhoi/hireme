@@ -23,6 +23,10 @@ export default class FreelancerSearchScreen extends Component {
         }
     }
 
+    componentDidMount=async()=>{
+        await this.search();
+    }
+
     updateInput=(part,field,value)=>{
         console.log('update_inputs_search:',part,field,value)
         this.setState({

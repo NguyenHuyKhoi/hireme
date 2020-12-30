@@ -23,6 +23,17 @@ export default class TaskSearchScreen extends Component {
     }
 
 
+    search=async ()=>{
+        let arr=await firebase.searchTask(this.state.filter)
+        this.setState({
+            tasks:arr
+        })
+    }
+
+    componentDidMount=async ()=>{
+        console.log('')
+        await this.search();
+    }
 
     updateInput=(part,field,value)=>{
         console.log('update_inputs_search:',part,field,value)
@@ -34,12 +45,7 @@ export default class TaskSearchScreen extends Component {
         });
     };
 
-    search=async ()=>{
-        let arr=await firebase.searchTask(this.state.filter)
-        this.setState({
-            tasks:arr
-        })
-    }
+  
 
 
     render(){
