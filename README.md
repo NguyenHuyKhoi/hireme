@@ -1,9 +1,9 @@
-# Crowdsourcing-Site
-Bài tập lớn môn Công nghệ Web và dịch vụ trực tuyến - Team 17
 
-# Cấu trúc Repos bao gồm
+Dự án website thuê Freelancer trong môn "Công nghệ Web".
+Wireframe được thiết kế bằng AdobeXD (file UI_Wireframe trong folder resource).
+Link : https://drive.google.com/file/d/1p36fNJCQJdGQk2dRYyRVcuiswuRWecys/view?usp=sharing
 
-* **backend**: project backend của site
-* **frontend**: project phần giao diện website người dùng
-* **report**: chứa file báo cáo và các resources liên quan
-* **resources**: chứa các file cần thiết bao gồm: mô tả database, file import data, các file thiết kế, ...
+CSDL được thiết bằng StarUML (file Database trong folder resource)
+
+Client được viết bằng ReactJS + Firebase.
+Link demo:https://drive.google.com/file/d/1rQXbepEjoLYoZD8uBIcXxfy7BXuEzotd/view?usp=sharing
